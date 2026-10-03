@@ -18,14 +18,14 @@
 * **Audited Empirical Highlights:**
   * **Low-Level Statistics Probe Separates Classes (Grayscale CV-AUROC 0.9151):** In our setting — 300 fakes spanning all 31 DF40 generators vs. 250 reals from FaceForensics++ and Celeb-DF-v2 — a logistic probe on 6 grayscale features (log file size, Laplacian blur, gray mean/std, high-frequency energy ratio, blockiness) achieves **0.9151 CV-AUROC** (target $\le 0.55$). Extending the probe with 6 RGB color statistics and an $8 \times 8$ thumbnail (204 features total) is expected to equal or exceed this score, with color channel means as the dominant signal. Matching on size and sharpness retains only **40.4% coverage**, and even on that matched subset the probe still scores **0.7624 CV-AUROC**.
   * **Universality Across Real Sources (in our setting):** Evaluating the grayscale probe across all available real sources against DF40 fakes yields: FaceForensics++ **0.8692**, Celeb-DF-v2 **0.9668**, Combined **0.9151**, WildDeepfake **1.0000**, and FFHQ **0.9918**. FakeAVCeleb probe result pending. No pairing from current data has been verified clean.
-  * **Model Reaction to Degradations and Controls (in our setting, on held-out test videos):**
+  * **Model Reaction to Degradations and Controls (training-distribution behavior: in-sample fakes vs. test reals):**
     * *Canonical:* AUROC **0.9999**, TPR **0.987**, FPR **0.000**.
     * *Common JPEG Q=90:* AUROC remains **0.9970**. (TPR under the prior threshold is unreliable — see threshold fix below.)
     * *Hard JPEG Q=50 / Down50+JPEG50:* AUROC 1.0000 / 0.9999 (logit ordering intact); TPR collapses under fixed threshold (overall risk $> 0.53$).
     * *Mask Controls (mean-color fill, not zero-fill):* Central face fill (Mask A) drops AUROC to **0.6081**; random $16\times 16$ patch fill with equal area (Mask C) drops AUROC to **0.5666** [95% CI: `0.4984 - 0.6282`]. Patch shuffle (Mask D) pending re-run. **Note:** Masks A and C score similarly, which indicates the fill color is out-of-distribution — re-run pending with mean-color fill per the updated script.
     * *Sharpness Diagnostic:* Blurring only fakes to the real-median sharpness: AUROC **0.9988**, fake TPR **0.853**. AUROC is essentially unchanged; the model is not primarily sharpness-driven.
   * **Empirical Analysis of Saturated Logit Head:** The $+7.50$ fake logit saturation is empirically traced to pre-head 256-dim embedding expansion (L2 norm $13.40 \pm 0.81$ for fakes vs $3.82 \pm 0.25$ for reals, with dimension variance collapsing to $0.0019$), yielding a linear projection dot product of $+7.44 \pm 0.21$ for fakes vs $+0.53 \pm 0.90$ for reals (head bias is $-0.0214$).
-  * **Calibration Holdout Subset:** Performance on architectures held out from calibration threshold fitting (`DiT`, `inswap`, `pirender`, `sadtalker`) maintains **1.0000 AUROC** (sample size 42 fakes, 95% Wilson CI lower bound $91.62\%$).
+  * **Calibration Holdout Subset:** Performance on architectures held out from calibration threshold fitting only (`DiT`, `inswap`, `pirender`, `sadtalker`; all four were present during pre-training) maintains **1.0000 AUROC** (sample size 42 fakes, 95% Wilson CI lower bound $91.62\%$, evaluated in-sample).
 
 ---
 
@@ -35,7 +35,7 @@
 >
 > We introduce a unified audit protocol implementing: (1) grouped cross-validation low-level statistics probes with grayscale, color, and $8\times 8$ thumbnail features; (2) symmetric image degradations; (3) geometric mask controls using mean-color fill (central face fill, equal-area random patch fill, and patch shuffle) rather than zero-masking; and (4) a targeted sharpness diagnostic. Using **FORGE-Lite**—an efficient multi-branch detector combining a frozen DINOv2 foundation backbone with lightweight LayerNorm adaptation (314K trainable parameters) and Spatial Rich Model (SRM) residuals—as our primary case study, we reveal that a 6-feature grayscale probe alone achieves **0.9151 CV-AUROC** in our setting (31 DF40 generators vs. FaceForensics++ and Celeb-DF-v2 reals, target $\le 0.55$). Across all five available real repositories, grayscale probe AUROCs range from 0.8692 to 1.0000; no pairing has been verified clean by our protocol.
 >
-> The model achieves 0.9999 canonical AUROC on held-out test videos. In our setting, AUROC is stable at 0.997–1.000 under JPEG Q=90, JPEG Q=50, and hard downsampling (on the confounded pairing), indicating the model's ranking is not sharpness-driven. Equal-area random patch masking (mean-color fill) drops AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`), approaching chance. Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, hash-referenced ledgers, and empirical guidelines for building bias-free forensic evaluations.
+> The model achieves 0.9999 canonical AUROC in our setting (training-distribution behavior: in-sample fakes vs. test reals). AUROC is stable at 0.997–1.000 under JPEG Q=90, JPEG Q=50, and hard downsampling (on the confounded pairing), indicating the model's ranking is not sharpness-driven. Equal-area random patch masking (mean-color fill) drops AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`), approaching chance. Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, hash-referenced ledgers, and empirical guidelines for building bias-free forensic evaluations.
 
 ---
 
@@ -91,7 +91,7 @@ graph TD
 * **The Logit Bias Phenomenon:** When training with asymmetric loss weighting (`pos_weight = 18.4`), PyTorch's `BCEWithLogitsLoss` penalizes false negatives $18.4\times$ more heavily than false positives. The optimal Bayesian boundary shifts:
   $$\Delta z = \log(\text{pos\_weight}) = \log(18.4) \approx +2.912$$
 * In our master checkpoint, real logits center around $+0.20$ while fake logits center around $+7.52$. Evaluating uncalibrated logits with standard $\sigma(z) \ge 0.50$ produces false alarms on real imagery ($\sigma(+0.20) = 0.55 > 0.50$).
-* **Unconstrained Platt Scaling:** Fitting logistic regression on the held-out validation partition yields:
+* **Unconstrained Platt Scaling:** Fitting logistic regression on the validation partition yields:
   $$T = 0.5164, \qquad b = -9.0214$$
   which smoothly rescales the boundary to $\tau = 0.5000$ without optimizer clipping.
 
@@ -175,7 +175,7 @@ Cross-Dataset Real Probe Sweep:
 Conclusion: Across every available real repository, probe AUROC exceeds 0.86. No pairing is clean.
 ```
 
-#### Table 1B: Model Evaluation Under One-Pipeline Audit Conditions (Held-Out Test Videos, n=275)
+#### Table 1B: Model Evaluation Under One-Pipeline Audit Conditions (Training-Distribution Behavior: In-Sample Fakes vs. Test Reals, n=275)
 
 > [!WARNING]
 > **Threshold validity:** The prior tau = 6.3393 was chosen by argmax Youden-J, which places the threshold at the *lowest* fake score in a separable validation set. Any small downward shift (e.g., JPEG Q=90) drops recall while AUROC is unchanged — an artifact of the threshold selector, not a detection collapse. The updated `youden_threshold()` (plateau median) places tau in the centre of the inter-cluster gap. **TPR figures below must be re-measured after re-running the audit.** The AUROC figures are threshold-independent and remain valid.
@@ -207,9 +207,9 @@ Diagnostic: Blur Fakes to Real Median| 0.9988 [0.9966 - 1.0000]   | 0.853*      
 
 > [!WARNING]
 > **Crucial Methodological Framing:**
-> The near-perfect scores in Tables 2, 3, and 5 reflect evaluation on a **confounded benchmark pairing** (FaceForensics++/Celeb-DF reals vs. DF40 fakes), where classes are separable by low-level statistics alone (Probe AUROC = 0.9151). They are presented here as an illustrative case study of benchmark failure, demonstrating how deep models effortlessly exploit dataset container and frequency artifacts rather than genuine forensic synthesis boundaries.
+> The near-perfect scores in Tables 2, 3, and 5 reflect model behavior on a **confounded benchmark pairing** (FaceForensics++/Celeb-DF reals vs. DF40 fakes), where classes are separable by low-level statistics alone (Probe AUROC = 0.9151). Crucially, because all DF40 fakes on disk originate from `DF40_train` and were present during detector pre-training, these figures describe **in-sample training-distribution behavior** evaluated against test reals, rather than held-out generalization. They are presented here as an illustrative case study of benchmark failure, demonstrating how deep models effortlessly exploit dataset container and frequency artifacts rather than genuine forensic synthesis boundaries.
 
-#### Table 2: Test Metrics on the Confounded Pairing (250 Disjoint Samples)
+#### Table 2: Model Metrics on the Confounded Pairing (250 Samples: In-Sample Fakes vs. Test Reals)
 ```
 =========================================================================================================
 METRIC                              | TEST VALUE    | 95% WILSON SCORE CI           | DETAILS / REMARKS
@@ -228,7 +228,7 @@ Confusion Matrix: True Positive = 124 | False Negative = 1 | True Negative = 125
 
 ---
 
-### 5.3 Calibration-Split Holdout Evaluation (Unseen Architectures)
+### 5.3 Calibration-Split Holdout Evaluation (In-Sample Generators Held Out from Calibration Only)
 
 To evaluate score stability across architectures held out during calibration fitting, four modern synthesis generators were evaluated:
 * **Diffusion Transformer:** `DiT` (32 test samples)
@@ -236,10 +236,10 @@ To evaluate score stability across architectures held out during calibration fit
 * **Expression Reenactment:** `pirender` (4 test samples)
 * **Talking-Head Synthesis:** `sadtalker` (4 test samples)
 
-#### Table 3: Performance on Generator Subset Held Out from Calibration Split
+#### Table 3: Performance on Generator Subset Held Out from Calibration Split (In-Sample Pre-Trained)
 ```
 =========================================================================================================
-HELD-OUT GENERATOR ARCHITECTURE     | SAMPLES (F) | AUROC (vs. Reals)      | ACCURACY  | FAKE RECALL (TPR)
+CALIBRATION-HOLDOUT GENERATOR       | SAMPLES (F) | AUROC (vs. Reals)      | ACCURACY  | FAKE RECALL (TPR)
 ---------------------------------------------------------------------------------------------------------
 1. DiT (Diffusion Transformer)      | 32          | 1.0000                 | 100.00%   | 100.0% (32/32)
 2. inswap (InsightFace Inswapper)   | 2           | 1.0000                 | 100.00%   | 100.0% (2/2)
@@ -248,9 +248,7 @@ HELD-OUT GENERATOR ARCHITECTURE     | SAMPLES (F) | AUROC (vs. Reals)      | ACC
 ---------------------------------------------------------------------------------------------------------
 Pooled Calibration-Holdout Split    | 42 Fakes    | 1.0000                 | 100.00%   | 100.00% [91.62% - 100.0%]
 =========================================================================================================
-*Caveat:* These generators were held out during post-hoc calibration parameter fitting only (not during pre-training).
-Due to small sample sizes (42 fakes total), the 95% Wilson CI lower bound is 91.62%. Furthermore, because the overall
-pairing is confounded by low-level statistics, these figures reflect format bias rather than true zero-shot generalization.
+*Caveat:* These generators were held out during post-hoc calibration parameter fitting only; all four were present in training data. This reflects in-sample behavior on the confounded pairing, not zero-shot generalization. Due to small sample sizes (42 fakes total), the 95% Wilson CI lower bound is 91.62%.
 ```
 
 ---
@@ -291,7 +289,7 @@ Rather than relying on unverified hypotheses regarding LayerNorm parameter count
 
 Using calibrated model uncertainty $U(\mathbf{x}) = 1.0 - 2.0 \cdot |p_{\text{cal}}(\mathbf{x}) - 0.50|$, the detector abstains on uncertain inputs:
 
-#### Table 5: Selective Prediction Risk-Coverage Deciles (Confounded Benchmark Pairing)
+#### Table 5: Selective Prediction Risk-Coverage Deciles (Confounded Pairing: In-Sample Fakes vs. Test Reals)
 ```
 =========================================================================================================
 COVERAGE (%) | ACCEPTED | REJECTED | ERRORS | ERROR RATE (%) | 95% WILSON SCORE CI | SELECTIVE ACCURACY
