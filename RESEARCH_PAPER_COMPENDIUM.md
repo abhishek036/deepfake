@@ -12,7 +12,7 @@
 * **Core Scientific Thesis:**
   Near-perfect AUROCs ($\ge 0.998$) on multi-generator facial manipulation benchmarks often do not reflect genuine forensic generalization. Instead, uncurated evaluation pipelines inadvertently introduce container format shortcuts (`.jpg` vs `.png`), downsampling artifacts, and frame-level video contamination. By formalizing a 3-part **Forensic Shortcut Triad Audit** (Blackout, Metadata Probe, Transcode Normalization) and enforcing strict video-ID disjoint and Leave-One-Generator-Out (LOGO) splits, we demonstrate how to detect and eliminate benchmark artifacts, using FORGE-Lite as an empirical case study.
 * **Cryptographic Reproducibility Reference (`reports/RESULTS_LEDGER.json`):**
-  * **Git Snapshot Hash:** `72a5cdd41c783b741468155f80fbbe4202083ab9`
+  * **Git Snapshot Hash:** `09f694f1c741d2efafe2aa543297b171ea899ffe`
   * **Master Checkpoint SHA-256:** `37ff218c6b7b282e1926efe825e4a1b73f19cf7cbfa6d61a91ab9aacaaa74a05`
   * **Strict Model Verification:** 399/399 weights matched; 0 unexpected keys; missing keys strictly limited to post-hoc calibration parameter (`calibration.temperature_scaling.bias`).
 * **Audited Empirical Highlights:**
