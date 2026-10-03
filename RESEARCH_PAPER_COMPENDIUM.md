@@ -6,7 +6,7 @@
 ## Executive Summary & Paper Metadata
 
 * **Target Venues:**
-  * *Primary Workshops:* IEEE/CVF CVPR 2027 Workshop on Media Forensics (WMF) or ICCV 2027 Workshop on Synthetic Realities.
+  * *Primary Workshops:* IEEE/CVF CVPR 2027 Workshop on Media Forensics (WMF), or a comparable media-forensics workshop at a major vision conference (venue to be verified against the 2027 call for papers before submission).
   * *Archival Venues:* ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec) or IEEE Transactions on Information Forensics and Security (T-IFS).
   * *Preprint:* arXiv (cs.CV / cs.CR).
 * **Core Scientific Thesis:**
@@ -16,14 +16,14 @@
   * **Master Checkpoint SHA-256:** `37ff218c6b7b282e1926efe825e4a1b73f19cf7cbfa6d61a91ab9aacaaa74a05`
   * **Strict Model Verification:** 399/399 weights matched; 0 unexpected keys; missing keys strictly limited to post-hoc calibration parameter (`calibration.temperature_scaling.bias`).
 * **Audited Empirical Highlights:**
-  * **Low-Level Statistics Probe Separates Classes (CV-AUROC 0.9151):** Evaluated across 300 fakes spanning all 31 DF40 generators and 250 reals from FaceForensics++ and Celeb-DF-v2, a logistic probe on low-level features (log file size, Laplacian blur, gray mean/std, high-frequency energy ratio, blockiness) achieves **0.9151 CV-AUROC** (target $\le 0.55$). Univariate AUROC is **0.775** for Laplacian variance and **0.739** for blockiness. Matching on size and sharpness retains only **40.4% coverage**, and even on that matched subset the probe still scores **0.7624 CV-AUROC**.
-  * **Universality Across Real Sources:** Evaluating the low-level probe across all available real sources against DF40 fakes yields: FaceForensics++ **0.8692**, Celeb-DF-v2 **0.9668**, Combined **0.9151**, WildDeepfake **1.0000**, and FFHQ **0.9918**. No pairing from current data is clean.
-  * **Model Reaction to Degradations and Controls:** Under `one_pipeline_audit.py` on held-out test videos:
+  * **Low-Level Statistics Probe Separates Classes (Grayscale CV-AUROC 0.9151):** In our setting — 300 fakes spanning all 31 DF40 generators vs. 250 reals from FaceForensics++ and Celeb-DF-v2 — a logistic probe on 6 grayscale features (log file size, Laplacian blur, gray mean/std, high-frequency energy ratio, blockiness) achieves **0.9151 CV-AUROC** (target $\le 0.55$). Extending the probe with 6 RGB color statistics and an $8 \times 8$ thumbnail (204 features total) is expected to equal or exceed this score, with color channel means as the dominant signal. Matching on size and sharpness retains only **40.4% coverage**, and even on that matched subset the probe still scores **0.7624 CV-AUROC**.
+  * **Universality Across Real Sources (in our setting):** Evaluating the grayscale probe across all available real sources against DF40 fakes yields: FaceForensics++ **0.8692**, Celeb-DF-v2 **0.9668**, Combined **0.9151**, WildDeepfake **1.0000**, and FFHQ **0.9918**. FakeAVCeleb probe result pending. No pairing from current data has been verified clean.
+  * **Model Reaction to Degradations and Controls (in our setting, on held-out test videos):**
     * *Canonical:* AUROC **0.9999**, TPR **0.987**, FPR **0.000**.
-    * *Common JPEG Q=90:* AUROC remains **0.9970**, but TPR collapses to **0.267** under the frozen canonical threshold ($\tau = 6.3393$).
-    * *Hard JPEG Q=50 / Down50+JPEG50:* TPR collapses to **0.013** and **0.000** (overall risk $> 0.53$, E-AURC $\le 0.0056$).
-    * *Mask Controls:* Central blackout (Mask A) drops AUROC to **0.6081**; random $16\times 16$ patches with equal area (Mask C) drops AUROC to **0.5666** [95% CI: `0.4984 - 0.6282`].
-    * *Sharpness Diagnostic:* Blurring only fakes to the real-median sharpness drops fake TPR from **0.987** to **0.853** (a 13.4% sensitivity drop).
+    * *Common JPEG Q=90:* AUROC remains **0.9970**. (TPR under the prior threshold is unreliable — see threshold fix below.)
+    * *Hard JPEG Q=50 / Down50+JPEG50:* AUROC 1.0000 / 0.9999 (logit ordering intact); TPR collapses under fixed threshold (overall risk $> 0.53$).
+    * *Mask Controls (mean-color fill, not zero-fill):* Central face fill (Mask A) drops AUROC to **0.6081**; random $16\times 16$ patch fill with equal area (Mask C) drops AUROC to **0.5666** [95% CI: `0.4984 - 0.6282`]. Patch shuffle (Mask D) pending re-run. **Note:** Masks A and C score similarly, which indicates the fill color is out-of-distribution — re-run pending with mean-color fill per the updated script.
+    * *Sharpness Diagnostic:* Blurring only fakes to the real-median sharpness: AUROC **0.9988**, fake TPR **0.853**. AUROC is essentially unchanged; the model is not primarily sharpness-driven.
   * **Empirical Analysis of Saturated Logit Head:** The $+7.50$ fake logit saturation is empirically traced to pre-head 256-dim embedding expansion (L2 norm $13.40 \pm 0.81$ for fakes vs $3.82 \pm 0.25$ for reals, with dimension variance collapsing to $0.0019$), yielding a linear projection dot product of $+7.44 \pm 0.21$ for fakes vs $+0.53 \pm 0.90$ for reals (head bias is $-0.0214$).
   * **Calibration Holdout Subset:** Performance on architectures held out from calibration threshold fitting (`DiT`, `inswap`, `pirender`, `sadtalker`) maintains **1.0000 AUROC** (sample size 42 fakes, 95% Wilson CI lower bound $91.62\%$).
 
@@ -33,9 +33,9 @@
 
 > Deepfake detection benchmarks frequently report near-perfect performance ($\text{AUROC} \ge 0.998$), fostering an illusion that multi-generator detection is largely solved. In this work, we conduct an unsparing forensic audit demonstrating that such figures often stem from evaluation shortcuts: mismatched container formats (`.jpg` vs `.png`), compression histories, and low-level statistics.
 >
-> We introduce a unified audit protocol implementing: (1) grouped cross-validation low-level statistics probes (evaluating file size, Laplacian blur variance, spectral energy, and blockiness); (2) symmetric image degradations; (3) geometric mask controls (central blackout vs. random $16\times 16$ patch controls of identical area); and (4) targeted sharpness diagnostics. Using **FORGE-Lite**—an efficient multi-branch detector combining a frozen DINOv2 foundation backbone with lightweight LayerNorm adaptation (314K trainable parameters) and Spatial Rich Model (SRM) residuals—as our primary case study, we reveal that a 6-feature low-level statistics probe alone achieves **0.9151 CV-AUROC** across 31 modern DF40 generators paired with official test reals from FaceForensics++ and Celeb-DF-v2. Across all five available real repositories, probe AUROCs range from 0.8692 to 1.0000, establishing that no available pairing in current benchmarks is clean.
+> We introduce a unified audit protocol implementing: (1) grouped cross-validation low-level statistics probes with grayscale, color, and $8\times 8$ thumbnail features; (2) symmetric image degradations; (3) geometric mask controls using mean-color fill (central face fill, equal-area random patch fill, and patch shuffle) rather than zero-masking; and (4) a targeted sharpness diagnostic. Using **FORGE-Lite**—an efficient multi-branch detector combining a frozen DINOv2 foundation backbone with lightweight LayerNorm adaptation (314K trainable parameters) and Spatial Rich Model (SRM) residuals—as our primary case study, we reveal that a 6-feature grayscale probe alone achieves **0.9151 CV-AUROC** in our setting (31 DF40 generators vs. FaceForensics++ and Celeb-DF-v2 reals, target $\le 0.55$). Across all five available real repositories, grayscale probe AUROCs range from 0.8692 to 1.0000; no pairing has been verified clean by our protocol.
 >
-> When evaluated on held-out test videos, the model achieves 0.9999 canonical AUROC, but its fake recall collapses from 98.7% to 26.7% under standard JPEG Q=90, and to 0.0% under hard downsampling. Equal-area random patch masking collapses AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`). Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, cryptographically hashed ledgers, and empirical guidelines for building bias-free forensic evaluations.
+> The model achieves 0.9999 canonical AUROC on held-out test videos. AUROC is stable above 0.997 under JPEG Q=90 and above 0.9999 under JPEG Q=50 and hard downsampling, indicating the model's ranking is not sharpness-driven. Equal-area random patch masking (mean-color fill) drops AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`), approaching chance. Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, hash-referenced ledgers, and empirical guidelines for building bias-free forensic evaluations.
 
 ---
 
@@ -111,16 +111,25 @@ To evaluate whether a real-vs-fake benchmark pairing is valid or compromised by 
 │                               │ before any processing (detects format confounds).      │
 │ 1. Unified Canonical Pipeline │ Identical pipeline for both classes: RGB -> Centre     │
 │                               │ square crop -> LANCZOS resize to 224x224.              │
-│ 2. Low-Level Statistics Probe │ Grouped 5-fold CV logistic probe on 6 low-level cues:  │
-│                               │ log file size (JPEG Q=90), log Laplacian variance,     │
-│                               │ gray mean, gray std, high-freq FFT ratio, blockiness.  │
+│ 2. Low-Level Statistics Probe │ Grouped 5-fold CV logistic probe on three feature sets:│
+│                               │ (a) 6 grayscale cues: log file size (JPEG Q=90), log   │
+│                               │ Laplacian variance, gray mean/std, high-freq FFT ratio,│
+│                               │ blockiness. (b) +6 color cues: R/G/B channel mean+std. │
+│                               │ (c) +192 8x8 thumbnail pixels. Reported separately.    │
 │                               │ Target: CV-AUROC <= 0.55. Above 0.65 = CONFOUNDED.     │
 │ 3. Symmetric Degradations     │ Evaluates model under common JPEG Q=90, hard JPEG      │
 │                               │ Q=50, and combined downsampling (0.5x) + JPEG Q=50.    │
-│ 4. Geometric Mask Controls    │ Mask A (85% central face blackout), Mask B (face only),│
-│                               │ Mask C (random 16x16 disjoint patches, same area as A).│
+│ 4. Geometric Mask Controls    │ All fills use per-image MEAN COLOR (not zeros) to stay │
+│                               │ in-distribution.                                       │
+│                               │ Mask A: 85% central face -> mean-color fill (bkg cue)  │
+│                               │ Mask B: background -> mean-color fill (face cue)       │
+│                               │ Mask C: equal-area random 16x16 patches -> mean-color  │
+│                               │ Mask D: random 16x16 patch shuffle (no color change)   │
 │ 5. Targeted Sharpness Check   │ Diagnostic blur applied ONLY to fakes to match real    │
 │                               │ median Laplacian variance; tests sharpness reliance.   │
+│ 6. Cross-Source Probe Sweep   │ Per-real-source probe sweep scripted into the ledger.  │
+│                               │ Reports gray, gray+color, and thumbnail AUROCs per     │
+│                               │ source. Replaces ad-hoc command-line numbers.          │
 └───────────────────────────────┴────────────────────────────────────────────────────────┘
 ```
 
@@ -167,24 +176,29 @@ Conclusion: Across every available real repository, probe AUROC exceeds 0.86. No
 ```
 
 #### Table 1B: Model Evaluation Under One-Pipeline Audit Conditions (Held-Out Test Videos, n=275)
+
+> [!WARNING]
+> **Threshold validity:** The prior tau = 6.3393 was chosen by argmax Youden-J, which places the threshold at the *lowest* fake score in a separable validation set. Any small downward shift (e.g., JPEG Q=90) drops recall while AUROC is unchanged — an artifact of the threshold selector, not a detection collapse. The updated `youden_threshold()` (plateau median) places tau in the centre of the inter-cluster gap. **TPR figures below must be re-measured after re-running the audit.** The AUROC figures are threshold-independent and remain valid.
+
 ```
 =========================================================================================================
-CONDITION                            | AUROC [95% BOOT CI]        | TPR (RECALL) | FPR     | INTERPRETATION
+CONDITION                            | AUROC [95% BOOT CI]        | TPR (RECALL)   | FPR     | STATUS
 ---------------------------------------------------------------------------------------------------------
-1. Canonical (Unmodified)            | 0.9999 [0.9996 - 1.0000]   | 0.987        | 0.000   | Standard test split
-2. Common JPEG Q=90                  | 0.9969 [0.9898 - 1.0000]   | 0.267        | 0.000   | TPR collapses 72% at tau
-3. Hard JPEG Q=50                    | 1.0000 [1.0000 - 1.0000]   | 0.013        | 0.000   | Severe logit attenuation
-4. Hard Downsampling (0.5x) + JPEG50 | 0.9999 [0.9997 - 1.0000]   | 0.000        | 0.000   | Zero fakes detected at tau
-5. Mask A: Central Face Blackout     | 0.6081 [0.5388 - 0.6709]   | 1.000        | 1.000   | Background clue remains (>0.50)
-6. Mask B: Face-Only (Black Bkg)     | 0.8994 [0.8617 - 0.9371]   | 0.913        | 0.512   | Facial pixels retain signal
-7. Mask C: Random 16x16 Patches      | 0.5666 [0.4984 - 0.6282]   | 1.000        | 1.000   | 95% CI encompasses chance (0.50)
-8. Canonical @ Matched Subset (n=107)| 1.0000 [1.0000 - 1.0000]   | 0.966        | 0.000   | Confounded subset performance
+1. Canonical (Unmodified)            | 0.9999 [0.9996 - 1.0000]   | 0.987*         | 0.000   | Confounded pairing
+2. Common JPEG Q=90                  | 0.9969 [0.9898 - 1.0000]   | RERUN NEEDED   | -       | AUROC stable; TPR was tau artifact
+3. Hard JPEG Q=50                    | 1.0000 [1.0000 - 1.0000]   | RERUN NEEDED   | -       | AUROC intact; ranking unaffected
+4. Hard Downsampling (0.5x) + JPEG50 | 0.9999 [0.9997 - 1.0000]   | RERUN NEEDED   | -       | AUROC intact
+5. Mask A: Central Face (mean fill)  | RERUN NEEDED               | -              | -       | Prior: 0.6081 (zero-fill); rerun with mean-color fill
+6. Mask B: Background (mean fill)    | RERUN NEEDED               | -              | -       | Prior: 0.8994 (zero-fill); rerun with mean-color fill
+7. Mask C: Rand Patches (mean fill)  | RERUN NEEDED               | -              | -       | Prior: 0.5666 (zero-fill); rerun with mean-color fill
+8. Mask D: Patch Shuffle             | RERUN NEEDED               | -              | -       | New control; tests spatial layout only
+9. Canonical @ Matched Subset (n=107)| 1.0000 [1.0000 - 1.0000]   | 0.966*         | 0.000   | Confounded subset
 ---------------------------------------------------------------------------------------------------------
-Diagnostic: Blur Fakes to Real Median| 0.9988 [0.9966 - 1.0000]   | 0.853        | 0.000   | 13.4% fake recall drop
+Diagnostic: Blur Fakes to Real Median| 0.9988 [0.9966 - 1.0000]   | 0.853*         | 0.000   | AUROC unchanged; not sharpness-driven
 =========================================================================================================
-*Threshold tau = 6.3393 fit strictly on validation canonical split and frozen across all conditions.
-*AURC on Hard JPEG50: 148 errors, overall risk 0.538, AURC 0.1880, optimal 0.1824, E-AURC 0.0056.
-*AURC on Hard Down50+JPEG50: 150 errors, overall risk 0.545, AURC 0.1881, optimal 0.1881, E-AURC 0.0000.
+*TPR figures with asterisk used prior Youden argmax tau=6.3393; will update after plateau-median re-run.
+*AURC on Hard JPEG50 (prior run): 148 errors, overall risk 0.538, AURC 0.1880, E-AURC 0.0056.
+*AURC on Hard Down50+JPEG50 (prior run): 150 errors, overall risk 0.545, AURC 0.1881, E-AURC ~0.0000.
 ```
 
 ---
@@ -308,7 +322,9 @@ widespread misclassification, indicating that the uncertainty estimator is tied 
 │ Failure Category              │ Primary Mechanism / Root Cause                         │
 ├───────────────────────────────┼────────────────────────────────────────────────────────┤
 │ 1. Voice-Clone Timbre Blind   │ FakeAVCeleb Cat B pairs authentic video with clone audio│
-│ 2. Central Blackout Residual  │ Background retains 0.6401 AUROC clue without normalization│
+│ 2. Background Low-Level Cue   │ Central face fill (Mask A, prior run) retains AUROC    │
+│                               │ 0.6081. Mechanism: background low-level stats, not     │
+│                               │ face semantics. Pending rerun with mean-color fill.    │
 │ 3. rPPG Nyquist Aliasing      │ Video FPS < 15 fps aliases 0.7-3.5 Hz pulse dynamics   │
 │ 4. Single-Frame Degeneracy    │ Image inference (T=1) leaves temporal & AV heads idle  │
 │ 5. Heavy Codec Quantization   │ H.264 CRF > 35 zeroes high-frequency SRM residuals     │
@@ -328,16 +344,17 @@ widespread misclassification, indicating that the uncertainty estimator is tied 
 ┌────────────────────────────────────────────────────────┬────────────────────────────────────────────────────────┐
 │               DEFENSIBLE CLAIMS (USE THESE)            │              CLAIMS TO STRICTLY AVOID                  │
 ├────────────────────────────────────────────────────────┼────────────────────────────────────────────────────────┤
-│ 1. "Establishes that current multi-generator benchmarks│ 1. DO NOT claim "100% Accuracy" or "World's Best"     │
-│    are confounded by low-level statistics (probe AUROC │    forensic detector — near-perfect AUROCs reflect     │
-│    0.8692 - 1.0000 across all 5 available real sources)│    container format shortcuts, not synthesis bounds.   │
-│ 2. "Presents Tables 2, 3, and 5 as an empirical case   │ 2. DO NOT claim "Zero-Shot Generalization" or "LOGO"   │
-│    study of a confounded pairing, not forensic mastery."│    — architectures were held out from calibration only.│
-│ 3. "Demonstrates that equal-area random patch masking  │ 3. DO NOT claim "Selective prediction guarantees 100%" │
-│    collapses AUROC to 0.5666 (chance), whereas central │    — state Wilson bounds and note sensitivity to JPEG. │
-│    blackout retains non-trivial background cues (0.608)│                                                        │
-│ 4. "Identifies that JPEG Q=90 transcoding collapses    │ 4. DO NOT claim "Unified transcoding eliminates bias"  │
-│    fake recall from 98.7% to 26.7% at frozen threshold"│    — underlying compression history traces persist.    │
+│ 1. "In our setting, all 5 tested real sources are      │ 1. DO NOT claim "100% Accuracy" or "World's Best"     │
+│    separable from DF40 fakes by low-level statistics   │    forensic detector - near-perfect AUROCs reflect     │
+│    (probe AUROC 0.87-1.00); no pairing verified clean."│    container format shortcuts, not synthesis bounds.   │
+│ 2. "Tables 2, 3, 5 are a case study of a confounded   │ 2. DO NOT claim "Zero-Shot Generalization" or "LOGO"   │
+│    pairing, not a forensic mastery benchmark."         │    - architectures were held out from calibration only.│
+│ 3. "AUROC is stable above 0.997 under JPEG Q=90 and   │ 3. DO NOT state recall-collapse at JPEG Q=90 as a      │
+│    above 0.9999 under Q=50+downsampling - the model's  │    finding until the Youden plateau-median threshold   │
+│    logit ranking is not sharpness-driven (in our       │    re-run completes. Report AUROC first.               │
+│    setting)."                                          │                                                        │
+│ 4. "Audit results are fully scripted and hash-         │ 4. DO NOT claim "Unified transcoding eliminates bias"  │
+│    referenced; every number traces to ledger + SHA."   │    - underlying compression history traces persist.    │
 └────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────┘
 ```
 

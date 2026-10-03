@@ -4,7 +4,7 @@ one_pipeline_audit.py  --  drop into evaluation/ and run as:  python -m evaluati
 Purpose
 -------
 Test whether a real-vs-fake pairing is separable by low-level image statistics
-(sharpness, size, spectrum, blockiness) BEFORE trusting any model AUROC on it,
+(sharpness, size, spectrum, blockiness, COLOR, thumbnail) BEFORE trusting any model AUROC on it,
 then measure how the model reacts to symmetric degradations, mask controls and
 a sharpness intervention.
 
@@ -14,14 +14,19 @@ What it does
 1. One pipeline: every image -> RGB -> centre square crop -> LANCZOS resize to 224.
                  No class-conditional processing anywhere except the labelled diagnostic in step 5.
 2. Probe       : grouped-CV logistic probe on low-level statistics (target: AUROC <= 0.55)
-                 + univariate AUROCs + overlap/matching coverage.
+                 Features: grayscale (6) + color (6) + 8x8 thumbnail (192) = expanded feature set.
+                 Univariate AUROCs + overlap/matching coverage reported for ALL feature groups.
 3. Model       : AUROC (grouped bootstrap CI) and TPR/FPR (Wilson CI) on a held-out half split BY VIDEO,
                  under: canonical, common_jpeg90, hard_jpeg50, hard_down50_jpeg50,
-                 mask A (central blackout), mask B (face-only), mask C (random patches, same area as A).
-                 The threshold is chosen once on the val half (canonical) and never re-tuned.
+                 mask A (central mean-color fill), mask B (face-only, mean-color bkg),
+                 mask C (random patches same area, mean-color fill), mask D (patch shuffle).
+                 The threshold is chosen ONCE on the val half (canonical) via corrected Youden J
+                 (median of plateau) and never re-tuned.
 4. AURC        : risk-coverage on the hard conditions (only meaningful with >= 20 errors).
 5. Diagnostic  : blur ONLY the fakes until their sharpness matches the real median (labelled diagnostic).
-6. Ledger      : JSON with args, git commit + dirty flag, sha256 of script / checkpoint / manifests / sample list.
+6. Cross-probe : optional per-real-source probe sweep, scripted into ledger.
+7. Ledger      : JSON with args, git commit + dirty flag, sha256 of script / checkpoint / manifests /
+                 sample list. Script writes its own sha256 AFTER the run.
 
 Self-test (no data, no GPU):  python -m evaluation.one_pipeline_audit --self-test
 """
@@ -48,7 +53,16 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 SIZE = 224
-FEATURE_NAMES = ["log_jpeg90_kb", "log_lap_var", "gray_mean", "gray_std", "hf_ratio", "blockiness"]
+THUMB = 8   # 8x8 thumbnail probe dimensions
+
+GRAY_FEATURE_NAMES = [
+    "log_jpeg90_kb", "log_lap_var", "gray_mean", "gray_std", "hf_ratio", "blockiness"
+]
+COLOR_FEATURE_NAMES = [
+    "r_mean", "g_mean", "b_mean", "r_std", "g_std", "b_std"
+]
+THUMB_FEATURE_NAMES = [f"thumb_{i}" for i in range(THUMB * THUMB * 3)]
+ALL_FEATURE_NAMES = GRAY_FEATURE_NAMES + COLOR_FEATURE_NAMES + THUMB_FEATURE_NAMES
 
 
 # ----------------------------------------------------------------------------- utils
@@ -188,7 +202,18 @@ def lap_var(g):
 
 
 def probe_features(img):
-    g = gray_arr(img)
+    """
+    Returns a feature vector concatenating:
+      - 6 grayscale statistics  (gray_features)
+      - 6 color channel statistics  (color_features)
+      - THUMB*THUMB*3 thumbnail pixel values  (thumbnail_features)
+
+    Total = 6 + 6 + 192 = 204 features.
+    """
+    arr = np.asarray(img, dtype=np.float64)   # H x W x 3, [0..255]
+    g = arr.mean(axis=2)                        # grayscale approximation
+
+    # -- grayscale statistics --
     buf = io.BytesIO()
     img.save(buf, format="JPEG", quality=90)
     kb = buf.tell() / 1024.0
@@ -200,24 +225,55 @@ def probe_features(img):
     dx = np.abs(np.diff(g, axis=1))
     edge = dx[:, 7::8].mean()
     inner = np.delete(dx, np.s_[7::8], axis=1).mean()
-    return np.array([math.log(kb), math.log(lap_var(g) + 1e-6), g.mean(), g.std(), hf, edge / (inner + 1e-9)])
+    gray_feat = np.array([
+        math.log(kb),
+        math.log(lap_var(g) + 1e-6),
+        g.mean(), g.std(),
+        hf,
+        edge / (inner + 1e-9)
+    ])
+
+    # -- color channel statistics (R, G, B mean + std) --
+    r_ch = arr[:, :, 0]
+    g_ch = arr[:, :, 1]
+    b_ch = arr[:, :, 2]
+    color_feat = np.array([
+        r_ch.mean(), g_ch.mean(), b_ch.mean(),
+        r_ch.std(),  g_ch.std(),  b_ch.std()
+    ])
+
+    # -- 8x8 thumbnail (flattened RGB) --
+    thumb = np.asarray(img.resize((THUMB, THUMB), Image.LANCZOS), dtype=np.float32).flatten() / 255.0
+
+    return np.concatenate([gray_feat, color_feat, thumb])
 
 
-def grouped_cv_auc(X, y, groups, seed):
+def n_gray_feats():
+    return len(GRAY_FEATURE_NAMES)
+
+
+def n_color_feats():
+    return len(COLOR_FEATURE_NAMES)
+
+
+def grouped_cv_auc(X, y, groups, seed, max_iter=1000):
     n_splits = int(min(5, len(set(groups))))
     aucs = []
     for tr, te in GroupKFold(n_splits=n_splits).split(X, y, groups):
         if len(set(y[tr])) < 2 or len(set(y[te])) < 2:
             continue
-        clf = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
+        clf = make_pipeline(StandardScaler(), LogisticRegression(max_iter=max_iter))
         clf.fit(X[tr], y[tr])
         aucs.append(roc_auc_score(y[te], clf.predict_proba(X[te])[:, 1]))
     return float(np.mean(aucs)) if aucs else float("nan")
 
 
-def univariate_auc(X, y):
+def univariate_auc(X, y, names):
+    """Return folded AUROC (always >= 0.5) for each feature."""
     out = {}
-    for j, n in enumerate(FEATURE_NAMES):
+    for j, n in enumerate(names):
+        if j >= X.shape[1]:
+            break
         a = roc_auc_score(y, X[:, j])
         out[n] = float(max(a, 1 - a))
     return out
@@ -261,29 +317,73 @@ def ellipse_mask(frac=0.85):
 ELL = ellipse_mask(0.85)
 
 
+def _mean_fill_color(img: Image.Image) -> tuple[int, int, int]:
+    """Return the per-channel mean of the whole image as an integer RGB tuple."""
+    arr = np.asarray(img, dtype=np.float32)
+    return (
+        int(round(arr[:, :, 0].mean())),
+        int(round(arr[:, :, 1].mean())),
+        int(round(arr[:, :, 2].mean())),
+    )
+
+
+def _blurred_fill(img: Image.Image, radius: float = 16.0) -> np.ndarray:
+    """Return a heavily blurred version of the image as an uint8 array."""
+    return np.asarray(img.filter(ImageFilter.GaussianBlur(radius)), dtype=np.uint8)
+
+
 def apply_mask(img, mode, rng):
+    """
+    Mask modes — fill with per-image mean color (not zeros) to stay in-distribution.
+
+    A : central 85% ellipse filled with image mean color  (tests background cue)
+    B : background filled with image mean color, face left  (tests face cue)
+    C : random 16x16 patches, same total area as A, mean-color fill
+    D : random 16x16 patches shuffled in-place (no color change, tests spatial layout)
+    """
     a = np.array(img)
-    if mode == "A":          # central blackout
-        a[ELL] = 0
-    elif mode == "B":        # face-only (background blacked out)
-        a[~ELL] = 0
-    elif mode == "C":        # random 16x16 patches, same total area as A
+    fill_color = _mean_fill_color(img)          # (R, G, B)
+
+    if mode == "A":        # central face → mean color; background kept
+        for ch, val in enumerate(fill_color):
+            a[ELL, ch] = val
+
+    elif mode == "B":      # background → mean color; face kept
+        for ch, val in enumerate(fill_color):
+            a[~ELL, ch] = val
+
+    elif mode == "C":      # random patches → mean color; equal area to A
         n = SIZE // 16
         k = int(round(ELL.mean() * n * n))
-        for i in rng.choice(n * n, k, replace=False):
+        patch_ids = rng.choice(n * n, k, replace=False)
+        for i in patch_ids:
             r, c = divmod(int(i), n)
-            a[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16] = 0
+            for ch, val in enumerate(fill_color):
+                a[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16, ch] = val
+
+    elif mode == "D":      # patch shuffle — same pixels, different spatial layout
+        n = SIZE // 16
+        patches = []
+        for idx in range(n * n):
+            r, c = divmod(idx, n)
+            patches.append(a[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16].copy())
+        order = rng.permutation(n * n)
+        for new_idx, old_idx in enumerate(order):
+            r, c = divmod(new_idx, n)
+            a[r * 16:(r + 1) * 16, c * 16:(c + 1) * 16] = patches[old_idx]
+
     return Image.fromarray(a)
 
 
 CONDITIONS = {
-    "canonical": lambda im, rng: im,
-    "common_jpeg90": lambda im, rng: jpeg(im, 90),
-    "hard_jpeg50": lambda im, rng: jpeg(im, 50),
-    "hard_down50_jpeg50": lambda im, rng: jpeg(down_up(im, 0.5), 50),
-    "maskA_central_blackout": lambda im, rng: apply_mask(im, "A", rng),
-    "maskB_face_only": lambda im, rng: apply_mask(im, "B", rng),
-    "maskC_random_patches_same_area": lambda im, rng: apply_mask(im, "C", rng),
+    "canonical":                    lambda im, rng: im,
+    "common_jpeg90":                lambda im, rng: jpeg(im, 90),
+    "hard_jpeg50":                  lambda im, rng: jpeg(im, 50),
+    "hard_down50_jpeg50":           lambda im, rng: jpeg(down_up(im, 0.5), 50),
+    "maskA_face_meanfill":          lambda im, rng: apply_mask(im, "A", rng),
+    "maskB_bkg_meanfill":           lambda im, rng: apply_mask(im, "B", rng),
+    "maskC_randpatch_meanfill":     lambda im, rng: apply_mask(im, "C", rng),
+    "maskD_patchshuffle":           lambda im, rng: apply_mask(im, "D", rng),
 }
 
 
@@ -314,13 +414,25 @@ def grouped_boot_auc(y, s, g, n_boot, rng):
 
 
 def youden_threshold(y, s):
-    best, tau = -1.0, 0.0
-    for t in np.unique(s):
-        pred = s >= t
-        j = pred[y == 1].mean() + (~pred)[y == 0].mean() - 1
-        if j > best:
-            best, tau = j, float(t)
-    return tau
+    """
+    Corrected Youden-J threshold selection.
+
+    Problem with argmax: when the score distribution is separable (no overlap) the
+    Youden surface is a step function with a plateau of identical J-values spanning
+    the entire gap between the two clusters. argmax returns the *lowest* edge of that
+    plateau, which sits just above the lowest fake score. Any small downward shift of
+    the fake cluster (e.g., JPEG Q=90) then drops scores below tau and recall
+    collapses, even though AUROC is unchanged.
+
+    Fix: return the MEDIAN of all candidate thresholds that achieve J >= J_max - eps.
+    This places tau in the centre of the gap and is robust to cluster drift.
+    """
+    u = np.unique(s)
+    # midpoints between adjacent unique scores + sentinels
+    cand = np.concatenate([[u[0] - 1], (u[:-1] + u[1:]) / 2, [u[-1] + 1]])
+    J = np.array([((s >= t)[y == 1].mean() + (s < t)[y == 0].mean() - 1) for t in cand])
+    plateau = cand[J >= J.max() - 1e-12]
+    return float(np.median(plateau))
 
 
 def aurc(y, z, tau):
@@ -380,7 +492,7 @@ def run_audit(samples, scorer, args):
     y = np.array([s["label"] for s in samples])
     g = np.array([s["group"] for s in samples])
     ledger = {"args": {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()},
-              "git": git_info(), "script_sha256": sha256_file(__file__),
+              "git": git_info(),
               "n_samples": int(len(samples)), "generators": dict(Counter(s["generator"] for s in samples))}
 
     print("== 0. pre-flight (raw files, before any processing) ==")
@@ -388,32 +500,117 @@ def run_audit(samples, scorer, args):
     print(json.dumps(ledger["preflight"], indent=1))
 
     imgs = [canonicalize(s["path"]) for s in samples]
-    F = np.stack([probe_features(im) for im in imgs])
+    F_all = np.stack([probe_features(im) for im in imgs])
+
+    # Feature slices
+    ng = len(GRAY_FEATURE_NAMES)
+    nc = len(COLOR_FEATURE_NAMES)
+    F_gray  = F_all[:, :ng]
+    F_color = F_all[:, ng:ng + nc]
+    F_thumb = F_all[:, ng + nc:]
+    F_gray_color = F_all[:, :ng + nc]
 
     print("\n== 2. low-level probe (grouped CV by video) ==")
-    probe_auc = grouped_cv_auc(F, y, g, args.seed)
-    uni = univariate_auc(F, y)
-    keep = matched_indices(F, y, cols=[0, 1], bins=args.match_bins, rng=rng)
+
+    # (a) grayscale-only probe (legacy 6-feature)
+    probe_auc_gray  = grouped_cv_auc(F_gray, y, g, args.seed)
+    # (b) gray + color (12 features)
+    probe_auc_color = grouped_cv_auc(F_gray_color, y, g, args.seed)
+    # (c) full probe including 8x8 thumbnail (204 features)
+    probe_auc_full  = grouped_cv_auc(F_all, y, g, args.seed)
+    # (d) thumbnail alone
+    probe_auc_thumb = grouped_cv_auc(F_thumb, y, g, args.seed)
+
+    # Univariate AUROCs (gray + color only; thumb has 192 features, report top-5)
+    uni_gray  = univariate_auc(F_gray,  y, GRAY_FEATURE_NAMES)
+    uni_color = univariate_auc(F_color, y, COLOR_FEATURE_NAMES)
+    thumb_col_aucs = {}
+    for j in range(F_thumb.shape[1]):
+        a = roc_auc_score(y, F_thumb[:, j])
+        thumb_col_aucs[j] = float(max(a, 1 - a))
+    top5_thumb = dict(sorted(thumb_col_aucs.items(), key=lambda x: -x[1])[:5])
+
+    # Matching coverage (size + sharpness: cols 0,1 of F_gray)
+    keep = matched_indices(F_gray, y, cols=[0, 1], bins=args.match_bins, rng=rng)
     coverage = len(keep) / len(y)
-    probe_matched = grouped_cv_auc(F[keep], y[keep], g[keep], args.seed) if len(keep) > 20 and len(set(y[keep])) == 2 else float("nan")
-    ledger["probe"] = {"cv_auroc_all_features": probe_auc, "univariate_auroc": uni,
-                       "matched_coverage": coverage, "matched_kept": {"real": int((y[keep] == 0).sum()), "fake": int((y[keep] == 1).sum())},
-                       "cv_auroc_after_matching_on_size_and_sharpness": probe_matched,
-                       "pass_threshold": 0.55}
-    print(f"probe CV-AUROC (all)        : {probe_auc:.4f}   (pass <= 0.55)")
-    print("univariate (folded)         :", {k: round(v, 3) for k, v in uni.items()})
-    print(f"matched coverage            : {coverage:.1%}   probe after matching: {probe_matched:.4f}")
-    if probe_auc > 0.65:
-        print(">> CONFOUNDED: low-level statistics alone separate the classes. Do NOT report model AUROC on this pairing as forensic performance.")
+    probe_matched = (grouped_cv_auc(F_gray_color[keep], y[keep], g[keep], args.seed)
+                     if len(keep) > 20 and len(set(y[keep])) == 2 else float("nan"))
+
+    ledger["probe"] = {
+        "cv_auroc_grayscale_6feat":           probe_auc_gray,
+        "cv_auroc_gray_plus_color_12feat":    probe_auc_color,
+        "cv_auroc_full_204feat":              probe_auc_full,
+        "cv_auroc_thumbnail_8x8_192feat":     probe_auc_thumb,
+        "univariate_auroc_gray":              uni_gray,
+        "univariate_auroc_color":             uni_color,
+        "top5_univariate_thumbnail_pixel":    top5_thumb,
+        "matched_coverage":                   coverage,
+        "matched_kept": {"real": int((y[keep] == 0).sum()), "fake": int((y[keep] == 1).sum())},
+        "cv_auroc_gray_color_after_size_sharpness_match": probe_matched,
+        "pass_threshold": 0.55,
+    }
+
+    print(f"probe CV-AUROC (gray 6-feat)  : {probe_auc_gray:.4f}   (pass <= 0.55)")
+    print(f"probe CV-AUROC (gray+color)   : {probe_auc_color:.4f}")
+    print(f"probe CV-AUROC (full 204-feat): {probe_auc_full:.4f}")
+    print(f"probe CV-AUROC (thumbnail 8x8): {probe_auc_thumb:.4f}")
+    print("univariate gray  :", {k: round(v, 3) for k, v in uni_gray.items()})
+    print("univariate color :", {k: round(v, 3) for k, v in uni_color.items()})
+    print(f"matched coverage : {coverage:.1%}   probe (gray+color) after matching: {probe_matched:.4f}")
+
+    if probe_auc_gray > 0.65 or probe_auc_color > 0.65:
+        print(">> CONFOUNDED: low-level statistics alone separate the classes. "
+              "Do NOT report model AUROC on this pairing as forensic performance.")
     if coverage < 0.30:
-        print(">> classes barely overlap in sharpness/size: sampling cannot repair this pairing. Change the real source.")
+        print(">> classes barely overlap in sharpness/size: sampling cannot repair this pairing. "
+              "Change the real source.")
+
+    # Per-source cross-probe sweep (optional: extra manifests passed via --cross-probe-manifests)
+    cross_results = {}
+    if hasattr(args, "cross_probe_manifests") and args.cross_probe_manifests:
+        print("\n== 2b. cross-source probe sweep ==")
+        for entry in args.cross_probe_manifests:
+            # entry format: "name:real_manifest[:split]"
+            parts = entry.split(":")
+            name = parts[0]
+            rm = parts[1]
+            sp = parts[2] if len(parts) > 2 else "any"
+            try:
+                cross_reals = load_real([rm], sp)
+                if not cross_reals:
+                    cross_results[name] = {"error": "no real samples found"}
+                    continue
+                cross_fakes = [s for s in samples if s["label"] == 1]
+                cs = sample_balanced(cross_reals, cross_fakes,
+                                     min(len(cross_reals), args.n_per_class),
+                                     args.per_generator_cap, np.random.default_rng(args.seed + 1))
+                cy = np.array([s["label"] for s in cs])
+                cg = np.array([s["group"] for s in cs])
+                cimgs = [canonicalize(s["path"]) for s in cs]
+                CF = np.stack([probe_features(im) for im in cimgs])
+                cg_auc  = grouped_cv_auc(CF[:, :ng],         cy, cg, args.seed)
+                cgc_auc = grouped_cv_auc(CF[:, :ng + nc],    cy, cg, args.seed)
+                cth_auc = grouped_cv_auc(CF[:, ng + nc:],    cy, cg, args.seed)
+                cu_gray = univariate_auc(CF[:, :ng],  cy, GRAY_FEATURE_NAMES)
+                cu_col  = univariate_auc(CF[:, ng:ng + nc], cy, COLOR_FEATURE_NAMES)
+                cross_results[name] = {
+                    "n_real": int((cy == 0).sum()), "n_fake": int((cy == 1).sum()),
+                    "cv_auroc_gray": cg_auc, "cv_auroc_gray_color": cgc_auc,
+                    "cv_auroc_thumbnail": cth_auc,
+                    "univariate_gray": cu_gray, "univariate_color": cu_col,
+                    "manifest": rm, "split": sp,
+                }
+                print(f"  {name:24s}  gray={cg_auc:.4f}  gray+color={cgc_auc:.4f}  thumb={cth_auc:.4f}")
+            except Exception as exc:
+                cross_results[name] = {"error": str(exc)}
+                print(f"  {name}: ERROR {exc}")
+    ledger["cross_probe_sweep"] = cross_results
 
     if scorer is None:
         ledger["note"] = "probe-only run (--skip-model)"
         return ledger
 
     print("\n== 3. model under conditions ==")
-    rngs = {}
     groups_u = {lab: sorted(set(g[y == lab])) for lab in (0, 1)}
     val_groups = set()
     for lab in (0, 1):
@@ -427,23 +624,28 @@ def run_audit(samples, scorer, args):
     for name, fn in CONDITIONS.items():
         r = np.random.default_rng([args.seed, zlib.crc32(name.encode())])
         logits[name] = scorer([fn(im, r) for im in imgs])
+
     tau = youden_threshold(y[is_val], logits["canonical"][is_val])
     ledger["threshold_raw_logit_from_val_canonical"] = tau
-    print(f"threshold (val, canonical, raw logit): {tau:.4f}  (frozen for every condition)")
+    ledger["threshold_method"] = "Youden-J plateau median (robust to cluster drift)"
+    print(f"threshold (val, canonical, Youden-median): {tau:.4f}  (frozen for every condition)")
 
     te = ~is_val
     ledger["conditions"] = {}
     for name, z in logits.items():
         m = summarize(y[te], z[te], g[te], tau, args.boot, rng)
         ledger["conditions"][name] = m
-        print(f"{name:34s} AUROC {m['auroc']:.4f} {np.round(m['auroc_ci95_grouped_boot'], 4)}  "
+        print(f"{name:36s} AUROC {m['auroc']:.4f} {np.round(m['auroc_ci95_grouped_boot'], 4)}  "
               f"TPR {m['tpr']:.3f}  FPR {m['fpr']:.3f}  (n={m['n']})")
+
     mm = np.zeros(len(y), dtype=bool)
     mm[keep] = True
     sel = te & mm
     if sel.sum() > 20 and len(set(y[sel])) == 2:
-        ledger["conditions"]["canonical@matched_subset"] = summarize(y[sel], logits["canonical"][sel], g[sel], tau, args.boot, rng)
-        print(f"{'canonical@matched_subset':34s} AUROC {ledger['conditions']['canonical@matched_subset']['auroc']:.4f}  (n={int(sel.sum())})")
+        ledger["conditions"]["canonical@matched_subset"] = summarize(
+            y[sel], logits["canonical"][sel], g[sel], tau, args.boot, rng)
+        print(f"{'canonical@matched_subset':36s} AUROC "
+              f"{ledger['conditions']['canonical@matched_subset']['auroc']:.4f}  (n={int(sel.sum())})")
 
     print("\n== 4. AURC on hard conditions (uncertainty = |logit - tau|) ==")
     ledger["aurc"] = {}
@@ -451,7 +653,8 @@ def run_audit(samples, scorer, args):
         a = aurc(y[te], logits[name][te], tau)
         ledger["aurc"][name] = a
         print(f"{name:24s} errors={a['n_errors']:3d} risk={a['overall_risk']:.3f} AURC={a['aurc']:.4f} "
-              f"optimal={a['aurc_optimal']:.4f} E-AURC={a['e_aurc']:.4f}" + ("" if a["meaningful"] else "   [<20 errors: not meaningful]"))
+              f"optimal={a['aurc_optimal']:.4f} E-AURC={a['e_aurc']:.4f}"
+              + ("" if a["meaningful"] else "   [<20 errors: not meaningful]"))
 
     print("\n== 5. diagnostic: blur ONLY fakes to real-median sharpness ==")
     target = float(np.median([lap_var(gray_arr(im)) for im, l in zip(imgs, y) if l == 0]))
@@ -459,8 +662,10 @@ def run_audit(samples, scorer, args):
     z = scorer(new)
     d = summarize(y[te], z[te], g[te], tau, args.boot, rng)
     ledger["diagnostic_blur_fakes_to_real"] = d
-    print(f"AUROC {d['auroc']:.4f} {np.round(d['auroc_ci95_grouped_boot'], 4)}  fake TPR {d['tpr']:.3f}  (canonical AUROC {ledger['conditions']['canonical']['auroc']:.4f})")
-    print("A large drop = the model is reading sharpness, not forgery evidence.")
+    print(f"AUROC {d['auroc']:.4f} {np.round(d['auroc_ci95_grouped_boot'], 4)}  "
+          f"fake TPR {d['tpr']:.3f}  "
+          f"(canonical AUROC {ledger['conditions']['canonical']['auroc']:.4f})")
+    print("A large AUROC drop = the model is reading sharpness, not forgery evidence.")
     return ledger
 
 
@@ -472,22 +677,35 @@ def _make_synth(root: Path, n=60):
     yy, xx = np.indices((256, 256))
     for i in range(n):
         base = 128 + 60 * np.sin((xx + rng.integers(50)) / 20.0) * np.cos((yy + rng.integers(50)) / 25.0)
-        im = np.stack([base + rng.normal(0, 4, base.shape) for _ in range(3)], -1)
-        real = Image.fromarray(np.clip(im, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.5))
+        # Reals: slightly warm-tinted, blurred, saved as JPEG
+        im_r = np.stack([
+            np.clip(base + rng.normal(0, 4, base.shape) + 8, 0, 255),   # R boost
+            np.clip(base + rng.normal(0, 4, base.shape),      0, 255),   # G neutral
+            np.clip(base + rng.normal(0, 4, base.shape) - 8, 0, 255),   # B reduced
+        ], -1).astype(np.uint8)
+        real = Image.fromarray(im_r).filter(ImageFilter.GaussianBlur(1.5))
         p = root / f"r{i}.jpg"
         real.save(p, quality=75)
         real_m.append({"label": 0, "split": "test", "crop_path": str(p), "source_path": f"vid_r{i}.mp4"})
-        fake = Image.fromarray(np.clip(im + rng.normal(0, 8, im.shape), 0, 255).astype(np.uint8))
+
+        # Fakes: slightly cool-tinted, sharp, saved as PNG
+        im_f = np.stack([
+            np.clip(base + rng.normal(0, 8, base.shape) - 8, 0, 255),   # R reduced
+            np.clip(base + rng.normal(0, 8, base.shape),      0, 255),   # G neutral
+            np.clip(base + rng.normal(0, 8, base.shape) + 8, 0, 255),   # B boost
+        ], -1).astype(np.uint8)
+        fake = Image.fromarray(im_f)
         p = root / f"f{i}.png"
         fake.save(p)
         fake_m.append({"label": 1, "method": f"gen{i % 4}", "video_id": f"v{i}", "source_path": str(p)})
+
     for name, m in (("real.jsonl", real_m), ("fake.jsonl", fake_m)):
         with open(root / name, "w") as f:
             f.write("\n".join(json.dumps(x) for x in m))
     return root / "real.jsonl", root / "fake.jsonl"
 
 
-def stub_scorer(images):  # deliberately a sharpness-only "detector"
+def stub_scorer(images):  # deliberately sharpness-only; color-aware audit should flag the color gap
     return np.array([math.log(lap_var(gray_arr(im)) + 1e-6) - 4.0 for im in images])
 
 
@@ -509,14 +727,23 @@ def main():
     ap.add_argument("--skip-model", action="store_true", help="probe only (no GPU / checkpoint)")
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--out-dir", default="reports")
+    ap.add_argument("--cross-probe-manifests", nargs="*", default=[],
+                    help="Extra per-source probes. Format: 'name:real_manifest[:split]'. "
+                         "Fakes are reused from --fake-manifest. "
+                         "Example: 'ffpp:data/ffpp_real.jsonl:test'")
     args = ap.parse_args()
 
     scorer = None
     if args.self_test:
         tmp = Path(tempfile.mkdtemp())
         rm, fm = _make_synth(tmp)
-        args.real_manifest, args.fake_manifest, args.real_split = [str(rm)], str(fm), "test"
-        args.n_per_class, args.per_generator_cap, args.boot, args.match_bins = 50, 20, 50, 4
+        args.real_manifest = [str(rm)]
+        args.fake_manifest = str(fm)
+        args.real_split = "test"
+        args.n_per_class = 50
+        args.per_generator_cap = 20
+        args.boot = 50
+        args.match_bins = 4
         scorer = stub_scorer
     elif not args.skip_model:
         scorer = load_scorer(args.ckpt, args.device, args.batch_size, args.allowed_missing)
@@ -534,8 +761,15 @@ def main():
     ledger["sample_list_sha256"] = sha256_file(sl)
     ledger["checkpoint_sha256"] = None if (args.skip_model or args.self_test) else sha256_file(args.ckpt)
     ledger["manifest_sha256"] = {str(m): sha256_file(m) for m in [*args.real_manifest, args.fake_manifest]}
-    (out / "one_pipeline_audit.json").write_text(json.dumps(ledger, indent=1, default=float))
-    print(f"\nledger -> {out / 'one_pipeline_audit.json'}")
+
+    out_path = out / "one_pipeline_audit.json"
+    out_path.write_text(json.dumps(ledger, indent=1, default=float))
+
+    # Write script sha256 AFTER the run so the ledger's own hash is correct
+    ledger["script_sha256"] = sha256_file(__file__)
+    out_path.write_text(json.dumps(ledger, indent=1, default=float))
+
+    print(f"\nledger -> {out_path}")
 
 
 if __name__ == "__main__":
