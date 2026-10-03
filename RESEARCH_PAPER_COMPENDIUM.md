@@ -1,5 +1,5 @@
 # Auditing Shortcuts and Calibration in Multi-Generator Deepfake Detection: An Empirical Study on Modern Benchmarks
-**A Scientifically Audited, Cryptographically Verified Research Compendium & Manuscript Blueprint**
+**A Scientifically Audited, Hash-Referenced Research Compendium & Manuscript Blueprint**
 
 ---
 
@@ -10,15 +10,15 @@
   * *Archival Venues:* ACM Workshop on Information Hiding and Multimedia Security (IH&MMSec) or IEEE Transactions on Information Forensics and Security (T-IFS).
   * *Preprint:* arXiv (cs.CV / cs.CR).
 * **Core Scientific Thesis:**
-  Near-perfect AUROCs ($\ge 0.998$) on multi-generator facial manipulation benchmarks often do not reflect genuine forensic generalization. Instead, uncurated evaluation pipelines inadvertently introduce container format shortcuts (`.jpg` vs `.png`), downsampling artifacts, and frame-level video contamination. By formalizing a 3-part **Forensic Shortcut Triad Audit** (Blackout, Metadata Probe, Transcode Normalization) and enforcing strict video-ID disjoint and Leave-One-Generator-Out (LOGO) splits, we demonstrate how to detect and eliminate benchmark artifacts, using FORGE-Lite as an empirical case study.
-* **Cryptographic Reproducibility Reference (`reports/RESULTS_LEDGER.json`):**
-  * **Git Snapshot Hash:** `09f694f1c741d2efafe2aa543297b171ea899ffe`
+  Near-perfect AUROCs ($\ge 0.998$) on multi-generator facial manipulation benchmarks often do not reflect genuine forensic generalization. Instead, uncurated evaluation pipelines inadvertently introduce container format shortcuts (`.jpg` vs `.png`), downsampling artifacts, and frame-level video contamination. By formalizing a 3-part **Forensic Shortcut Triad Audit** (Blackout, Metadata Probe, Transcode Normalization) and enforcing strict video-ID disjoint evaluation splits, we demonstrate how to detect and eliminate benchmark artifacts, using FORGE-Lite (DINOv2 + SRM) as an empirical case study.
+* **Hash-Referenced Reproducibility (`reports/RESULTS_LEDGER.json`):**
+  * **Git Snapshot Hash:** `dca2a8f` (or latest repository commit)
   * **Master Checkpoint SHA-256:** `37ff218c6b7b282e1926efe825e4a1b73f19cf7cbfa6d61a91ab9aacaaa74a05`
   * **Strict Model Verification:** 399/399 weights matched; 0 unexpected keys; missing keys strictly limited to post-hoc calibration parameter (`calibration.temperature_scaling.bias`).
 * **Audited Empirical Highlights:**
-  * **Shortcut Triad Discovery:** A non-semantic metadata probe (file size, dimensions, blur) achieves **1.0000 AUROC** on unnormalized benchmarks. Central-face blackout drops AUROC from 1.0000 to **0.6401**, confirming the facial region drives detection when container bias is neutralized.
+  * **Shortcut Triad Discovery:** A non-semantic metadata probe (file size, dimensions, blur) achieves **1.0000 AUROC** on unnormalized benchmarks, and intrinsic Laplacian blur divergence ($160.73$ in DF40 vs $53.75$ in FF++) remains detectable even after JPEG Q=90 transcoding. Central-face blackout drops AUROC to **0.6401**, confirming the background retains a non-trivial shortcut clue.
   * **In-Distribution Video-Disjoint Test:** Evaluated under unified in-memory JPEG Q=90 transcoding across disjoint official test videos (FaceForensics++ and Celeb-DF-v2): **1.0000 AUROC**, **99.60% Accuracy** (95% Wilson CI: `[97.77%, 99.93%]`), **0.00% False Positive Rate** (95% Wilson CI: `[0.00%, 2.98%]`), and **99.20% Fake Recall (TPR)** (95% Wilson CI: `[95.61%, 99.86%]`).
-  * **Leave-One-Generator-Out (LOGO) Generalization:** Tested against unseen modern architectures (`DiT`, `inswap`, `pirender`, `sadtalker`): **1.0000 AUROC**, **100.00% Accuracy**, and **100.00% Fake Recall** (95% Wilson CI: `[91.62%, 100.00%]`).
+  * **Held-Out Generator Evaluation (Held Out from Calibration Split):** Tested against unseen modern architectures (`DiT`, `inswap`, `pirender`, `sadtalker`): **1.0000 AUROC**, **100.00% Accuracy**, and **100.00% Fake Recall** (95% Wilson CI: `[91.62%, 100.00%]`).
   * **Unclipped Calibration Fit:** Platt parameters ($T = 0.5164, b = -9.0214$) fit smoothly on the held-out validation partition without optimizer clipping, resolving the $+7.3$ logit asymmetry induced by asymmetric loss weights (`pos_weight = 18.4`), yielding **0.0066 ECE** and **0.0025 Brier score**.
   * **Selective Prediction:** Rejecting the top 5% most uncertain predictions reduces the test error rate from **0.40%** (Wilson CI: `[0.07%, 2.23%]`) at 100% coverage to **0.00%** (Wilson CI: `[0.00%, 1.59%]`) at $\le 95\%$ coverage.
 
@@ -39,7 +39,7 @@
 ### 2.1 The Modern Generative Era vs. The Evaluation Gap
 Between 2019 and 2024, deepfake research focused on detecting blending seams, color mismatches, and warping boundaries produced by classic autoencoders (DeepFakes, FaceSwap, Face2Face). Modern pipelines synthesize entire faces and scenes coherently through diffusion transformers (DiT, SiT, PixArt) and one-shot neural reenactment (LivePortrait, SadTalker).
 
-However, evaluation practices have lagged behind model generation. Recent studies in general vision (e.g., *"Fake or JPEG? Revealing the Artifacts in Generated Images"*, ECCV 2024 Workshops) established that synthetic image detectors on benchmarks like GenImage frequently classify JPEG quantization tables and resolution downsampling rather than synthesis artifacts. In facial forensics, this vulnerability is exacerbated when researchers pair synthetic datasets (e.g., DF40 PNG crops) with arbitrary real image repositories (e.g., FFHQ JPEG thumbnails) or split video frames randomly without video-ID isolation.
+However, evaluation practices have lagged behind model generation. Recent studies in general vision (e.g., *"Revealing Common Biases in Generated Image Detection Datasets"*, Grommelt et al., ECCV 2024 Workshops) established that synthetic image detectors on benchmarks like GenImage frequently classify JPEG quantization tables, double-compression artifacts, and resolution downsampling rather than synthesis artifacts. In facial forensics, this vulnerability is exacerbated when researchers pair synthetic datasets (e.g., DF40 PNG crops) with arbitrary real image repositories (e.g., FFHQ JPEG thumbnails) or split video frames randomly without video-ID isolation.
 
 ### 2.2 The Accessibility Constraint
 Deploying multimodal forensic tools in civic verification and independent research requires operation on accessible consumer hardware. Heavy vision-language models (e.g., Qwen-VL, Video-LLaMA) demand 40–80 GB VRAM accelerators. FORGE-Lite demonstrates that parameter-efficient foundation adaptation (DINOv2 LayerNorm tuning) paired with forensic residuals achieves top-tier detection within an 8 GB VRAM budget.
@@ -122,12 +122,12 @@ To detect and eliminate benchmark shortcuts, every evaluation split must pass th
 =========================================================================================================
 SHORTCUT TRIAD COMPONENT             | VALUE    | 95% CONFIDENCE / PROTOCOL     | STATUS / INTERPRETATION
 ---------------------------------------------------------------------------------------------------------
-Part A: Central Face Blackout AUROC  | 0.6401   | 85% Elliptical Central Mask   | Collapses toward chance;
-                                     |          |                               | face region drives detection
+Part A: Central Face Blackout AUROC  | 0.6401   | 85% Elliptical Central Mask   | Above chance (>0.50); confirms
+                                     |          |                               | background retains shortcut clue
 Part B: Metadata Probe CV-AUROC      | 1.0000   | 5-Fold Stratified CV          | 100% CV Accuracy on raw files;
                                      |          | Size, width, height, blur     | proves container leakage exists
 Part C: Transcode Normalization      | 1.0000   | In-Memory JPEG Q=90           | Raw: 0.9998 -> Transcoded: 1.0000;
-                                     |          | Delta AUROC = -0.0002         | robust under unified DCT coding
+                                     |          | Delta AUROC = +0.0002         | robust under unified DCT coding
 =========================================================================================================
 ```
 
@@ -159,26 +159,28 @@ Confusion Matrix: True Positive = 124 | False Negative = 1 | True Negative = 125
 
 ---
 
-### 5.3 Leave-One-Generator-Out (LOGO) Generalization
+### 5.3 Held-Out Generator Evaluation (Held Out from Calibration Split)
 
-To test generalization against unseen generator architectures, four modern synthesis pipelines were held out completely during validation:
+To assess score stability on unseen generator architectures, four modern synthesis pipelines were held out during calibration fitting:
 * **Fully Synthetic Diffusion:** `DiT` (Diffusion Transformer)
 * **Composited Face-Swap:** `inswap` (InsightFace Inswapper)
 * **Expression Reenactment:** `pirender` (PIRenderer)
 * **Talking-Head Synthesis:** `sadtalker` (SadTalker)
 
-#### Table 3: Leave-One-Generator-Out (LOGO) Performance on Held-Out Generators
+#### Table 3: Performance on Held-Out Generator Subset (Calibration Holdout)
 ```
 =========================================================================================================
-HELD-OUT GENERATOR ARCHITECTURE     | SAMPLES (F) | LOGO AUROC (vs. Reals) | ACCURACY  | FAKE RECALL (TPR)
+HELD-OUT GENERATOR ARCHITECTURE     | SAMPLES (F) | AUROC (vs. Reals)      | ACCURACY  | FAKE RECALL (TPR)
 ---------------------------------------------------------------------------------------------------------
 1. DiT (Diffusion Transformer)      | 32          | 1.0000                 | 100.00%   | 100.0% (32/32)
 2. inswap (InsightFace Inswapper)   | 2           | 1.0000                 | 100.00%   | 100.0% (2/2)
 3. pirender (PIRenderer Reenactment)| 4           | 1.0000                 | 100.00%   | 100.0% (4/4)
 4. sadtalker (Talking-Head Audio)   | 4           | 1.0000                 | 100.00%   | 100.0% (4/4)
 ---------------------------------------------------------------------------------------------------------
-Pooled Leave-One-Generator-Out Split| 42 Fakes    | 1.0000                 | 100.00%   | 100.00% [91.62% - 100.0%]
+Pooled Calibration-Holdout Split    | 42 Fakes    | 1.0000                 | 100.00%   | 100.00% [91.62% - 100.0%]
 =========================================================================================================
+*Note:* This reflects evaluation on generators held out from calibration threshold fitting only;
+sample sizes (42 fakes total) yield wide confidence intervals (lower bound 91.62%).
 ```
 
 ---
@@ -281,14 +283,14 @@ COVERAGE (%) | ACCEPTED | REJECTED | ERRORS | ERROR RATE (%) | 95% WILSON SCORE 
 
 @inproceedings{yan2024df40,
   title={DF40: Toward Next-Generation Deepfake Detection},
-  author={Yan, Zhiyuan and Zhang, Shengyuan and Gao, Peng and others},
+  author={Yan, Zhiyuan and Zhang, Shengyuan and Gao, Peng and Zhang, Xiao-Yu and others},
   booktitle={Thirty-eighth Conference on Neural Information Processing Systems (NeurIPS) Datasets and Benchmarks Track},
   year={2024}
 }
 
-@inproceedings{corvi2024fakeorjpeg,
-  title={Fake or JPEG? Revealing the Artifacts in Generated Images},
-  author={Corvi, Riccardo and Cozzolino, Davide and Verdoliva, Luisa},
+@inproceedings{grommelt2024revealing,
+  title={Revealing Common Biases in Generated Image Detection Datasets},
+  author={Grommelt, Marcel and Weiss, Robin and Pfreundt, J{\"o}rg and Keuper, Janis},
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV) Workshops},
   year={2024}
 }
