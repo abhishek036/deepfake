@@ -1,0 +1,44 @@
+{
+  "checkpoint_sha256": "904E8A91391A337B5BEBD1B95EAFD45A8F5F819F2FA024067B68CF96B3BE5B03",
+  "checkpoint_path": "outputs/checkpoints/best_v3_codec_invariant.ckpt",
+  "model_version": "FORGE-Lite-V3",
+  "calibration_version": "Platt-V3",
+  "uncertainty_version": "Composite-Platt-V3",
+  "report_schema_version": "3.0",
+  "calibration": {
+    "method": "platt_scaling",
+    "platt_a": 2.98453230722705,
+    "platt_b": 1.4309659875950786,
+    "temperature": 1.3850295543670654,
+    "held_out_ece": 0.0665,
+    "held_out_brier": 0.1626
+  },
+  "uncertainty": {
+    "method": "composite_logistic_regression",
+    "feature_space": "consistent_platt_probabilities",
+    "features": [
+      "predictive_entropy",
+      "decision_margin",
+      "quality_defect",
+      "branch_disagreement"
+    ],
+    "weights": [
+      1.0861093193272413,
+      2.006196064332235,
+      -0.012755773839211709,
+      0.5704773710469746
+    ],
+    "intercept": -3.1590274418046995,
+    "error_auroc": 0.7490,
+    "error_prauc": 0.4563
+  },
+  "decision_policy": {
+    "source": "held_out_calibration",
+    "target_abstention_pct": 20.0,
+    "uncertainty_threshold": 0.2661,
+    "review_band_lower": 0.40,
+    "review_band_upper": 0.60,
+    "min_acceptable_quality": 0.35,
+    "disagreement_threshold": 0.20
+  }
+}

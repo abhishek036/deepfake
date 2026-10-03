@@ -1,0 +1,191 @@
+# FORGE-Lite Data Configuration
+# ─────────────────────────────
+# All paths are relative to the project root unless absolute.
+
+# ──────────────────────────────────────────
+# Dataset roots — set these to your local paths
+# ──────────────────────────────────────────
+dataset_roots:
+  faceforensics_pp:   "data/raw/FaceForensics++"      # FF++ root — flat subfolders per method
+  celeb_df_v2:        "data/raw/Celeb-DF-v2"          # Celeb-real/, Celeb-synthesis/, YouTube-real/
+  dfdc_preview:       "data/raw/DFDC_Preview"
+  wild_deepfake:      "data/raw/WildDeepfake"          # fake_test/, real_test/ (tar.gz archives)
+  ffhq:               "data/raw/FFHQ"                  # thumbnails128x128/ subdir
+  df40:               "data/raw/DF40"                  # DF40 NeurIPS 2024 — 40 forgery methods
+                                                        # Structure: DF40_train/<method>/ for fakes
+                                                        #            root-level: inswap, simswap, sd2.1, RDDM
+  fakeavceleb:        "datasets/FakeAVCeleb_v1.2"      # 21,544 MP4 — fully extracted
+  av_deepfake1m:      "datasets/AV-Deepfake1M"         # 1.1M videos (pending download)
+  deepfake_eval_2024: "datasets/Deepfake-Eval-2024"    # EVAL-ONLY holdout — NEVER TRAIN
+
+# ──────────────────────────────────────────
+# Processed data outputs
+# ──────────────────────────────────────────
+processed:
+  manifests_dir:  "data/manifests"
+  splits_dir:     "data/splits"
+  tracks_dir:     "data/tracks"
+  quality_dir:    "data/quality"
+  masks_dir:      "data/masks"
+  features_dir:   "data/features"
+  faces_dir:      "data/faces"       # 224×224 JPEG crops
+  codec_bank_dir: "data/codec_bank"  # re-encoded video copies
+
+# ──────────────────────────────────────────
+# Synthetic test dataset (smoke-testing without real data)
+# ──────────────────────────────────────────
+synthetic_test:
+  enabled: true
+  output_dir: "data/synthetic_test"
+  num_real_videos: 20
+  num_fake_videos: 20
+  video_duration_seconds: 5
+  resolution: [224, 224]
+
+# ──────────────────────────────────────────
+# FaceForensics++ config
+# ──────────────────────────────────────────
+faceforensics:
+  compressions: ["c23", "c40"]
+  manipulation_methods:
+    - Deepfakes
+    - Face2Face
+    - FaceSwap
+    - NeuralTextures
+  # Identity-disjoint split: 720/140/140
+  train_videos: 720
+  val_videos: 140
+  test_videos: 140
+  masks_available: true
+
+# ──────────────────────────────────────────
+# Frame sampling
+# ──────────────────────────────────────────
+frame_sampling:
+  strategy: "uniform"           # uniform | keyframe | uniform+keyframe
+  fps_target: 8                 # sample at this effective fps
+  max_frames_per_video: 300
+  min_frames_per_video: 8
+
+# ──────────────────────────────────────────
+# Face detection
+# ──────────────────────────────────────────
+face_detection:
+  backend: "retinaface"         # retinaface | mtcnn
+  min_face_size: 80             # pixels, minimum bounding box side
+  confidence_threshold: 0.9
+  max_faces_per_frame: 3
+  dominant_face_only: true
+
+# ──────────────────────────────────────────
+# Face alignment & crop
+# ──────────────────────────────────────────
+face_alignment:
+  output_size: 224
+  margin: 0.4                   # fractional margin around face bbox
+  landmark_set: "5pt"           # 5-point landmarks for affine alignment
+
+# ──────────────────────────────────────────
+# Temporal windows
+# ──────────────────────────────────────────
+temporal:
+  window_size: 16               # frames per temporal window
+  window_stride: 8              # stride between windows
+  min_window_frames: 8          # minimum valid window size
+
+# ──────────────────────────────────────────
+# Codec bank — offline re-encoding configs
+# ──────────────────────────────────────────
+codec_bank:
+  configs:
+    - name: "clean"
+      codec: "copy"
+    - name: "h264_crf23"
+      codec: "libx264"
+      crf: 23
+    - name: "h264_crf30"
+      codec: "libx264"
+      crf: 30
+    - name: "h264_crf40"
+      codec: "libx264"
+      crf: 40
+    - name: "resize_compress"
+      scale: 0.75
+      codec: "libx264"
+      crf: 28
+    - name: "blur_compress"
+      blur_sigma: 1.0
+      codec: "libx264"
+      crf: 30
+
+# ──────────────────────────────────────────
+# Quality thresholds (for rPPG gating, abstention)
+# ──────────────────────────────────────────
+quality_thresholds:
+  min_face_area_ratio: 0.05
+  min_blur_score: 0.1           # Laplacian variance (normalized)
+  min_track_continuity: 0.6
+  min_rppg_duration_seconds: 8.0
+  max_motion_contamination: 0.4
+  min_rppg_snr: 3.0
+  max_pose_yaw_deg: 45.0
+  max_pose_pitch_deg: 30.0
+
+# ──────────────────────────────────────────
+# rPPG — dedicated high-fps stream (MASTER_PLAN RISK 2 fix)
+# NOTE: Standard frame_sampling.fps_target=8 violates Nyquist for bpm_max=210
+#       rPPG branch requires >=25fps to avoid aliasing the cardiac signal.
+# ──────────────────────────────────────────
+rppg_sampling:
+  fps_target: 25              # 25fps: Nyquist-safe margin for BPM up to 210
+  max_frames: 750             # 30s @ 25fps
+  min_duration_sec: 8.0       # minimum clip length for reliable PPG extraction
+  availability_mask: true     # set false to disable rPPG branch entirely
+
+# ──────────────────────────────────────────
+# FakeAVCeleb v1.2 config
+# ──────────────────────────────────────────
+fakeavceleb:
+  root: "datasets/FakeAVCeleb_v1.2"
+  categories: ["A", "B", "C", "D"]
+  # Category A: RealVideo-RealAudio (label=0)
+  # Category B: RealVideo-FakeAudio (label=1, forgery_type=audio_only)
+  # Category C: FakeVideo-RealAudio (label=1, forgery_type=composited)
+  # Category D: FakeVideo-FakeAudio (label=1, forgery_type=composited+audio)
+  use_for: ["train", "val", "test"]
+  meta_csv: "datasets/FakeAVCeleb_v1.2/meta_data.csv"
+  manifest: "data/manifests/fakeavceleb.jsonl"
+
+# ──────────────────────────────────────────
+# DF40 config
+# ──────────────────────────────────────────
+df40:
+  json_dir: "preprocessing/dataset_json"
+  image_root: "data/raw/DF40"
+  use_for: ["eval", "finetune"]
+  # Two manifests:
+  #   df40.jsonl      — yesterday's preprocessed records (447k, has crop_path, faces extracted)
+  #   df40_disk.jsonl — full disk scan (670k, all 30 methods including EFS diffusion)
+  manifest_preprocessed: "data/manifests/df40.jsonl"
+  manifest_disk: "data/manifests/df40_disk.jsonl"
+  manifest: "data/manifests/df40_disk.jsonl"   # use disk manifest as primary
+
+# ──────────────────────────────────────────
+# AV-Deepfake1M config (pending download)
+# ──────────────────────────────────────────
+av_deepfake1m:
+  root: "datasets/AV-Deepfake1M"
+  use_for: ["train"]   # AV branch retraining only
+  manifest: "data/manifests/av_deepfake1m.jsonl"
+  notes: "LLM-driven word-level replace/delete/insert. ACM MM 2024."
+
+# ──────────────────────────────────────────
+# Deepfake-Eval-2024 config
+# CRITICAL: NEVER USE FOR TRAINING
+# ──────────────────────────────────────────
+deepfake_eval_2024:
+  root: "datasets/Deepfake-Eval-2024"
+  split: "test_inthewild"
+  use_for: ["eval"]    # EVAL ONLY — honest in-the-wild reality check
+  manifest: "data/manifests/deepfake_eval_2024.jsonl"
+  notes: "45hrs, 88 sources, 52 languages. TrueMedia.org social-media content. NEVER TRAIN."

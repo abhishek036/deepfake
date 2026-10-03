@@ -1,0 +1,156 @@
+# FORGE-Lite Model Configuration
+# ────────────────────────────────
+
+# ──────────────────────────────────────────
+# Semantic Branch — DINOv2 ViT-S/14
+# (DINOv3 fallback when publicly available)
+# ──────────────────────────────────────────
+semantic_branch:
+  backbone: "dinov2_vits14"          # HuggingFace: facebook/dinov2-small
+  image_size: 224
+  patch_size: 14
+  embed_dim: 384                     # ViT-S/14 CLS dim
+  num_patches: 256                   # 16×16 patch grid for 224px input
+  adaptation_mode: "layernorm"       # frozen_linear | layernorm | lora | last_block
+  lora_rank: 8                       # only used if adaptation_mode == lora
+  lora_alpha: 16
+  dropout: 0.1
+  output_dim: 384                    # CLS embedding dim passed to fusion
+
+# ──────────────────────────────────────────
+# Forensic Residual Branch
+# ──────────────────────────────────────────
+forensic_branch:
+  # SRM filter bank
+  srm_num_filters: 30
+  srm_kernel_size: 5
+  # Haar wavelet
+  haar_levels: 1                     # 1-level Haar → LH, HL, HH subbands
+  # Input channels: 1 (lum) + 30 (SRM) + 3 (Haar) + 1 (noise) = 35
+  in_channels: 35
+  # Depthwise-separable CNN layers
+  base_channels: 64
+  num_blocks: 4
+  use_group_norm: true
+  num_groups: 8
+  activation: "gelu"                 # gelu | silu
+  dropout: 0.1
+  output_dim: 256                    # forensic embedding dim
+  # Compact FFT features (auxiliary vector)
+  fft_num_radial_bins: 16
+  fft_output_dim: 20                 # total FFT feature vector size
+
+# ──────────────────────────────────────────
+# Temporal Branch — GRU
+# ──────────────────────────────────────────
+temporal_branch:
+  input_dim: 660                     # 384 (DINO) + 256 (forensic) + 20 (FFT) = 660
+                                     # + frame_diff (3*spatial_dim) handled in model
+  hidden_dim: 256
+  num_layers: 2
+  dropout: 0.2
+  bidirectional: false
+  # Video-level aggregation
+  aggregation:
+    use_mean: true
+    use_top_k_percent: 0.10          # top-10% window scores
+    use_max: true
+    use_dispersion: true
+    use_attention: true
+  output_dim: 256
+
+# ──────────────────────────────────────────
+# rPPG Branch
+# ──────────────────────────────────────────
+rppg_branch:
+  num_rois: 6                        # forehead, left cheek, right cheek, nose, chin, periorbital
+  bandpass_low_hz: 0.7
+  bandpass_high_hz: 3.5
+  bpm_min: 42
+  bpm_max: 210
+  output_dim: 16                     # rPPG feature vector (SNR, freq, coherence, etc.)
+  # Gate thresholds (mirror data.yaml quality_thresholds)
+  min_duration_s: 8.0
+  min_snr: 3.0
+  min_coherence: 0.4
+
+# ──────────────────────────────────────────
+# Audio-Visual Branch (SyncNet-style)
+# ──────────────────────────────────────────
+av_branch:
+  audio_embed_dim: 256
+  video_embed_dim: 256
+  mel_n_mels: 80
+  mel_hop_length: 160
+  lip_crop_height: 48
+  lip_crop_width: 96
+  window_frames: 5
+  output_dim: 1                      # sync score (scalar)
+  enabled: true
+
+# ──────────────────────────────────────────
+# Context Branch (optional, fully synthetic videos)
+# ──────────────────────────────────────────
+context_branch:
+  enabled: true
+  backbone: "dinov2_vits14"          # shared weights with semantic branch
+  input_size: 112                    # downsampled full frame
+  output_dim: 384
+  gate_weight: 0.3                   # down-weighted in face-localized mode
+
+# ──────────────────────────────────────────
+# Reliability-Aware Fusion Head
+# ──────────────────────────────────────────
+fusion:
+  # Input dims per branch
+  semantic_dim: 384
+  forensic_dim: 256
+  fft_dim: 20
+  temporal_dim: 256
+  rppg_dim: 16
+  av_dim: 1
+  context_dim: 384
+  # Quality vectors
+  face_quality_dim: 10               # blur, brightness, contrast, pose_yaw, pose_pitch,
+                                     # occlusion, face_area, compression, track_continuity, landmark_jitter
+  video_quality_dim: 5               # fps, resolution_score, duration, audio_present, codec_quality
+  # Architecture
+  quality_encoder_hidden: 64
+  hidden_dim: 512
+  num_layers: 2
+  dropout: 0.3
+  use_layer_norm: true
+  output_dim: 1                      # logit
+
+# ──────────────────────────────────────────
+# Localization Head
+# ──────────────────────────────────────────
+localization:
+  enabled: true
+  # DINO patch tokens: 256 patches (16x16) → upsample to 56×56
+  patch_grid: 16                     # 224/14 = 16 for ViT-S/14
+  target_size: 56
+  forensic_channels: 64             # from forensic CNN intermediate features
+  decoder_channels: [128, 64, 32]
+  output_size: 56
+  sigmoid_output: true
+
+# ──────────────────────────────────────────
+# Calibration & Abstention
+# ──────────────────────────────────────────
+calibration:
+  temperature_init: 1.0
+  mc_dropout_samples: 10             # for uncertainty estimation
+  # Abstention thresholds (tuned on calibration set, NOT test set)
+  abstention:
+    min_evidence_coverage: 0.3       # fraction of branches that are available
+    max_uncertainty: 0.35
+    max_branch_disagreement: 0.4
+    min_face_quality: 0.2
+    score_margin: 0.15               # |score - 0.5| must exceed this to decide
+
+# ──────────────────────────────────────────
+# Top-level model version info
+# ──────────────────────────────────────────
+model_version: "forge-lite-1.0"
+preprocessing_version: "prep-1.0"

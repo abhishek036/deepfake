@@ -1,0 +1,178 @@
+# FORGE-Lite Training Configuration
+# ───────────────────────────────────
+
+# ──────────────────────────────────────────
+# General
+# ──────────────────────────────────────────
+seed: 42
+deterministic: true
+output_dir: "outputs"
+experiment_name: "forge-lite-v1"
+
+# ──────────────────────────────────────────
+# Hardware & precision
+# ──────────────────────────────────────────
+device: "cuda"
+precision: "fp16"                    # fp16 | fp32 | bf16
+gradient_accumulation_steps: 2       # reduced: fewer backward passes per step
+num_workers: 4                       # parallel DataLoader workers for GPU saturation
+persistent_workers: true             # keep workers alive between epochs (faster)
+pin_memory: true
+compile_model: false                 # torch.compile (PyTorch 2.x)
+
+# ──────────────────────────────────────────
+# Batch sizes per training phase
+# ──────────────────────────────────────────
+batch_sizes:
+  spatial: 64                        # 64 for RTX 4060 8GB VRAM with 1-frame rep
+  temporal: 16                       # 16 for frozen spatial backbones (peak VRAM < 4.2GB)
+  fusion: 12                         # 12 keeps end-to-end full fusion safely within 6GB VRAM
+  av: 16                             # audio-visual branch batch size (5-frame lip windows)
+  baseline: 32
+  adversarial: 4
+
+temporal_window_size: 8              # 8 frames captures 320ms temporal dynamics
+fusion_window_size: 8
+max_val_samples: 5000                # 5,000 representative val clips for fast validation (~45s)
+enable_av: true                      # audio-visual branch active
+use_geometry: true                   # 16-dim geometry branch active
+
+# ──────────────────────────────────────────
+# Learning rates
+# ──────────────────────────────────────────
+lr:
+  backbone_frozen: 1.0e-3            # linear probe only
+  layernorm_adaptation: 5.0e-4       # LN params + head
+  lora_adaptation: 1.0e-3            # LoRA params + head
+  last_block_adaptation: 1.0e-4      # last block fine-tune
+  forensic_branch: 1.0e-3
+  temporal_branch: 5.0e-4
+  fusion: 3.0e-4
+  av_branch: 5.0e-4
+  geometry_branch: 5.0e-4
+  localization: 5.0e-4
+  calibration: 1.0e-2
+  adversarial: 1.0e-4
+  # LR schedule
+  scheduler: "cosine"                # cosine | step | plateau
+  warmup_epochs: 1                   # faster warmup
+  min_lr: 1.0e-6
+  weight_decay: 0.01
+
+# ──────────────────────────────────────────
+# Training epochs per phase (optimized for pre-initialized fine-tuning)
+# ──────────────────────────────────────────
+epochs:
+  baseline: 15
+  semantic_branch: 8                 # Phase 3: joint fine-tune from pre-trained Phase 1 & 2
+  forensic_branch: 25                # Phase 2: already complete
+  temporal_branch: 10                # Phase 4: GRU on frozen spatial (was 25)
+  fusion: 10                         # Phase 5: fusion head fine-tune (was 40)
+  av_branch: 10                      # Audio-visual branch fine-tune
+  geometry_branch: 10                # Geometry branch fine-tune
+  localization: 12
+  rppg_branch: 10
+  adversarial: 10
+  calibration: 3
+
+# ──────────────────────────────────────────
+# Loss weights
+# ──────────────────────────────────────────
+loss_weights:
+  classification: 1.0
+  consistency: 0.3                   # codec consistency loss
+  metric: 0.2                        # source-pair contrastive
+  localization: 0.5
+  temporal_consistency: 0.1
+  geometry_weight: 0.15              # landmark geometry consistency
+  av_consistency: 0.20               # audio-visual sync contrastive
+  # Focal loss params
+  focal_alpha: 0.25
+  focal_gamma: 2.0
+
+# ──────────────────────────────────────────
+# Class balance  (real:fake = 1:18.4 in combined manifest)
+# ──────────────────────────────────────────
+class_balance:
+  # BCE pos_weight = n_neg / n_pos = 629423 / 34296 ≈ 18.4
+  # Applied to BCEWithLogitsLoss to up-weight real (positive) class.
+  pos_weight: 18.4
+
+  # WeightedRandomSampler: draw balanced batches (50% real, 50% fake)
+  # Strongly recommended given 1:18 imbalance from DF40 dominance.
+  balanced_sampling: true
+  balanced_sampling_strategy: "oversample_minority"  # oversample_minority | undersample_majority
+  samples_per_epoch: 40000           # 40k balanced samples/epoch (625 steps @ bs64 = ~3-4 mins/epoch)
+
+  # Alternatively: cap max fake samples per epoch to N×real count
+  # (use instead of balanced_sampling if you prefer no duplication)
+  max_fake_multiplier: 10            # cap fakes at 10× real count per epoch
+  use_max_fake_cap: false            # set true to use cap instead of weighted sampler
+
+# ──────────────────────────────────────────
+# Codec consistency training
+# ──────────────────────────────────────────
+consistency_training:
+  enabled: true
+  codec_configs_to_use:              # subset of codec_bank configs
+    - "clean"
+    - "h264_crf23"
+    - "h264_crf30"
+    - "h264_crf40"
+  consistency_loss: "mse"            # mse | kl | cosine
+  temperature: 2.0                   # soft label temperature
+
+# ──────────────────────────────────────────
+# Source-pair metric learning
+# ──────────────────────────────────────────
+metric_learning:
+  enabled: true
+  loss_type: "contrastive"           # contrastive | triplet
+  margin: 0.5
+  # Pairs: (real, fake) from same original source video
+
+# ──────────────────────────────────────────
+# Adversarial training
+# ──────────────────────────────────────────
+adversarial:
+  method: "pgd"                      # pgd | fgsm
+  pgd_steps_train: 5                 # PGD-5 during training
+  pgd_epsilon: 0.03                  # L-inf norm bound
+  pgd_step_size: 0.007
+  pgd_steps_eval: 20                 # PGD-20 during evaluation
+  random_start: true
+  apply_to_fraction: 0.5             # fraction of batches adversarially perturbed
+
+# ──────────────────────────────────────────
+# Checkpointing & logging
+# ──────────────────────────────────────────
+checkpointing:
+  save_dir: "outputs/checkpoints"
+  save_top_k: 3
+  monitor_metric: "val/cross_domain_auroc"
+  mode: "max"
+  save_every_n_epochs: 5
+
+logging:
+  use_wandb: true
+  wandb_project: "forge-lite"
+  wandb_entity: null                 # set your wandb username
+  log_every_n_steps: 50
+  log_images_every_n_epochs: 5
+
+# ──────────────────────────────────────────
+# Early stopping
+# ──────────────────────────────────────────
+early_stopping:
+  enabled: true
+  monitor: "val/cross_domain_auroc"
+  patience: 3                        # stops early if no gain for 3 epochs (saves hours)
+  min_delta: 0.001
+
+# ──────────────────────────────────────────
+# Smoke-test mode (fast validation)
+# ──────────────────────────────────────────
+smoke_test:
+  max_batches: 5
+  epochs: 1
+  batch_size: 2

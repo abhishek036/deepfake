@@ -1,0 +1,280 @@
+# FORGE-Lite Evaluation Configuration
+# ──────────────────────────────────────
+
+# ──────────────────────────────────────────
+# Checkpoints to evaluate
+# ──────────────────────────────────────────
+checkpoint_path: "outputs/checkpoints/best.ckpt"
+output_dir: "reports"
+
+# ──────────────────────────────────────────
+# Evaluation datasets
+# ──────────────────────────────────────────
+eval_datasets:
+  in_domain:
+    - name: "ff_c23"
+      split: "test"
+      compression: "c23"
+    - name: "ff_c40"
+      split: "test"
+      compression: "c40"
+  cross_domain:
+    - name: "celeb_df_v2"
+      split: "test"
+    - name: "dfdc_preview"
+      split: "test"
+    - name: "wild_deepfake"
+      split: "test"
+    # ── FakeAVCeleb cross-domain slots ────────────────────────────────
+    - name: "fakeavceleb"
+      split: "test"
+      forgery_types: ["composited", "audio_only", "composited+audio"]
+      notes: "Cat B = voice-clone gap; Cat C+D = AV forgery"
+    - name: "fakeavceleb_cat_b"
+      split: "test"
+      forgery_types: ["audio_only"]
+      notes: "RealVideo-FakeAudio — primary voice-clone gap test"
+    - name: "fakeavceleb_cat_c"
+      split: "test"
+      forgery_types: ["composited"]
+      notes: "FakeVideo-RealAudio — AV sync branch test (9,709 videos)"
+    # ── DF40 forgery-type slots ────────────────────────────────────────
+    - name: "df40_fully_synthetic"
+      split: "test"
+      forgery_types: ["fully_synthetic"]
+      notes: "Primary SRM blindspot — branch expected near-random here"
+    - name: "df40_composited"
+      split: "test"
+      forgery_types: ["composited"]
+    - name: "df40_reenactment"
+      split: "test"
+      forgery_types: ["reenactment"]
+    - name: "df40_talking_head"
+      split: "test"
+      forgery_types: ["talking_head"]
+    # ── In-the-wild holdout (NEVER TRAIN) ─────────────────────────────
+    - name: "deepfake_eval_2024"
+      split: "test_inthewild"
+      forgery_types: null
+      notes: "EVAL ONLY. Social-media content. Honest reality-check against in-domain AUC."
+
+# ──────────────────────────────────────────
+# Metrics to compute
+# ──────────────────────────────────────────
+metrics:
+  - video_auc
+  - frame_auc
+  - cross_domain_macro_auroc
+  - tpr_at_1pct_fpr
+  - tpr_at_0_1pct_fpr        # ADD: forensic operating point (MASTER_PLAN §3)
+  - eer
+  - per_domain_auroc         # ADD: not pooled — per dataset slice
+  - per_forgery_type_auroc   # ADD: composited / fully_synthetic / reenactment / audio_only
+  - per_skin_tone_eer        # ADD: fairness slice — uses FakeAVCeleb race labels
+  - coverage_vs_error_curve  # ADD: abstention vs accuracy tradeoff
+  - average_precision
+  - localization_iou         # only on valid masks
+  - localization_dice        # only on valid masks
+  - ece
+  - brier_score
+  - abstention_rate
+  - selective_accuracy
+
+# ──────────────────────────────────────────
+# Bootstrap confidence intervals
+# IMPORTANT: celeb_df.jsonl has 84,901 frame-level rows.
+# Bootstrap MUST group by video_id then by source_group_id (identity).
+# AUROC must be computed at video level, NOT frame level.
+# ──────────────────────────────────────────
+bootstrap:
+  n_resamples: 1000
+  confidence_level: 0.95
+  seed: 42
+  group_by: "source_group_id"   # FIX: video-level grouping, not frame-level
+  aggregation: "video_mean"      # aggregate frame scores to video score first
+
+# ──────────────────────────────────────────
+# Per-branch evaluation (MASTER_PLAN §8 ablation plan)
+# ──────────────────────────────────────────
+per_branch_eval:
+  enabled: true
+  branch_marginal_auroc: true      # compute delta AUROC per branch removal
+  forgery_type_breakdown: true     # per-forgery-type per-branch analysis
+  skin_tone_eer: true              # fairness slice per branch
+  benchmark_dataset: "df40"        # primary cross-domain ablation benchmark
+  decision_threshold_pct: 1.0     # prune if delta AUROC < 1% at VRAM cost > 100MB
+
+# ──────────────────────────────────────────
+# Fairness evaluation (MASTER_PLAN RISK 6)
+# ──────────────────────────────────────────
+fairness:
+  enabled: true
+  skin_tone_groups:               # FakeAVCeleb race labels
+    - "African"
+    - "Asian (East)"
+    - "Asian (South)"
+    - "Caucasian (American)"
+    - "Caucasian (European)"
+  metrics_per_group:
+    - eer
+    - tpr_at_1pct_fpr
+    - tpr_at_0_1pct_fpr
+  source_dataset: "FakeAVCeleb"   # race labels available here
+
+# ──────────────────────────────────────────
+# Ablation study — 12 prescribed configs
+# ──────────────────────────────────────────
+ablation_configs:
+  - name: "rgb_only"
+    semantic: true
+    forensic: false
+    temporal: false
+    rppg: false
+    av: false
+    consistency_loss: false
+    quality_aware_fusion: true
+
+  - name: "forensic_only"
+    semantic: false
+    forensic: true
+    temporal: false
+    rppg: false
+    av: false
+    consistency_loss: false
+    quality_aware_fusion: true
+
+  - name: "temporal_only"
+    semantic: false
+    forensic: false
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: false
+    quality_aware_fusion: true
+
+  - name: "semantic_forensic"
+    semantic: true
+    forensic: true
+    temporal: false
+    rppg: false
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: true
+
+  - name: "semantic_temporal"
+    semantic: true
+    forensic: false
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: true
+
+  - name: "semantic_forensic_temporal"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: true
+
+  - name: "no_consistency_loss"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: false
+    quality_aware_fusion: true
+
+  - name: "no_source_pair_training"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: true
+    metric_learning: false
+    quality_aware_fusion: true
+
+  - name: "no_quality_aware_fusion"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: false
+
+  - name: "no_rppg"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: false
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: true
+
+  - name: "unweighted_fusion"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: true
+    av: false
+    consistency_loss: true
+    quality_aware_fusion: false
+    unweighted_fusion: true
+
+  - name: "full_forge_lite"
+    semantic: true
+    forensic: true
+    temporal: true
+    rppg: true
+    av: true
+    consistency_loss: true
+    quality_aware_fusion: true
+
+# ──────────────────────────────────────────
+# Robustness evaluation
+# ──────────────────────────────────────────
+robustness:
+  codec_configs:
+    - "h264_crf23"
+    - "h264_crf30"
+    - "h264_crf40"
+  image_transforms:
+    - name: "gaussian_blur"
+      sigma: [0.5, 1.0, 2.0]
+    - name: "jpeg_quality"
+      quality: [90, 70, 50]
+    - name: "resize"
+      scale: [0.75, 0.5]
+    - name: "brightness"
+      factor: [0.7, 1.3]
+    - name: "noise"
+      std: [0.01, 0.05]
+  adversarial:
+    - name: "pgd10"
+      steps: 10
+      epsilon: 0.03
+    - name: "pgd20"
+      steps: 20
+      epsilon: 0.03
+
+# ──────────────────────────────────────────
+# Slice analysis dimensions
+# ──────────────────────────────────────────
+slices:
+  face_size_bins: [0, 0.05, 0.15, 0.30, 1.0]   # face_area_ratio
+  blur_bins: [0, 0.2, 0.5, 0.8, 1.0]
+  compression_bins: [0, 0.3, 0.6, 0.9, 1.0]
+  pose_bins: [0, 15, 30, 45, 90]                # yaw degrees
+  video_length_bins: [0, 5, 15, 60, 9999]       # seconds
+
+# ──────────────────────────────────────────
+# Locked test set (NEVER USED BEFORE STEP 15)
+# ──────────────────────────────────────────
+locked_test:
+  lock_file: "data/splits/locked_test.json"
+  allow_access: false                # set true ONLY in final evaluation run
