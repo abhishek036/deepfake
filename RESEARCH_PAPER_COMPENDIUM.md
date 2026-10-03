@@ -35,7 +35,7 @@
 >
 > We introduce a unified audit protocol implementing: (1) grouped cross-validation low-level statistics probes with grayscale, color, and $8\times 8$ thumbnail features; (2) symmetric image degradations; (3) geometric mask controls using mean-color fill (central face fill, equal-area random patch fill, and patch shuffle) rather than zero-masking; and (4) a targeted sharpness diagnostic. Using **FORGE-Lite**—an efficient multi-branch detector combining a frozen DINOv2 foundation backbone with lightweight LayerNorm adaptation (314K trainable parameters) and Spatial Rich Model (SRM) residuals—as our primary case study, we reveal that a 6-feature grayscale probe alone achieves **0.9151 CV-AUROC** in our setting (31 DF40 generators vs. FaceForensics++ and Celeb-DF-v2 reals, target $\le 0.55$). Across all five available real repositories, grayscale probe AUROCs range from 0.8692 to 1.0000; no pairing has been verified clean by our protocol.
 >
-> The model achieves 0.9999 canonical AUROC on held-out test videos. AUROC is stable above 0.997 under JPEG Q=90 and above 0.9999 under JPEG Q=50 and hard downsampling, indicating the model's ranking is not sharpness-driven. Equal-area random patch masking (mean-color fill) drops AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`), approaching chance. Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, hash-referenced ledgers, and empirical guidelines for building bias-free forensic evaluations.
+> The model achieves 0.9999 canonical AUROC on held-out test videos. In our setting, AUROC is stable at 0.997–1.000 under JPEG Q=90, JPEG Q=50, and hard downsampling (on the confounded pairing), indicating the model's ranking is not sharpness-driven. Equal-area random patch masking (mean-color fill) drops AUROC to 0.5666 (95% CI: `[0.4984, 0.6282]`), approaching chance. Rather than claiming benchmark supremacy, we present these results as a documented case study of a confounded pairing, providing open-source audit scripts, hash-referenced ledgers, and empirical guidelines for building bias-free forensic evaluations.
 
 ---
 
@@ -349,12 +349,11 @@ widespread misclassification, indicating that the uncertainty estimator is tied 
 │    (probe AUROC 0.87-1.00); no pairing verified clean."│    container format shortcuts, not synthesis bounds.   │
 │ 2. "Tables 2, 3, 5 are a case study of a confounded   │ 2. DO NOT claim "Zero-Shot Generalization" or "LOGO"   │
 │    pairing, not a forensic mastery benchmark."         │    - architectures were held out from calibration only.│
-│ 3. "AUROC is stable above 0.997 under JPEG Q=90 and   │ 3. DO NOT state recall-collapse at JPEG Q=90 as a      │
-│    above 0.9999 under Q=50+downsampling - the model's  │    finding until the Youden plateau-median threshold   │
-│    logit ranking is not sharpness-driven (in our       │    re-run completes. Report AUROC first.               │
-│    setting)."                                          │                                                        │
-│ 4. "Audit results are fully scripted and hash-         │ 4. DO NOT claim "Unified transcoding eliminates bias"  │
-│    referenced; every number traces to ledger + SHA."   │    - underlying compression history traces persist.    │
+│ 3. "AUROC ≈ 0.997–1.000 under JPEG Q=90, JPEG Q=50,    │ 3. DO NOT state recall-collapse at JPEG Q=90 as a      │
+│    and hard downsampling - the model's logit ranking   │    finding until the Youden plateau-median threshold   │
+│    is not sharpness-driven (in our setting, on the     │    re-run completes. Report AUROC first.               │
+│    confounded pairing)."                               │ 4. DO NOT claim "Unified transcoding eliminates bias"  │
+│                                                        │    - underlying compression history traces persist.    │
 └────────────────────────────────────────────────────────┴────────────────────────────────────────────────────────┘
 ```
 
