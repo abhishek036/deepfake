@@ -1,0 +1,95 @@
+
+
+% ======================================================================\begin{table*}[t]
+\centering
+\small
+\caption{\textbf{The Pairing Effect Across Visual Representations.} Linear probe AUROC ($\text{mean} \pm \text{std}$ across 5 seeds: 42, 7, 13, 99, 2024) on scene-disjoint FaceForensics++ splits. $C\to C$: trained and evaluated on naive/confounded pairings. $C\to M$: trained on confounded pairs and tested on geometry-matched pairs (cross-evaluation). $M\to M$: trained and tested on clean shared-transform pairs. $M\to C$: trained on clean pairs and tested on naive pairs.}
+\label{tab:pairing_effect}
+\begin{tabular}{lcccc c}
+\toprule
+\textbf{Representation} & \textbf{$C \to C$ (Confounded)} & \textbf{$C \to M$ (Cross)} & \textbf{$M \to M$ (Clean Ref.)} & \textbf{$M \to C$ (Gen.)} & \textbf{$M \to M$ BalAcc} \\
+\midrule
+DINOv2-S/14 (Self-Supervised) & $0.998 \pm 0.001$ & $0.596 \pm 0.013$ & $0.763 \pm 0.012$ & $0.793 \pm 0.035$ & 0.691 \\
+ResNet-50 (Supervised ImageNet) & $0.972 \pm 0.006$ & $0.524 \pm 0.009$ & $0.613 \pm 0.013$ & $0.659 \pm 0.031$ & 0.592 \\
+ViT-B/16 (Supervised ImageNet) & $0.966 \pm 0.005$ & $0.553 \pm 0.010$ & $0.690 \pm 0.010$ & $0.718 \pm 0.024$ & 0.638 \\
+Color & Texture Baseline & $0.812 \pm 0.007$ & $0.467 \pm 0.009$ & $0.546 \pm 0.009$ & $0.299 \pm 0.016$ & 0.540 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\small
+\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. \textbf{Background ($C\to C$)} measures the container shortcut present in confounded pairings. \textbf{Background ($M\to M$)} tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). \textbf{Face ($M\to M$)} tests facial manipulation signal retention.}
+\label{tab:spatial_decomposition}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Backbone} & \textbf{Background ($C\to C$ Shortcut)} & \textbf{Background ($M\to M$ Clean)} & \textbf{Face Only ($M\to M$)} & \textbf{Full Image ($M\to M$)} \\
+\midrule
+DINOv2-S/14 & $0.998 \pm 0.001$ & $0.591 \pm 0.010$ & $0.774 \pm 0.007$ & $0.763 \pm 0.012$ \\
+ResNet-50 & $0.986 \pm 0.004$ & $0.537 \pm 0.009$ & $0.619 \pm 0.011$ & $0.613 \pm 0.013$ \\
+ViT-B/16 & $0.986 \pm 0.004$ & $0.567 \pm 0.009$ & $0.706 \pm 0.012$ & $0.690 \pm 0.010$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{The Native Pairing Fallacy on Celeb-DF-v2.} Auditing native target-video matched pairs (5,332 reals, 5,410 fakes). While the low-level background corner probe passes at chance ($0.458$), high-level DINOv2 background probe leaks a substantial shortcut ($0.745$), demonstrating that native bounding box alignment fails to eliminate container separation.}
+\label{tab:celeb_audit}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Probe Type} & \textbf{Region Evaluated} & \textbf{AUROC} & \textbf{Status / Rule} \\
+\midrule
+Handcrafted Low-Level & Outer Corners & $0.458 [0.413, 0.503]$ & Passed (Chance) \\
+DINOv2 Linear Probe & Background Only (\texttt{face\_out}) & $0.751 \pm 0.005$ & FAILED P-C2 ($>0.60$) \\
+DINOv2 Linear Probe & Face Region (\texttt{face\_only}) & $0.911 \pm 0.010$ & Synthesis Signal \\
+DINOv2 Linear Probe & Full Image (Native) & $0.889 \pm 0.007$ & Confounded Benchmark \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Benchmark Composition Shortcut.} 5-fold cross-validation performance of a trivial Bayesian classifier predicting forgery status using \emph{only} categorical dataset provenance ($P(\text{fake} \mid \text{dataset})$) across 949,254 samples without accessing image pixels.}
+\label{tab:dataset_id}
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Dataset} & \textbf{Total Samples ($N$)} & \textbf{Fake Ratio (\%)} & \textbf{Empirical Prior} \\
+\midrule
+df40 & 686,358 & 100.0\% & 1.0000 \\
+faceforensics & 127,068 & 85.8\% & 0.8578 \\
+celeb_df & 84,900 & 85.7\% & 0.8567 \\
+wild_deepfake & 23,100 & 51.7\% & 0.5169 \\
+fakeavceleb & 21,566 & 97.7\% & 0.9768 \\
+ffhq & 4,062 & 0.0\% & 0.0000 \\
+lav-df & 2,000 & 100.0\% & 1.0000 \\
+hdtf & 100 & 0.0\% & 0.0000 \\
+talkingheadbench & 100 & 100.0\% & 1.0000 \\
+\midrule
+\textbf{Overall 5-Fold CV AUROC} & \multicolumn{3}{c}{\textbf{0.9208} [0.9201, 0.9216]} \\
+\textbf{Overall Balanced Accuracy} & \multicolumn{3}{c}{0.5452} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Verification of Shared Spatial Transform Pairing on FaceForensics++.} Quantifying geometric alignment and background pixel statistics between matched real frames and deepfake frames.}
+\label{tab:pairing_geometry}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Alignment / Forensic Diagnostic} & \textbf{Measured Value} & \textbf{Pre-Registered Threshold / Rule} \\
+\midrule
+Face Crop Center MAD & $0.721$ px & $\le 4.0$ px (P-S1 MET) \\
+Background Pixel MAD: Real vs Fake & $3.244$ & Baseline reference \\
+Background Pixel MAD: Fake vs Fake & $3.372$ & Negative control \\
+Ratio of Background Medians (RF / FF) & $0.962$ & Clean ($[0.95, 1.05]$) \\
+Composited Low-Level Background Probe & $0.437 [0.383, 0.486]$ & At Chance ($[0.45, 0.55]$) \\
+Reenactment Low-Level Background Probe & $0.521 [0.482, 0.570]$ & At Chance ($[0.45, 0.55]$) \\
+\bottomrule
+\end{tabular}
+\end{table}
