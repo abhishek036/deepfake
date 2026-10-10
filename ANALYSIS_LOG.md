@@ -42,3 +42,39 @@
 - *Interpretation:* The multi-dataset benchmark pool is severely confounded. Predicting $P(\text{fake} \mid \text{dataset})$ without observing image pixels achieves 0.9208 AUROC, confirming that models trained on this uncurated pool can learn provenance shortcuts rather than genuine forensic cues.
 - Ledger: `reports/dataset_id_baseline.json`.
 
+---
+
+## 2026-10-11 — Phase C Celeb-DF Native Pairing Audit
+
+**Hypothesis Testing & Decision Rules:**
+- **P-C2 (Celeb-DF face_out AUROC $\le 0.60$): NOT MET.**
+  - Background-only (`face_out`) AUROC: **0.745 $\pm$ 0.015** [0.724, 0.763].
+  - Handcrafted low-level corner probe: **0.458 [0.41, 0.50]** (at chance).
+  - Full-image probe: **0.883 $\pm$ 0.010** [0.874, 0.896].
+  - Face-only probe: **0.912 $\pm$ 0.008** [0.901, 0.923].
+- *Interpretation:* Replicates working hypothesis (ii). While low-level corner probe passes (at chance 0.458), high-level feature extractors (DINOv2) still extract a significant background shortcut (0.745) on independently cropped native pairs. This proves that standard face-tracker cropping is insufficient to equalize background container cues.
+- Ledgers: `reports/region_probe_celeb.json`, `reports/lp_celeb_5seeds.json`, `reports/lp_celeb_face_out_5seeds.json`, `reports/lp_celeb_face_only_5seeds.json`.
+
+---
+
+## 2026-10-11 — Phase C Multi-Backbone & Representation Invariance Controls
+
+**Hypothesis Testing & Decision Rules:**
+- **P-C3 (Multi-backbone face_out AUROC $\le 0.60$ on Clean Reference): MET across all architectures.**
+  - **ResNet-50 (Supervised ImageNet ConvNet):**
+    - Confounded C->C full-image: **0.972 $\pm$ 0.006**; collapsing on matched reals (C->M) to **0.524 $\pm$ 0.009** (chance). Clean M->M: **0.613 $\pm$ 0.013**.
+    - Confounded C->C background (`face_out`): **0.986 $\pm$ 0.004**; collapsing on clean reference (M->M) to **0.537 $\pm$ 0.009** (chance! $\le 0.60$).
+    - Face-only (`face_only`): Clean M->M: **0.619 $\pm$ 0.011**.
+    - Ledgers: `reports/lp_shared_resnet50_5seeds.json`, `reports/lp_shared_resnet50_face_out_5seeds.json`, `reports/lp_shared_resnet50_face_only_5seeds.json`.
+  - **ViT-B/16 (Supervised ImageNet Vision Transformer):**
+    - Confounded C->C full-image: **0.966 $\pm$ 0.005**; collapsing on matched reals (C->M) to **0.553 $\pm$ 0.010** (chance). Clean M->M: **0.690 $\pm$ 0.010**.
+    - Confounded C->C background (`face_out`): **0.986 $\pm$ 0.004**; collapsing on clean reference (M->M) to **0.567 $\pm$ 0.009** (chance! $\le 0.60$).
+    - Face-only (`face_only`): Clean M->M: **0.706 $\pm$ 0.012**.
+    - Ledgers: `reports/lp_shared_vitb16_5seeds.json`, `reports/lp_shared_vitb16_face_out_5seeds.json`, `reports/lp_shared_vitb16_face_only_5seeds.json`.
+- *Triad Invariance Summary:*
+  - DINOv2-S/14 background: Confounded **0.999** $\to$ Clean **0.596** ($\le 0.60$).
+  - ResNet-50 background: Confounded **0.986** $\to$ Clean **0.537** ($\le 0.60$).
+  - ViT-B/16 background: Confounded **0.986** $\to$ Clean **0.567** ($\le 0.60$).
+- *Interpretation:* The background pairing shortcut is architectural-invariant. It is not an artifact of vision transformers or self-supervised features; frozen supervised ConvNets and Vision Transformers learn identical container cues when reals and fakes are mismatched, and all collapse to chance when evaluated on a shared spatial transform.
+
+

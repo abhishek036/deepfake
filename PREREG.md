@@ -57,11 +57,14 @@ If either fails, the pairing is confounded and the next diagnostic step applies 
 
 **H-C2 (Celeb-DF Native Pairing):** In Celeb-DF-v2 native pairing (target video matched), independently aligned crops may still exhibit residual background or format separation. If `face_out` AUROC $\le 0.60$, the native pairing is clean; if $> 0.60$, it suffers from cropping/alignment shortcut leakage.
 
+**H-C3 (Multi-Backbone Invariance):** The clean reference pairing established on FaceForensics++ (shared spatial transform) will eliminate the background container shortcut across diverse visual representations (frozen ResNet-50 and frozen CLIP ViT-B/16). On clean shared-transform pairs, background probe (`face_out`) AUROC will remain $\le 0.60$ across backbones.
+
 ### Decision Rules
 | Symbol | Condition | Threshold | Interpretation if met |
 |--------|-----------|-----------|----------------------|
 | P-C1 | Dataset-ID baseline 5-fold CV AUROC on combined training pool | $\ge 0.90$ | Dataset provenance constitutes an evaluation shortcut |
 | P-C2 | Celeb-DF `face_out` DINOv2 linear probe AUROC | $\le 0.60$ | Celeb-DF native background is free of shortcut cues |
+| P-C3 | Multi-backbone (ResNet-50, CLIP) `face_out` linear probe AUROC | $\le 0.60$ | Background shortcut elimination is representation-invariant |
 
 ---
 
