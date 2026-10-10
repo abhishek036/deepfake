@@ -98,7 +98,7 @@ def measure_crop(img, det):
 def filter_fakes(recs, forgery_types, ff_domain_only):
     out = []
     for r in recs:
-        if r.get("label", 1) != 1 or not r.get("source_path") or not Path(r["source_path"]).exists():
+        if r.get("label", 1) != 1 or not r.get("source_path"):
             continue
         if forgery_types and r.get("forgery_type") not in forgery_types:
             continue
@@ -107,6 +107,8 @@ def filter_fakes(recs, forgery_types, ff_domain_only):
             sp = str(r.get("source_path", ""))
             if not (FF_ID.search(vid) or FF_ID.search(sp)):
                 continue
+        if not Path(r["source_path"]).exists():
+            continue
         out.append(r)
     return out
 
@@ -193,15 +195,18 @@ def cmd_extract(a, det=None):
             ids = sorted({str(x) for x in raw_split})
         split = "test"
     else:
-        sub = filter_fakes(read_jsonl(a.fake_subset), None, False)
         ids = set()
-        for r in sub:
-            vid = str(r.get("video_id", ""))
-            sp = str(r.get("source_path", ""))
-            m = FF_ID.search(vid) or FF_ID.search(sp)
-            if m:
-                parts = m.group(1).split("_")
-                ids.add(parts[a.parent_part])
+        with open(a.fake_subset, "r", encoding="utf-8") as f_sub:
+            for line in f_sub:
+                if not line.strip():
+                    continue
+                r = json.loads(line)
+                vid = str(r.get("video_id", ""))
+                sp = str(r.get("source_path", ""))
+                m = FF_ID.search(vid) or FF_ID.search(sp)
+                if m:
+                    parts = m.group(1).split("_")
+                    ids.add(parts[a.parent_part])
         ids = sorted(ids)
         split = "parent"
     rng.shuffle(ids)
@@ -209,7 +214,10 @@ def cmd_extract(a, det=None):
     out_dir = Path(a.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     rows, skipped = [], Counter()
-    for vid in ids:
+    print(f"Extracting matched crops from {len(ids)} videos ({a.frames_per_video} frames/video)...", flush=True)
+    for i_vid, vid in enumerate(ids):
+        if (i_vid + 1) % 50 == 0 or (i_vid + 1) == len(ids):
+            print(f"Progress: [{i_vid + 1}/{len(ids)}] videos processed, {len(rows)} crops written...", flush=True)
         vp = Path(a.video_dir) / f"{vid}.mp4"
         cap = cv2.VideoCapture(str(vp))
         n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))

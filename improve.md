@@ -1,0 +1,42 @@
+# FORGE-Lite: Technical Review
+
+First, the honest reframe, because it matters more than anything else I'll say: **"100% accurate" is not a real target, and your own architecture already knows this.** You built an entire `insufficient_evidence` abstention system precisely because no evidence-based classifier can be certain on every input. The best published cross-domain deepfake detectors in 2026 sit in the 70-90s% AUROC range depending on how unseen the test generator is — and several papers this year (WACV 2026's "Deepfake Detection that Generalizes Across Benchmarks," the "Continuously Evolving Deepfake Detection" system) show even well-funded, continuously-updated production detectors losing significant AUC the moment a genuinely new generator family shows up. "World's best" in this field means **highest generalization + best-calibrated uncertainty + lowest false-positive rate at usable thresholds** — not 100%. That reframe should go in your CVPR framing too; reviewers will read a 100%-accuracy claim as a red flag, not a strength.
+
+With that said — this is a genuinely strong design. Here's my real assessment.
+
+## What's already right (and validated by current research)
+
+- **Minimal adaptation of a frozen foundation backbone** (your `layernorm`/LoRA modes, selected by cross-domain AUROC) is exactly what the WACV 2026 GenD paper found to be the key to SOTA generalization — full fine-tuning of a foundation model consistently *hurts* cross-domain transfer. You independently arrived at the right answer.
+- **Source-paired (real, fake) sampling** — same paper calls this "essential for mitigating shortcut learning." You already do it.
+- **Codec-consistency training** is the single highest-leverage thing you could do for real-world (social-media-compressed) performance. Most academic detectors collapse here; you built for it explicitly.
+- **Provenance strictly separated from fake_score** matches where the field has actually landed in 2026 — detection and C2PA answer different questions ("is this synthetic" vs. "what's the chain of custody"), and conflating them is a known credibility failure mode. Your rules here are correct and worth keeping rigid.
+- **Quality-gated abstention** instead of a forced verdict is the right forensic posture and increasingly the expected standard for anything meant to be legally defensible.
+
+## The real risks, ranked by expected impact
+
+**1. Your training data is a decade behind your threat model.** FF++, Celeb-DF-v2, DFDC Preview, and WildDeepfake are 2019-2021 GAN/autoencoder face-swap and reenactment sets. None of them contain diffusion-based generation, and your context/DINO branches — your main defense against fully-synthetic video — will be evaluated against nothing that resembles what they're actually meant to catch (Sora/Veo/Kling-class generation, LivePortrait/HeyGen-class reenactment, diffusion inpainting face-swaps). Concretely add **DF40** (NeurIPS 2024, 40 forgery methods including diffusion) and **Deepfake-Eval-2024** (in-the-wild deepfakes actually circulated in 2024) to your manifest. Interestingly, the same GenD paper found training on *only* the newest dataset generalizes worse than training on older-but-diverse FF++ — so don't drop the classic sets, add to them.
+
+**2. "Frozen V3 policy" as a permanent artifact is a liability, not a safeguard.** Freezing thresholds after calibration to prevent test-set leakage is correct methodology. Freezing the *model* forever is not — the "Continuously Evolving Deepfake Detection" system (2026) shows AUC on new-generator media tracks snapshot recency almost linearly; a static baseline decays hard against generators it's never seen. Version it: `v3.1`, `v3.2`, with a defined recalibration cadence against a rolling new-generator holdout, not one frozen checkpoint you defend indefinitely.
+
+**3. Your rPPG branch has a Nyquist problem.** `bpm_max=210` → 3.5 Hz signal, requiring **>7 fps** minimum to even sample it — and your preprocessing pipeline targets **8 fps**. You're one frame-rate hiccup away from aliasing the exact physiological signal the branch exists to detect, with essentially zero oversampling margin for noise, compression, or motion. Either pull a separate higher-fps (20-25fps) crop stream specifically for the rPPG branch, or deprioritize it as core evidence until you can. This likely explains why your own notes flag rPPG as unvalidated on real data — the frame rate as specified won't produce usable SNR.
+
+**4. The "alpha-blending hypothesis" risk.** Recent work (2026) argues SOTA forensic/frame-based detectors often localize low-level *compositing boundary* artifacts rather than learning genuine semantic manipulation cues. Your SRM+Haar forensic branch is architecturally exactly the kind of feature this describes. That's fine for face-swap composites — but fully-synthetic diffusion video has no blend boundary at all, so this branch's contribution may silently collapse to near-zero on exactly the generator class you most need to catch. Add an explicit eval slice that separates "composited/swapped" fakes from "fully synthetic" fakes and report per-branch marginal AUROC on each separately, not just pooled.
+
+**5. Audio-visual branch checks sync, not authenticity.** Voice cloning has reportedly crossed the "indistinguishable" perceptual threshold in 2026. A well-executed reenactment with a cloned (but correctly-synced) voice defeats SyncNet-style desync detection entirely, because there's no desync to find. Sync detection and audio-authenticity detection are different problems — worth a dedicated (even lightweight) audio deepfake classifier as its own evidence source, separate from the sync scalar.
+
+**6. No fairness/subgroup evaluation, and rPPG specifically is skin-tone-sensitive.** Photoplethysmography accuracy is well-documented to degrade with skin reflectance/melanin content. In a system whose whole value proposition is forensic defensibility, an uneven false-positive rate across skin tones isn't just an accuracy footnote — it's a liability surface your `Known Risks` table doesn't currently list. Add it, and add EER/TPR-at-fixed-low-FPR (1%, 0.1%) as first-class reported metrics, not just AUROC — a forensic tool lives or dies on its false-positive rate at conservative operating points, which AUROC alone can hide.
+
+**7. Complexity-vs-value hasn't been proven yet.** Seven branches, a 512-dim fusion MLP, and a 20K+ line codebase trained on a handful of 2019-2021 datasets is a lot of capacity relative to data diversity. You already have `evaluate_av_rppg_contribution.py` — run the same marginal-AUROC-per-branch treatment on geometry and context too, and be willing to find that a leaner 4-branch model outperforms the 7-branch one on cross-domain AUROC once real training happens. Simpler, better-generalizing, and more explainable all point the same direction here.
+
+**8. Everything here targets uploaded/recorded video, not live calls.** A growing share of real deepfake fraud (executive impersonation, wire-fraud calls) is real-time video-call synthesis, which your async-job-queue architecture can't touch. Your own backlog already lists "Streaming inference API (WebSocket)" — I'd move that from backlog to near-term priority, not because it's easy, but because it's where the threat model is actually shifting.
+
+## If I were prioritizing your next quarter
+
+1. Fix rPPG frame-rate mismatch (or bench the branch's weight until fixed)
+2. Add DF40 + Deepfake-Eval-2024 to training data; explicitly split eval by composited-vs-fully-synthetic
+3. Convert frozen-V3 into a versioned, recalibrated snapshot policy
+4. Swap in a small distilled **DINOv3** checkpoint — it's public now (Aug 2025), not "when available" — and A/B it against your DINOv2 backbone, especially for the localization head's patch tokens
+5. Add fairness/subgroup slice + low-FPR operating-point metrics as standard eval output, not an afterthought
+6. Branch-pruning ablation: prove each branch earns its VRAM and complexity budget
+
+None of this is a knock on the design — the fusion philosophy, abstention logic, and provenance separation are already at the level of what's getting published in 2026. The gap between this and "world's best" is entirely in data currency, a couple of concrete engineering bugs (rPPG sampling), and honest metrics beyond AUROC — not in the architecture itself.

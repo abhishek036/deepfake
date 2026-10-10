@@ -106,3 +106,9 @@ wandb/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Large JSON manifests
+data/manifests/*.json
+FINAL_DATASET.csv
+reports/emb_cache*.pkl
+reports/per_generator_evaluation_report*.json
