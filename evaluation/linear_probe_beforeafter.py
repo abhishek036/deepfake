@@ -160,6 +160,20 @@ def hf_embedder(name, device, batch):
             return np.concatenate(out)
         return embed_resnet
 
+    if "vit_b_16" in name.lower() or "vit-b" in name.lower() or "vit_b" in name.lower():
+        import torchvision.models as tv_models
+        model = tv_models.vit_b_16(weights=tv_models.ViT_B_16_Weights.DEFAULT).to(dev).eval()
+        model.heads = torch.nn.Identity()
+        def embed_vit(arrs):
+            out = []
+            with torch.no_grad():
+                for i in range(0, len(arrs), batch):
+                    x = torch.from_numpy(np.stack(arrs[i:i + batch])).to(dev).permute(0, 3, 1, 2).float() / 255
+                    rep = model((x - mean) / std)
+                    out.append(rep.float().cpu().numpy())
+            return np.concatenate(out)
+        return embed_vit
+
     if "clip" in name.lower():
         import sys, types
         if "transformers.dependency_versions_check" not in sys.modules:
