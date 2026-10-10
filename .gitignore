@@ -122,4 +122,13 @@ web/
 trainsets/
 datasets/
 
-data/
+
+data/crops/
+data/splits/
+data/test_samples/
+data/final_dataset/
+data/audio/
+
+data/*.jsonl
+data/ffpp_*.jsonl
+data/ff_*.jsonl
