@@ -1,0 +1,24 @@
+{
+ "script_sha256": "6ecb418fff91619d370ed43859a3a3d1bb7c504776f2ef5264a699199eace9e0",
+ "targets_sha256": "1052419a8fdcc17941546bf1ae0a8f43b0f3dfb1ec51bec073a445e93429afcf",
+ "args": {
+  "cmd": "extract",
+  "video_dir": "datasets/FaceForensics++_C23/original",
+  "targets": "data/crop_targets_fsfr.json",
+  "split_json": "None",
+  "fake_subset": "data/df40_fsfr_subset.jsonl",
+  "parent_part": "0",
+  "n_videos": "1000",
+  "frames_per_video": "6",
+  "seed": "42",
+  "out_dir": "datasets/FaceForensics++_C23/matched_png_fsfr",
+  "manifest": "data/ffpp_matched_reals_fsfr.jsonl"
+ },
+ "n_crops": 4374,
+ "n_videos": 852,
+ "skipped": {
+  "crop_out_of_frame": 1477,
+  "no_face": 143
+ },
+ "split_label": "parent"
+}
