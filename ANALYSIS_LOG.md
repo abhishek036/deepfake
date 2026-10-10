@@ -32,3 +32,13 @@
 **5-Seed Controls (Seeds: 42, 7, 13, 99, 2024):**
 - **Identity-Disjoint Control:** DINOv2 M->M AUROC = **0.705 $\pm$ 0.030** [0.653, 0.730]. Low-level = 0.517 $\pm$ 0.047. Confirms performance drop is not driven by source-identity leakage across train/test.
 - **Size Control (3 fakes/scene):** DINOv2 M->M AUROC = **0.724 $\pm$ 0.014** [0.705, 0.740]. Low-level = 0.543 $\pm$ 0.002. Confirms results are invariant to balanced vs 1:2 real-to-fake sampling ratio.
+
+---
+
+## 2026-10-11 — Phase C Dataset-Identity Shortcut Baseline
+
+**Hypothesis Testing & Decision Rules:**
+- **P-C1 (Dataset-ID Baseline AUROC $\ge 0.90$): MET.** Measured: **0.9208 [0.9201, 0.9216]** on 949,254 samples across 9 datasets via 5-fold cross-validation.
+- *Interpretation:* The multi-dataset benchmark pool is severely confounded. Predicting $P(\text{fake} \mid \text{dataset})$ without observing image pixels achieves 0.9208 AUROC, confirming that models trained on this uncurated pool can learn provenance shortcuts rather than genuine forensic cues.
+- Ledger: `reports/dataset_id_baseline.json`.
+
