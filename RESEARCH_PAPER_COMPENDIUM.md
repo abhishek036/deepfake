@@ -68,3 +68,6 @@ Sirf `HANDOFF.md`, teen jagah: Phase A ke baad, Phase B ke baad (saath me PREREG
 - Run se pehle commit karo, aur koi number haath se mat badlo.
 - Is paper me FORGE-Lite ke branches ya abstention ke naye claims mat jodo.
 - Native pairing ko "clean" tab hi kaho jab Phase B ke natije aa jayen.
+
+## Appendix: Legacy Tables Note
+Purane draft ke Tables 2, 3, aur 5 in-sample, confounded pairing par based the aur current ledgers se reproducible nahi hain ("in-sample, confounded pairing, not reproducible from current ledgers"). Wo benchmark claims nahi hain, balki ek case study hain ki kaise presentation shortcuts evaluation metrics ko artificially inflate karte hain.

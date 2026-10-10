@@ -17,7 +17,7 @@ Your own architecture already understands this: you built `insufficient_evidence
 - **Lowest false-positive rate at conservative operating points** (AUROC alone hides this)
 - **Honest abstention when evidence is insufficient** (forensic defensibility)
 
-For CVPR 2027 reviewers: a "100% accuracy" claim is a red flag. "Best-calibrated, best-generalizing 8GB detector with per-branch attribution and honest uncertainty" is a genuine contribution.
+For CVPR 2027 reviewers: a "100% accuracy" claim is a red flag. "Best-calibrated, best-generalizing 8GB detector with per-branch attribution and honest uncertainty" is a valid contribution.
 
 ---
 
@@ -92,7 +92,7 @@ rppg_sampling:
 
 **Problem:** Your SRM+Haar forensic branch detects compositing boundary artifacts. Fully-synthetic diffusion video has no composite boundary — the branch contribution may silently collapse to near-random on exactly the generator class you most need to catch.
 
-**The alpha-blending hypothesis (2026):** SOTA forensic detectors often localize low-level compositing boundary artifacts rather than genuine semantic manipulation cues.
+**The alpha-blending hypothesis (2026):** SOTA forensic detectors often localize low-level compositing boundary artifacts rather than semantic manipulation cues.
 
 **Fix:**
 1. Add `forgery_type` field to all manifests: `composited | fully_synthetic | reenactment | audio_only`

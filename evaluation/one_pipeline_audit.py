@@ -744,6 +744,7 @@ def main():
         args.per_generator_cap = 20
         args.boot = 50
         args.match_bins = 4
+        args.out_dir = str(tmp)
         scorer = stub_scorer
     elif not args.skip_model:
         scorer = load_scorer(args.ckpt, args.device, args.batch_size, args.allowed_missing)
