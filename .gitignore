@@ -82,8 +82,7 @@ weights/
 data/raw/
 data/processed/
 data/cache/
-data/manifests/*.csv
-data/manifests/*.jsonl
+data/manifests/
 *.mp4
 *.avi
 *.mov
@@ -132,3 +131,7 @@ data/audio/
 data/*.jsonl
 data/ffpp_*.jsonl
 data/ff_*.jsonl
+
+# Preprocessing dataset JSONs
+preprocessing/dataset_json/*.json
+

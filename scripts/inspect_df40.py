@@ -2,7 +2,8 @@ import os
 from pathlib import Path
 from collections import Counter
 
-base = Path("C:/deepfake/data/raw/DF40")
+REPO_ROOT = Path(__file__).resolve().parent.parent
+base = REPO_ROOT / "data" / "raw" / "DF40"
 
 # Sample DF40_train/fomm
 fomm = base / "DF40_train" / "fomm"

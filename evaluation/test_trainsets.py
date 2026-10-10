@@ -1,6 +1,6 @@
 """
 evaluation/test_trainsets.py
-Benchmark FORGE-Lite on the dataset in C:\deepfake\trainsets.
+Benchmark FORGE-Lite on the dataset in trainsets.
 
 CSV: trainsets/selfie_and_video.csv
 Files directory: trainsets/files/

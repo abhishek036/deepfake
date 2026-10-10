@@ -59,7 +59,10 @@ def main():
             if o.get("label") == 1:
                 m, gid = o.get("manipulation"), str(o.get("source_group_id", ""))
                 if m in METHODS and PAIR.fullmatch(gid):
-                    fakes.append({"label": 1, "source_path": norm(crop), "method": m, "forgery_type": o.get("forgery_type"),
+                    ftype = o.get("forgery_type")
+                    if m == "FaceShifter" and (not ftype or ftype == "unknown"):
+                        ftype = "composited"
+                    fakes.append({"label": 1, "source_path": norm(crop), "method": m, "forgery_type": ftype,
                                   "video_id": gid, "frame_idx": o.get("frame_idx"), "split": o.get("split"),
                                   "video_path": norm(o.get("source_path", ""))})
                 else:
