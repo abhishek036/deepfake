@@ -183,17 +183,33 @@ def compute_reps(paths, embedder, backbone, cache_path, chunk=64):
     return cache
 
 
-def masked_reps(reps, mask, embedder, chunk=64):
+def masked_reps(reps, mask, embedder, chunk=64, cache_path=None):
     """Re-embed cached images with the requested spatial mask applied.
     Returns a dict path -> (dino_feat, lowlevel_feat) on masked images.
     Backwards-compatible: handles both old 2-tuple caches (no raw array stored)
-    and new 3-tuple caches.  Old entries fall back to reading the image from disk.
+    and new 3-tuple caches. Old entries fall back to reading the image from disk.
+    If cache_path is provided, caches masked embeddings to <stem>_<mask_name>.pkl.
     """
     if mask is None:
         # Return views into existing cache (no copy needed)
         return {p: (v[0], v[1]) for p, v in reps.items()}
+    mask_cache_file = None
+    if cache_path:
+        cp = Path(cache_path)
+        mask_cache_file = cp.with_name(cp.stem + f"_{mask}.pkl")
+        if mask_cache_file.exists():
+            try:
+                blob = pickle.loads(mask_cache_file.read_bytes())
+                if isinstance(blob, dict) and "reps" in blob:
+                    cached = blob["reps"]
+                    if all(p in cached for p in reps):
+                        print(f"Loaded {len(cached)} masked ({mask}) representations from {mask_cache_file.name}")
+                        return cached
+            except Exception:
+                pass
     paths = sorted(reps)
     out = {}
+    print(f"Computing masked ({mask}) representations for {len(paths)} images...")
     for i in range(0, len(paths), chunk):
         ps = paths[i:i + chunk]
         arrs = []
@@ -207,6 +223,15 @@ def masked_reps(reps, mask, embedder, chunk=64):
         emb = embedder(arrs)
         for p, a, e in zip(ps, arrs, emb):
             out[p] = (e, lowlevel(a))
+        if (i // chunk) % 10 == 0:
+            print(f"  {min(i + chunk, len(paths))}/{len(paths)}")
+    if mask_cache_file:
+        try:
+            mask_cache_file.parent.mkdir(parents=True, exist_ok=True)
+            mask_cache_file.write_bytes(pickle.dumps({"mask": mask, "reps": out}))
+            print(f"Saved masked ({mask}) representations to {mask_cache_file.name}")
+        except Exception:
+            pass
     return out
 
 
@@ -315,92 +340,170 @@ def build(pair, scenes, reals, fakes, reps, which, gen_in=None, gen_out=None, id
 
 
 def run(a, embedder, backbone):
-    rng = np.random.default_rng(a.seed)
+    seeds_list = getattr(a, "seeds", None) or [a.seed]
     mask = getattr(a, "mask", None)
     identity_disjoint = getattr(a, "identity_disjoint", False)
-    reals = {"C": load_reals(a.confounded_real_manifest, a.reals_per_scene, rng),
-             "M": load_reals(a.clean_real_manifest, a.reals_per_scene, rng)}
-    fakes = load_fakes(a.fake_manifest, a.families, a.parent_part, a.fakes_per_scene, rng,
-                       identity_disjoint=identity_disjoint)
-    scenes = sorted(set(reals["C"]) & set(reals["M"]) & set(fakes))
-    print(f"scenes with C reals, M reals and fakes: {len(scenes)} "
-          f"(C {len(reals['C'])}, M {len(reals['M'])}, fakes {len(fakes)})")
+
+    seed_scenes = {}
+    seed_reals = {}
+    seed_fakes = {}
+    all_paths = set()
+    for s in seeds_list:
+        s_rng = np.random.default_rng(s)
+        rc = load_reals(a.confounded_real_manifest, a.reals_per_scene, s_rng)
+        rm = load_reals(a.clean_real_manifest, a.reals_per_scene, s_rng)
+        fk = load_fakes(a.fake_manifest, a.families, a.parent_part, a.fakes_per_scene, s_rng,
+                        identity_disjoint=identity_disjoint)
+        sc = sorted(set(rc) & set(rm) & set(fk))
+        seed_scenes[s] = sc
+        seed_reals[s] = {"C": rc, "M": rm}
+        seed_fakes[s] = fk
+        for scene in sc:
+            for pr in "CM":
+                all_paths.update(seed_reals[s][pr].get(scene, []))
+            all_paths.update(entry[0] for entry in fk.get(scene, []))
+
+    all_scenes = seed_scenes[seeds_list[0]]
+    print(f"scenes with C reals, M reals and fakes: {len(all_scenes)} "
+          f"(C {len(seed_reals[seeds_list[0]]['C'])}, M {len(seed_reals[seeds_list[0]]['M'])}, fakes {len(seed_fakes[seeds_list[0]])})")
     if mask:
         print(f"Spatial mask: {mask}")
     if identity_disjoint:
         print("Identity-disjoint mode: source identities are partitioned across train/test")
-    if len(scenes) < 40:
+    if len(all_scenes) < 40:
         sys.exit("too few shared scenes; check --parent-part and that both real manifests cover the same FF++ videos")
+
+    tr_set, te_set = None, None
     if getattr(a, "split_dir", None):
         sdir = Path(a.split_dir)
         tr_p, te_p = sdir / "train.json", sdir / "test.json"
         if tr_p.exists() and te_p.exists():
             tr_set = set(json.loads(tr_p.read_text(encoding="utf-8")))
             te_set = set(json.loads(te_p.read_text(encoding="utf-8")))
+            print(f"Using official FF++ split from {sdir}")
+
+    # Collect all unique paths across all seeds
+    paths = sorted(all_paths)
+    reps_raw = compute_reps(paths, embedder, backbone, a.cache)
+    reps = masked_reps(reps_raw, mask, embedder, cache_path=a.cache)
+
+    models = {"dino": 0, "lowlevel": 1}
+    tr_id_side = 0 if identity_disjoint else None
+    te_id_side = 1 if identity_disjoint else None
+
+    seed_ledgers = {}
+    print(f"\nRunning evaluation across {len(seeds_list)} seed(s): {seeds_list}")
+
+    for seed in seeds_list:
+        rng = np.random.default_rng(seed)
+        reals = seed_reals[seed]
+        fakes = seed_fakes[seed]
+        scenes = seed_scenes[seed]
+
+        if tr_set is not None and te_set is not None:
             tr_sc = [s for s in scenes if s in tr_set][: a.max_scenes]
             te_sc = [s for s in scenes if s in te_set][: a.max_scenes]
-            print(f"Using official FF++ split from {sdir}: {len(tr_sc)} train scenes, {len(te_sc)} test scenes")
         else:
             rng.shuffle(scenes)
             scenes = scenes[: a.max_scenes]
             half = len(scenes) // 2
             tr_sc, te_sc = scenes[:half], scenes[half:]
-    else:
-        rng.shuffle(scenes)
-        scenes = scenes[: a.max_scenes]
-        half = len(scenes) // 2
-        tr_sc, te_sc = scenes[:half], scenes[half:]
-    # Collect all unique paths; store raw array in cache for potential re-embedding with mask
-    paths = ([p for pr in "CM" for s in scenes for p in reals[pr].get(s, [])]
-             + [entry[0] for s in scenes for entry in fakes[s]])
-    reps_raw = compute_reps(paths, embedder, backbone, a.cache)
-    # Apply mask to get effective representations (re-embeds with spatial mask if needed)
-    reps = masked_reps(reps_raw, mask, embedder)
-    meth = Counter(entry[1] for s in te_sc for entry in fakes[s])
-    ledger = {"args": {k: str(v) for k, v in vars(a).items()}, "backbone": backbone,
-              "mask": mask, "identity_disjoint": identity_disjoint,
-              "script_sha256": sha256_file(__file__),
-              "manifest_sha256": {k: sha256_file(getattr(a, k)) for k in
-                                  ("confounded_real_manifest", "clean_real_manifest", "fake_manifest")},
-              "n_scenes": {"train": len(tr_sc), "test": len(te_sc)}, "P1": {}, "P2": {}}
-    models = {"dino": 0, "lowlevel": 1}
 
-    # identity-disjoint: train fakes get side=0, test fakes get side=1
-    tr_id_side = 0 if identity_disjoint else None
-    te_id_side = 1 if identity_disjoint else None
+        p1_res = {}
+        for mname, w in models.items():
+            for a_, b_ in PAIRS:
+                Xtr, ytr, _ = build(a_, tr_sc, reals, fakes, reps, w, id_side=tr_id_side)
+                Xte, yte, gte = build(b_, te_sc, reals, fakes, reps, w, id_side=te_id_side)
+                r = fit_eval(Xtr, ytr, Xte, yte, gte, a.C, rng)
+                p1_res[f"{mname}:{a_}->{b_}"] = r
 
-    print(f"\n== P1: scene-disjoint (train {len(tr_sc)} scenes / test {len(te_sc)} scenes) ==")
-    print(f"{'model':9s}{'train->test':>12s}{'n_real':>8s}{'n_fake':>8s}  {'AUROC [95% CI]':>22s}  balAcc    FPR    TPR")
-    for mname, w in models.items():
+        meth = Counter(entry[1] for s in te_sc for entry in fakes[s])
+        gens = a.logo_generators or [m for m, _ in meth.most_common(a.logo_k)]
+        p2_res = {}
+        for mname, w in models.items():
+            for a_, b_ in PAIRS:
+                per = {}
+                for gname in gens:
+                    Xtr, ytr, _ = build(a_, tr_sc, reals, fakes, reps, w, gen_out={gname}, id_side=tr_id_side)
+                    Xte, yte, gte = build(b_, te_sc, reals, fakes, reps, w, gen_in={gname}, id_side=te_id_side)
+                    if (yte == 1).sum() < 10:
+                        continue
+                    r = fit_eval(Xtr, ytr, Xte, yte, gte, a.C, rng, ci=False)
+                    if r:
+                        per[gname] = r["auroc"]
+                p2_res[f"{mname}:{a_}->{b_}"] = per
+
+        seed_ledgers[seed] = {"P1": p1_res, "P2": p2_res, "n_scenes": {"train": len(tr_sc), "test": len(te_sc)}}
+
+    primary_seed = seeds_list[0]
+    ledger = {
+        "args": {k: str(v) for k, v in vars(a).items()},
+        "backbone": backbone,
+        "mask": mask,
+        "identity_disjoint": identity_disjoint,
+        "script_sha256": sha256_file(__file__),
+        "manifest_sha256": {k: sha256_file(getattr(a, k)) for k in
+                            ("confounded_real_manifest", "clean_real_manifest", "fake_manifest")},
+        "n_scenes": seed_ledgers[primary_seed]["n_scenes"],
+        "seeds": seeds_list,
+        "P1": seed_ledgers[primary_seed]["P1"],
+        "P2": seed_ledgers[primary_seed]["P2"],
+    }
+
+    if len(seeds_list) > 1:
+        ledger["per_seed"] = {str(k): v for k, v in seed_ledgers.items()}
+        summary_p1 = {}
+        first_p1 = seed_ledgers[primary_seed]["P1"]
+        for k in first_p1:
+            aucs = [seed_ledgers[s]["P1"][k]["auroc"] for s in seeds_list if seed_ledgers[s]["P1"].get(k)]
+            baccs = [seed_ledgers[s]["P1"][k]["bal_acc"] for s in seeds_list if seed_ledgers[s]["P1"].get(k)]
+            fprs = [seed_ledgers[s]["P1"][k]["fpr"] for s in seeds_list if seed_ledgers[s]["P1"].get(k)]
+            tprs = [seed_ledgers[s]["P1"][k]["tpr"] for s in seeds_list if seed_ledgers[s]["P1"].get(k)]
+            if aucs:
+                mean_auc = float(np.mean(aucs))
+                std_auc = float(np.std(aucs, ddof=1)) if len(aucs) > 1 else 0.0
+                summary_p1[k] = {
+                    "auroc_mean": mean_auc,
+                    "auroc_std": std_auc,
+                    "auroc_min": float(np.min(aucs)),
+                    "auroc_max": float(np.max(aucs)),
+                    "auroc_seeds": [float(x) for x in aucs],
+                    "bal_acc_mean": float(np.mean(baccs)),
+                    "fpr_mean": float(np.mean(fprs)),
+                    "tpr_mean": float(np.mean(tprs)),
+                }
+        ledger["summary_P1"] = summary_p1
+
+        summary_p2 = {}
+        first_p2 = seed_ledgers[primary_seed]["P2"]
+        for k in first_p2:
+            all_folds = []
+            for s in seeds_list:
+                per = seed_ledgers[s]["P2"].get(k, {})
+                if per:
+                    all_folds.append(np.mean(list(per.values())))
+            if all_folds:
+                summary_p2[k] = {
+                    "mean_auroc_mean": float(np.mean(all_folds)),
+                    "mean_auroc_std": float(np.std(all_folds, ddof=1)) if len(all_folds) > 1 else 0.0,
+                }
+        ledger["summary_P2"] = summary_p2
+
+    print(f"\n== P1: scene-disjoint summary ({len(seeds_list)} seed(s)) ==")
+    print(f"{'model':9s}{'train->test':>12s}  {'AUROC':>20s}  {'[min, max]':>15s}  balAcc")
+    for mname in models:
         for a_, b_ in PAIRS:
-            Xtr, ytr, _ = build(a_, tr_sc, reals, fakes, reps, w, id_side=tr_id_side)
-            Xte, yte, gte = build(b_, te_sc, reals, fakes, reps, w, id_side=te_id_side)
-            r = fit_eval(Xtr, ytr, Xte, yte, gte, a.C, rng)
-            ledger["P1"][f"{mname}:{a_}->{b_}"] = r
-            if r:
-                print(f"{mname:9s}{a_ + '->' + b_:>12s}{r['n_real']:8d}{r['n_fake']:8d}  "
-                      f"{r['auroc']:.3f} [{r['ci95'][0]:.3f},{r['ci95'][1]:.3f}]  {r['bal_acc']:.3f}  {r['fpr']:.3f}  {r['tpr']:.3f}")
-
-    gens = a.logo_generators or [m for m, _ in meth.most_common(a.logo_k)]
-    print(f"\n== P2: leave-one-generator-out (scene-disjoint too); held-out generators: {gens} ==")
-    print(f"{'model':9s}{'train->test':>12s}  mean AUROC   min AUROC   folds")
-    for mname, w in models.items():
-        for a_, b_ in PAIRS:
-            per = {}
-            for gname in gens:
-                Xtr, ytr, _ = build(a_, tr_sc, reals, fakes, reps, w, gen_out={gname}, id_side=tr_id_side)
-                Xte, yte, gte = build(b_, te_sc, reals, fakes, reps, w, gen_in={gname}, id_side=te_id_side)
-                if (yte == 1).sum() < 10:
-                    continue
-                r = fit_eval(Xtr, ytr, Xte, yte, gte, a.C, rng, ci=False)
+            k = f"{mname}:{a_}->{b_}"
+            if len(seeds_list) > 1 and "summary_P1" in ledger and k in ledger["summary_P1"]:
+                s_info = ledger["summary_P1"][k]
+                print(f"{mname:9s}{a_ + '->' + b_:>12s}  {s_info['auroc_mean']:.3f} ± {s_info['auroc_std']:.3f}  "
+                      f"[{s_info['auroc_min']:.3f}, {s_info['auroc_max']:.3f}]  {s_info['bal_acc_mean']:.3f}")
+            else:
+                r = ledger["P1"].get(k)
                 if r:
-                    per[gname] = r["auroc"]
-            ledger["P2"][f"{mname}:{a_}->{b_}"] = per
-            if per:
-                v = np.array(list(per.values()))
-                print(f"{mname:9s}{a_ + '->' + b_:>12s}  {v.mean():10.3f}  {v.min():10.3f}   {len(v)}")
-    print("\nHow to read: C->C vs C->M = how much the score depended on the confound; M->M vs lowlevel M->M = whether the "
-          "embedding finds more than low-level cues; P2 rows = generalisation to unseen generators.")
+                    print(f"{mname:9s}{a_ + '->' + b_:>12s}  {r['auroc']:.3f} [{r['ci95'][0]:.3f},{r['ci95'][1]:.3f}]  "
+                          f"{'-':>15s}  {r['bal_acc']:.3f}")
+
     if a.out:
         Path(a.out).parent.mkdir(parents=True, exist_ok=True)
         Path(a.out).write_text(json.dumps(ledger, indent=1))
@@ -492,6 +595,8 @@ def main():
     ap.add_argument("--logo-k", type=int, default=6,
                     help="how many of the most frequent generators to hold out, one at a time")
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--seeds", type=int, nargs="*", default=None,
+                    help="Optional list of seeds to run and aggregate (e.g. --seeds 42 7 13 99 2024)")
     ap.add_argument("--cache", default="reports/emb_cache.pkl")
     ap.add_argument("--out", default="reports/linear_probe_beforeafter.json")
     ap.add_argument("--mask", choices=["face_out", "face_only"], default=None,
