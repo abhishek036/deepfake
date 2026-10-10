@@ -331,10 +331,25 @@ def run(a, embedder, backbone):
         print("Identity-disjoint mode: source identities are partitioned across train/test")
     if len(scenes) < 40:
         sys.exit("too few shared scenes; check --parent-part and that both real manifests cover the same FF++ videos")
-    rng.shuffle(scenes)
-    scenes = scenes[: a.max_scenes]
-    half = len(scenes) // 2
-    tr_sc, te_sc = scenes[:half], scenes[half:]
+    if getattr(a, "split_dir", None):
+        sdir = Path(a.split_dir)
+        tr_p, te_p = sdir / "train.json", sdir / "test.json"
+        if tr_p.exists() and te_p.exists():
+            tr_set = set(json.loads(tr_p.read_text(encoding="utf-8")))
+            te_set = set(json.loads(te_p.read_text(encoding="utf-8")))
+            tr_sc = [s for s in scenes if s in tr_set][: a.max_scenes]
+            te_sc = [s for s in scenes if s in te_set][: a.max_scenes]
+            print(f"Using official FF++ split from {sdir}: {len(tr_sc)} train scenes, {len(te_sc)} test scenes")
+        else:
+            rng.shuffle(scenes)
+            scenes = scenes[: a.max_scenes]
+            half = len(scenes) // 2
+            tr_sc, te_sc = scenes[:half], scenes[half:]
+    else:
+        rng.shuffle(scenes)
+        scenes = scenes[: a.max_scenes]
+        half = len(scenes) // 2
+        tr_sc, te_sc = scenes[:half], scenes[half:]
     # Collect all unique paths; store raw array in cache for potential re-embedding with mask
     paths = ([p for pr in "CM" for s in scenes for p in reals[pr].get(s, [])]
              + [entry[0] for s in scenes for entry in fakes[s]])
@@ -466,6 +481,8 @@ def main():
     ap.add_argument("--reals-per-scene", type=int, default=3)
     ap.add_argument("--fakes-per-scene", type=int, default=6)
     ap.add_argument("--max-scenes", type=int, default=600)
+    ap.add_argument("--split-dir", default=None,
+                    help="Directory containing official train.json and test.json split files")
     ap.add_argument("--backbone", default="facebook/dinov2-small",
                     help="HF model name, or 'torchhub:dinov2_vits14' for torch.hub variant")
     ap.add_argument("--device", default=None)

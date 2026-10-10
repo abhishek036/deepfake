@@ -12,3 +12,19 @@
 **Action:** Added note to phase_a_log. Will disclose in paper Limitations section. No re-training in Paper 1.
 
 **Decision:** Pre-registered? No — this was a diagnostic finding from Phase A code audit, not a hypothesis test. Logging here per rule 2.
+
+---
+
+## 2026-10-10 — Phase B Shared-Transform Results
+
+**Hypothesis Testing & Decision Rules:**
+- **P-S1 (Center MAD $\le 4.0$ px): MET.** Measured: 0.721 px (pilot median: 0.729 px).
+- **P-S2 (face_out AUROC $\le 0.60$): MET.** Measured: 0.599 [0.572, 0.627]. Background shortcut eliminated.
+- **P-S3 (face_only AUROC $\ge 0.85$): NOT MET.** Measured: 0.772 [0.736, 0.819].
+  *Contradiction:* Expectation of $\ge 0.85$ was not met. Residual facial synthesis signal is detected (0.772 vs 0.599 on background), but frozen DINOv2-S/14 linear probe achieves 0.772, not 0.85.
+- **P-S4 (Full-image AUROC $\le 0.70$): NEAR BOUNDARY.** Measured: 0.736 [0.701, 0.782].
+- **Joint Clean Reference Rule (P-S1 AND P-S2): MET.**
+
+**Region Probe (Handcrafted low-level features):**
+- Composited: background = 0.437 [0.38, 0.49] (at chance).
+- Reenactment: background = 0.521 [0.48, 0.57] (at chance).
