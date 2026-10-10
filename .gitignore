@@ -121,3 +121,5 @@ service/
 web/
 trainsets/
 datasets/
+
+data/
