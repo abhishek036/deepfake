@@ -50,6 +50,18 @@ If either fails, the pairing is confounded and the next diagnostic step applies 
 
 ---
 
+## Phase C Pre-Registration: Cross-Domain & Dataset Shortcuts
+
+### Hypotheses
+**H-C1 (Dataset-ID Shortcut):** In uncurated multi-dataset benchmarks (e.g. `combined.jsonl`), categorical dataset provenance alone ($P(\text{fake} \mid \text{dataset})$) predicts forgery status with AUROC $\ge 0.90$ without accessing any image pixels.
+
+### Decision Rules
+| Symbol | Condition | Threshold | Interpretation if met |
+|--------|-----------|-----------|----------------------|
+| P-C1 | Dataset-ID baseline 5-fold CV AUROC on combined training pool | $\ge 0.90$ | Dataset provenance constitutes an evaluation shortcut |
+
+---
+
 ## Analysis Log (fill in after results)
 
 *See ANALYSIS_LOG.md. Any post-hoc deviation from the above must be documented there with date and reason.*
