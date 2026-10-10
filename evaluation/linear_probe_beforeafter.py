@@ -143,8 +143,44 @@ def hf_embedder(name, device, batch):
                         out.append(rep.float().cpu().numpy())
                 return np.concatenate(out)
             return embed_hub
-        except Exception as e:
+        except Exception:
             pass
+
+    if "resnet" in name.lower():
+        import torchvision.models as tv_models
+        model = tv_models.resnet50(weights=tv_models.ResNet50_Weights.DEFAULT).to(dev).eval()
+        model.fc = torch.nn.Identity()
+        def embed_resnet(arrs):
+            out = []
+            with torch.no_grad():
+                for i in range(0, len(arrs), batch):
+                    x = torch.from_numpy(np.stack(arrs[i:i + batch])).to(dev).permute(0, 3, 1, 2).float() / 255
+                    rep = model((x - mean) / std)
+                    out.append(rep.float().cpu().numpy())
+            return np.concatenate(out)
+        return embed_resnet
+
+    if "clip" in name.lower():
+        import sys, types
+        if "transformers.dependency_versions_check" not in sys.modules:
+            dummy = types.ModuleType("transformers.dependency_versions_check")
+            dummy.dep_version_check = lambda *a, **k: None
+            sys.modules["transformers.dependency_versions_check"] = dummy
+        from transformers import CLIPVisionModel
+        clip_name = name if "/" in name else "openai/clip-vit-base-patch16"
+        model = CLIPVisionModel.from_pretrained(clip_name).to(dev).eval()
+        c_mean = torch.tensor([0.48145466, 0.4578275, 0.40821073], device=dev).view(1, 3, 1, 1)
+        c_std = torch.tensor([0.26862954, 0.26130258, 0.27577711], device=dev).view(1, 3, 1, 1)
+        def embed_clip(arrs):
+            out = []
+            with torch.no_grad():
+                for i in range(0, len(arrs), batch):
+                    x = torch.from_numpy(np.stack(arrs[i:i + batch])).to(dev).permute(0, 3, 1, 2).float() / 255
+                    h = model(pixel_values=(x - c_mean) / c_std).last_hidden_state
+                    rep = torch.cat([h[:, 0], h[:, 1:].mean(1)], 1)
+                    out.append(rep.float().cpu().numpy())
+            return np.concatenate(out)
+        return embed_clip
 
     from transformers import AutoModel
     model = AutoModel.from_pretrained(name).to(dev).eval()
@@ -241,33 +277,36 @@ def load_reals(manifest, k, rng):
     for o in read_jsonl(manifest):
         if o.get("label", 0) != 0:
             continue
-        stem = Path(str(o.get("source_path", ""))).stem
+        stem = str(o.get("video_id") or Path(str(o.get("source_path", ""))).stem)
         p = o.get("crop_path") or o.get("source_path")
-        if p and re.fullmatch(r"\d{3}", stem) and Path(p).exists():
+        if p and Path(p).exists():
             by.setdefault(stem, []).append(str(p))
     return {s: [v[i] for i in rng.permutation(len(v))[:k]] for s, v in by.items()}
 
 
 def load_fakes(manifest, families, part, per_scene, rng, identity_disjoint=False):
-    """Load fake records grouped by FF++ parent scene.
-
-    identity_disjoint=True: a video_id is a pair 'A_B' where A=scene, B=source-identity.
-    Scenes with the same B appearing in both train and test half would leak identity.
-    We assign each B to either the train or test pool upfront so B never crosses the split.
-    This only partitions at call time; the actual train/test split is done in run().
-    We encode the assignment in a 'side' field (0=train-only, 1=test-only) on each record.
-    build() then filters accordingly.
-    """
+    """Load fake records grouped by parent scene."""
     by = {}            # scene -> {method -> [path, ...]}
     scene_id_map = {}  # scene -> source-identity (the other part of the pair)
     for o in read_jsonl(manifest):
         if o.get("label", 1) != 1 or (families and o.get("forgery_type") not in families):
             continue
-        m = FF_ID.search(str(o.get("video_id", "")) + " " + str(o.get("source_path", "")))
-        if m and o.get("source_path"):
-            pair = m.group(1)                          # e.g. '001_870'
-            scene = pair.split("_")[part]              # parent video id
-            identity = pair.split("_")[1 - part]      # source identity id
+        vid = str(o.get("video_id", ""))
+        target = o.get("target_video")
+        m = FF_ID.search(vid + " " + str(o.get("source_path", "")))
+        if target:
+            scene = str(target)
+            identity = vid.split("_")[1] if len(vid.split("_")) == 3 else vid
+        elif m:
+            pair = m.group(1)
+            scene = pair.split("_")[part]
+            identity = pair.split("_")[1 - part]
+        elif vid:
+            scene = vid
+            identity = vid
+        else:
+            continue
+        if o.get("source_path"):
             scene_id_map[scene] = identity
             by.setdefault(scene, {}).setdefault(o.get("method", "?"), []).append(o["source_path"])
 
