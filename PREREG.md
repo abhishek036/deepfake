@@ -55,10 +55,13 @@ If either fails, the pairing is confounded and the next diagnostic step applies 
 ### Hypotheses
 **H-C1 (Dataset-ID Shortcut):** In uncurated multi-dataset benchmarks (e.g. `combined.jsonl`), categorical dataset provenance alone ($P(\text{fake} \mid \text{dataset})$) predicts forgery status with AUROC $\ge 0.90$ without accessing any image pixels.
 
+**H-C2 (Celeb-DF Native Pairing):** In Celeb-DF-v2 native pairing (target video matched), independently aligned crops may still exhibit residual background or format separation. If `face_out` AUROC $\le 0.60$, the native pairing is clean; if $> 0.60$, it suffers from cropping/alignment shortcut leakage.
+
 ### Decision Rules
 | Symbol | Condition | Threshold | Interpretation if met |
 |--------|-----------|-----------|----------------------|
 | P-C1 | Dataset-ID baseline 5-fold CV AUROC on combined training pool | $\ge 0.90$ | Dataset provenance constitutes an evaluation shortcut |
+| P-C2 | Celeb-DF `face_out` DINOv2 linear probe AUROC | $\le 0.60$ | Celeb-DF native background is free of shortcut cues |
 
 ---
 
