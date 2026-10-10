@@ -112,3 +112,12 @@ data/manifests/*.json
 FINAL_DATASET.csv
 reports/emb_cache*.pkl
 reports/per_generator_evaluation_report*.json
+
+# App/service/web (not part of paper repo)
+app/
+cornerstone/
+docker/
+service/
+web/
+trainsets/
+datasets/
