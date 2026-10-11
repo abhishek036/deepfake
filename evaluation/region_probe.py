@@ -20,6 +20,7 @@ Example (one line):
 from __future__ import annotations
 
 import argparse
+import hashlib
 import io
 import json
 import math
@@ -161,7 +162,16 @@ def run(a):
     if len(reals) < 60:
         print("WARNING: few reals; extract from more videos (--n-videos) before trusting any CI")
     rf = [image_regions(canonicalize(r["path"])) for r in reals]
-    ledger = {"args": {k: str(v) for k, v in vars(a).items()}, "n_real": len(reals), "families": {}}
+    h = hashlib.sha256()
+    with open(__file__, "rb") as f:
+        while c := f.read(65536):
+            h.update(c)
+    ledger = {
+        "args": {k: str(v) for k, v in vars(a).items()},
+        "script_sha256": h.hexdigest(),
+        "n_real": len(reals),
+        "families": {},
+    }
     fams = a.families or sorted(fam_counts)
     print(f"\n{'family':16s}{'n_f':>5s}  {'full':>22s}  {'face':>22s}  {'background':>22s}  verdict")
     for fam in fams:

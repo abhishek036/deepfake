@@ -64,10 +64,11 @@ def make_table1(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     rows = []
 
     models = [
-        ("DINOv2-S/14 (Self-Supervised)", "lp_shared_dino_5seeds.json", "dino"),
+        ("DINOv2-S/14 (Confounded vs Clean)", "lp_shared_dino_5seeds.json", "dino"),
+        ("DINOv2-S/14 (FF++ Native Pairing)", "lp_ff_native_dino_5seeds.json", "dino"),
         ("ResNet-50 (Supervised ImageNet)", "lp_shared_resnet50_5seeds.json", "dino"),
         ("ViT-B/16 (Supervised ImageNet)", "lp_shared_vitb16_5seeds.json", "dino"),
-        ("Color & Texture Baseline", "lp_shared_vitb16_5seeds.json", "lowlevel"),
+        (r"Color \& Texture Baseline", "lp_shared_vitb16_5seeds.json", "lowlevel"),
     ]
 
     for label, fname, key in models:
@@ -159,9 +160,10 @@ def make_table2(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     
     # We compare Full image, Background only (face_out), and Face only across the 3 backbones
     configs = [
-        ("DINOv2-S/14", "lp_shared_dino_5seeds.json", "lp_shared_dino_face_out_5seeds.json", "lp_shared_dino_face_only_5seeds.json"),
-        ("ResNet-50", "lp_shared_resnet50_5seeds.json", "lp_shared_resnet50_face_out_5seeds.json", "lp_shared_resnet50_face_only_5seeds.json"),
-        ("ViT-B/16", "lp_shared_vitb16_5seeds.json", "lp_shared_vitb16_face_out_5seeds.json", "lp_shared_vitb16_face_only_5seeds.json"),
+        ("DINOv2-S/14 (Shared-Transform)", "lp_shared_dino_5seeds.json", "lp_shared_dino_face_out_5seeds.json", "lp_shared_dino_face_only_5seeds.json"),
+        ("DINOv2-S/14 (FF++ Native)", "lp_ff_native_dino_5seeds.json", "lp_ff_native_dino_face_out_5seeds.json", "lp_ff_native_dino_face_only_5seeds.json"),
+        ("ResNet-50 (Shared-Transform)", "lp_shared_resnet50_5seeds.json", "lp_shared_resnet50_face_out_5seeds.json", "lp_shared_resnet50_face_only_5seeds.json"),
+        ("ViT-B/16 (Shared-Transform)", "lp_shared_vitb16_5seeds.json", "lp_shared_vitb16_face_out_5seeds.json", "lp_shared_vitb16_face_only_5seeds.json"),
     ]
 
     rows = []
@@ -207,7 +209,7 @@ def make_table2(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         r"\begin{table*}[t]",
         r"\centering",
         r"\small",
-        r"\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. \textbf{Background ($C\to C$)} measures the container shortcut present in confounded pairings. \textbf{Background ($M\to M$)} tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). \textbf{Face ($M\to M$)} tests facial manipulation signal retention.}",
+        r"\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. Background ($C\to C$) measures the container shortcut present in confounded pairings. Background ($M\to M$) tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). Face ($M\to M$) tests facial manipulation signal retention.}",
         r"\label{tab:spatial_decomposition}",
         r"\begin{tabular}{lcccc}",
         r"\toprule",
@@ -274,7 +276,7 @@ def make_table3(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         r"\begin{table}[t]",
         r"\centering",
         r"\small",
-        r"\caption{\textbf{The Native Pairing Fallacy on Celeb-DF-v2.} Auditing native target-video matched pairs (5,332 reals, 5,410 fakes). While the low-level background corner probe passes at chance ($0.458$), high-level DINOv2 background probe leaks a substantial shortcut ($0.745$), demonstrating that native bounding box alignment fails to eliminate container separation.}",
+        r"\caption{\textbf{The Native Pairing Fallacy on Celeb-DF-v2.} Auditing native target-video matched pairs with spatial and low-level probes. Probing the background region evaluates whether independent face-tracker bounding box alignment equalizes container cues.}",
         r"\label{tab:celeb_audit}",
         r"\begin{tabular}{llcc}",
         r"\toprule",
@@ -396,7 +398,7 @@ def make_table5(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         f"Background Pixel MAD: Real vs Fake & ${rf_mad:.3f}$ & Baseline reference \\\\",
         f"Background Pixel MAD: Fake vs Fake & ${ff_mad:.3f}$ & Negative control \\\\",
         f"Ratio of Background Medians (RF / FF) & ${ratio:.3f}$ & Clean ($[0.95, 1.05]$) \\\\",
-        f"Composited Low-Level Background Probe & ${fmt_stat(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))}$ & At Chance ($[0.45, 0.55]$) \\\\",
+        f"Composited Low-Level Background Probe & ${fmt_stat(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))}$ & Excludes 0.50 ($[0.383, 0.486]$) \\\\",
         f"Reenactment Low-Level Background Probe & ${fmt_stat(reen_bg.get('auroc'), ci=reen_bg.get('ci95'))}$ & At Chance ($[0.45, 0.55]$) \\\\",
         r"\bottomrule",
         r"\end{tabular}",
@@ -411,7 +413,7 @@ def make_table5(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         f"| Background Pixel MAD: Real vs Fake | {rf_mad:.3f} | Baseline reference |",
         f"| Background Pixel MAD: Fake vs Fake | {ff_mad:.3f} | Negative control |",
         f"| Ratio of Background Medians (RF / FF) | {ratio:.3f} | Clean ([0.95, 1.05]) |",
-        f"| Composited Low-Level Background Probe | {fmt_stat_md(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))} | At Chance ([0.45, 0.55]) |",
+        f"| Composited Low-Level Background Probe | {fmt_stat_md(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))} | Excludes 0.50 ([0.383, 0.486]) |",
         f"| Reenactment Low-Level Background Probe | {fmt_stat_md(reen_bg.get('auroc'), ci=reen_bg.get('ci95'))} | At Chance ([0.45, 0.55]) |",
     ]
     md = "\n".join(md_lines)
@@ -441,6 +443,8 @@ def run_self_test():
             }
         }
         for fn in ["lp_shared_dino_5seeds.json", "lp_shared_resnet50_5seeds.json", "lp_shared_vitb16_5seeds.json",
+                   "lp_ff_native_dino_5seeds.json", "lp_ff_native_dino_face_out_5seeds.json", "lp_ff_native_dino_face_only_5seeds.json",
+                   "lp_shared_dino_face_out_5seeds.json", "lp_shared_dino_face_only_5seeds.json",
                    "lp_shared_face_out_5seeds.json", "lp_shared_face_only_5seeds.json",
                    "lp_shared_resnet50_face_out_5seeds.json", "lp_shared_resnet50_face_only_5seeds.json",
                    "lp_shared_vitb16_face_out_5seeds.json", "lp_shared_vitb16_face_only_5seeds.json",
@@ -453,8 +457,12 @@ def run_self_test():
         (td / "region_probe_celeb.json").write_text(json.dumps(dummy_celeb_reg), encoding="utf-8")
 
         dummy_ds = {
-            "overall_cv": {"auroc": 0.9208, "ci95": [0.9201, 0.9216], "balanced_accuracy": 0.8492},
-            "per_dataset_summary": {"FF++": {"n": 1000, "fake_pct": 50.0, "p_fake": 0.5}}
+            "results": {
+                "auroc": 0.9208,
+                "auroc_ci95": [0.9201, 0.9216],
+                "balanced_accuracy": 0.8492,
+                "per_dataset": {"FF++": {"n_total": 1000, "p_fake": 0.5}},
+            }
         }
         (td / "dataset_id_baseline.json").write_text(json.dumps(dummy_ds), encoding="utf-8")
 
@@ -517,7 +525,8 @@ def main():
     all_audit.update({"table1": a1, "table2": a2, "table3": a3, "table4": a4, "table5": a5})
 
     # Save LaTeX tables
-    tables_tex = "\n\n% " + "="*70 + "\n\n".join([t1_tex, t2_tex, t3_tex, t4_tex, t5_tex])
+    sep = "\n\n% " + "="*70 + "\n\n"
+    tables_tex = sep.join([t1_tex, t2_tex, t3_tex, t4_tex, t5_tex])
     (out_dir / "paper1_tables.tex").write_text(tables_tex, encoding="utf-8")
     print(f"Saved LaTeX tables to {out_dir / 'paper1_tables.tex'}")
 
