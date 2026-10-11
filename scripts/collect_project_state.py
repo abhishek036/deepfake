@@ -1,5 +1,5 @@
 """
-collect_project_state.py  --  put in scripts/ and run from the repo root (C:\\deepfake):  python scripts/collect_project_state.py
+collect_project_state.py  --  put in scripts/ and run from the repo root:  python scripts/collect_project_state.py
 
 READ-ONLY. Gathers, in one pass, everything needed to judge the project's condition and writes
     reports/handoff/HANDOFF.md   (upload this one file)      reports/handoff/project_state.json
@@ -27,7 +27,7 @@ from pathlib import Path
 ROOT = Path.cwd()
 T0 = time.time()
 USER = re.compile(r"([A-Za-z]:[\\/]Users[\\/])[^\\/\s\"']+", re.I)
-SECRET = re.compile(r"(api[_-]?key|token|secret|passw(?:or)?d|authorization)(\s*[:=]\s*)['\"]?[^\s'\",]{6,}", re.I)
+SECRET = re.compile(r"\b(api[_-]?key|token|secret|passw(?:or)?d|authorization)(\s*[:=]\s*)['\"]?[^\s'\",]{6,}", re.I)
 SKIP = {".git", ".venv", "venv", "env", "__pycache__", "node_modules", ".idea", ".vscode", ".mypy_cache", ".pytest_cache"}
 RISKY = ["held-out", "held out", "unseen", "zero-shot", "genuine", "proves", "proven", "sota", "state-of-the-art", "100%", "guarantee",
          "cryptograph", "tamper", "world's best", "universal", "first "]
@@ -262,7 +262,8 @@ def sec_logs(a):
 def sec_claims(a):
     out = {}
     cands = [p for p in list(ROOT.glob("*.md")) + list((ROOT / "paper").glob("*.*") if (ROOT / "paper").exists() else []) +
-             list((ROOT / "docs").glob("*.md") if (ROOT / "docs").exists() else []) if re.search(r"paper|compendium|draft|manuscript", p.name, re.I)]
+             list((ROOT / "docs").glob("*.md") if (ROOT / "docs").exists() else []) +
+             list((ROOT / "drafts").glob("*.md") if (ROOT / "drafts").exists() else []) if re.search(r"paper|compendium|draft|manuscript", p.name, re.I)]
     for p in cands[:6]:
         hits = []
         for i, line in enumerate(p.read_text(encoding="utf-8", errors="replace").splitlines(), 1):

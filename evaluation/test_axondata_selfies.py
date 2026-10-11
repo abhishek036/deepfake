@@ -202,5 +202,5 @@ def run_benchmark(dataset_dir: str, output_report: str = "reports/axondata_selfi
 
 
 if __name__ == "__main__":
-    base_dir = r"C:\Users\Ardenyx\.cache\kagglehub\datasets\axondata\face-recognition-dataset-selfies-videos\versions\3"
+    base_dir = str(Path.home() / ".cache" / "kagglehub" / "datasets" / "axondata" / "face-recognition-dataset-selfies-videos" / "versions" / "3")
     run_benchmark(base_dir)

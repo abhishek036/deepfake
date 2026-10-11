@@ -9,7 +9,7 @@
 # ============================================================
 
 param(
-    [string]$DF40Root  = "C:\deepfake\data\raw\DF40",
+    [string]$DF40Root  = "data/raw/DF40",
     [switch]$DryRun    = $false,
     [switch]$Pass2Only = $false   # skip pass-1, only extract DF40_train inner zips
 )

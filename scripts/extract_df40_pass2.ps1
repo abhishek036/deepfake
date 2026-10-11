@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-$trainDir = "C:\deepfake\data\raw\DF40\DF40_train"
+$trainDir = "data/raw/DF40/DF40_train"
 $zips = Get-ChildItem -Path $trainDir -Filter "*.zip" -File |
         Where-Object { $_.Length -gt 0 } |
         Sort-Object Name

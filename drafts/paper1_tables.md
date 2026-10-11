@@ -4,18 +4,20 @@
 
 | Representation | C->C (Confounded) | C->M (Cross) | M->M (Clean Ref) | M->C (Gen) | M->M BalAcc |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| DINOv2-S/14 (Self-Supervised) | 0.998 ± 0.001 | 0.596 ± 0.013 | 0.763 ± 0.012 | 0.793 ± 0.012 | 0.691 |
+| DINOv2-S/14 (Confounded vs Clean) | 0.998 ± 0.001 | 0.596 ± 0.013 | 0.763 ± 0.012 | 0.793 ± 0.012 | 0.691 |
+| DINOv2-S/14 (FF++ Native Pairing) | 0.874 ± 0.006 | 0.874 ± 0.009 | 0.877 ± 0.008 | 0.876 ± 0.008 | 0.786 |
 | ResNet-50 (Supervised ImageNet) | 0.972 ± 0.006 | 0.524 ± 0.009 | 0.613 ± 0.013 | 0.659 ± 0.013 | 0.592 |
 | ViT-B/16 (Supervised ImageNet) | 0.966 ± 0.005 | 0.553 ± 0.010 | 0.690 ± 0.010 | 0.718 ± 0.010 | 0.638 |
-| Color & Texture Baseline | 0.812 ± 0.007 | 0.467 ± 0.009 | 0.546 ± 0.009 | 0.299 ± 0.009 | 0.540 |
+| Color \& Texture Baseline | 0.812 ± 0.007 | 0.467 ± 0.009 | 0.546 ± 0.009 | 0.299 ± 0.009 | 0.540 |
 
 ## Table 2: Spatial Decomposition of the Shortcut
 
 | Backbone | Background (C->C Shortcut) | Background (M->M Clean) | Face Only (M->M) | Full Image (M->M) |
 | :--- | :---: | :---: | :---: | :---: |
-| DINOv2-S/14 | 0.998 ± 0.001 | 0.591 ± 0.010 | 0.774 ± 0.007 | 0.763 ± 0.012 |
-| ResNet-50 | 0.986 ± 0.004 | 0.537 ± 0.009 | 0.619 ± 0.011 | 0.613 ± 0.013 |
-| ViT-B/16 | 0.986 ± 0.004 | 0.567 ± 0.009 | 0.706 ± 0.012 | 0.690 ± 0.010 |
+| DINOv2-S/14 (Shared-Transform) | 0.998 ± 0.001 | 0.591 ± 0.010 | 0.774 ± 0.007 | 0.763 ± 0.012 |
+| DINOv2-S/14 (FF++ Native) | 0.758 ± 0.006 | 0.755 ± 0.010 | 0.872 ± 0.009 | 0.877 ± 0.008 |
+| ResNet-50 (Shared-Transform) | 0.986 ± 0.004 | 0.537 ± 0.009 | 0.619 ± 0.011 | 0.613 ± 0.013 |
+| ViT-B/16 (Shared-Transform) | 0.986 ± 0.004 | 0.567 ± 0.009 | 0.706 ± 0.012 | 0.690 ± 0.010 |
 
 ## Table 3: The Native Pairing Fallacy (Celeb-DF-v2)
 
@@ -50,5 +52,5 @@
 | Background Pixel MAD: Real vs Fake | 3.244 | Baseline reference |
 | Background Pixel MAD: Fake vs Fake | 3.372 | Negative control |
 | Ratio of Background Medians (RF / FF) | 0.962 | Clean ([0.95, 1.05]) |
-| Composited Low-Level Background Probe | 0.437 [0.383, 0.486] | At Chance ([0.45, 0.55]) |
+| Composited Low-Level Background Probe | 0.437 [0.383, 0.486] | Excludes 0.50 ([0.383, 0.486]) |
 | Reenactment Low-Level Background Probe | 0.521 [0.482, 0.570] | At Chance ([0.45, 0.55]) |

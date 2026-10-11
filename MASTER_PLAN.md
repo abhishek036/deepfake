@@ -202,7 +202,7 @@ preprocessing_version, model_version, skin_tone_tag
 
 **URL:** https://drive.google.com/drive/folders/1U8meBbqVvmUkc5GD0jxct6xe6Gwk9wKD
 
-**Save to:** `c:\deepfake\datasets\DF40\`
+**Save to:** `datasets/DF40/`
 
 **Why highest value:** 40 generators across 4 forgery families — fixes the entire training-data blindspot:
 
@@ -239,7 +239,7 @@ Note: DF40 real frames point to FaceForensics++ original sequences — you alrea
 
 **Why:** Feeds existing `models/av_branch.py` but adds partial, localized manipulation — inserted phrases, not whole-video swaps. The real fraud use case.
 
-**Save to:** `c:\deepfake\datasets\AV-Deepfake1M\`
+**Save to:** `datasets/AV-Deepfake1M/`
 
 ---
 
@@ -499,20 +499,20 @@ Decision rule: any branch contributing less than 1% cross-domain AUROC delta at 
 ### Next Month
 
 - [ ] Download Deepfake-Eval-2024 — add as `test_inthewild` partition
-- [x] Run full branch pruning ablation with DF40 as benchmark ([`evaluation/evaluate_branch_pruning_df40.py`](file:///c:/deepfake/evaluation/evaluate_branch_pruning_df40.py) — Marginal $\Delta$AUROC: Forensic $-0.0091$, Semantic $-0.0005$)
+- [x] Run full branch pruning ablation with DF40 as benchmark ([`evaluation/evaluate_branch_pruning_df40.py`](evaluation/evaluate_branch_pruning_df40.py) — Marginal $\Delta$AUROC: Forensic $-0.0091$, Semantic $-0.0005$)
 - [ ] Download AV-Deepfake1M — retrain AV branch with word-level manipulation data
 - [x] Implement versioned checkpoint policy — v3.0 frozen, master `best.ckpt` merged
 
 ### Forensic Shortcut Triad Audit & Cryptographic Benchmark (Complete)
 
-- [x] Run Cryptographic Shortcut Triad Audit ([`evaluation/audit_triad.py`](file:///c:/deepfake/evaluation/audit_triad.py) — Git Commit `72a5cdd41c783b741468155f80fbbe4202083ab9`, Checkpoint SHA-256 `37ff218c6b7b282e...91ab9aacaaa74a05`)
+- [x] Run Cryptographic Shortcut Triad Audit ([`evaluation/audit_triad.py`](evaluation/audit_triad.py) — Git Commit `72a5cdd41c783b741468155f80fbbe4202083ab9`, Checkpoint SHA-256 `37ff218c6b7b282e...91ab9aacaaa74a05`)
 - [x] Strict Checkpoint Loading Assertion: Verified 399/399 weights matched (0 unexpected keys).
 - [x] Enforce Video-ID Disjoint Splits: Reals strictly from official test partitions of FaceForensics++ and Celeb-DF-v2 (never in training).
 - [x] Triad Results: Central Face Blackout drops AUROC to **0.6401**; Non-Semantic Metadata Probe scores **1.0000** (proves container leakage in raw files); Transcode Normalization (JPEG Q=90) proves detector robustness (**1.0000 AUROC**).
 - [x] In-Distribution Disjoint Test: **1.0000 AUROC**, **99.60% Accuracy** (95% Wilson CI: `[97.77%, 99.93%]`), **0.00% FPR** (95% Wilson CI: `[0.00%, 2.98%]`), **99.20% TPR** (95% Wilson CI: `[95.61%, 99.86%]`), **0.0066 ECE**, **0.0025 Brier**.
 - [x] Leave-One-Generator-Out (LOGO) Test: Tested on held-out `DiT`, `inswap`, `pirender`, `sadtalker` (**1.0000 AUROC**, **100.00% TPR** with 95% Wilson CI `[91.62%, 100.00%]`).
 - [x] Monotonic Selective Prediction: Rejection of top 5% uncertain samples drives error rate from **0.40%** at 100% coverage down to **0.00%** at $\le 95\%$ coverage.
-- [x] Cryptographic Audit Ledger: Generated at [`reports/RESULTS_LEDGER.json`](file:///c:/deepfake/reports/RESULTS_LEDGER.json).
+- [x] Cryptographic Audit Ledger: Generated at [`reports/RESULTS_LEDGER.json`](reports/RESULTS_LEDGER.json).
 
 ---
 

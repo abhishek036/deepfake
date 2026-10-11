@@ -10,15 +10,15 @@
 ### ⚡ What Was Optimized
 
 1. **Integrated `make_dataloader` with Balanced Sampling**:
-   - Updated [`training/train_temporal.py`](file:///c:/deepfake/training/train_temporal.py), [`training/train_fusion.py`](file:///c:/deepfake/training/train_fusion.py), and [`training/train_av.py`](file:///c:/deepfake/training/train_av.py) to use `make_dataloader` instead of raw un-sampled `DataLoader`.
+   - Updated [`training/train_temporal.py`](training/train_temporal.py), [`training/train_fusion.py`](training/train_fusion.py), and [`training/train_av.py`](training/train_av.py) to use `make_dataloader` instead of raw un-sampled `DataLoader`.
    - Capped training at `samples_per_epoch: 40000` with 50% real / 50% fake `WeightedRandomSampler`.
    - **Training batches dropped from 26,125 $\rightarrow$ 2,500 batches per epoch (10.5× reduction!)**.
 
 2. **Doubled Batch Size**:
-   - In [`configs/train.yaml`](file:///c:/deepfake/configs/train.yaml), increased `batch_sizes.temporal: 16` (up from 8), taking advantage of the frozen spatial backbones without exceeding 4.2 GB VRAM.
+   - In [`configs/train.yaml`](configs/train.yaml), increased `batch_sizes.temporal: 16` (up from 8), taking advantage of the frozen spatial backbones without exceeding 4.2 GB VRAM.
 
 3. **Stratified Representative Validation Cap**:
-   - In [`data/dataset.py`](file:///c:/deepfake/data/dataset.py), added deterministic uniform random sampling across all datasets when `max_samples` is specified.
+   - In [`data/dataset.py`](data/dataset.py), added deterministic uniform random sampling across all datasets when `max_samples` is specified.
    - Set `max_val_samples: 5000` for sequence evaluation.
    - **Validation time per epoch dropped from 25–30 minutes $\rightarrow$ ~45 seconds!**
 
@@ -43,9 +43,9 @@
 - **Phase 6 (Audio-Visual Branch)**: **COMPLETED ✅**
   - **Dataset**: `talkingheadbench.jsonl` (talking head lip-sync desynchronization)
   - **Best Val AUC**: **`0.9872` (98.72%)**
-  - **Saved Checkpoint**: [`forge-lite-v1_av_branch_best.ckpt`](file:///c:/deepfake/outputs/checkpoints/forge-lite-v1_av_branch_best.ckpt)
+  - **Saved Checkpoint**: [`forge-lite-v1_av_branch_best.ckpt`](outputs/checkpoints/forge-lite-v1_av_branch_best.ckpt)
 - **Master Checkpoint Status**: **ALL BRANCHES TRAINED & MERGED 🏆**
-  - **File**: [`outputs/checkpoints/best.ckpt`](file:///c:/deepfake/outputs/checkpoints/best.ckpt) (124 MB)
+  - **File**: [`outputs/checkpoints/best.ckpt`](outputs/checkpoints/best.ckpt) (124 MB)
   - **Tensors Loaded**: **100% matched (0 missing keys, 0 unexpected keys)**
   - Combines: DINOv2 Semantic (99.48%), SRM Forensic (99.48%), Bi-GRU Temporal (99.57%), Multimodal Fusion Head (99.60%), and SyncNet Audio-Visual Branch (98.72%).
 - **Hardware Status**: GPU idle (0% utilization, 49°C, 0/8,188 MiB VRAM allocated). Ready for calibration and inference/eval benchmarking.
@@ -105,7 +105,7 @@ Ye ek "detect-and-explain" system hai — sirf ek number nahi deta, balki har br
 ## 3. Project Ka Pura Structure
 
 ```
-c:\deepfake\
+deepfake/
 |
 ├── models/                  ← Neural network branches (core)
 │   ├── forge_lite.py        ← Main FORGELite nn.Module (top-level composer)
@@ -513,7 +513,7 @@ During training, ForgeDataset randomly selects one variant per video per epoch, 
 
 ### FINAL_DATASET.csv
 
-A curated 1.5 MB manifest at `c:\deepfake\FINAL_DATASET.csv` — the primary dataset reference for all training runs.
+A curated 1.5 MB manifest at `FINAL_DATASET.csv` — the primary dataset reference for all training runs.
 
 ### Custom Trainsets (`trainsets/`)
 
