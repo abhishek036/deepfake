@@ -177,12 +177,16 @@ def run_extraction(args, app=None):
             if not ret_r or not ret_f:
                 continue
 
-            # Shared transform estimated on real frame
-            bbox = get_face_box(frame_r, app=app)
-
-            # Apply identical transform to both
-            crop_r = crop_with_transform(frame_r, bbox, TARGET_SIZE)
-            crop_f = crop_with_transform(frame_f, bbox, TARGET_SIZE)
+            if getattr(args, "align_mode", "shared") == "independent":
+                bbox_r = get_face_box(frame_r, app=app)
+                bbox_f = get_face_box(frame_f, app=app)
+                crop_r = crop_with_transform(frame_r, bbox_r, TARGET_SIZE)
+                crop_f = crop_with_transform(frame_f, bbox_f, TARGET_SIZE)
+            else:
+                # Shared transform estimated on real frame and applied identically to both
+                bbox = get_face_box(frame_r, app=app)
+                crop_r = crop_with_transform(frame_r, bbox, TARGET_SIZE)
+                crop_f = crop_with_transform(frame_f, bbox, TARGET_SIZE)
 
             r_name = f"{parent_id}_f{fi:05d}.png"
             f_name = f"{method}_{fake_id}_f{fi:05d}.png"
@@ -266,9 +270,26 @@ def self_test():
         n_pairs=1,
         n_frames=2,
         seed=42,
+        align_mode="shared",
     )
     nr, nf = run_extraction(args, app=None)
-    ok = nr == 2 and nf == 2 and Path(args.out_reals).exists() and Path(args.out_fakes).exists()
+    ok_shared = nr == 2 and nf == 2 and Path(args.out_reals).exists() and Path(args.out_fakes).exists()
+
+    args_indep = argparse.Namespace(
+        ffpp_dir=str(tmp),
+        splits_dir=str(tmp),
+        out_crops_dir=str(tmp / "crops_indep"),
+        out_reals=str(tmp / "reals_indep.jsonl"),
+        out_fakes=str(tmp / "fakes_indep.jsonl"),
+        n_pairs=1,
+        n_frames=2,
+        seed=42,
+        align_mode="independent",
+    )
+    nr_i, nf_i = run_extraction(args_indep, app=None)
+    ok_indep = nr_i == 2 and nf_i == 2 and Path(args_indep.out_reals).exists() and Path(args_indep.out_fakes).exists()
+
+    ok = ok_shared and ok_indep
     print("extract_shared_transform_pairs self-test", "PASSED" if ok else "FAILED")
     return 0 if ok else 1
 
@@ -280,6 +301,8 @@ def main():
     ap.add_argument("--out-crops-dir", default="datasets/FaceForensics++_C23/shared_transform_crops")
     ap.add_argument("--out-reals", default="data/ff_shared_reals.jsonl")
     ap.add_argument("--out-fakes", default="data/ff_shared_fakes.jsonl")
+    ap.add_argument("--align-mode", choices=["shared", "independent"], default="shared",
+                    help="shared=identical crop on real and fake; independent=detect face box on each frame independently")
     ap.add_argument("--n-pairs", type=int, default=600)
     ap.add_argument("--n-frames", type=int, default=4)
     ap.add_argument("--seed", type=int, default=42)

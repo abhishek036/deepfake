@@ -1,0 +1,138 @@
+{
+  "benchmark": "DF40 Full Dataset Evaluation",
+  "checkpoint": "best.ckpt",
+  "calibration": {
+    "temperature": 9.6651,
+    "platt_b": 0.0,
+    "threshold": 0.672
+  },
+  "family_metrics": {
+    "composited": {
+      "n_total": 270,
+      "n_real": 135,
+      "n_fake": 135,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "accuracy": 1.0,
+      "balanced_acc": 1.0,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "brier": 0.2222
+    },
+    "fully_synthetic": {
+      "n_total": 330,
+      "n_real": 165,
+      "n_fake": 165,
+      "auroc": 0.9946,
+      "auprc": 0.9971,
+      "accuracy": 0.9818,
+      "balanced_acc": 0.9818,
+      "tpr": 0.9636,
+      "fpr": 0.0,
+      "specificity": 1.0,
+      "f1": 0.9815,
+      "brier": 0.2221
+    },
+    "reenactment": {
+      "n_total": 270,
+      "n_real": 135,
+      "n_fake": 135,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "accuracy": 0.9889,
+      "balanced_acc": 0.9889,
+      "tpr": 0.9778,
+      "fpr": 0.0,
+      "specificity": 1.0,
+      "f1": 0.9888,
+      "brier": 0.2208
+    },
+    "talking_head": {
+      "n_total": 60,
+      "n_real": 30,
+      "n_fake": 30,
+      "auroc": 1.0,
+      "auprc": 1.0,
+      "accuracy": 1.0,
+      "balanced_acc": 1.0,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "specificity": 1.0,
+      "f1": 1.0,
+      "brier": 0.221
+    },
+    "Overall Pooled DF40": {
+      "n_total": 930,
+      "n_real": 465,
+      "n_fake": 465,
+      "auroc": 0.9981,
+      "auprc": 0.999,
+      "accuracy": 0.9903,
+      "balanced_acc": 0.9903,
+      "tpr": 0.9806,
+      "fpr": 0.0,
+      "specificity": 1.0,
+      "f1": 0.9902,
+      "brier": 0.2217
+    }
+  },
+  "srm_audit": {},
+  "coverage_vs_error": [
+    {
+      "coverage": 1.0,
+      "accepted_samples": 930,
+      "error_rate": 0.0097,
+      "selective_accuracy": 0.9903
+    },
+    {
+      "coverage": 0.95,
+      "accepted_samples": 884,
+      "error_rate": 0.0102,
+      "selective_accuracy": 0.9898
+    },
+    {
+      "coverage": 0.9,
+      "accepted_samples": 837,
+      "error_rate": 0.0096,
+      "selective_accuracy": 0.9904
+    },
+    {
+      "coverage": 0.85,
+      "accepted_samples": 790,
+      "error_rate": 0.0101,
+      "selective_accuracy": 0.9899
+    },
+    {
+      "coverage": 0.8,
+      "accepted_samples": 744,
+      "error_rate": 0.0108,
+      "selective_accuracy": 0.9892
+    },
+    {
+      "coverage": 0.75,
+      "accepted_samples": 698,
+      "error_rate": 0.0115,
+      "selective_accuracy": 0.9885
+    },
+    {
+      "coverage": 0.7,
+      "accepted_samples": 651,
+      "error_rate": 0.0123,
+      "selective_accuracy": 0.9877
+    },
+    {
+      "coverage": 0.6,
+      "accepted_samples": 558,
+      "error_rate": 0.0143,
+      "selective_accuracy": 0.9857
+    },
+    {
+      "coverage": 0.5,
+      "accepted_samples": 465,
+      "error_rate": 0.0151,
+      "selective_accuracy": 0.9849
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "label_numeric_inversion_warning": {
+    "csv_convention": "REAL=1, FAKE=0",
+    "standard_convention": "REAL=0, FAKE=1",
+    "action_required": "Verify training loop uses label string, NOT label_numeric directly"
+  },
+  "per_split": {
+    "train": {
+      "real": 1939,
+      "fake": 2654
+    },
+    "test": {
+      "real": 582,
+      "fake": 741
+    },
+    "val": {
+      "real": 269,
+      "fake": 372
+    }
+  },
+  "per_difficulty": {
+    "Easy": {
+      "real": 2790,
+      "fake": 0
+    },
+    "Hard": {
+      "real": 0,
+      "fake": 2461
+    },
+    "Medium": {
+      "real": 0,
+      "fake": 1306
+    }
+  },
+  "per_gender": {
+    "Female": {
+      "real": 934,
+      "fake": 99
+    },
+    "Male": {
+      "real": 918,
+      "fake": 99
+    },
+    "Unknown": {
+      "real": 938,
+      "fake": 3569
+    }
+  },
+  "source_group_bootstrap_ci": {
+    "resampling_unit": "source_group",
+    "n_unique_sources": 2802,
+    "n_resamples": 1000,
+    "confidence_level": 0.95,
+    "auroc_mean": 1.0,
+    "auroc_lower_ci": 0.9999999999999999,
+    "auroc_upper_ci": 1.0,
+    "auroc_std": 3.89370267511739e-17
+  },
+  "class_balance": {
+    "n_real": 2790,
+    "n_fake": 3767,
+    "pct_fake": 0.5745005337806924
+  },
+  "majority_class_baseline": 0.5745005337806924,
+  "accuracy_at_frozen_threshold": 1.0,
+  "gain_over_majority_baseline": 0.42549946621930756,
+  "video_auroc": 1.0,
+  "score_distribution": {
+    "real_mean": 0.07922580645161291,
+    "real_std": 0.04046737586815204,
+    "fake_mean": 0.8911255641093708,
+    "fake_std": 0.05254405816418352,
+    "score_overlap_warning": false
+  },
+  "near_constant_prediction_warning": false,
+  "input_coverage": {
+    "total_attempted": 6557,
+    "missing_face_count": 0,
+    "missing_face_rate": 0.0,
+    "unsupported_count": 0,
+    "unsupported_rate": 0.0,
+    "evaluated_count": 6557,
+    "evaluated_rate": 1.0
+  }
+}

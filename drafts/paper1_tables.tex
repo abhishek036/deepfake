@@ -8,7 +8,7 @@
 \textbf{Representation} & \textbf{$C \to C$ (Confounded)} & \textbf{$C \to M$ (Cross)} & \textbf{$M \to M$ (Clean Ref.)} & \textbf{$M \to C$ (Gen.)} & \textbf{$M \to M$ BalAcc} \\
 \midrule
 DINOv2-S/14 (Confounded vs Clean) & $0.998 \pm 0.001$ & $0.596 \pm 0.013$ & $0.763 \pm 0.012$ & $0.793 \pm 0.035$ & 0.691 \\
-DINOv2-S/14 (FF++ Native Pairing) & $0.874 \pm 0.006$ & $0.874 \pm 0.009$ & $0.877 \pm 0.008$ & $0.876 \pm 0.008$ & 0.786 \\
+DINOv2-S/14 (FF++ Native Pairing) & \multicolumn{4}{c}{$0.874 \pm 0.006$ (Native Split)} & 0.784 \\
 ResNet-50 (Supervised ImageNet) & $0.972 \pm 0.006$ & $0.524 \pm 0.009$ & $0.613 \pm 0.013$ & $0.659 \pm 0.031$ & 0.592 \\
 ViT-B/16 (Supervised ImageNet) & $0.966 \pm 0.005$ & $0.553 \pm 0.010$ & $0.690 \pm 0.010$ & $0.718 \pm 0.024$ & 0.638 \\
 Color \& Texture Baseline & $0.812 \pm 0.007$ & $0.467 \pm 0.009$ & $0.546 \pm 0.009$ & $0.299 \pm 0.016$ & 0.540 \\
@@ -21,11 +21,11 @@ Color \& Texture Baseline & $0.812 \pm 0.007$ & $0.467 \pm 0.009$ & $0.546 \pm 0
 \begin{table*}[t]
 \centering
 \small
-\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. Background ($C\to C$) measures the container shortcut present in confounded pairings. Background ($M\to M$) tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). Face ($M\to M$) tests facial manipulation signal retention.}
+\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. Center-Masked ($C\to C$) measures the container shortcut present in confounded pairings. Center-Masked ($M\to M$) tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). Corner-Masked ($M\to M$) tests residual manipulation signal retention.}
 \label{tab:spatial_decomposition}
 \begin{tabular}{lcccc}
 \toprule
-\textbf{Backbone} & \textbf{Background ($C\to C$ Shortcut)} & \textbf{Background ($M\to M$ Clean)} & \textbf{Face Only ($M\to M$)} & \textbf{Full Image ($M\to M$)} \\
+\textbf{Backbone} & \textbf{Center-Masked ($C\to C$ Shortcut)} & \textbf{Center-Masked ($M\to M$ Clean)} & \textbf{Corner-Masked ($M\to M$)} & \textbf{Full Image ($M\to M$)} \\
 \midrule
 DINOv2-S/14 (Shared-Transform) & $0.998 \pm 0.001$ & $0.591 \pm 0.010$ & $0.774 \pm 0.007$ & $0.763 \pm 0.012$ \\
 DINOv2-S/14 (FF++ Native) & $0.758 \pm 0.006$ & $0.755 \pm 0.010$ & $0.872 \pm 0.009$ & $0.877 \pm 0.008$ \\
@@ -40,16 +40,24 @@ ViT-B/16 (Shared-Transform) & $0.986 \pm 0.004$ & $0.567 \pm 0.009$ & $0.706 \pm
 \begin{table}[t]
 \centering
 \small
-\caption{\textbf{The Native Pairing Fallacy on Celeb-DF-v2.} Auditing native target-video matched pairs with spatial and low-level probes. Probing the background region evaluates whether independent face-tracker bounding box alignment equalizes container cues.}
+\caption{\textbf{Auditing and Resolving the Native Pairing Fallacy on Celeb-DF-v2.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under native independent cropping versus our shared spatial transform reference. In native pairs, background probes violate P-C2 ($0.751 > 0.60$). Shared spatial transforms resolve the confound, reducing background AUROC to $0.604$ (P-C2b boundary) and low-level background cues to chance ($0.507$).}
 \label{tab:celeb_audit}
 \begin{tabular}{llcc}
 \toprule
-\textbf{Probe Type} & \textbf{Region Evaluated} & \textbf{AUROC} & \textbf{Status / Rule} \\
+\textbf{Regime / Probe} & \textbf{Region Evaluated} & \textbf{AUROC} & \textbf{Status / Rule} \\
 \midrule
+\multicolumn{4}{l}{\textit{Native Pairing (Independent Face Tracking)}} \\
 Handcrafted Low-Level & Outer Corners & $0.458 [0.413, 0.503]$ & Passed (Chance) \\
 DINOv2 Linear Probe & Background Only (\texttt{face\_out}) & $0.751 \pm 0.005$ & FAILED P-C2 ($>0.60$) \\
 DINOv2 Linear Probe & Face Region (\texttt{face\_only}) & $0.911 \pm 0.010$ & Synthesis Signal \\
 DINOv2 Linear Probe & Full Image (Native) & $0.889 \pm 0.007$ & Confounded Benchmark \\
+\midrule
+\multicolumn{4}{l}{\textit{Clean Reference (Shared Spatial Transform Ablation)}} \\
+DINOv2 Linear Probe & Background (\texttt{face\_out}, $M\to M$) & $0.604 \pm 0.011$ & P-C2b Boundary ($0.604$) \\
+Low-Level Baseline & Background (\texttt{face\_out}, $M\to M$) & $0.507 \pm 0.003$ & At Chance ($0.507$) \\
+DINOv2 Linear Probe & Cross-Pairing Transfer ($C\to M$) & $0.532 \pm 0.007$ & Collapses to Chance \\
+DINOv2 Linear Probe & Face Region (\texttt{face\_only}, $M\to M$) & $0.835 \pm 0.014$ & Residual Signal \\
+DINOv2 Linear Probe & Full Image ($M\to M$) & $0.806 \pm 0.015$ & Clean Reference \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -92,10 +100,10 @@ talkingheadbench & 100 & 100.0\% & 1.0000 \\
 \toprule
 \textbf{Alignment / Forensic Diagnostic} & \textbf{Measured Value} & \textbf{Pre-Registered Threshold / Rule} \\
 \midrule
-Face Crop Center MAD & $0.721$ px & $\le 4.0$ px (P-S1 MET) \\
-Background Pixel MAD: Real vs Fake & $3.244$ & Baseline reference \\
-Background Pixel MAD: Fake vs Fake & $3.372$ & Negative control \\
-Ratio of Background Medians (RF / FF) & $0.962$ & Clean ($[0.95, 1.05]$) \\
+Face Crop Center MAD & $0.721$ px & $\le 4.0$ px (P-S1 MET, \texttt{p\_s1\_center\_mad\_px}) \\
+Background Pixel MAD: Real vs Fake & $3.244$ gray levels & Gray-level intensity \\
+Background Pixel MAD: Fake vs Fake & $3.372$ gray levels & Noise floor reference \\
+Ratio of Background Medians (RF / FF) & $0.962$ & Clean ($[0.95, 1.05]$, margin 0.05 MET) \\
 Composited Low-Level Background Probe & $0.437 [0.383, 0.486]$ & Excludes 0.50 ($[0.383, 0.486]$) \\
 Reenactment Low-Level Background Probe & $0.521 [0.482, 0.570]$ & At Chance ($[0.45, 0.55]$) \\
 \bottomrule

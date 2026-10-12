@@ -1,0 +1,51 @@
+{
+ "args": {
+  "fakes": "data/ff_native_fakes.jsonl",
+  "reals": "data/ff_native_reals.jsonl",
+  "parent_part": "auto",
+  "n_groups": "2000",
+  "seed": "42",
+  "out": "reports/paired_diagnostic.json",
+  "self_test": "False"
+ },
+ "script_sha256": "cd99948c7ac8adacd4bba97c72cd4ebe7d687fc36ddb6460e9c4d6e01ac8737a",
+ "fakes_sha256": "75f81547ca063348ebcdd981c710056e5c489a2a0d4b382f781e5881f1341e28",
+ "reals_sha256": "4c753a63ee436ce49c52b2ed8a9ddac742b587c0baf2c6bdc436f4e48444dfea",
+ "result": {
+  "parent_id_part": 0,
+  "parent_detection": {
+   "0": {
+    "n": 250,
+    "median_bg_mad": 9.00405216217041
+   },
+   "1": {
+    "n": 250,
+    "median_bg_mad": 55.509647369384766
+   }
+  },
+  "n_groups_used": 1998,
+  "n_parents": 837,
+  "skipped_groups": 2,
+  "real_vs_fake_bg_mad_median_q25_q75": [
+   10.58177833557129,
+   8.270715713500977,
+   14.42785940170288
+  ],
+  "fake_vs_fake_bg_mad_median_q25_q75": [
+   12.75211660861969,
+   9.559293842315673,
+   16.717262470722197
+  ],
+  "ratio_of_medians": 0.829805644062149,
+  "wilcoxon_p": 1.0725376182298545e-77,
+  "frac_parents_rf_gt_ff": 0.16726403823178015,
+  "per_method_real_vs_fake_median": {
+   "Deepfakes": 12.395898818969727,
+   "Face2Face": 9.004504203796387,
+   "FaceSwap": 9.231373310089111,
+   "NeuralTextures": 7.972824573516846,
+   "FaceShifter": 8.644523620605469
+  },
+  "verdict": "real is closer to the fakes than fakes are to each other (no confound)"
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "dataset_description": "250 talking-head videos containing both authentic and manipulated samples with verified audio and facial tracks.",
+  "sample_count": 225,
+  "n_real": 100,
+  "n_fake": 125,
+  "av_availability_rate": 1.0,
+  "rppg_availability_rate": 0.0,
+  "standalone_av_metrics": {
+    "auroc": 0.9742,
+    "accuracy": 0.8844,
+    "brier_score": 0.1206,
+    "ece": 0.1723,
+    "mean_desync_real": 0.0986,
+    "mean_desync_fake": 0.6494
+  },
+  "fusion_impact": {
+    "visual_only_auroc": 0.3813,
+    "visual_only_accuracy": 0.4756,
+    "multimodal_auroc": 0.379,
+    "multimodal_accuracy": 0.4444
+  }
+}

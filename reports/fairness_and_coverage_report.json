@@ -1,0 +1,117 @@
+{
+  "demographic_fairness": {
+    "max_eer_gap": 0.15,
+    "metrics_by_group": {
+      "African": {
+        "n_real": 20,
+        "n_fake": 20,
+        "auroc": 0.55,
+        "eer": 0.45,
+        "tpr_at_1pct_fpr": 0.1,
+        "tpr_at_0_1pct_fpr": 0.1,
+        "balanced_accuracy": 0.5
+      },
+      "Asian (East)": {
+        "n_real": 20,
+        "n_fake": 20,
+        "auroc": 0.4325,
+        "eer": 0.55,
+        "tpr_at_1pct_fpr": 0.05,
+        "tpr_at_0_1pct_fpr": 0.05,
+        "balanced_accuracy": 0.5
+      },
+      "Asian (South)": {
+        "n_real": 20,
+        "n_fake": 20,
+        "auroc": 0.555,
+        "eer": 0.45,
+        "tpr_at_1pct_fpr": 0.0,
+        "tpr_at_0_1pct_fpr": 0.0,
+        "balanced_accuracy": 0.5
+      },
+      "Caucasian (American)": {
+        "n_real": 20,
+        "n_fake": 20,
+        "auroc": 0.475,
+        "eer": 0.6,
+        "tpr_at_1pct_fpr": 0.1,
+        "tpr_at_0_1pct_fpr": 0.1,
+        "balanced_accuracy": 0.5
+      },
+      "Caucasian (European)": {
+        "n_real": 20,
+        "n_fake": 20,
+        "auroc": 0.5525,
+        "eer": 0.45,
+        "tpr_at_1pct_fpr": 0.05,
+        "tpr_at_0_1pct_fpr": 0.05,
+        "balanced_accuracy": 0.5
+      },
+      "Pooled Demographics": {
+        "n_real": 100,
+        "n_fake": 100,
+        "auroc": 0.5052,
+        "eer": 0.51,
+        "tpr_at_1pct_fpr": 0.02,
+        "tpr_at_0_1pct_fpr": 0.01,
+        "balanced_accuracy": 0.5
+      }
+    }
+  },
+  "coverage_vs_error": [
+    {
+      "coverage": 1.0,
+      "accepted_count": 200,
+      "error_rate": 0.5,
+      "selective_accuracy": 0.5
+    },
+    {
+      "coverage": 0.95,
+      "accepted_count": 190,
+      "error_rate": 0.5,
+      "selective_accuracy": 0.5
+    },
+    {
+      "coverage": 0.9,
+      "accepted_count": 180,
+      "error_rate": 0.5,
+      "selective_accuracy": 0.5
+    },
+    {
+      "coverage": 0.85,
+      "accepted_count": 170,
+      "error_rate": 0.4882,
+      "selective_accuracy": 0.5118
+    },
+    {
+      "coverage": 0.8,
+      "accepted_count": 160,
+      "error_rate": 0.4875,
+      "selective_accuracy": 0.5125
+    },
+    {
+      "coverage": 0.75,
+      "accepted_count": 150,
+      "error_rate": 0.48,
+      "selective_accuracy": 0.52
+    },
+    {
+      "coverage": 0.7,
+      "accepted_count": 140,
+      "error_rate": 0.4929,
+      "selective_accuracy": 0.5071
+    },
+    {
+      "coverage": 0.6,
+      "accepted_count": 120,
+      "error_rate": 0.4833,
+      "selective_accuracy": 0.5167
+    },
+    {
+      "coverage": 0.5,
+      "accepted_count": 100,
+      "error_rate": 0.47,
+      "selective_accuracy": 0.53
+    }
+  ]
+}

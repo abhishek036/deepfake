@@ -1,0 +1,201 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/manifests/faceforensics.jsonl",
+  "clean_real_manifest": "data/ffpp_matched_reals_fsfr.jsonl",
+  "fake_manifest": "data/df40_fsfr_subset.jsonl",
+  "families": "['composited']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "6",
+  "max_scenes": "600",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "cache": "reports/emb_cache.pkl",
+  "out": "reports/lp_face_out.json",
+  "mask": "face_out",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": "face_out",
+ "identity_disjoint": false,
+ "script_sha256": "e2877ead5d8b2cdb68cc5a89991e9f0fda5116e9c5e5438545b7ba0c3d56b982",
+ "manifest_sha256": {
+  "confounded_real_manifest": "2b23964d9e46360a28a99365c68b14d933cbf79456cdb8a1d7bf8066ad6505cc",
+  "clean_real_manifest": "28260d7152d9b67a673ac645f1bad6f2888498cc349c54a9ca7bb96b4ed97c3b",
+  "fake_manifest": "bcbe7a19a04a99869c7ea5ebc5e4e0058ae9c880ee7eafd3ce672a31ec252bbb"
+ },
+ "n_scenes": {
+  "train": 300,
+  "test": 300
+ },
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.9998203703703703,
+   "ci95": [
+    0.9995777777777777,
+    0.9999845679012346
+   ],
+   "tpr": 0.9972222222222222,
+   "fpr": 0.008888888888888889,
+   "bal_acc": 0.9941666666666666,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:C->M": {
+   "auroc": 0.48598908156711623,
+   "ci95": [
+    0.4589495592069952,
+    0.5078033631954143
+   ],
+   "tpr": 0.9972222222222222,
+   "fpr": 0.9965317919075144,
+   "bal_acc": 0.5003452151573539,
+   "n_real": 865,
+   "n_fake": 1800
+  },
+  "dino:M->M": {
+   "auroc": 0.7932556197816314,
+   "ci95": [
+    0.7765277226622574,
+    0.8098229214963382
+   ],
+   "tpr": 0.7605555555555555,
+   "fpr": 0.31213872832369943,
+   "bal_acc": 0.7242084136159281,
+   "n_real": 865,
+   "n_fake": 1800
+  },
+  "dino:M->C": {
+   "auroc": 0.34616913580246916,
+   "ci95": [
+    0.3211791666666667,
+    0.3706556172839506
+   ],
+   "tpr": 0.7605555555555555,
+   "fpr": 0.8811111111111111,
+   "bal_acc": 0.43972222222222224,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.8616296296296296,
+   "ci95": [
+    0.8431942901234568,
+    0.8852958641975308
+   ],
+   "tpr": 0.7522222222222222,
+   "fpr": 0.16777777777777778,
+   "bal_acc": 0.7922222222222222,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.488616570327553,
+   "ci95": [
+    0.4712763742967833,
+    0.5053997678887422
+   ],
+   "tpr": 0.7522222222222222,
+   "fpr": 0.7942196531791907,
+   "bal_acc": 0.47900128452151575,
+   "n_real": 865,
+   "n_fake": 1800
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.6350443159922929,
+   "ci95": [
+    0.6182218751816138,
+    0.6549106329157527
+   ],
+   "tpr": 0.5433333333333333,
+   "fpr": 0.3653179190751445,
+   "bal_acc": 0.5890077071290944,
+   "n_real": 865,
+   "n_fake": 1800
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.46077345679012344,
+   "ci95": [
+    0.4376436728395061,
+    0.4827374382716049
+   ],
+   "tpr": 0.5433333333333333,
+   "fpr": 0.6233333333333333,
+   "bal_acc": 0.45999999999999996,
+   "n_real": 900,
+   "n_fake": 1800
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "inswap": 0.9998257640674094,
+   "simswap": 0.9999449604403164,
+   "faceswap": 0.9998578199052133,
+   "danet": 0.9998428184281843,
+   "facedancer": 0.9993441734417344,
+   "blendface": 0.9997004357298476
+  },
+  "dino:C->M": {
+   "inswap": 0.47784150853678475,
+   "simswap": 0.5042144633941195,
+   "faceswap": 0.46494808645864727,
+   "danet": 0.2983392076695333,
+   "facedancer": 0.43742281122233184,
+   "blendface": 0.47956477388643326
+  },
+  "dino:M->M": {
+   "inswap": 0.76833439826441,
+   "simswap": 0.7586034109414987,
+   "faceswap": 0.5998739829603047,
+   "danet": 0.9515860707740026,
+   "facedancer": 0.6695784576342874,
+   "blendface": 0.7854924628811062
+  },
+  "dino:M->C": {
+   "inswap": 0.3105369894315909,
+   "simswap": 0.22251805985552114,
+   "faceswap": 0.21208004212743548,
+   "danet": 0.6558319783197832,
+   "facedancer": 0.20637940379403794,
+   "blendface": 0.2891721132897604
+  },
+  "lowlevel:C->C": {
+   "inswap": 0.8253898886032561,
+   "simswap": 0.8538665290677675,
+   "faceswap": 0.8604002106371774,
+   "danet": 0.9624823848238482,
+   "facedancer": 0.8572682926829268,
+   "blendface": 0.8322004357298476
+  },
+  "lowlevel:C->M": {
+   "inswap": 0.4103035796543679,
+   "simswap": 0.4991392115105854,
+   "faceswap": 0.4467797167356108,
+   "danet": 0.7668518257436909,
+   "facedancer": 0.4470661215282673,
+   "blendface": 0.411849710982659
+  },
+  "lowlevel:M->M": {
+   "inswap": 0.5985081058591022,
+   "simswap": 0.6600010737486355,
+   "faceswap": 0.5484371147576912,
+   "danet": 0.6886056675595659,
+   "facedancer": 0.5757112646270972,
+   "blendface": 0.6322226000226681
+  },
+  "lowlevel:M->C": {
+   "inswap": 0.5155784061696658,
+   "simswap": 0.49806329549363604,
+   "faceswap": 0.3804528699315429,
+   "danet": 0.3587425474254742,
+   "facedancer": 0.40523577235772346,
+   "blendface": 0.45965141612200433
+  }
+ }
+}

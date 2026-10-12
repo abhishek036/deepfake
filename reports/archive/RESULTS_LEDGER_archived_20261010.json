@@ -1,0 +1,559 @@
+{
+  "audit_version": "2.1.0",
+  "benchmark_title": "Audited Forensic Shortcut Benchmark & Confounded Pairing Case Study",
+  "reproducibility": {
+    "git_commit_hash": "f528f6a19",
+    "git_dirty": false,
+    "timestamp_utc": "2026-10-03T07:15:40.755204+00:00",
+    "checkpoint": {
+      "path": "outputs/checkpoints/best.ckpt",
+      "sha256": "37ff218c6b7b282e1926efe825e4a1b73f19cf7cbfa6d61a91ab9aacaaa74a05",
+      "matched_tensors": "399/399",
+      "unexpected_keys_count": 0,
+      "missing_keys": [
+        "calibration.temperature_scaling.bias"
+      ],
+      "strict_load_verified": true
+    },
+    "audit_script_sha256": "a0693d151fcbedf1d1a3df229c8a2d33fa63fba3e815b9e562739c3891b1c286",
+    "git_commit_full": "f528f6a197d55a9ec67246a58bf2b8713223baac",
+    "git_commit_note": "Cites code commit f528f6a19 for final state of evaluation/one_pipeline_audit.py and compendium"
+  },
+  "dataset_split_protocol": {
+    "pairing_strategy": "video_id_and_identity_disjoint",
+    "real_controls_source": "FaceForensics++ and Celeb-DF-v2 Official Test Splits",
+    "fake_generators_source": "DF40 (NeurIPS 2024)",
+    "counts": {
+      "val_real_videos": 125,
+      "val_fake_videos": 125,
+      "test_real_videos": 125,
+      "test_fake_videos": 125,
+      "logo_fake_videos": 42
+    },
+    "calibration_split_holdout_generators": {
+      "enabled": true,
+      "description": "Architectures held out strictly from post-hoc calibration threshold fitting, not pre-training",
+      "held_out_generators": [
+        "inswap",
+        "DiT",
+        "pirender",
+        "sadtalker"
+      ]
+    }
+  },
+  "shortcut_triad_results": {
+    "part_a_central_face_blackout": {
+      "mask_ratio": 0.85,
+      "auroc": 0.6401,
+      "interpretation": "Collapse to <= 0.50 confirms background does not provide shortcut"
+    },
+    "part_b_non_semantic_metadata_probe": {
+      "features": [
+        "file_size_kb",
+        "width",
+        "height",
+        "aspect_ratio",
+        "laplacian_blur"
+      ],
+      "cv_auroc_5fold": 1.0,
+      "cv_accuracy_5fold": 1.0,
+      "interpretation": "Evaluates whether container properties separate classes"
+    },
+    "part_c_transcode_normalization": {
+      "codec": "JPEG_Q90_in_memory",
+      "raw_auroc": 0.9998,
+      "transcoded_auroc": 1.0,
+      "delta_auroc": -0.0002,
+      "interpretation": "Evaluates performance when all samples share identical DCT compression"
+    }
+  },
+  "calibration_diagnostics": {
+    "temperature_T": 0.5164,
+    "platt_bias_b": -9.0214,
+    "optimizer_clipped": false,
+    "real_logits_percentiles": {
+      "p5": -0.0733,
+      "p25": 0.0464,
+      "p50": 0.2038,
+      "p75": 0.3843,
+      "p95": 1.0686
+    },
+    "fake_logits_percentiles": {
+      "p5": 7.3831,
+      "p25": 7.4879,
+      "p50": 7.5156,
+      "p75": 7.524,
+      "p95": 7.5288
+    }
+  },
+  "test_metrics_in_distribution": {
+    "operational_threshold": 0.5,
+    "auroc": 1.0,
+    "overall_accuracy": 0.996,
+    "accuracy_wilson_95ci": [
+      0.9777,
+      0.9993
+    ],
+    "balanced_accuracy": 0.996,
+    "fake_recall_tpr": 0.992,
+    "tpr_wilson_95ci": [
+      0.9561,
+      0.9986
+    ],
+    "false_positive_rate_fpr": 0.0,
+    "fpr_wilson_95ci": [
+      0.0,
+      0.0298
+    ],
+    "specificity": 1.0,
+    "ece_quantile_10bins": 0.0066,
+    "brier_score": 0.0025,
+    "confusion_matrix": {
+      "tp": 124,
+      "fp": 0,
+      "tn": 125,
+      "fn": 1
+    }
+  },
+  "selective_prediction_curve": [
+    {
+      "coverage": 1.0,
+      "accepted_samples": 250,
+      "rejected_samples": 0,
+      "errors": 1,
+      "error_rate": 0.004,
+      "selective_accuracy": 0.996,
+      "error_rate_wilson_95ci": [
+        0.0007,
+        0.0223
+      ]
+    },
+    {
+      "coverage": 0.95,
+      "accepted_samples": 238,
+      "rejected_samples": 12,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0159
+      ]
+    },
+    {
+      "coverage": 0.9,
+      "accepted_samples": 225,
+      "rejected_samples": 25,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0168
+      ]
+    },
+    {
+      "coverage": 0.85,
+      "accepted_samples": 212,
+      "rejected_samples": 38,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0178
+      ]
+    },
+    {
+      "coverage": 0.8,
+      "accepted_samples": 200,
+      "rejected_samples": 50,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0188
+      ]
+    },
+    {
+      "coverage": 0.75,
+      "accepted_samples": 188,
+      "rejected_samples": 62,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.02
+      ]
+    },
+    {
+      "coverage": 0.7,
+      "accepted_samples": 175,
+      "rejected_samples": 75,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0215
+      ]
+    },
+    {
+      "coverage": 0.6,
+      "accepted_samples": 150,
+      "rejected_samples": 100,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.025
+      ]
+    },
+    {
+      "coverage": 0.5,
+      "accepted_samples": 125,
+      "rejected_samples": 125,
+      "errors": 0,
+      "error_rate": 0.0,
+      "selective_accuracy": 1.0,
+      "error_rate_wilson_95ci": [
+        0.0,
+        0.0298
+      ]
+    }
+  ],
+  "pairing_status": "CONFOUNDED_BY_LOW_LEVEL_STATISTICS",
+  "test_metrics_calibration_holdout_subset": {
+    "description": "Evaluation on 4 modern architectures held out from calibration split only (sample size: 42 fakes)",
+    "held_out_generators": [
+      "inswap",
+      "DiT",
+      "pirender",
+      "sadtalker"
+    ],
+    "auroc": 1.0,
+    "accuracy": 1.0,
+    "fake_recall_tpr": 1.0,
+    "tpr_wilson_95ci": [
+      0.9162,
+      1.0
+    ],
+    "generator_breakdown": {
+      "DiT": {
+        "auroc": 1.0,
+        "accuracy": 1.0,
+        "fake_recall": 1.0,
+        "fakes_count": 32
+      },
+      "inswap": {
+        "auroc": 1.0,
+        "accuracy": 1.0,
+        "fake_recall": 1.0,
+        "fakes_count": 2
+      },
+      "pirender": {
+        "auroc": 1.0,
+        "accuracy": 1.0,
+        "fake_recall": 1.0,
+        "fakes_count": 4
+      },
+      "sadtalker": {
+        "auroc": 1.0,
+        "accuracy": 1.0,
+        "fake_recall": 1.0,
+        "fakes_count": 4
+      }
+    }
+  },
+  "empirical_pre_head_embedding_diagnostics": {
+    "embedding_dimension": 256,
+    "real_embedding_norm": 3.8212,
+    "real_embedding_std": 0.2516,
+    "fake_embedding_norm": 13.4033,
+    "fake_embedding_std": 0.8132,
+    "dimension_variance_across_samples": {
+      "real": 0.0254,
+      "fake": 0.0019
+    },
+    "fake_logit_head": {
+      "weight_norm": 0.73,
+      "weight_mean": -0.0018,
+      "weight_std": 0.0456,
+      "bias": -0.0214,
+      "linear_dot_product_contribution": {
+        "real_mean": 0.525,
+        "real_std": 0.8976,
+        "fake_mean": 7.4429,
+        "fake_std": 0.2136
+      }
+    },
+    "empirical_logit_histogram": {
+      "real_percentiles": {
+        "p1": -0.1516,
+        "p5": -0.0725,
+        "p25": 0.0658,
+        "p50": 0.2483,
+        "p75": 0.5483,
+        "p95": 2.2209,
+        "p99": 4.8051
+      },
+      "fake_percentiles": {
+        "p1": 6.7751,
+        "p5": 7.1293,
+        "p25": 7.4279,
+        "p50": 7.5005,
+        "p75": 7.5207,
+        "p95": 7.5298,
+        "p99": 7.5312
+      }
+    }
+  },
+  "one_pipeline_audit_results": {
+    "low_level_probe": {
+      "cv_auroc_all_features": 0.9150666666666666,
+      "univariate_auroc": {
+        "log_jpeg90_kb": 0.5377666666666666,
+        "log_lap_var": 0.7751866666666667,
+        "gray_mean": 0.5409466666666667,
+        "gray_std": 0.6299733333333334,
+        "hf_ratio": 0.6314266666666667,
+        "blockiness": 0.7386666666666667
+      },
+      "matched_coverage": 0.4036363636363636,
+      "matched_kept": {
+        "real": 111,
+        "fake": 111
+      },
+      "cv_auroc_after_matching_on_size_and_sharpness": 0.7623787279913762,
+      "pass_threshold": 0.55
+    },
+    "preflight": {
+      "real": {
+        "n": 250,
+        "ext": {
+          ".jpg": 250
+        },
+        "mode": {
+          "RGB": 250
+        },
+        "width_mean_std": [
+          224.0,
+          0.0
+        ],
+        "height_mean_std": [
+          224.0,
+          0.0
+        ]
+      },
+      "fake": {
+        "n": 300,
+        "ext": {
+          ".png": 300
+        },
+        "mode": {
+          "RGB": 300
+        },
+        "width_mean_std": [
+          286.81,
+          136.79113238803166
+        ],
+        "height_mean_std": [
+          286.81,
+          136.79113238803166
+        ]
+      }
+    },
+    "conditions": {
+      "canonical": {
+        "n": 275,
+        "auroc": 0.9998933333333333,
+        "auroc_ci95_grouped_boot": [
+          0.9995657100694936,
+          1.0
+        ],
+        "tpr": 0.9866666666666667,
+        "tpr_wilson": [
+          0.9526921436197238,
+          0.9963359476117768
+        ],
+        "fpr": 0.0,
+        "fpr_wilson": [
+          0.0,
+          0.0298164567965626
+        ]
+      },
+      "common_jpeg90": {
+        "n": 275,
+        "auroc": 0.99696,
+        "auroc_ci95_grouped_boot": [
+          0.9898282073482096,
+          1.0
+        ],
+        "tpr": 0.26666666666666666,
+        "tpr_wilson": [
+          0.2023705573107324,
+          0.342615974290603
+        ],
+        "fpr": 0.0,
+        "fpr_wilson": [
+          0.0,
+          0.0298164567965626
+        ]
+      },
+      "hard_jpeg50": {
+        "n": 275,
+        "auroc": 1.0,
+        "auroc_ci95_grouped_boot": [
+          0.9999999999999999,
+          1.0
+        ],
+        "tpr": 0.013333333333333334,
+        "tpr_wilson": [
+          0.0036640523882232115,
+          0.047307856380276334
+        ],
+        "fpr": 0.0,
+        "fpr_wilson": [
+          0.0,
+          0.0298164567965626
+        ]
+      },
+      "hard_down50_jpeg50": {
+        "n": 275,
+        "auroc": 0.9999466666666667,
+        "auroc_ci95_grouped_boot": [
+          0.9997279884675094,
+          1.0
+        ],
+        "tpr": 0.0,
+        "tpr_wilson": [
+          0.0,
+          0.02497113914571871
+        ],
+        "fpr": 0.0,
+        "fpr_wilson": [
+          0.0,
+          0.0298164567965626
+        ]
+      },
+      "maskA_central_blackout": {
+        "n": 275,
+        "auroc": 0.6080533333333333,
+        "auroc_ci95_grouped_boot": [
+          0.5387892915709449,
+          0.670944728276019
+        ],
+        "tpr": 1.0,
+        "tpr_wilson": [
+          0.9750288608542812,
+          1.0
+        ],
+        "fpr": 1.0,
+        "fpr_wilson": [
+          0.9701835432034374,
+          1.0
+        ]
+      },
+      "maskB_face_only": {
+        "n": 275,
+        "auroc": 0.8993599999999999,
+        "auroc_ci95_grouped_boot": [
+          0.8616921346257584,
+          0.9370884754028839
+        ],
+        "tpr": 0.9133333333333333,
+        "tpr_wilson": [
+          0.8573705468757646,
+          0.9486533114304412
+        ],
+        "fpr": 0.512,
+        "fpr_wilson": [
+          0.42532911748262675,
+          0.5979552875542559
+        ]
+      },
+      "maskC_random_patches_same_area": {
+        "n": 275,
+        "auroc": 0.5666133333333334,
+        "auroc_ci95_grouped_boot": [
+          0.498380310353458,
+          0.6282476935285899
+        ],
+        "tpr": 1.0,
+        "tpr_wilson": [
+          0.9750288608542812,
+          1.0
+        ],
+        "fpr": 1.0,
+        "fpr_wilson": [
+          0.9701835432034374,
+          1.0
+        ]
+      },
+      "canonical@matched_subset": {
+        "n": 107,
+        "auroc": 1.0,
+        "auroc_ci95_grouped_boot": [
+          0.9999999999999999,
+          1.0
+        ],
+        "tpr": 0.9661016949152542,
+        "tpr_wilson": [
+          0.8845621301839242,
+          0.9906542869664985
+        ],
+        "fpr": 0.0,
+        "fpr_wilson": [
+          0.0,
+          0.0741026511527422
+        ]
+      }
+    },
+    "aurc": {
+      "hard_jpeg50": {
+        "n_errors": 148,
+        "overall_risk": 0.5381818181818182,
+        "aurc": 0.1880149307030867,
+        "aurc_optimal": 0.18236511005994582,
+        "e_aurc": 0.005649820643140874,
+        "meaningful": true
+      },
+      "hard_down50_jpeg50": {
+        "n_errors": 150,
+        "overall_risk": 0.5454545454545454,
+        "aurc": 0.18808373929330205,
+        "aurc_optimal": 0.18805464838421115,
+        "e_aurc": 2.909090909089529e-05,
+        "meaningful": true
+      }
+    },
+    "diagnostic_blur_fakes_to_real": {
+      "n": 275,
+      "auroc": 0.9988266666666666,
+      "auroc_ci95_grouped_boot": [
+        0.9965824908126444,
+        1.0
+      ],
+      "tpr": 0.8533333333333334,
+      "tpr_wilson": [
+        0.7879140446419707,
+        0.9011063503617215
+      ],
+      "fpr": 0.0,
+      "fpr_wilson": [
+        0.0,
+        0.0298164567965626
+      ]
+    },
+    "cross_real_dataset_probe_aurocs": {
+      "faceforensics": 0.8692,
+      "celeb_df": 0.9668,
+      "combined_ff_cdf": 0.9151,
+      "wild_deepfake": 1.0,
+      "ffhq": 0.9918
+    }
+  }
+}

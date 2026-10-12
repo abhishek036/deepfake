@@ -1,0 +1,113 @@
+{
+  "video_auroc": 1.0,
+  "accuracy_at_frozen_threshold": 1.0,
+  "threshold_used": 0.5,
+  "balanced_accuracy": 1.0,
+  "confusion_matrix": {
+    "tn": 2790,
+    "fp": 0,
+    "fn": 0,
+    "tp": 3767
+  },
+  "fake_recall_tpr": 1.0,
+  "genuine_fpr": 0.0,
+  "precision": 1.0,
+  "majority_class_baseline": 0.5745005337806924,
+  "class_balance": {
+    "n_real": 2790,
+    "n_fake": 3767,
+    "pct_fake": 0.5745005337806924
+  },
+  "gain_over_majority_baseline": 0.42549946621930756,
+  "score_distribution": {
+    "real_mean": 0.07922580645161291,
+    "real_std": 0.04046737586815204,
+    "fake_mean": 0.8911255641093708,
+    "fake_std": 0.05254405816418352,
+    "score_overlap_warning": false
+  },
+  "abstention_rate": 0.0,
+  "selective_accuracy": 1.0,
+  "n_evaluated": 6557,
+  "per_domain": {
+    "Unsplash": {
+      "n": 2790,
+      "n_real": 2790,
+      "n_fake": 0,
+      "auroc": NaN
+    },
+    "MultiSource": {
+      "n": 3767,
+      "n_real": 0,
+      "n_fake": 3767,
+      "auroc": NaN
+    }
+  },
+  "per_generator": {
+    "none": {
+      "n": 2790,
+      "n_real": 2790,
+      "n_fake": 0,
+      "auroc": NaN
+    },
+    "StyleGAN3": {
+      "n": 3767,
+      "n_real": 0,
+      "n_fake": 3767,
+      "auroc": NaN
+    }
+  },
+  "per_manipulation": {
+    "none": {
+      "n": 2790,
+      "n_real": 2790,
+      "n_fake": 0,
+      "auroc": NaN
+    },
+    "AI_Generated": {
+      "n": 3767,
+      "n_real": 0,
+      "n_fake": 3767,
+      "auroc": NaN
+    }
+  },
+  "source_group_bootstrap_ci": {
+    "resampling_unit": "source_group",
+    "n_unique_sources": 2802,
+    "n_resamples": 1000,
+    "confidence_level": 0.95,
+    "auroc_mean": 1.0,
+    "auroc_lower_ci": 0.9999999999999999,
+    "auroc_upper_ci": 1.0,
+    "auroc_std": 3.89370267511739e-17
+  },
+  "input_coverage": {
+    "total_attempted": 6557,
+    "missing_face_count": 0,
+    "missing_face_rate": 0.0,
+    "unsupported_count": 0,
+    "unsupported_rate": 0.0,
+    "evaluated_count": 6557,
+    "evaluated_rate": 1.0
+  },
+  "near_constant_prediction_warning": false,
+  "score_variance": 0.16341955860654755,
+  "failure_analysis": {
+    "duration_slices": {
+      "0-5s": {
+        "n": 6557,
+        "auroc": 1.0
+      }
+    },
+    "face_size_slices": {
+      "face_size_0.15-0.30": {
+        "n": 2207,
+        "auroc": 1.0
+      },
+      "face_size_0.30-1.00": {
+        "n": 4350,
+        "auroc": 1.0
+      }
+    }
+  }
+}

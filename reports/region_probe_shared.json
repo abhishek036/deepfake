@@ -1,0 +1,128 @@
+{
+ "args": {
+  "real_manifest": "['data/ff_shared_reals.jsonl']",
+  "real_split": "any",
+  "fake_manifest": "data/ff_shared_fakes.jsonl",
+  "families": "['composited', 'reenactment']",
+  "neg_control_families": "['composited', 'reenactment']",
+  "n": "300",
+  "seed": "42",
+  "one_per_group": "True",
+  "out": "reports/region_probe_shared.json",
+  "self_test": "False"
+ },
+ "script_sha256": "0b5f6351622d04ea6927314a009a83fc7109039a1e1308ea9131a68a8bd91e79",
+ "n_real": 300,
+ "families": {
+  "composited": {
+   "full": {
+    "auroc": 0.47368888888888894,
+    "ci95": [
+     0.43021501018046004,
+     0.5196567398592042
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5178944444444444,
+     "log_lap_var": 0.5433888888888889,
+     "hf_ratio": 0.5444555555555555,
+     "gray_std": 0.5263444444444445,
+     "gray_mean": 0.5162111111111112,
+     "r_mean": 0.5054888888888889,
+     "g_mean": 0.5213111111111111,
+     "b_mean": 0.5099888888888888
+    }
+   },
+   "face": {
+    "auroc": 0.6053333333333334,
+    "ci95": [
+     0.5598088834168679,
+     0.6465400731958558
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5544333333333333,
+     "log_lap_var": 0.5986,
+     "hf_ratio": 0.5782888888888889,
+     "gray_std": 0.5052,
+     "gray_mean": 0.5151666666666667,
+     "r_mean": 0.5000611111111111,
+     "g_mean": 0.5228222222222223,
+     "b_mean": 0.5109111111111111
+    }
+   },
+   "background": {
+    "auroc": 0.4369333333333334,
+    "ci95": [
+     0.3832501653521517,
+     0.48642834243121075
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5134555555555556,
+     "log_lap_var": 0.5065777777777777,
+     "hf_ratio": 0.5030555555555556,
+     "gray_std": 0.5172333333333333,
+     "gray_mean": 0.5130111111111111,
+     "r_mean": 0.5116333333333334,
+     "g_mean": 0.5133333333333333,
+     "b_mean": 0.5066888888888889
+    }
+   },
+   "verdict": "clean control; any signal is in the manipulated region",
+   "n_fake": 300
+  },
+  "reenactment": {
+   "full": {
+    "auroc": 0.5416069057104914,
+    "ci95": [
+     0.5006806074453041,
+     0.5864169648676505
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5684661354581674,
+     "log_lap_var": 0.5608764940239044,
+     "hf_ratio": 0.550730411686587,
+     "gray_std": 0.5014475431606906,
+     "gray_mean": 0.5184196547144754,
+     "r_mean": 0.5073306772908366,
+     "g_mean": 0.524249667994688,
+     "b_mean": 0.5113944223107569
+    }
+   },
+   "face": {
+    "auroc": 0.6245816733067728,
+    "ci95": [
+     0.5753172895061813,
+     0.6747139129387851
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5938844621513945,
+     "log_lap_var": 0.5861487383798141,
+     "hf_ratio": 0.5532934926958831,
+     "gray_std": 0.5097211155378486,
+     "gray_mean": 0.5206241699867198,
+     "r_mean": 0.5106772908366534,
+     "g_mean": 0.5258698539176627,
+     "b_mean": 0.5168990703851262
+    }
+   },
+   "background": {
+    "auroc": 0.5212217795484727,
+    "ci95": [
+     0.48218488648451513,
+     0.5704767228509926
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5062815405046481,
+     "log_lap_var": 0.525577689243028,
+     "hf_ratio": 0.5417662682602922,
+     "gray_std": 0.5122310756972112,
+     "gray_mean": 0.5163346613545816,
+     "r_mean": 0.5046215139442232,
+     "g_mean": 0.5241301460823373,
+     "b_mean": 0.5158964143426295
+    }
+   },
+   "verdict": "clean control; any signal is in the manipulated region",
+   "n_fake": 251
+  }
+ }
+}

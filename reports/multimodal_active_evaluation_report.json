@@ -1,0 +1,331 @@
+{
+  "total_evaluated": 250,
+  "av_availability_rate": 1.0,
+  "multimodal_auroc": 0.37360000000000004,
+  "multimodal_accuracy": 0.416,
+  "multimodal_brier": 0.285954653672616,
+  "mean_av_desync_real": 0.09861718781292439,
+  "mean_av_desync_fake": 0.6415404119590918,
+  "sample_results": [
+    {
+      "record_id": "thb_fake_0",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.3276593089103699,
+      "av_active": true,
+      "av_score": 0.7488929629325867,
+      "branch_disagreement": 0.112436942756176,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_1",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.4463967978954315,
+      "av_active": true,
+      "av_score": 0.8449617624282837,
+      "branch_disagreement": 0.08658380061388016,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_2",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.4962921738624573,
+      "av_active": true,
+      "av_score": 0.9816383123397827,
+      "branch_disagreement": 0.06687305122613907,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_3",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.2948327958583832,
+      "av_active": true,
+      "av_score": 0.5894321203231812,
+      "branch_disagreement": 0.11021469533443451,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_4",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.384397029876709,
+      "av_active": true,
+      "av_score": 0.6768436431884766,
+      "branch_disagreement": 0.11485272645950317,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_5",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.29340076446533203,
+      "av_active": true,
+      "av_score": 0.8948355317115784,
+      "branch_disagreement": 0.1061805784702301,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_6",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.3214638829231262,
+      "av_active": true,
+      "av_score": 0.9428613185882568,
+      "branch_disagreement": 0.10456931591033936,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_7",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.43921685218811035,
+      "av_active": true,
+      "av_score": 0.7065175771713257,
+      "branch_disagreement": 0.09250921756029129,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_8",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.42454206943511963,
+      "av_active": true,
+      "av_score": 0.8526758551597595,
+      "branch_disagreement": 0.09723258018493652,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_9",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.27229616045951843,
+      "av_active": true,
+      "av_score": 0.9680318832397461,
+      "branch_disagreement": 0.10949283093214035,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_10",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.24599625170230865,
+      "av_active": true,
+      "av_score": 0.26289376616477966,
+      "branch_disagreement": 0.1179456040263176,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_11",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.29809847474098206,
+      "av_active": true,
+      "av_score": 0.9313519597053528,
+      "branch_disagreement": 0.10877018421888351,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_12",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.4378995895385742,
+      "av_active": true,
+      "av_score": 0.9207088947296143,
+      "branch_disagreement": 0.09045732766389847,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_13",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.3317921459674835,
+      "av_active": true,
+      "av_score": 0.9853442311286926,
+      "branch_disagreement": 0.10593380779027939,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_14",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.43777039647102356,
+      "av_active": true,
+      "av_score": 0.9592680335044861,
+      "branch_disagreement": 0.09206203371286392,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_15",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.3588903248310089,
+      "av_active": true,
+      "av_score": 0.4261808395385742,
+      "branch_disagreement": 0.11332879960536957,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_16",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.610832929611206,
+      "av_active": true,
+      "av_score": 0.6992014050483704,
+      "branch_disagreement": 0.12580032646656036,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_17",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.2745283246040344,
+      "av_active": true,
+      "av_score": 0.755688488483429,
+      "branch_disagreement": 0.10558035224676132,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_18",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.37291526794433594,
+      "av_active": true,
+      "av_score": 0.7432864904403687,
+      "branch_disagreement": 0.10272892564535141,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    },
+    {
+      "record_id": "thb_fake_19",
+      "dataset": "TalkingHeadBench",
+      "label": 1,
+      "fake_prob": 0.5026431679725647,
+      "av_active": true,
+      "av_score": 0.19733597338199615,
+      "branch_disagreement": 0.06020035967230797,
+      "branch_weights": [
+        0.39972567558288574,
+        0.24708768725395203,
+        0.03809210658073425,
+        0.0,
+        0.3150944709777832
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3002 @@
+[
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\740_f000072.png",
+  "label": 0,
+  "group": "0:740",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\563_f000090.png",
+  "label": 0,
+  "group": "0:563",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\803_f000000.png",
+  "label": 0,
+  "group": "0:803",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\790_f000330.png",
+  "label": 0,
+  "group": "0:790",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\410_f000000.png",
+  "label": 0,
+  "group": "0:410",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\726_f000090.png",
+  "label": 0,
+  "group": "0:726",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\157_f000225.png",
+  "label": 0,
+  "group": "0:157",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\084_f000264.png",
+  "label": 0,
+  "group": "0:084",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\813_f000000.png",
+  "label": 0,
+  "group": "0:813",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\282_f000425.png",
+  "label": 0,
+  "group": "0:282",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\180_f000000.png",
+  "label": 0,
+  "group": "0:180",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\692_f000075.png",
+  "label": 0,
+  "group": "0:692",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\161_f000090.png",
+  "label": 0,
+  "group": "0:161",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\202_f000075.png",
+  "label": 0,
+  "group": "0:202",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\298_f000270.png",
+  "label": 0,
+  "group": "0:298",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\419_f000360.png",
+  "label": 0,
+  "group": "0:419",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\338_f000200.png",
+  "label": 0,
+  "group": "0:338",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\984_f000075.png",
+  "label": 0,
+  "group": "0:984",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\598_f000150.png",
+  "label": 0,
+  "group": "0:598",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\416_f000225.png",
+  "label": 0,
+  "group": "0:416",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\914_f000150.png",
+  "label": 0,
+  "group": "0:914",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\260_f000150.png",
+  "label": 0,
+  "group": "0:260",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\679_f000300.png",
+  "label": 0,
+  "group": "0:679",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\359_f000000.png",
+  "label": 0,
+  "group": "0:359",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\533_f000270.png",
+  "label": 0,
+  "group": "0:533",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\073_f000525.png",
+  "label": 0,
+  "group": "0:073",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\321_f000400.png",
+  "label": 0,
+  "group": "0:321",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\682_f000225.png",
+  "label": 0,
+  "group": "0:682",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\752_f000480.png",
+  "label": 0,
+  "group": "0:752",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\214_f000330.png",
+  "label": 0,
+  "group": "0:214",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\828_f000000.png",
+  "label": 0,
+  "group": "0:828",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\398_f000275.png",
+  "label": 0,
+  "group": "0:398",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\150_f000225.png",
+  "label": 0,
+  "group": "0:150",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\794_f000200.png",
+  "label": 0,
+  "group": "0:794",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\531_f000225.png",
+  "label": 0,
+  "group": "0:531",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\961_f000300.png",
+  "label": 0,
+  "group": "0:961",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\236_f000150.png",
+  "label": 0,
+  "group": "0:236",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\066_f000000.png",
+  "label": 0,
+  "group": "0:066",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\625_f000225.png",
+  "label": 0,
+  "group": "0:625",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\972_f000075.png",
+  "label": 0,
+  "group": "0:972",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\600_f000000.png",
+  "label": 0,
+  "group": "0:600",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\938_f000075.png",
+  "label": 0,
+  "group": "0:938",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\141_f000480.png",
+  "label": 0,
+  "group": "0:141",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\564_f000450.png",
+  "label": 0,
+  "group": "0:564",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\685_f000250.png",
+  "label": 0,
+  "group": "0:685",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\619_f000150.png",
+  "label": 0,
+  "group": "0:619",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\391_f000125.png",
+  "label": 0,
+  "group": "0:391",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\439_f000210.png",
+  "label": 0,
+  "group": "0:439",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\874_f000450.png",
+  "label": 0,
+  "group": "0:874",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\943_f000325.png",
+  "label": 0,
+  "group": "0:943",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\425_f000000.png",
+  "label": 0,
+  "group": "0:425",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\832_f000400.png",
+  "label": 0,
+  "group": "0:832",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\120_f000000.png",
+  "label": 0,
+  "group": "0:120",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\980_f000000.png",
+  "label": 0,
+  "group": "0:980",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\468_f000575.png",
+  "label": 0,
+  "group": "0:468",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\277_f000720.png",
+  "label": 0,
+  "group": "0:277",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\037_f000450.png",
+  "label": 0,
+  "group": "0:037",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\368_f000360.png",
+  "label": 0,
+  "group": "0:368",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\525_f000360.png",
+  "label": 0,
+  "group": "0:525",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\741_f000175.png",
+  "label": 0,
+  "group": "0:741",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\132_f000300.png",
+  "label": 0,
+  "group": "0:132",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\450_f000750.png",
+  "label": 0,
+  "group": "0:450",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\522_f000700.png",
+  "label": 0,
+  "group": "0:522",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\332_f000500.png",
+  "label": 0,
+  "group": "0:332",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\374_f000000.png",
+  "label": 0,
+  "group": "0:374",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\681_f000000.png",
+  "label": 0,
+  "group": "0:681",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\920_f000175.png",
+  "label": 0,
+  "group": "0:920",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\149_f000175.png",
+  "label": 0,
+  "group": "0:149",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\646_f000210.png",
+  "label": 0,
+  "group": "0:646",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\462_f000120.png",
+  "label": 0,
+  "group": "0:462",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\687_f000450.png",
+  "label": 0,
+  "group": "0:687",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\779_f000225.png",
+  "label": 0,
+  "group": "0:779",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\929_f000090.png",
+  "label": 0,
+  "group": "0:929",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\717_f000360.png",
+  "label": 0,
+  "group": "0:717",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\053_f000000.png",
+  "label": 0,
+  "group": "0:053",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\707_f001020.png",
+  "label": 0,
+  "group": "0:707",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\530_f000525.png",
+  "label": 0,
+  "group": "0:530",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\076_f000210.png",
+  "label": 0,
+  "group": "0:076",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\700_f000144.png",
+  "label": 0,
+  "group": "0:700",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\835_f000300.png",
+  "label": 0,
+  "group": "0:835",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\069_f000360.png",
+  "label": 0,
+  "group": "0:069",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\520_f000000.png",
+  "label": 0,
+  "group": "0:520",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\138_f000200.png",
+  "label": 0,
+  "group": "0:138",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\105_f000120.png",
+  "label": 0,
+  "group": "0:105",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\913_f000450.png",
+  "label": 0,
+  "group": "0:913",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\763_f000810.png",
+  "label": 0,
+  "group": "0:763",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\162_f000000.png",
+  "label": 0,
+  "group": "0:162",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\280_f000450.png",
+  "label": 0,
+  "group": "0:280",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\632_f000200.png",
+  "label": 0,
+  "group": "0:632",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\071_f000450.png",
+  "label": 0,
+  "group": "0:071",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\316_f000000.png",
+  "label": 0,
+  "group": "0:316",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\523_f000000.png",
+  "label": 0,
+  "group": "0:523",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\087_f000150.png",
+  "label": 0,
+  "group": "0:087",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\267_f000300.png",
+  "label": 0,
+  "group": "0:267",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\612_f000180.png",
+  "label": 0,
+  "group": "0:612",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\515_f000750.png",
+  "label": 0,
+  "group": "0:515",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\861_f000275.png",
+  "label": 0,
+  "group": "0:861",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\164_f000500.png",
+  "label": 0,
+  "group": "0:164",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\404_f000775.png",
+  "label": 0,
+  "group": "0:404",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\821_f000000.png",
+  "label": 0,
+  "group": "0:821",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\117_f000125.png",
+  "label": 0,
+  "group": "0:117",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\807_f000150.png",
+  "label": 0,
+  "group": "0:807",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\289_f000125.png",
+  "label": 0,
+  "group": "0:289",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\871_f000000.png",
+  "label": 0,
+  "group": "0:871",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\954_f000275.png",
+  "label": 0,
+  "group": "0:954",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\225_f000210.png",
+  "label": 0,
+  "group": "0:225",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\369_f000210.png",
+  "label": 0,
+  "group": "0:369",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\086_f000690.png",
+  "label": 0,
+  "group": "0:086",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\299_f000150.png",
+  "label": 0,
+  "group": "0:299",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\589_f000000.png",
+  "label": 0,
+  "group": "0:589",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\751_f000150.png",
+  "label": 0,
+  "group": "0:751",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\639_f000330.png",
+  "label": 0,
+  "group": "0:639",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\792_f000375.png",
+  "label": 0,
+  "group": "0:792",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\385_f000240.png",
+  "label": 0,
+  "group": "0:385",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\743_f000210.png",
+  "label": 0,
+  "group": "0:743",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\355_f000120.png",
+  "label": 0,
+  "group": "0:355",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\590_f000000.png",
+  "label": 0,
+  "group": "0:590",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\709_f000000.png",
+  "label": 0,
+  "group": "0:709",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\103_f000000.png",
+  "label": 0,
+  "group": "0:103",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\199_f000360.png",
+  "label": 0,
+  "group": "0:199",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\911_f000150.png",
+  "label": 0,
+  "group": "0:911",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\924_f000000.png",
+  "label": 0,
+  "group": "0:924",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\496_f001080.png",
+  "label": 0,
+  "group": "0:496",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\232_f000420.png",
+  "label": 0,
+  "group": "0:232",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\426_f000060.png",
+  "label": 0,
+  "group": "0:426",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\055_f000270.png",
+  "label": 0,
+  "group": "0:055",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\310_f000175.png",
+  "label": 0,
+  "group": "0:310",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\387_f000240.png",
+  "label": 0,
+  "group": "0:387",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\960_f000060.png",
+  "label": 0,
+  "group": "0:960",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\414_f000570.png",
+  "label": 0,
+  "group": "0:414",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\677_f000060.png",
+  "label": 0,
+  "group": "0:677",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\022_f000210.png",
+  "label": 0,
+  "group": "0:022",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\491_f000300.png",
+  "label": 0,
+  "group": "0:491",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\644_f000000.png",
+  "label": 0,
+  "group": "0:644",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\712_f000125.png",
+  "label": 0,
+  "group": "0:712",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\721_f000570.png",
+  "label": 0,
+  "group": "0:721",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\113_f000400.png",
+  "label": 0,
+  "group": "0:113",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\957_f000270.png",
+  "label": 0,
+  "group": "0:957",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\881_f000300.png",
+  "label": 0,
+  "group": "0:881",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\221_f000000.png",
+  "label": 0,
+  "group": "0:221",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\718_f000000.png",
+  "label": 0,
+  "group": "0:718",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\323_f000325.png",
+  "label": 0,
+  "group": "0:323",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\452_f000600.png",
+  "label": 0,
+  "group": "0:452",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\488_f000120.png",
+  "label": 0,
+  "group": "0:488",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\603_f000200.png",
+  "label": 0,
+  "group": "0:603",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\736_f000400.png",
+  "label": 0,
+  "group": "0:736",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\484_f000060.png",
+  "label": 0,
+  "group": "0:484",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\885_f000325.png",
+  "label": 0,
+  "group": "0:885",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\034_f000180.png",
+  "label": 0,
+  "group": "0:034",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\408_f000150.png",
+  "label": 0,
+  "group": "0:408",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\006_f000000.png",
+  "label": 0,
+  "group": "0:006",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\870_f000450.png",
+  "label": 0,
+  "group": "0:870",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\661_f000375.png",
+  "label": 0,
+  "group": "0:661",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\909_f000000.png",
+  "label": 0,
+  "group": "0:909",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\507_f000000.png",
+  "label": 0,
+  "group": "0:507",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\858_f000350.png",
+  "label": 0,
+  "group": "0:858",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\602_f000330.png",
+  "label": 0,
+  "group": "0:602",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\584_f000216.png",
+  "label": 0,
+  "group": "0:584",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\326_f000900.png",
+  "label": 0,
+  "group": "0:326",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\032_f000150.png",
+  "label": 0,
+  "group": "0:032",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\428_f000360.png",
+  "label": 0,
+  "group": "0:428",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\604_f000600.png",
+  "label": 0,
+  "group": "0:604",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\757_f000300.png",
+  "label": 0,
+  "group": "0:757",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\348_f000100.png",
+  "label": 0,
+  "group": "0:348",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\284_f000000.png",
+  "label": 0,
+  "group": "0:284",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\352_f000400.png",
+  "label": 0,
+  "group": "0:352",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\786_f000250.png",
+  "label": 0,
+  "group": "0:786",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\346_f000300.png",
+  "label": 0,
+  "group": "0:346",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\526_f000600.png",
+  "label": 0,
+  "group": "0:526",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\104_f000450.png",
+  "label": 0,
+  "group": "0:104",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\128_f000525.png",
+  "label": 0,
+  "group": "0:128",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\394_f000100.png",
+  "label": 0,
+  "group": "0:394",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\304_f000000.png",
+  "label": 0,
+  "group": "0:304",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\403_f000510.png",
+  "label": 0,
+  "group": "0:403",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\575_f000275.png",
+  "label": 0,
+  "group": "0:575",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\693_f000125.png",
+  "label": 0,
+  "group": "0:693",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\638_f000510.png",
+  "label": 0,
+  "group": "0:638",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\557_f000360.png",
+  "label": 0,
+  "group": "0:557",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\057_f000100.png",
+  "label": 0,
+  "group": "0:057",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\377_f000000.png",
+  "label": 0,
+  "group": "0:377",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\641_f000150.png",
+  "label": 0,
+  "group": "0:641",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\258_f000480.png",
+  "label": 0,
+  "group": "0:258",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\028_f000300.png",
+  "label": 0,
+  "group": "0:028",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\995_f000540.png",
+  "label": 0,
+  "group": "0:995",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\252_f000000.png",
+  "label": 0,
+  "group": "0:252",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\341_f000810.png",
+  "label": 0,
+  "group": "0:341",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\572_f000150.png",
+  "label": 0,
+  "group": "0:572",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\189_f000500.png",
+  "label": 0,
+  "group": "0:189",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\703_f000360.png",
+  "label": 0,
+  "group": "0:703",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\125_f000480.png",
+  "label": 0,
+  "group": "0:125",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\435_f000475.png",
+  "label": 0,
+  "group": "0:435",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\616_f000650.png",
+  "label": 0,
+  "group": "0:616",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\620_f000000.png",
+  "label": 0,
+  "group": "0:620",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\785_f000200.png",
+  "label": 0,
+  "group": "0:785",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\750_f000000.png",
+  "label": 0,
+  "group": "0:750",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\376_f000250.png",
+  "label": 0,
+  "group": "0:376",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\165_f000375.png",
+  "label": 0,
+  "group": "0:165",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\939_f000120.png",
+  "label": 0,
+  "group": "0:939",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\587_f000300.png",
+  "label": 0,
+  "group": "0:587",
+  "generator": "real"
+ },
+ {
+  "path": "datasets\\FaceForensics++_C23\\original_png_224\\966_f000000.png",
+  "label": 0,
+  "group": "0:966",
+  "generator": "real"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/671/19221.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_671_19221",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/944_032/022.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_944_032",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/108/11886.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_108_11886",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/594/seed13534.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_594_seed13534",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/889/seed2228.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_889_seed2228",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/754/seed18770.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_754_seed18770",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/300/015606.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_300_015606",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/266_252/119.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_266_252",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/131_518/662.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_131_518",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/202/528_266.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_202_528_266",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/885_802/211.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_885_802",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/167_166/230.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_167_166",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/162_330/353.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_162_330",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/861_858/402.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_861_858",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/803_017/667.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_803_017",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/885_802/203.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_885_802",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/095_053/1323.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_095_053",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/235_194/280.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_235_194",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/017_803/064.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_017_803",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/737_719/028.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_737_719",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/323_302/455.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_323_302",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/976_954/737.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_976_954",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/022_489/529.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_022_489",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/738/401_063.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_738_401_063",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/010/sample-7439.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_010_sample-7439",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/311_7hFy02TSH4U_50010/023.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_311_7hFy02TSH4U_50010",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/602/932_233.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_602_932_233",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/446_667/299.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_446_667",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/740_796/269.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_740_796",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/131_518/137.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_131_518",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/324_BSxI3YxAPW4_50014/128.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_324_BSxI3YxAPW4_50014",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/325/20447.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_325_20447",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/348_202/173.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_348_202",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/251/5270.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_251_5270",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/877/seed14067.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_877_seed14067",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/251/seed19093.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_251_seed19093",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/090/seed0967.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_090_seed0967",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/564/016488.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_564_016488",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/055_147/253.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_055_147",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/282_238/321.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_282_238",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/573/136_255.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_573_136_255",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/809_799/330.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_809_799",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/237_236/048.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_237_236",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/853_863/049.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_853_863",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/545_553/126.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_545_553",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/866_878/1105.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_866_878",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/530_594/028.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_530_594",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/008_990/1478.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_008_990",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/990_008/235.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_990_008",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/918_934/425.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_918_934",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/540_536/888.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_540_536",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/247_229/038.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_247_229",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/959_957/1046.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_959_957",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/276_185/333.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_276_185",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/997/597_076.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_997_597_076",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/649/sample-4662.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_649_sample-4662",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/626_2tcEgqTWbxQ_50038/048.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_626_2tcEgqTWbxQ_50038",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/292/041_179.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_292_041_179",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/304_300/569.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_304_300",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/508_831/840.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_508_831",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/596_609/071.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_596_609",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/110_1YO1FmVAPrA_50013/010.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_110_1YO1FmVAPrA_50013",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/871/16989.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_871_16989",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/877_886/440.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_877_886",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/700/15874.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_700_15874",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/958/seed14767.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_958_seed14767",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/861/seed3188.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_861_seed3188",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/207/seed14247.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_207_seed14247",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/100/010195.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_100_010195",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/117_217/405.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_117_217",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/533_450/086.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_533_450",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/722/999_269.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_722_999_269",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/628_568/173.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_628_568",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/303_309/367.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_303_309",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/260_331/203.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_260_331",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/967_984/172.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_967_984",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/667_446/181.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_667_446",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/405_393/391.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_405_393",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/508_831/140.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_508_831",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/275_887/259.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_275_887",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/428_466/365.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_428_466",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/500_592/609.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_500_592",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/090_086/398.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_090_086",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/195_442/593.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_195_442",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/646_643/102.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_646_643",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/689/529_183.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_689_529_183",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/193/sample-7213.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_193_sample-7213",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/322_9YGZkgkj3fM_50003/113.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_322_9YGZkgkj3fM_50003",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/567/233_152.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_567_233_152",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/047_862/184.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_047_862",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/853_863/238.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_853_863",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/910_911/056.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_910_911",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/403_1EHZAQmw2JA_50001/045.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_403_1EHZAQmw2JA_50001",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/673/13009.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_673_13009",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/780_869/142.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_780_869",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/274/4148.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_274_4148",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/045/seed7496.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_045_seed7496",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/222/seed13210.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_222_seed13210",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/596/seed4177.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_596_seed4177",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/618/018081.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_618_018081",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/541_523/351.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_541_523",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/716_712/777.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_716_712",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/330/499_347.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_330_499_347",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/431_447/536.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_431_447",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/130_139/255.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_130_139",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/052_108/183.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_052_108",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/728_673/054.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_728_673",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/735_774/807.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_735_774",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/019_018/361.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_019_018",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/872_873/806.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_872_873",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/933_925/397.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_933_925",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/129_127/063.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_129_127",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/753_789/478.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_753_789",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/966_988/281.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_966_988",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/522_337/1048.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_522_337",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/032_944/648.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_032_944",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/885/300_442.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_885_300_442",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/070/sample-18520.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_070_sample-18520",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/071_8meWY0W40OA_50006/090.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_071_8meWY0W40OA_50006",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/804/907_084.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_804_907_084",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/354_362/133.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_354_362",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/166_167/1521.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_166_167",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/148_133/045.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_148_133",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/043_1YO1FmVAPrA_50013/115.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_043_1YO1FmVAPrA_50013",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/652/4975.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_652_4975",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/063_041/389.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_063_041",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/763/4946.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_763_4946",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/491/seed0942.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_491_seed0942",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/715/seed17687.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_715_seed17687",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/144/seed6426.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_144_seed6426",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/246/004837.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_246_004837",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/920_811/190.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_920_811",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/542_520/049.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_542_520",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/838/083_403.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_838_083_403",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/952_882/406.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_952_882",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/537_563/012.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_537_563",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/930_763/317.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_930_763",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/588_556/456.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_588_556",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/859_843/619.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_859_843",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/153_150/146.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_153_150",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/757_573/784.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_757_573",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/656_666/308.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_656_666",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/498_433/081.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_498_433",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/318_334/992.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_318_334",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/456_435/078.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_456_435",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/698_693/117.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_698_693",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/055_147/091.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_055_147",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/103/249_529.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_103_249_529",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/337/sample-13051.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_337_sample-13051",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/570_5qdZybHSLnI_50011/076.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_570_5qdZybHSLnI_50011",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/519/895_000.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_519_895_000",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/597_595/095.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_597_595",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/475_265/469.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_475_265",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/735_774/180.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_735_774",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/067_8olL43PKJKw_50003/000.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_067_8olL43PKJKw_50003",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/016/738.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_016_738",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/337_522/138.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_337_522",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/284/8150.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_284_8150",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/572/seed8721.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_572_seed8721",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/511/seed5201.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_511_seed5201",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/475/seed17773.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_475_seed17773",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/202/015539.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_202_015539",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/881_856/000.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_881_856",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/969_897/137.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_969_897",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/143/163_078.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_143_163_078",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/052_108/052.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_052_108",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/417_496/833.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_417_496",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/270_297/240.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_270_297",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/533_450/216.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_533_450",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/343_363/023.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_343_363",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/635_642/073.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_635_642",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/264_271/705.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_264_271",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/483_370/241.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_483_370",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/833_826/444.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_833_826",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/765_867/720.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_765_867",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/678_460/090.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_678_460",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/351_346/370.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_351_346",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/191_188/806.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_191_188",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/167/268_1275.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_167_268_1275",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/740/sample-12815.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_740_sample-12815",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/075_4sg9TlsMRVA_50009/088.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_075_4sg9TlsMRVA_50009",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/477/118_022.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_477_118_022",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/364_440/292.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_364_440",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/383_353/864.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_383_353",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/729_727/450.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_729_727",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/098_1Gtc0ounD5I_50005/055.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_098_1Gtc0ounD5I_50005",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/614/924.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_614_924",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/300_304/077.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_300_304",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/616/15541.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_616_15541",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/313/seed19538.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_313_seed19538",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/951/seed14432.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_951_seed14432",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/448/seed7876.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_448_seed7876",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/689/003190.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_689_003190",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/002_006/446.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_002_006",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/430_459/055.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_430_459",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/573/133_098.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_573_133_098",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/438_434/192.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_438_434",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/008_990/307.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_008_990",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/320_328/174.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_320_328",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/696_686/195.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_696_686",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/079_076/360.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_079_076",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/753_789/109.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_753_789",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/894_848/583.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_894_848",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/745_777/348.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_745_777",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/062_066/381.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_062_066",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/690_689/717.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_690_689",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/417_496/776.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_417_496",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/201_203/1338.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_201_203",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/540_536/2148.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_540_536",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/967/482_045.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_967_482_045",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/871/sample-13416.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_871_sample-13416",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/791_9y7YEmyzSDo_50010/144.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_791_9y7YEmyzSDo_50010",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/594/758_327.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_594_758_327",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/591_605/348.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_591_605",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/132_007/095.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_132_007",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/409_382/325.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_409_382",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/310_8woKcr7uSYQ_50004/036.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_310_8woKcr7uSYQ_50004",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/615/1229.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_615_1229",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/167_166/010.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_167_166",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/039/6782.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_039_6782",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/604/seed8317.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_604_seed8317",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/793/seed5564.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_793_seed5564",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/783/seed15653.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_783_seed15653",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/193/014917.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_193_014917",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/676_776/099.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_676_776",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/448_361/326.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_448_361",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/532/436_116.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_532_436_116",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/274_412/305.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_274_412",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/132_007/106.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_132_007",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/447_431/010.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_447_431",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/665_679/010.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_665_679",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/894_848/533.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_894_848",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/318_334/1294.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_318_334",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/253_183/116.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_253_183",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/143_140/133.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_143_140",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/663_231/182.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_663_231",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/204_230/119.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_204_230",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/604_703/451.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_604_703",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/549_531/1497.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_549_531",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/199_181/600.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_199_181",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/353/872_442.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_353_872_442",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/030/sample-3945.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_030_sample-3945",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/274_2JSZ66uMRwc_50003/108.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_274_2JSZ66uMRwc_50003",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/602/477_258.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_602_477_258",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/395_401/028.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_395_401",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/752_751/787.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_752_751",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/501_326/319.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_501_326",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/577_AAkEYcmCCCk_50024/041.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_577_AAkEYcmCCCk_50024",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/200/15580.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_200_15580",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/085_124/190.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_085_124",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/016/17532.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_016_17532",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/884/seed7413.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_884_seed7413",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/730/seed4868.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_730_seed4868",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/613/seed5077.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_613_seed5077",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/666/007561.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_666_007561",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/365_307/296.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_365_307",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/888_937/308.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_888_937",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/990/268_047.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_990_268_047",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/549_531/402.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_549_531",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/182_242/480.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_182_242",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/094_111/320.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_094_111",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/553_545/199.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_553_545",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/948_965/1010.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_948_965",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/997_040/052.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_997_040",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/893_913/124.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_893_913",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/362_354/380.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_362_354",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/343_363/009.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_343_363",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/989_993/668.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_989_993",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/309_303/739.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_309_303",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/297_270/543.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_297_270",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/098_092/162.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_098_092",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/pixart/561/194_073.png",
+  "label": 1,
+  "group": "1:pixart/df40_pixart_561_194_073",
+  "generator": "pixart"
+ },
+ {
+  "path": "data/raw/DF40/RDDM/595/sample-5665.png",
+  "label": 1,
+  "group": "1:rddm/df40_rddm_595_sample-5665",
+  "generator": "rddm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/sadtalker/sadtalker/frames/282_5aH2Ppjpcho_50001/065.png",
+  "label": 1,
+  "group": "1:sadtalker/df40_sadtalker_282_5aH2Ppjpcho_50001",
+  "generator": "sadtalker"
+ },
+ {
+  "path": "data/raw/DF40/sd2.1/573/664_084.png",
+  "label": 1,
+  "group": "1:sd2.1/df40_sd2.1_573_664_084",
+  "generator": "sd2.1"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/840_800/135.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_840_800",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/559_543/284.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_559_543",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/844_797/768.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_844_797",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/wav2lip/wav2lip/frames/119_9EVEmZ2cSes_50010/166.png",
+  "label": 1,
+  "group": "1:wav2lip/df40_wav2lip_119_9EVEmZ2cSes_50010",
+  "generator": "wav2lip"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/DiT/DiT/680/21106.png",
+  "label": 1,
+  "group": "1:DiT/df40_DiT_680_21106",
+  "generator": "DiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/937_888/322.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_937_888",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/SiT/SiT/591/12441.png",
+  "label": 1,
+  "group": "1:SiT/df40_SiT_591_12441",
+  "generator": "SiT"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN2/StyleGAN2/397/seed10286.png",
+  "label": 1,
+  "group": "1:StyleGAN2/df40_StyleGAN2_397_seed10286",
+  "generator": "StyleGAN2"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGAN3/StyleGAN3/677/seed5206.png",
+  "label": 1,
+  "group": "1:StyleGAN3/df40_StyleGAN3_677_seed5206",
+  "generator": "StyleGAN3"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/StyleGANXL/StyleGANXL/496/seed17169.png",
+  "label": 1,
+  "group": "1:StyleGANXL/df40_StyleGANXL_496_seed17169",
+  "generator": "StyleGANXL"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/VQGAN/VQGAN/010/006379.png",
+  "label": 1,
+  "group": "1:VQGAN/df40_VQGAN_010_006379",
+  "generator": "VQGAN"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/477_487/352.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_477_487",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/813_700/000.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_813_700",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/ddim/ddim/757/700_000.png",
+  "label": 1,
+  "group": "1:ddim/df40_ddim_757_700_000",
+  "generator": "ddim"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/e4s/e4s/frames/783_916/246.png",
+  "label": 1,
+  "group": "1:e4s/df40_e4s_783_916",
+  "generator": "e4s"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/903_792/146.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_903_792",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/525_509/266.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_525_509",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/326_501/796.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_326_501",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/966_988/140.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_966_988",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/961_069/748.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_961_069",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/375_251/054.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_375_251",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/965_948/033.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_965_948",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/457_398/034.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_457_398",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/050_059/492.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_050_059",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/428_466/173.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_428_466",
+  "generator": "mobileswap"
+ }
+]

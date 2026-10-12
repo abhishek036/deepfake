@@ -1,0 +1,169 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/ff_native_reals.jsonl",
+  "clean_real_manifest": "data/ff_native_reals.jsonl",
+  "fake_manifest": "data/ff_native_fakes.jsonl",
+  "families": "['composited']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "6",
+  "max_scenes": "600",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "cache": "reports/emb_cache_native_face_only.pkl",
+  "out": "reports/lp_native_face_only.json",
+  "mask": "face_only",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": "face_only",
+ "identity_disjoint": false,
+ "script_sha256": "e2877ead5d8b2cdb68cc5a89991e9f0fda5116e9c5e5438545b7ba0c3d56b982",
+ "manifest_sha256": {
+  "confounded_real_manifest": "4c753a63ee436ce49c52b2ed8a9ddac742b587c0baf2c6bdc436f4e48444dfea",
+  "clean_real_manifest": "4c753a63ee436ce49c52b2ed8a9ddac742b587c0baf2c6bdc436f4e48444dfea",
+  "fake_manifest": "75f81547ca063348ebcdd981c710056e5c489a2a0d4b382f781e5881f1341e28"
+ },
+ "n_scenes": {
+  "train": 300,
+  "test": 300
+ },
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.9023234567901234,
+   "ci95": [
+    0.8868908796296296,
+    0.9191179475308642
+   ],
+   "tpr": 0.8338888888888889,
+   "fpr": 0.2011111111111111,
+   "bal_acc": 0.8163888888888888,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:C->M": {
+   "auroc": 0.9002864197530864,
+   "ci95": [
+    0.8854051080246914,
+    0.9163499537037038
+   ],
+   "tpr": 0.8338888888888889,
+   "fpr": 0.19333333333333333,
+   "bal_acc": 0.8202777777777778,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:M->M": {
+   "auroc": 0.8972203703703703,
+   "ci95": [
+    0.8804436882716049,
+    0.9111572685185185
+   ],
+   "tpr": 0.8377777777777777,
+   "fpr": 0.20777777777777778,
+   "bal_acc": 0.815,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:M->C": {
+   "auroc": 0.8954944444444445,
+   "ci95": [
+    0.8793093209876544,
+    0.9118627469135803
+   ],
+   "tpr": 0.8377777777777777,
+   "fpr": 0.22,
+   "bal_acc": 0.8088888888888889,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.557158024691358,
+   "ci95": [
+    0.5378300771604938,
+    0.5773713271604938
+   ],
+   "tpr": 0.5022222222222222,
+   "fpr": 0.4033333333333333,
+   "bal_acc": 0.5494444444444444,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.5493648148148148,
+   "ci95": [
+    0.5315846450617284,
+    0.5696986265432099
+   ],
+   "tpr": 0.5022222222222222,
+   "fpr": 0.4077777777777778,
+   "bal_acc": 0.5472222222222223,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.5481061728395061,
+   "ci95": [
+    0.5300181327160494,
+    0.5655035185185185
+   ],
+   "tpr": 0.49666666666666665,
+   "fpr": 0.4033333333333333,
+   "bal_acc": 0.5466666666666666,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.5565296296296296,
+   "ci95": [
+    0.5374813888888889,
+    0.5741568055555555
+   ],
+   "tpr": 0.49666666666666665,
+   "fpr": 0.41,
+   "bal_acc": 0.5433333333333333,
+   "n_real": 900,
+   "n_fake": 1800
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "Deepfakes": 0.6049950617283951,
+   "FaceSwap": 0.5455061728395062
+  },
+  "dino:C->M": {
+   "Deepfakes": 0.6191765432098766,
+   "FaceSwap": 0.5415086419753086
+  },
+  "dino:M->M": {
+   "Deepfakes": 0.643295061728395,
+   "FaceSwap": 0.561862962962963
+  },
+  "dino:M->C": {
+   "Deepfakes": 0.629346913580247,
+   "FaceSwap": 0.5623864197530865
+  },
+  "lowlevel:C->C": {
+   "Deepfakes": 0.4595777777777778,
+   "FaceSwap": 0.4782950617283951
+  },
+  "lowlevel:C->M": {
+   "Deepfakes": 0.4666135802469136,
+   "FaceSwap": 0.46767160493827165
+  },
+  "lowlevel:M->M": {
+   "Deepfakes": 0.4682925925925926,
+   "FaceSwap": 0.46758395061728397
+  },
+  "lowlevel:M->C": {
+   "Deepfakes": 0.46162962962962967,
+   "FaceSwap": 0.4780283950617284
+  }
+ }
+}

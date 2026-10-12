@@ -1,0 +1,169 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/ff_native_reals.jsonl",
+  "clean_real_manifest": "data/ff_native_reals.jsonl",
+  "fake_manifest": "data/ff_native_fakes.jsonl",
+  "families": "['composited']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "6",
+  "max_scenes": "600",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "cache": "reports/emb_cache_native_face_out.pkl",
+  "out": "reports/lp_native_face_out.json",
+  "mask": "face_out",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": "face_out",
+ "identity_disjoint": false,
+ "script_sha256": "e2877ead5d8b2cdb68cc5a89991e9f0fda5116e9c5e5438545b7ba0c3d56b982",
+ "manifest_sha256": {
+  "confounded_real_manifest": "4c753a63ee436ce49c52b2ed8a9ddac742b587c0baf2c6bdc436f4e48444dfea",
+  "clean_real_manifest": "4c753a63ee436ce49c52b2ed8a9ddac742b587c0baf2c6bdc436f4e48444dfea",
+  "fake_manifest": "75f81547ca063348ebcdd981c710056e5c489a2a0d4b382f781e5881f1341e28"
+ },
+ "n_scenes": {
+  "train": 300,
+  "test": 300
+ },
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.7389962962962964,
+   "ci95": [
+    0.7203602006172839,
+    0.7564014969135803
+   ],
+   "tpr": 0.7144444444444444,
+   "fpr": 0.3622222222222222,
+   "bal_acc": 0.6761111111111111,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:C->M": {
+   "auroc": 0.7426197530864198,
+   "ci95": [
+    0.7215767901234569,
+    0.7629167283950617
+   ],
+   "tpr": 0.7144444444444444,
+   "fpr": 0.37444444444444447,
+   "bal_acc": 0.6699999999999999,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:M->M": {
+   "auroc": 0.7437876543209877,
+   "ci95": [
+    0.724046774691358,
+    0.7648821450617285
+   ],
+   "tpr": 0.7111111111111111,
+   "fpr": 0.36666666666666664,
+   "bal_acc": 0.6722222222222223,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "dino:M->C": {
+   "auroc": 0.745416049382716,
+   "ci95": [
+    0.7274572685185186,
+    0.7651802160493827
+   ],
+   "tpr": 0.7111111111111111,
+   "fpr": 0.35,
+   "bal_acc": 0.6805555555555556,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.5168462962962963,
+   "ci95": [
+    0.5073556172839506,
+    0.5281227932098765
+   ],
+   "tpr": 0.46444444444444444,
+   "fpr": 0.4288888888888889,
+   "bal_acc": 0.5177777777777778,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.5222179012345679,
+   "ci95": [
+    0.51374875,
+    0.5325563271604938
+   ],
+   "tpr": 0.46444444444444444,
+   "fpr": 0.42333333333333334,
+   "bal_acc": 0.5205555555555555,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.521045061728395,
+   "ci95": [
+    0.5115735030864198,
+    0.5298885802469135
+   ],
+   "tpr": 0.45666666666666667,
+   "fpr": 0.41888888888888887,
+   "bal_acc": 0.518888888888889,
+   "n_real": 900,
+   "n_fake": 1800
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.5176425925925926,
+   "ci95": [
+    0.5079011882716049,
+    0.5277288117283951
+   ],
+   "tpr": 0.45666666666666667,
+   "fpr": 0.4255555555555556,
+   "bal_acc": 0.5155555555555555,
+   "n_real": 900,
+   "n_fake": 1800
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "Deepfakes": 0.5816962962962963,
+   "FaceSwap": 0.5618333333333333
+  },
+  "dino:C->M": {
+   "Deepfakes": 0.591830864197531,
+   "FaceSwap": 0.5663432098765432
+  },
+  "dino:M->M": {
+   "Deepfakes": 0.5855123456790123,
+   "FaceSwap": 0.5684962962962963
+  },
+  "dino:M->C": {
+   "Deepfakes": 0.5778283950617285,
+   "FaceSwap": 0.5645728395061729
+  },
+  "lowlevel:C->C": {
+   "Deepfakes": 0.5079814814814815,
+   "FaceSwap": 0.5072111111111111
+  },
+  "lowlevel:C->M": {
+   "Deepfakes": 0.5150345679012346,
+   "FaceSwap": 0.5075333333333334
+  },
+  "lowlevel:M->M": {
+   "Deepfakes": 0.5156765432098765,
+   "FaceSwap": 0.5115654320987654
+  },
+  "lowlevel:M->C": {
+   "Deepfakes": 0.510216049382716,
+   "FaceSwap": 0.5120629629629629
+  }
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "args": {
+  "real_manifest": [
+   "C:\\Users\\Ardenyx\\AppData\\Local\\Temp\\tmpmjgd6m14\\real.jsonl"
+  ],
+  "real_split": "test",
+  "fake_manifest": "C:\\Users\\Ardenyx\\AppData\\Local\\Temp\\tmpmjgd6m14\\fake.jsonl",
+  "ckpt": "outputs/checkpoints/best.ckpt",
+  "n_per_class": 50,
+  "per_generator_cap": 20,
+  "match_bins": 4,
+  "boot": 50,
+  "seed": 42,
+  "device": null,
+  "batch_size": 16,
+  "allowed_missing": [
+   "calibration.temperature_scaling.bias"
+  ],
+  "skip_model": false,
+  "self_test": true,
+  "out_dir": "reports",
+  "cross_probe_manifests": []
+ },
+ "git": {
+  "commit": "f528f6a197d55a9ec67246a58bf2b8713223baac",
+  "dirty": true
+ },
+ "n_samples": 100,
+ "generators": {
+  "real": 50,
+  "gen0": 13,
+  "gen1": 13,
+  "gen2": 12,
+  "gen3": 12
+ },
+ "preflight": {
+  "real": {
+   "n": 50,
+   "ext": {
+    ".jpg": 50
+   },
+   "mode": {
+    "RGB": 50
+   },
+   "width_mean_std": [
+    256.0,
+    0.0
+   ],
+   "height_mean_std": [
+    256.0,
+    0.0
+   ]
+  },
+  "fake": {
+   "n": 50,
+   "ext": {
+    ".png": 50
+   },
+   "mode": {
+    "RGB": 50
+   },
+   "width_mean_std": [
+    256.0,
+    0.0
+   ],
+   "height_mean_std": [
+    256.0,
+    0.0
+   ]
+  }
+ },
+ "probe": {
+  "cv_auroc_grayscale_6feat": 1.0,
+  "cv_auroc_gray_plus_color_12feat": 1.0,
+  "cv_auroc_full_204feat": 1.0,
+  "cv_auroc_thumbnail_8x8_192feat": 1.0,
+  "univariate_auroc_gray": {
+   "log_jpeg90_kb": 1.0,
+   "log_lap_var": 1.0,
+   "gray_mean": 1.0,
+   "gray_std": 0.6556,
+   "hf_ratio": 1.0,
+   "blockiness": 0.7496
+  },
+  "univariate_auroc_color": {
+   "r_mean": 1.0,
+   "g_mean": 1.0,
+   "b_mean": 1.0,
+   "r_std": 0.8136,
+   "g_std": 0.8136,
+   "b_std": 0.8091999999999999
+  },
+  "top5_univariate_thumbnail_pixel": {
+   "146": 0.7863999999999999,
+   "3": 0.7814,
+   "173": 0.7807999999999999,
+   "26": 0.7758,
+   "23": 0.7757999999999998
+  },
+  "matched_coverage": 0.0,
+  "matched_kept": {
+   "real": 0,
+   "fake": 0
+  },
+  "cv_auroc_gray_color_after_size_sharpness_match": NaN,
+  "pass_threshold": 0.55
+ },
+ "cross_probe_sweep": {},
+ "split": {
+  "val_n": 50,
+  "test_n": 50,
+  "by": "video group"
+ },
+ "threshold_raw_logit_from_val_canonical": -0.4078670669539628,
+ "threshold_method": "Youden-J plateau median (robust to cluster drift)",
+ "conditions": {
+  "canonical": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    1.0,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 0.0,
+   "fpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ]
+  },
+  "common_jpeg90": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    0.9999999999999999,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 0.0,
+   "fpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ]
+  },
+  "hard_jpeg50": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    1.0,
+    1.0
+   ],
+   "tpr": 0.0,
+   "tpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ],
+   "fpr": 0.0,
+   "fpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ]
+  },
+  "hard_down50_jpeg50": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    0.9999999999999999,
+    1.0
+   ],
+   "tpr": 0.0,
+   "tpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ],
+   "fpr": 0.0,
+   "fpr_wilson": [
+    0.0,
+    0.13319649395317873
+   ]
+  },
+  "maskA_face_meanfill": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    0.9999999999999999,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 1.0,
+   "fpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ]
+  },
+  "maskB_bkg_meanfill": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    0.9999999999999999,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 1.0,
+   "fpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ]
+  },
+  "maskC_randpatch_meanfill": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    0.9999999999999999,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 1.0,
+   "fpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ]
+  },
+  "maskD_patchshuffle": {
+   "n": 50,
+   "auroc": 1.0,
+   "auroc_ci95_grouped_boot": [
+    1.0,
+    1.0
+   ],
+   "tpr": 1.0,
+   "tpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ],
+   "fpr": 1.0,
+   "fpr_wilson": [
+    0.8668035060468213,
+    1.0
+   ]
+  }
+ },
+ "aurc": {
+  "hard_jpeg50": {
+   "n_errors": 25,
+   "overall_risk": 0.5,
+   "aurc": 0.15837641971204092,
+   "aurc_optimal": 0.15837641971204092,
+   "e_aurc": 0.0,
+   "meaningful": true
+  },
+  "hard_down50_jpeg50": {
+   "n_errors": 25,
+   "overall_risk": 0.5,
+   "aurc": 0.15837641971204092,
+   "aurc_optimal": 0.15837641971204092,
+   "e_aurc": 0.0,
+   "meaningful": true
+  }
+ },
+ "diagnostic_blur_fakes_to_real": {
+  "n": 50,
+  "auroc": 0.0,
+  "auroc_ci95_grouped_boot": [
+   0.0,
+   0.0
+  ],
+  "tpr": 0.0,
+  "tpr_wilson": [
+   0.0,
+   0.13319649395317873
+  ],
+  "fpr": 0.0,
+  "fpr_wilson": [
+   0.0,
+   0.13319649395317873
+  ]
+ },
+ "sample_list_sha256": "94fd3ca38bb478bfec26ddd126dc1912334c12ad5ea508e92fdd4a56e705fcce",
+ "checkpoint_sha256": null,
+ "manifest_sha256": {
+  "C:\\Users\\Ardenyx\\AppData\\Local\\Temp\\tmpmjgd6m14\\real.jsonl": "37401f0dd5cc6cd98b1395636b368f9af6f6627e74758262d0788b2b31db9e07",
+  "C:\\Users\\Ardenyx\\AppData\\Local\\Temp\\tmpmjgd6m14\\fake.jsonl": "9316cc8050321ef418a7f170094d7d0271edb48d3ba8f7eb7e02e68279b9e7b0"
+ },
+ "script_sha256": "04e342fc2d9056d2f6235f573c1b35d6718296d6f42c003840d619abccaaaa36"
+}

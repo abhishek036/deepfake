@@ -1,0 +1,74 @@
+[
+  {
+    "configuration": "1. DINO only",
+    "auroc": 0.7586,
+    "accuracy": 0.66,
+    "brier_score": 0.2171,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "2. Forensic only",
+    "auroc": 0.5411,
+    "accuracy": 0.4967,
+    "brier_score": 0.2512,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "3. Temporal only",
+    "auroc": 0.5,
+    "accuracy": 0.5,
+    "brier_score": 0.2508,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "4. DINO + Forensic",
+    "auroc": 0.7504,
+    "accuracy": 0.67,
+    "brier_score": 0.2238,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "5. DINO + Temporal",
+    "auroc": 0.7586,
+    "accuracy": 0.66,
+    "brier_score": 0.2171,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "6. All visual",
+    "auroc": 0.7504,
+    "accuracy": 0.67,
+    "brier_score": 0.2238,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "7. All modalities",
+    "auroc": 0.7504,
+    "accuracy": 0.67,
+    "brier_score": 0.2238,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "8. All + reliability",
+    "auroc": 0.7504,
+    "accuracy": 0.67,
+    "brier_score": 0.2238,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "9. All + reliability + abstention",
+    "auroc": 0.7102,
+    "accuracy": 0.6444,
+    "brier_score": 0.2299,
+    "samples_evaluated": 270,
+    "abstention_rate": 0.1
+  }
+]

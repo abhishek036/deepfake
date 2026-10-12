@@ -1,0 +1,198 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/ff_shared_reals.jsonl",
+  "clean_real_manifest": "data/ff_shared_reals.jsonl",
+  "fake_manifest": "data/ff_shared_fakes.jsonl",
+  "families": "['composited', 'reenactment']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "6",
+  "max_scenes": "600",
+  "split_dir": "datasets/FaceForensics++_C23",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "seeds": "None",
+  "cache": "reports/emb_cache_shared_none.pkl",
+  "out": "reports/lp_shared.json",
+  "mask": "None",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": null,
+ "identity_disjoint": false,
+ "script_sha256": "cb121e184a4f623d991259d102a4295cfc7337c940da964627e11abaf5f684db",
+ "manifest_sha256": {
+  "confounded_real_manifest": "bdf3ece2177d62b841bffd20be9d423fc7bf3072e4837e464311620eded85b86",
+  "clean_real_manifest": "bdf3ece2177d62b841bffd20be9d423fc7bf3072e4837e464311620eded85b86",
+  "fake_manifest": "ed2a9eb6598bb448406351ae704ed54c9ace4dc766c22f9c5c1a90b579f8d750"
+ },
+ "n_scenes": {
+  "train": 350,
+  "test": 57
+ },
+ "seeds": [
+  42
+ ],
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.7329959514170041,
+   "ci95": [
+    0.6919610046091438,
+    0.7783402182267702
+   ],
+   "tpr": 0.676923076923077,
+   "fpr": 0.3508771929824561,
+   "bal_acc": 0.6630229419703104,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:C->M": {
+   "auroc": 0.7240215924426451,
+   "ci95": [
+    0.6858741265387147,
+    0.7636863186098448
+   ],
+   "tpr": 0.676923076923077,
+   "fpr": 0.3567251461988304,
+   "bal_acc": 0.6600989653621232,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:M->M": {
+   "auroc": 0.736459739091318,
+   "ci95": [
+    0.7020989601313959,
+    0.7787339935655515
+   ],
+   "tpr": 0.65,
+   "fpr": 0.3157894736842105,
+   "bal_acc": 0.6671052631578948,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:M->C": {
+   "auroc": 0.7372919478182636,
+   "ci95": [
+    0.7060705741626795,
+    0.7776991448885875
+   ],
+   "tpr": 0.65,
+   "fpr": 0.30409356725146197,
+   "bal_acc": 0.6729532163742691,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.5301169590643275,
+   "ci95": [
+    0.5073589877331605,
+    0.5609417613208713
+   ],
+   "tpr": 0.5846153846153846,
+   "fpr": 0.5614035087719298,
+   "bal_acc": 0.5116059379217274,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.5386639676113361,
+   "ci95": [
+    0.5118858026408516,
+    0.569960101130683
+   ],
+   "tpr": 0.5846153846153846,
+   "fpr": 0.5380116959064327,
+   "bal_acc": 0.5233018443544759,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.537944219523167,
+   "ci95": [
+    0.5166107860531056,
+    0.5696396439817493
+   ],
+   "tpr": 0.5884615384615385,
+   "fpr": 0.5380116959064327,
+   "bal_acc": 0.5252249212775528,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.529374718848403,
+   "ci95": [
+    0.5032108830268781,
+    0.5576255083507718
+   ],
+   "tpr": 0.5884615384615385,
+   "fpr": 0.5614035087719298,
+   "bal_acc": 0.5135290148448043,
+   "n_real": 171,
+   "n_fake": 260
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "FaceShifter": 0.6310568086883876,
+   "Face2Face": 0.6861244019138756,
+   "FaceSwap": 0.5133585597981883,
+   "Deepfakes": 0.6423391812865498,
+   "NeuralTextures": 0.5930799220272904
+  },
+  "dino:C->M": {
+   "FaceShifter": 0.6122598162071846,
+   "Face2Face": 0.6832535885167463,
+   "FaceSwap": 0.5069372778351107,
+   "Deepfakes": 0.6396491228070175,
+   "NeuralTextures": 0.587719298245614
+  },
+  "dino:M->M": {
+   "FaceShifter": 0.616123642439432,
+   "Face2Face": 0.7034556087187666,
+   "FaceSwap": 0.5236784772388487,
+   "Deepfakes": 0.6567251461988304,
+   "NeuralTextures": 0.5751705653021443
+  },
+  "dino:M->C": {
+   "FaceShifter": 0.6291771094402674,
+   "Face2Face": 0.7048378522062733,
+   "FaceSwap": 0.527462446967091,
+   "Deepfakes": 0.6587134502923976,
+   "NeuralTextures": 0.5759015594541911
+  },
+  "lowlevel:C->C": {
+   "FaceShifter": 0.6423350041771094,
+   "Face2Face": 0.47070707070707074,
+   "FaceSwap": 0.37277835110652446,
+   "Deepfakes": 0.5618713450292397,
+   "NeuralTextures": 0.6396198830409358
+  },
+  "lowlevel:C->M": {
+   "FaceShifter": 0.6483918128654971,
+   "Face2Face": 0.47761828814460394,
+   "FaceSwap": 0.38057562206169016,
+   "Deepfakes": 0.5685380116959065,
+   "NeuralTextures": 0.6488791423001949
+  },
+  "lowlevel:M->M": {
+   "FaceShifter": 0.6432748538011697,
+   "Face2Face": 0.47644869750132907,
+   "FaceSwap": 0.3796582960669648,
+   "Deepfakes": 0.5750877192982456,
+   "NeuralTextures": 0.6447368421052632
+  },
+  "lowlevel:M->C": {
+   "FaceShifter": 0.635547201336675,
+   "Face2Face": 0.4702817650186071,
+   "FaceSwap": 0.3719756908611398,
+   "Deepfakes": 0.567953216374269,
+   "NeuralTextures": 0.6366959064327485
+  }
+ }
+}

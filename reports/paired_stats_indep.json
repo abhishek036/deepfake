@@ -1,0 +1,70 @@
+{
+ "args": {
+  "fakes": "data/ff_indep_fakes.jsonl",
+  "reals": "data/ff_indep_reals.jsonl",
+  "parent_part": "auto",
+  "n_groups": "2000",
+  "seed": "42",
+  "out": "reports/paired_stats_indep.json",
+  "self_test": "False"
+ },
+ "script_sha256": "d234b4cc7cdf5929e5a03ff955f4799530676883f11b9548871f677b3f8c84cd",
+ "fakes_sha256": "b2dd038413e79d0d9ec9762ff2a85c1463c58941a2a7a54841a31f3f03ed3d75",
+ "reals_sha256": "56a2a67ecb99748cd563947285c5cc3dd13f79da5d14f2fd8c5a80ed276f4748",
+ "result": {
+  "parent_id_part": 0,
+  "parent_detection": {
+   "0": {
+    "n": 250,
+    "median_bg_mad": 4.265651226043701
+   },
+   "1": {
+    "n": 227,
+    "median_bg_mad": 66.4437255859375
+   }
+  },
+  "n_groups_used": 349,
+  "n_parents": 110,
+  "skipped_groups": 1,
+  "real_vs_fake_bg_mad_median_q25_q75": [
+   5.6464245319366455,
+   3.8816310316324234,
+   7.668756306171417
+  ],
+  "fake_vs_fake_bg_mad_median_q25_q75": [
+   6.424767255783081,
+   4.213862419128418,
+   9.637184381484985
+  ],
+  "ratio_of_medians": 0.8788527750719948,
+  "wilcoxon_p": 1.568100349378876e-07,
+  "frac_parents_rf_gt_ff": 0.24545454545454545,
+  "p_s1_center_mad_px": 0.8233562366077591,
+  "p_s1_passed": true,
+  "tost_1_gray_level": {
+   "bound": 1.0,
+   "mean_diff": -1.2959917622985262,
+   "std_diff": 2.392418526312702,
+   "se": 0.2281081562657233,
+   "t1": -1.2975939446624838,
+   "p_lower": 0.9014168278667126,
+   "t2": 10.065364605480939,
+   "p_upper": 0.0,
+   "p_tost": 0.9014168278667126,
+   "equivalent": false
+  },
+  "ratio_equivalence_tolerances": {
+   "margin_0.05": false,
+   "margin_0.03": false,
+   "margin_0.02": false
+  },
+  "per_method_real_vs_fake_median": {
+   "NeuralTextures": 6.642918586730957,
+   "Face2Face": 5.680394411087036,
+   "Deepfakes": 4.793858766555786,
+   "FaceShifter": 4.517706394195557,
+   "FaceSwap": 4.387880325317383
+  },
+  "verdict": "CONFOUNDED: background difference significantly exceeds noise floor (pipeline shortcut present)"
+ }
+}

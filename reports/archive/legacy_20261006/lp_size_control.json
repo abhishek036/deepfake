@@ -1,0 +1,201 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/manifests/faceforensics.jsonl",
+  "clean_real_manifest": "data/ffpp_matched_reals_fsfr.jsonl",
+  "fake_manifest": "data/df40_fsfr_subset.jsonl",
+  "families": "['composited']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "3",
+  "max_scenes": "600",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "cache": "reports/emb_cache_size.pkl",
+  "out": "reports/lp_size_control.json",
+  "mask": "None",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": null,
+ "identity_disjoint": false,
+ "script_sha256": "e2877ead5d8b2cdb68cc5a89991e9f0fda5116e9c5e5438545b7ba0c3d56b982",
+ "manifest_sha256": {
+  "confounded_real_manifest": "2b23964d9e46360a28a99365c68b14d933cbf79456cdb8a1d7bf8066ad6505cc",
+  "clean_real_manifest": "28260d7152d9b67a673ac645f1bad6f2888498cc349c54a9ca7bb96b4ed97c3b",
+  "fake_manifest": "bcbe7a19a04a99869c7ea5ebc5e4e0058ae9c880ee7eafd3ce672a31ec252bbb"
+ },
+ "n_scenes": {
+  "train": 300,
+  "test": 300
+ },
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.9999333333333332,
+   "ci95": [
+    0.9998127469135802,
+    1.0
+   ],
+   "tpr": 0.9988888888888889,
+   "fpr": 0.0022222222222222222,
+   "bal_acc": 0.9983333333333333,
+   "n_real": 900,
+   "n_fake": 900
+  },
+  "dino:C->M": {
+   "auroc": 0.5414553628773282,
+   "ci95": [
+    0.5091032609819122,
+    0.5675561916635617
+   ],
+   "tpr": 0.9988888888888889,
+   "fpr": 0.9895953757225433,
+   "bal_acc": 0.5046467565831728,
+   "n_real": 865,
+   "n_fake": 900
+  },
+  "dino:M->M": {
+   "auroc": 0.8769723827874117,
+   "ci95": [
+    0.8624524521545587,
+    0.8935352431980543
+   ],
+   "tpr": 0.8122222222222222,
+   "fpr": 0.223121387283237,
+   "bal_acc": 0.7945504174694926,
+   "n_real": 865,
+   "n_fake": 900
+  },
+  "dino:M->C": {
+   "auroc": 0.708574074074074,
+   "ci95": [
+    0.6818135802469135,
+    0.7325428395061728
+   ],
+   "tpr": 0.8122222222222222,
+   "fpr": 0.5688888888888889,
+   "bal_acc": 0.6216666666666666,
+   "n_real": 900,
+   "n_fake": 900
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.8407740740740741,
+   "ci95": [
+    0.8220096604938272,
+    0.8621335185185185
+   ],
+   "tpr": 0.7366666666666667,
+   "fpr": 0.18666666666666668,
+   "bal_acc": 0.775,
+   "n_real": 900,
+   "n_fake": 900
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.5440796403339756,
+   "ci95": [
+    0.5253266039995773,
+    0.5588678037005311
+   ],
+   "tpr": 0.7366666666666667,
+   "fpr": 0.730635838150289,
+   "bal_acc": 0.5030154142581889,
+   "n_real": 865,
+   "n_fake": 900
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.6907141939627489,
+   "ci95": [
+    0.6731239559610237,
+    0.7103585209614891
+   ],
+   "tpr": 0.5955555555555555,
+   "fpr": 0.30982658959537573,
+   "bal_acc": 0.6428644829800899,
+   "n_real": 865,
+   "n_fake": 900
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.6004765432098765,
+   "ci95": [
+    0.5790096296296297,
+    0.6207137037037037
+   ],
+   "tpr": 0.5955555555555555,
+   "fpr": 0.4411111111111111,
+   "bal_acc": 0.5772222222222222,
+   "n_real": 900,
+   "n_fake": 900
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "danet": 0.9999891598915989,
+   "facedancer": 0.9997018970189702,
+   "blendface": 0.999983660130719,
+   "simswap": 0.9999837793998378,
+   "inswap": 0.9999644444444444,
+   "uniface": 0.9998888888888888
+  },
+  "dino:C->M": {
+   "danet": 0.441218102354434,
+   "facedancer": 0.4290483575355985,
+   "blendface": 0.4885073104386263,
+   "simswap": 0.528247753259356,
+   "inswap": 0.49998612716763,
+   "uniface": 0.41566473988439306
+  },
+  "dino:M->M": {
+   "danet": 0.8905681657972648,
+   "facedancer": 0.6909629211899057,
+   "blendface": 0.7901167403377537,
+   "simswap": 0.8369604658031305,
+   "inswap": 0.8277086705202312,
+   "uniface": 0.9038150289017342
+  },
+  "dino:M->C": {
+   "danet": 0.7390189701897019,
+   "facedancer": 0.5428130081300813,
+   "blendface": 0.562875816993464,
+   "simswap": 0.6153690186536902,
+   "inswap": 0.5672444444444444,
+   "uniface": 0.7473333333333333
+  },
+  "lowlevel:C->C": {
+   "danet": 0.9645799457994579,
+   "facedancer": 0.81489972899729,
+   "blendface": 0.7789433551198257,
+   "simswap": 0.8349067315490672,
+   "inswap": 0.7575644444444443,
+   "uniface": 0.7566111111111111
+  },
+  "lowlevel:C->M": {
+   "danet": 0.8210742986042576,
+   "facedancer": 0.4672606795432116,
+   "blendface": 0.4197155162643092,
+   "simswap": 0.5142145901016835,
+   "inswap": 0.4151676300578035,
+   "uniface": 0.397514450867052
+  },
+  "lowlevel:M->M": {
+   "danet": 0.6110926265332017,
+   "facedancer": 0.5861779218948259,
+   "blendface": 0.6275019834523404,
+   "simswap": 0.682443778743513,
+   "inswap": 0.6347653179190752,
+   "uniface": 0.6185549132947977
+  },
+  "lowlevel:M->C": {
+   "danet": 0.31196747967479677,
+   "facedancer": 0.5081734417344173,
+   "blendface": 0.5763071895424836,
+   "simswap": 0.602116788321168,
+   "inswap": 0.6057688888888889,
+   "uniface": 0.5421666666666667
+  }
+ }
+}

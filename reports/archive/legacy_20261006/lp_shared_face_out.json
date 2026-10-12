@@ -1,0 +1,198 @@
+{
+ "args": {
+  "confounded_real_manifest": "data/ff_shared_reals.jsonl",
+  "clean_real_manifest": "data/ff_shared_reals.jsonl",
+  "fake_manifest": "data/ff_shared_fakes.jsonl",
+  "families": "['composited', 'reenactment']",
+  "parent_part": "0",
+  "reals_per_scene": "3",
+  "fakes_per_scene": "6",
+  "max_scenes": "600",
+  "split_dir": "datasets/FaceForensics++_C23",
+  "backbone": "facebook/dinov2-small",
+  "device": "None",
+  "batch_size": "32",
+  "C": "0.1",
+  "logo_generators": "None",
+  "logo_k": "6",
+  "seed": "42",
+  "seeds": "None",
+  "cache": "reports/emb_cache_shared_none.pkl",
+  "out": "reports/lp_shared_face_out.json",
+  "mask": "face_out",
+  "identity_disjoint": "False",
+  "self_test": "False"
+ },
+ "backbone": "facebook/dinov2-small",
+ "mask": "face_out",
+ "identity_disjoint": false,
+ "script_sha256": "cb121e184a4f623d991259d102a4295cfc7337c940da964627e11abaf5f684db",
+ "manifest_sha256": {
+  "confounded_real_manifest": "bdf3ece2177d62b841bffd20be9d423fc7bf3072e4837e464311620eded85b86",
+  "clean_real_manifest": "bdf3ece2177d62b841bffd20be9d423fc7bf3072e4837e464311620eded85b86",
+  "fake_manifest": "ed2a9eb6598bb448406351ae704ed54c9ace4dc766c22f9c5c1a90b579f8d750"
+ },
+ "n_scenes": {
+  "train": 350,
+  "test": 57
+ },
+ "seeds": [
+  42
+ ],
+ "P1": {
+  "dino:C->C": {
+   "auroc": 0.5933648223121908,
+   "ci95": [
+    0.5670220346335471,
+    0.6267455007159707
+   ],
+   "tpr": 0.5576923076923077,
+   "fpr": 0.4444444444444444,
+   "bal_acc": 0.5566239316239316,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:C->M": {
+   "auroc": 0.5973009446693658,
+   "ci95": [
+    0.5699761208576999,
+    0.6227629217352089
+   ],
+   "tpr": 0.5576923076923077,
+   "fpr": 0.4327485380116959,
+   "bal_acc": 0.5624718848403059,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:M->M": {
+   "auroc": 0.5985605038236617,
+   "ci95": [
+    0.5753315761224388,
+    0.6203251389080751
+   ],
+   "tpr": 0.48846153846153845,
+   "fpr": 0.4093567251461988,
+   "bal_acc": 0.5395524066576698,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "dino:M->C": {
+   "auroc": 0.5968735942420154,
+   "ci95": [
+    0.571126276512176,
+    0.6258976871974059
+   ],
+   "tpr": 0.48846153846153845,
+   "fpr": 0.4152046783625731,
+   "bal_acc": 0.5366284300494827,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:C->C": {
+   "auroc": 0.519995501574449,
+   "ci95": [
+    0.5027086911626385,
+    0.5453085023757309
+   ],
+   "tpr": 0.6153846153846154,
+   "fpr": 0.5847953216374269,
+   "bal_acc": 0.5152946468735943,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:C->M": {
+   "auroc": 0.5265407107512371,
+   "ci95": [
+    0.5088304093567252,
+    0.5488217548805064
+   ],
+   "tpr": 0.6153846153846154,
+   "fpr": 0.5789473684210527,
+   "bal_acc": 0.5182186234817814,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:M->M": {
+   "auroc": 0.5255285650022493,
+   "ci95": [
+    0.5073637498129345,
+    0.546836826317763
+   ],
+   "tpr": 0.6230769230769231,
+   "fpr": 0.5847953216374269,
+   "bal_acc": 0.5191408007197481,
+   "n_real": 171,
+   "n_fake": 260
+  },
+  "lowlevel:M->C": {
+   "auroc": 0.5190508322087269,
+   "ci95": [
+    0.4971737896293589,
+    0.5405937933244102
+   ],
+   "tpr": 0.6230769230769231,
+   "fpr": 0.5964912280701754,
+   "bal_acc": 0.5132928475033738,
+   "n_real": 171,
+   "n_fake": 260
+  }
+ },
+ "P2": {
+  "dino:C->C": {
+   "FaceShifter": 0.4775480367585631,
+   "Face2Face": 0.5287612971823498,
+   "FaceSwap": 0.5745900699461072,
+   "Deepfakes": 0.4300584795321637,
+   "NeuralTextures": 0.6158625730994152
+  },
+  "dino:C->M": {
+   "FaceShifter": 0.47284878863826235,
+   "Face2Face": 0.5312068048910153,
+   "FaceSwap": 0.5788327026717119,
+   "Deepfakes": 0.4318128654970761,
+   "NeuralTextures": 0.6206140350877193
+  },
+  "dino:M->M": {
+   "FaceShifter": 0.4650167084377611,
+   "Face2Face": 0.5308878256246677,
+   "FaceSwap": 0.5591101937851164,
+   "Deepfakes": 0.44058479532163747,
+   "NeuralTextures": 0.5901559454191032
+  },
+  "dino:M->C": {
+   "FaceShifter": 0.46846282372598164,
+   "Face2Face": 0.529611908559277,
+   "FaceSwap": 0.5573902075450063,
+   "Deepfakes": 0.4394152046783626,
+   "NeuralTextures": 0.5826023391812866
+  },
+  "lowlevel:C->C": {
+   "FaceShifter": 0.6120509607351712,
+   "Face2Face": 0.47474747474747475,
+   "FaceSwap": 0.40626074991400074,
+   "Deepfakes": 0.544093567251462,
+   "NeuralTextures": 0.6546052631578947
+  },
+  "lowlevel:C->M": {
+   "FaceShifter": 0.6196741854636592,
+   "Face2Face": 0.48197767145135567,
+   "FaceSwap": 0.4117647058823529,
+   "Deepfakes": 0.5505263157894736,
+   "NeuralTextures": 0.6611842105263157
+  },
+  "lowlevel:M->M": {
+   "FaceShifter": 0.6139306599832915,
+   "Face2Face": 0.48219032429558745,
+   "FaceSwap": 0.41187937163169364,
+   "Deepfakes": 0.5545029239766082,
+   "NeuralTextures": 0.658869395711501
+  },
+  "lowlevel:M->C": {
+   "FaceShifter": 0.6053675856307436,
+   "Face2Face": 0.47517278043593836,
+   "FaceSwap": 0.4048847609219126,
+   "Deepfakes": 0.5492397660818714,
+   "NeuralTextures": 0.6530214424951267
+  }
+ }
+}

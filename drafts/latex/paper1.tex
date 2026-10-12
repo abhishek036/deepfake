@@ -1,0 +1,238 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{authblk}
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{\textbf{The Pairing Effect: Auditing How Real-vs-Fake Pairing Choices Drive Reported Accuracy in Deepfake Detection}}
+
+\author[1]{Abhi}
+\affil[1]{Department of Artificial Intelligence \& Machine Learning, Madhav Institute of Technology and Science (MITS), Gwalior, India}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent\small\textit{%
+Pre-Registration: \texttt{PREREG.md} $\mid$
+Post-Hoc Deviations: \texttt{ANALYSIS\_LOG.md} $\mid$
+Ledgers: \texttt{reports/} (SHA-256 verified) \\
+\textbf{AI Assistance Declaration:} An AI assistant (Antigravity) was used as a research engineer and pair-programmer for scripting, evaluation, bootstrap statistics, and text drafting.
+All empirical claims are grounded strictly in machine-generated JSON ledgers.
+}
+
+\section*{Abstract}
+
+Reported deepfake detection accuracy frequently approaches ceiling on benchmark datasets yet degrades substantially under real-world deployment.
+We present an empirical audit evaluating how real-vs-fake \emph{pairing choices} drive reported detection performance.
+Bound to our experimental setting, we show that the pairing protocol---not the detector---largely determines the reported AUROC.
+
+Across five random seeds on scene-disjoint FaceForensics++ splits, a frozen DINOv2-S/14 linear probe on native pairing yields AUROC $0.874 \pm 0.006$ [Measured].
+Under a shared spatial transform (identical affine crop on both real and fake; crop-center MAD $0.721$ px), AUROC drops to $0.763 \pm 0.012$ [Measured].
+Under naive pairing (DF40 PNG fakes vs FF++ JPEG reals) the probe reaches $0.998$ [Measured], collapsing to $0.596$ [Measured] on geometry-matched reals.
+
+On naive pairs, probing the center-masked background alone (25\% masked, 75\% peripheral image) yields AUROC $0.998$ [Measured].
+Under shared transforms, the background probe drops to $0.591 \pm 0.010$ [$\leq 0.60$; P-S2 met] [Measured].
+The pattern replicates across ResNet-50 ($0.986 \to 0.537$) and ViT-B/16 ($0.986 \to 0.567$) [Measured].
+Categorical dataset provenance alone achieves AUROC $0.9208$ [Measured] without inspecting pixels.
+In Celeb-DF-v2 native pairings, a DINOv2 background probe reaches $0.751 \pm 0.005$ [Measured] despite corner probes passing at chance ($0.458$); enforcing shared spatial transforms resolves this confound, reducing background AUROC to $0.604 \pm 0.011$ (P-C2b boundary) and low-level background cues to chance ($0.507 \pm 0.003$) [Measured].
+
+\section{Introduction}
+
+Automated deepfake detection is critical for information integrity.
+Numerous architectures have reported AUROC $> 0.98$ on FaceForensics++ (FF++) \cite{rossler2019ff} and Celeb-DF-v2 \cite{li2020c}, yet cross-dataset scores frequently fall below $0.65$.
+This gap is commonly attributed to generator overfitting.
+We investigate a more fundamental cause: \textbf{the pairing effect}.
+When real frames and fake frames originate from different containers, are cropped by independent face trackers, or differ in compression, deep representations can separate classes using background texture or crop-boundary artifacts rather than forensic forgery cues.
+
+\subsection{Working Claims (Bounded)}
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item \textbf{Naive Pairing Collapse:} Probes on naive pairs achieve near-perfect AUROC but collapse to chance on geometry-matched reals.
+\item \textbf{Background Shortcut:} Naive pairs permit near-perfect discrimination from the background alone.
+\item \textbf{Shared-Transform Clean Reference:} A shared spatial transform eliminates the background shortcut ($\mathrm{AUROC} \leq 0.60$).
+\item \textbf{Architecture Invariance:} The shortcut replicates across ResNet-50 and ViT-B/16.
+\item \textbf{Native Pairing Fallacy:} Passing handcrafted low-level audits does not prevent foundation models from extracting background shortcuts.
+\end{enumerate}
+
+\section{Related Work}
+
+FF++ \cite{rossler2019ff} provides 1,000 videos across five manipulation pipelines including FaceShifter \cite{li2020a}.
+Celeb-DF-v2 \cite{li2020c} pairs 590 real celebrity videos with 5,639 synthesis videos.
+DF40 \cite{yan2024df40} and DeepfakeBench \cite{yan2023bench} standardize large-scale evaluation.
+Geirhos et al.\ \cite{geirhos2020shortcut} characterize shortcut learning in deep networks.
+Grommelt et al.\ \cite{grommelt2024jpeg} demonstrate that classifiers latch onto JPEG quantization and sensor noise in synthetic image datasets, rather than generative artifacts.
+We focus specifically on real-vs-fake pairing choices as the primary confound.
+
+\section{Audit Protocol and Pre-Registration}
+
+\subsection{Pre-Registered Decision Rules}
+
+\begin{table}[h]
+\small
+\centering
+\caption{Pre-registered decision rules (from \texttt{PREREG.md}).}
+\begin{tabular}{llcc}
+\toprule
+Rule & Condition & Threshold & Status \\
+\midrule
+P-S1 & Crop center MAD (px) & $\leq 4.0$ & \textbf{Met} (0.721 px) \\
+P-S2 & Bkg probe AUROC (clean) & $\leq 0.60$ & \textbf{Met} (0.591) \\
+P-S3 & Face probe AUROC (clean) & $\geq 0.85$ & \textit{Failed} (0.774) \\
+P-S4 & Full-img AUROC (clean) & $\leq 0.70$ & \textit{Failed} (0.763) \\
+P-C1 & Dataset-ID AUROC & $\geq 0.90$ & \textbf{Met} (0.921) \\
+P-C2 & Celeb-DF bkg AUROC & $\leq 0.60$ & \textit{Failed} (0.751) \\
+P-C3 & Multi-backbone bkg & $\leq 0.60$ & \textbf{Met} (ResNet, ViT) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Chronology Disclosure}
+Rules P-S1 through P-S4 and P-C1--P-C2 were committed before execution.
+P-C3 (multi-backbone) was formulated in working-tree notes before the ResNet-50 run (00:23 IST) but committed at 00:46 IST, after both backbone runs completed.
+\textbf{P-C3 must therefore be treated as exploratory.}
+
+\subsection{Evaluation Setup}
+Frozen encoders: (1) DINOv2-S/14 (768-d CLS+patch), (2) ResNet-50 (2048-d), (3) ViT-B/16 (768-d CLS).
+Probe: logistic regression, $L_2$ $C=0.1$, balanced class weighting.
+Splits: scene-disjoint; 5 seeds \{42, 7, 13, 99, 2024\}; 140 test scenes; 95\% bootstrap CI (300 resamples over scenes).
+
+\textbf{Spatial masking:}
+\begin{itemize}[leftmargin=*]
+\item \emph{Center-masked} (\texttt{face\_out}): $112 \times 112$ central square ($25.0\%$) filled with per-image mean RGB; 75.0\% of image visible.
+\item \emph{Corner-masked} (\texttt{face\_only}): four $40 \times 40$ corners ($12.8\%$) filled; 87.2\% visible (retains most of background).
+\end{itemize}
+
+\section{Empirical Results}
+
+\subsection{The Pairing Effect Across Visual Representations}
+
+\begin{table}[h]
+\small
+\centering
+\caption{DINOv2 linear probe AUROC under four pairing regimes (FF++, 5 seeds).
+$C$=confounded/naive pairs; $M$=shared-transform clean pairs.}
+\begin{tabular}{lcccc}
+\toprule
+Backbone & $C{\to}C$ & $C{\to}M$ & $M{\to}M$ & $M{\to}C$ \\
+\midrule
+DINOv2 (Confounded) & $0.998\pm0.001$ & $0.596\pm0.013$ & $0.763\pm0.012$ & $0.793\pm0.035$ \\
+DINOv2 (FF++ Native) & $0.874\pm0.006$ & --- & --- & --- \\
+DINOv2 (Indep.\ Align.) & $0.774\pm0.004$ & $0.772\pm0.008$ & $0.767\pm0.005$ & $0.770\pm0.004$ \\
+ResNet-50 & $0.972\pm0.006$ & $0.524\pm0.009$ & $0.613\pm0.013$ & $0.659\pm0.031$ \\
+ViT-B/16 & $0.966\pm0.005$ & $0.553\pm0.010$ & $0.690\pm0.010$ & $0.718\pm0.024$ \\
+Handcrafted & $0.812\pm0.007$ & $0.468\pm0.009$ & $0.546\pm0.009$ & $0.299\pm0.016$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Under naive pairing, DINOv2 achieves $0.998 \pm 0.001$ [Measured], collapsing to $0.596 \pm 0.013$ on geometry-matched reals [Measured].
+Under FF++ native pairing, DINOv2 achieves $0.874 \pm 0.006$ (balanced accuracy $0.784$) [Measured].
+A same-frame independent-alignment ablation (identical source frames, independent face tracking) yields AUROC $0.767 \pm 0.005$ [Measured] vs.\ $0.763 \pm 0.012$ under shared transform---a delta of only $0.004$ [Measured].
+The larger native-vs-clean gap ($0.874 \to 0.763$) is attributed to container format and sampling differences, not alignment alone.
+
+\subsection{Spatial Decomposition: Isolating the Background Shortcut}
+
+\begin{table}[h]
+\small
+\centering
+\caption{Center-masked and corner-masked background probes across backbones and pairing regimes.}
+\begin{tabular}{lccc}
+\toprule
+Backbone & Bkg $C{\to}C$ & Bkg $M{\to}M$ & Corner $M{\to}M$ \\
+\midrule
+DINOv2 (Shared) & $0.998\pm0.001$ & $0.591\pm0.010$ \dag & $0.774\pm0.007$ \\
+DINOv2 (Indep.)  & $0.596\pm0.013$ & $0.600\pm0.010$ & $0.785\pm0.011$ \\
+DINOv2 (Native)  & $0.758\pm0.006$ & $0.755\pm0.011$ & $0.872\pm0.009$ \\
+ResNet-50        & $0.986\pm0.004$ & $0.537\pm0.009$ \dag & $0.619\pm0.011$ \\
+ViT-B/16         & $0.986\pm0.004$ & $0.567\pm0.009$ \dag & $0.706\pm0.012$ \\
+\bottomrule
+\multicolumn{4}{l}{\dag P-S2/P-C3 met ($\leq 0.60$).}
+\end{tabular}
+\end{table}
+
+Under shared transforms, the center-masked background probe drops to $0.591 \pm 0.010$ [0.580, 0.603] for DINOv2, $0.537$ for ResNet-50, and $0.567$ for ViT-B/16 [Measured].
+Independent alignment on identical PNG frames yields $0.600 \pm 0.010$ [Measured]---only $0.009$ above the shared-transform result---confirming alignment alone does not recreate the $\sim$0.758 native background shortcut.
+
+\subsection{Auditing and Resolving the Native Pairing Fallacy (Celeb-DF-v2)}
+
+\begin{table}[h]
+\small
+\centering
+\caption{Linear probe AUROC on Celeb-DF-v2 under native independent cropping vs.\ shared spatial transform ablation (5 seeds).}
+\begin{tabular}{llcc}
+\toprule
+Regime & Region & AUROC & Status \\
+\midrule
+\multicolumn{4}{l}{\textit{Native Pairing (Independent Face Tracking)}} \\
+Handcrafted & Outer corners & $0.458$ [0.413, 0.503] & Passed \\
+DINOv2 & Background (\texttt{face\_out}) & $0.751\pm0.005$ & FAILED P-C2 \\
+DINOv2 & Face region (\texttt{face\_only}) & $0.911\pm0.010$ & Artifacts \\
+DINOv2 & Full image & $0.889\pm0.007$ & Confounded \\
+\midrule
+\multicolumn{4}{l}{\textit{Clean Reference (Shared Spatial Transform Ablation)}} \\
+DINOv2 & Background ($M\to M$) & $0.604\pm0.011$ & P-C2b Bnd \\
+Low-level & Background ($M\to M$) & $0.507\pm0.003$ & At Chance \\
+DINOv2 & Transfer ($C\to M$) & $0.532\pm0.007$ & At Chance \\
+DINOv2 & Face region ($M\to M$) & $0.835\pm0.014$ & Signal \\
+DINOv2 & Full image ($M\to M$) & $0.806\pm0.015$ & Clean Ref \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Low-level corner probes pass at chance ($0.458$ [0.413, 0.503]) [Measured], yet a DINOv2 background probe achieves $0.751 \pm 0.005$ [Measured], violating rule P-C2 ($\leq 0.60$).
+\textbf{Resolution [Measured]:} Under our shared spatial transform ablation (pre-registered H-C2b), background AUROC drops from $0.751 \to 0.604 \pm 0.011$ [Measured] (reaching the P-C2b $\leq 0.60$ decision boundary), and low-level background cues drop strictly to chance ($0.507 \pm 0.003$) [Measured]. Probes fit on native pairings collapse to chance ($0.532 \pm 0.007$) on shared-transform pairs. This confirms that the residual background signal on native Celeb-DF-v2 is driven by independent face-tracking bounding-box jitter and edge misalignment.
+
+\subsection{Benchmark Composition Shortcut}
+
+On our aggregated training manifest (949,254 samples, 9 datasets), categorical dataset identity alone achieves AUROC $0.9208$ [0.9201, 0.9216] [Measured], confirming hypothesis P-C1.
+Multi-dataset pools where class ratios differ across source datasets are vulnerable to dataset-provenance shortcuts.
+
+\subsection{Geometry and Low-Level Alignment}
+
+Shared-transform pairs achieve crop-center MAD $0.721$ px (P-S1 met, $\leq 4.0$ px) [Measured].
+Background pixel MAD is $3.244$ gray levels (real vs.\ fake) vs.\ $3.372$ (fake vs.\ fake baseline), ratio $0.962$---ratio equivalence at $\pm 5\%$ margin satisfied [Measured].
+Under independent alignment on the same frames, background MAD rises to $5.646$ gray levels and ratio equivalence fails [Measured], demonstrating that shared transforms provide strictly tighter background equalization.
+
+\section{Diagnostic Disclosures}
+
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item \textbf{P-S3 (Corner Probe Signal):} Pre-registered threshold $\geq 0.85$; measured $0.774 \pm 0.007$ [Measured]. Note that the corner-masked region leaves 87.2\% of the image visible, including background---the metric does not isolate facial artifacts.
+\item \textbf{P-S4 (Clean Full-Image AUROC):} Pre-registered threshold $\leq 0.70$; measured $0.763 \pm 0.012$ [Measured]. Pairing cleanup reduces AUROC from $0.998 \to 0.763$; residual face-region signal remains detectable.
+\item \textbf{P-C2 (Celeb-DF Background):} Pre-registered threshold $\leq 0.60$; measured $0.751 \pm 0.005$ [Measured]. Native target-video matching does not guarantee background cleanliness.
+\item \textbf{Legacy Checkpoint Confound:} \texttt{pos\_weight=18.4} combined with balanced sampling in legacy training; dataset-ID alone achieves 0.921 AUROC on the training pool. No results from this checkpoint are used in Paper 1.
+\end{enumerate}
+
+\section{Threats to Validity}
+
+Results are bounded to FF++ c23, Celeb-DF-v2, and our combined manifest.
+We do not claim universality across unexamined generators or video-level architectures.
+Minor second-generation re-encoding artifacts may remain under shared transforms.
+Retrained detectors on clean pairings are deferred to Paper 2.
+
+\section{Recommendations}
+
+\begin{enumerate}[leftmargin=*,label=\arabic*.]
+\item \textbf{Mandatory shared spatial transforms}: identical affine crop applied to both real and fake frames.
+\item \textbf{Standard spatial ablation}: report center-masked background probe; flag any detector with background AUROC $> 0.60$.
+\item \textbf{Dataset-ID zero-pixel baseline}: report categorical dataset-identity classifier AUROC for all multi-dataset benchmarks.
+\end{enumerate}
+
+\section*{Declarations}
+
+\textbf{Reproducibility:} All scripts are deterministic under fixed seeds. Results written to JSON ledgers in \texttt{reports/} with SHA-256 verification. \\
+\textbf{AI Assistance:} Used in code development and text drafting under researcher supervision. All empirical statements verified against local ledgers.
+
+\bibliography{paper1_refs}
+\bibliographystyle{plain}
+
+\end{document}

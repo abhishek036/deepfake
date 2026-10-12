@@ -1,0 +1,4602 @@
+{
+ "environment": {
+  "python": "3.11.9",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+   "torch": "2.5.1+cu121",
+   "torchvision": "0.20.1+cu121",
+   "transformers": "4.57.6",
+   "numpy": "2.4.6",
+   "scikit-learn": "1.9.0",
+   "scipy": "1.17.1",
+   "opencv-python": "4.11.0.86",
+   "insightface": "2.0",
+   "onnxruntime": "1.28.0",
+   "pillow": "12.3.0",
+   "PyYAML": "6.0.3",
+   "pandas": "3.0.5"
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB, 616.64",
+  "disk_free_gb": 106.5,
+  "disk_total_gb": 713.2
+ },
+ "git": {
+  "head": "8759757816fe5de4cdfdb6f6679a6e8e31475f92",
+  "branch": "master",
+  "dirty_files": 5,
+  "log": [
+   "875975781 docs(paper1): align draft and tables with frozen ledgers, add FF++ native alignment isolation, remove absolute paths",
+   "8af0792a9 fix(evaluation): freeze make_latex_tables.py with LaTeX escaping, no hand-typed caption numbers, and FF++ native support",
+   "be64947e6 docs(paper1): complete workshop draft for Paper 1 with verified ledger numbers and preregistration compliance",
+   "f378c6dc7 feat(evaluation): add make_latex_tables.py and generate publication-ready tables from ledgers",
+   "eeaa3cc03 docs(phase-c): record multi-backbone and Celeb-DF experimental results and preregistration",
+   "1813561cf feat(eval): add torchvision ViT-B/16 support to linear_probe_beforeafter.py",
+   "14b3f7c6b feat(eval): add ResNet-50/CLIP embedders and flexible scene handling to linear_probe_beforeafter.py",
+   "871d47004 feat(eval): pre-register H-C2/P-C2 and add make_celeb_manifests.py",
+   "35f10261d docs: record Phase C dataset-ID shortcut baseline results in ANALYSIS_LOG.md",
+   "fa0a67572 feat(eval): pre-register and implement dataset_id_baseline.py",
+   "06b612291 docs: document 5-seed confirmation and controls in ANALYSIS_LOG.md",
+   "cd00d9268 evaluation: add multi-seed aggregation and disk caching for masked representations",
+   "b77f04e02 phase-B: extract_shared_transform_pairs, paired_stats with TOST tolerances, split-dir in linear probe, update ANALYSIS_LOG",
+   "3dea8b820 phase-A: fix one_pipeline_audit self-test out-dir, add compendium appendix, clean rule 5 in MASTER_PLAN, add requirements.lock",
+   "646b29b27 phase-A: untrack large manifests, add LICENSE and paired_stats, fix FaceShifter composited mapping, remove absolute paths",
+   "8c9dd8393 phase-A: track meta.json files for matched reals",
+   "fb46b6293 phase-A: track data/ Python source files, fix gitignore for data subdirs",
+   "108b44938 phase-A: gitignore data/ directory (all subdirs already ignored)",
+   "3531a5598 phase-A: gitignore app/web/service/trainsets/datasets dirs",
+   "cb5b1bf99 phase-A: PREREG, ANALYSIS_LOG, env freeze, remove scripts/linear_probe dup, update gitignore, add eval+training+scripts files",
+   "abf13887b scripts/extract_matched_png_reals.py: fix FF_ID search pattern for df40_disk video_ids and safe utf-8 streaming",
+   "a015cee09 compendium: honestly label fakes as in-sample/training-distribution, remove held-out/unseen claims for fakes",
+   "8d2da3f70 compendium: remove premature defensible claim #4, adjust claim #3 to AUROC 0.997-1.000 under degradations",
+   "d772e7cfb audit v3: Youden plateau-median threshold, color+thumbnail probe, mean-color mask controls, PNG extraction script, compendium cleanup",
+   "f528f6a19 audit: integrate one_pipeline_audit, low-level probe, verified bibtex, and confounded benchmark framing",
+   "ddc53e328 docs: correct citations to Grommelt et al. ECCVW 2024 and Yan et al. NeurIPS 2024, relabel held-out subset",
+   "dca2a8f6d docs: finalize clean git hash sync in compendium and ledger",
+   "09f694f1c feat(eval): finalize forensic shortcut triad audit and cryptographic benchmark ledger",
+   "72a5cdd41 chore: snapshot codebase for forensic benchmark audit"
+  ],
+  "remote": "",
+  "tracked_files_over_20MB": [],
+  "has_gitignore": true
+ },
+ "repo_size": {
+  "dirs": {
+   "app": {
+    "files": 2,
+    "py_files": 2,
+    "py_loc": 418
+   },
+   "configs": {
+    "files": 5,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "cornerstone": {
+    "files": 195,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "data": {
+    "files": 534824,
+    "py_files": 16,
+    "py_loc": 4431
+   },
+   "datasets": {
+    "files": 21906,
+    "py_files": 2,
+    "py_loc": 324
+   },
+   "docker": {
+    "files": 3,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "drafts": {
+    "files": 3,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "evaluation": {
+    "files": 50,
+    "py_files": 50,
+    "py_loc": 15820
+   },
+   "models": {
+    "files": 14,
+    "py_files": 14,
+    "py_loc": 3958
+   },
+   "outputs": {
+    "files": 48,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "preprocessing": {
+    "files": 92,
+    "py_files": 9,
+    "py_loc": 3123
+   },
+   "reports": {
+    "files": 159,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "scratch": {
+    "files": 20,
+    "py_files": 20,
+    "py_loc": 1375
+   },
+   "scripts": {
+    "files": 13,
+    "py_files": 10,
+    "py_loc": 1846
+   },
+   "service": {
+    "files": 8,
+    "py_files": 8,
+    "py_loc": 3924
+   },
+   "tests": {
+    "files": 6,
+    "py_files": 6,
+    "py_loc": 1441
+   },
+   "training": {
+    "files": 18,
+    "py_files": 17,
+    "py_loc": 4388
+   },
+   "trainsets": {
+    "files": 81,
+    "py_files": 0,
+    "py_loc": 0
+   },
+   "utils": {
+    "files": 5,
+    "py_files": 5,
+    "py_loc": 1124
+   },
+   "web": {
+    "files": 3,
+    "py_files": 0,
+    "py_loc": 0
+   }
+  },
+  "top_level_files": [
+   ".gitignore",
+   "ANALYSIS_LOG.md",
+   "CHANGELOG.md",
+   "CODE_AUDIT.md",
+   "FINAL_DATASET.csv",
+   "LICENSE",
+   "MASTER_PLAN.md",
+   "PREREG.md",
+   "PROJECT_OVERVIEW.md",
+   "RESEARCH_PAPER_COMPENDIUM.md",
+   "environment.txt",
+   "improve.md",
+   "newimp.md",
+   "pyproject.toml",
+   "readme.md",
+   "requirements.lock",
+   "requirements.txt",
+   "run_app.py",
+   "start_full_setup.bat"
+  ],
+  "scripts": {
+   "evaluation": [
+    "__init__.py",
+    "ablation_e0_e7.py",
+    "ablation_runner.py",
+    "audit_shortcuts.py",
+    "audit_split_leakage.py",
+    "audit_triad.py",
+    "bootstrap_ablation_significance.py",
+    "bootstrap_ci.py",
+    "calibrate_held_out.py",
+    "calibrate_v3.py",
+    "dataset_id_baseline.py",
+    "diagnostic_export.py",
+    "evaluate_all.py",
+    "evaluate_av_rppg_contribution.py",
+    "evaluate_balanced_per_generator.py",
+    "evaluate_branch_pruning_df40.py",
+    "evaluate_calibration.py",
+    "evaluate_cross_domain.py",
+    "evaluate_df40.py",
+    "evaluate_fairness_and_coverage.py",
+    "evaluate_final_system.py",
+    "evaluate_final_system_v3.py",
+    "evaluate_localization.py",
+    "evaluate_multimodal_active.py",
+    "evaluate_paired_bootstrap.py",
+    "evaluate_per_generator.py",
+    "evaluate_per_generator_v3.py",
+    "evaluate_robustness.py",
+    "evaluate_robustness_comparison.py",
+    "evaluate_talkingheadbench.py",
+    "evaluate_v2_router_vs_v1_baseline.py",
+    "evaluate_v3_bootstrap.py",
+    "evaluate_v3_vs_v2.py",
+    "evaluate_video.py",
+    "linear_probe_beforeafter.py",
+    "make_latex_tables.py",
+    "one_pipeline_audit.py",
+    "paired_diagnostic.py",
+    "paired_stats.py",
+    "region_probe.py",
+    "run_9_phase_ablations.py",
+    "run_comprehensive_forensic_eval.py",
+    "run_honest_benchmark.py",
+    "run_rigorous_ablations.py",
+    "slice_analysis.py",
+    "test_axondata_selfies.py",
+    "test_final_dataset.py",
+    "test_trainsets.py",
+    "uncertainty_error_study.py",
+    "uncertainty_v3.py"
+   ],
+   "scripts": [
+    "collect_project_state.py",
+    "download_deepfake_60k.py",
+    "extract_ffpp_png_reals.py",
+    "extract_matched_png_reals.py",
+    "extract_shared_transform_pairs.py",
+    "inspect_df40.py",
+    "make_celeb_manifests.py",
+    "make_native_manifests.py",
+    "overnight_pipeline.py",
+    "test_df40_scan.py"
+   ],
+   "training": [
+    "__init__.py",
+    "adversarial_train.py",
+    "calibrate_fusion_heads.py",
+    "finetune_generative.py",
+    "losses.py",
+    "run_training.py",
+    "train_av.py",
+    "train_baseline.py",
+    "train_forge.py",
+    "train_fusion.py",
+    "train_modality_router.py",
+    "train_robustness_hardened.py",
+    "train_router_ablations.py",
+    "train_spatial.py",
+    "train_temporal.py",
+    "train_v3_codec_invariant.py",
+    "trainer.py"
+   ],
+   "preprocessing": [
+    "__init__.py",
+    "align_faces.py",
+    "build_manifest.py",
+    "decode.py",
+    "detect_faces.py",
+    "extract_rppg_stream.py",
+    "preprocess_all.py",
+    "quality.py",
+    "track_faces.py"
+   ],
+   "models": [
+    "__init__.py",
+    "av_branch.py",
+    "calibration.py",
+    "context_branch.py",
+    "dino_branch.py",
+    "forensic_branch.py",
+    "forge_lite.py",
+    "fusion.py",
+    "geometry_branch.py",
+    "localization.py",
+    "metadata_baseline.py",
+    "rppg_branch.py",
+    "srm_filters.py",
+    "temporal_branch.py"
+   ]
+  }
+ },
+ "configs": {
+  "data.yaml": [
+   "# FORGE-Lite Data Configuration",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# All paths are relative to the project root unless absolute.",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Dataset roots \u2014 set these to your local paths",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "dataset_roots:",
+   "  faceforensics_pp:   \"data/raw/FaceForensics++\"      # FF++ root \u2014 flat subfolders per method",
+   "  celeb_df_v2:        \"data/raw/Celeb-DF-v2\"          # Celeb-real/, Celeb-synthesis/, YouTube-real/",
+   "  dfdc_preview:       \"data/raw/DFDC_Preview\"",
+   "  wild_deepfake:      \"data/raw/WildDeepfake\"          # fake_test/, real_test/ (tar.gz archives)",
+   "  ffhq:               \"data/raw/FFHQ\"                  # thumbnails128x128/ subdir",
+   "  df40:               \"data/raw/DF40\"                  # DF40 NeurIPS 2024 \u2014 40 forgery methods",
+   "                                                        # Structure: DF40_train/<method>/ for fakes",
+   "                                                        #            root-level: inswap, simswap, sd2.1, RDDM",
+   "  fakeavceleb:        \"datasets/FakeAVCeleb_v1.2\"      # 21,544 MP4 \u2014 fully extracted",
+   "  av_deepfake1m:      \"datasets/AV-Deepfake1M\"         # 1.1M videos (pending download)",
+   "  deepfake_eval_2024: \"datasets/Deepfake-Eval-2024\"    # EVAL-ONLY holdout \u2014 NEVER TRAIN",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Processed data outputs",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "processed:",
+   "  manifests_dir:  \"data/manifests\"",
+   "  splits_dir:     \"data/splits\"",
+   "  tracks_dir:     \"data/tracks\"",
+   "  quality_dir:    \"data/quality\"",
+   "  masks_dir:      \"data/masks\"",
+   "  features_dir:   \"data/features\"",
+   "  faces_dir:      \"data/faces\"       # 224\u00d7224 JPEG crops",
+   "  codec_bank_dir: \"data/codec_bank\"  # re-encoded video copies",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Synthetic test dataset (smoke-testing without real data)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "synthetic_test:",
+   "  enabled: true",
+   "  output_dir: \"data/synthetic_test\"",
+   "  num_real_videos: 20",
+   "  num_fake_videos: 20",
+   "  video_duration_seconds: 5",
+   "  resolution: [224, 224]",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# FaceForensics++ config",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "faceforensics:",
+   "  compressions: [\"c23\", \"c40\"]",
+   "  manipulation_methods:",
+   "    - Deepfakes",
+   "    - Face2Face",
+   "    - FaceSwap",
+   "    - NeuralTextures",
+   "  # Identity-disjoint split: 720/140/140",
+   "  train_videos: 720",
+   "  val_videos: 140",
+   "  test_videos: 140",
+   "  masks_available: true",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Frame sampling",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "frame_sampling:",
+   "  strategy: \"uniform\"           # uniform | keyframe | uniform+keyframe",
+   "  fps_target: 8                 # sample at this effective fps",
+   "  max_frames_per_video: 300",
+   "  min_frames_per_video: 8",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Face detection",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "face_detection:",
+   "  backend: \"retinaface\"         # retinaface | mtcnn",
+   "  min_face_size: 80             # pixels, minimum bounding box side",
+   "  confidence_threshold: 0.9",
+   "  max_faces_per_frame: 3",
+   "  dominant_face_only: true",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Face alignment & crop",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "face_alignment:",
+   "  output_size: 224",
+   "  margin: 0.4                   # fractional margin around face bbox",
+   "  landmark_set: \"5pt\"           # 5-point landmarks for affine alignment",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Temporal windows",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "temporal:",
+   "  window_size: 16               # frames per temporal window",
+   "  window_stride: 8              # stride between windows",
+   "  min_window_frames: 8          # minimum valid window size",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Codec bank \u2014 offline re-encoding configs",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "codec_bank:",
+   "  configs:",
+   "    - name: \"clean\"",
+   "      codec: \"copy\"",
+   "    - name: \"h264_crf23\"",
+   "      codec: \"libx264\"",
+   "      crf: 23",
+   "    - name: \"h264_crf30\"",
+   "      codec: \"libx264\"",
+   "      crf: 30",
+   "    - name: \"h264_crf40\"",
+   "      codec: \"libx264\"",
+   "      crf: 40",
+   "    - name: \"resize_compress\"",
+   "      scale: 0.75",
+   "      codec: \"libx264\"",
+   "      crf: 28",
+   "    - name: \"blur_compress\"",
+   "      blur_sigma: 1.0",
+   "      codec: \"libx264\"",
+   "      crf: 30",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Quality thresholds (for rPPG gating, abstention)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "quality_thresholds:",
+   "  min_face_area_ratio: 0.05",
+   "  min_blur_score: 0.1           # Laplacian variance (normalized)",
+   "  min_track_continuity: 0.6",
+   "  min_rppg_duration_seconds: 8.0",
+   "  max_motion_contamination: 0.4",
+   "  min_rppg_snr: 3.0",
+   "  max_pose_yaw_deg: 45.0",
+   "  max_pose_pitch_deg: 30.0",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# rPPG \u2014 dedicated high-fps stream (MASTER_PLAN RISK 2 fix)",
+   "# NOTE: Standard frame_sampling.fps_target=8 violates Nyquist for bpm_max=210",
+   "#       rPPG branch requires >=25fps to avoid aliasing the cardiac signal.",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "rppg_sampling:",
+   "  fps_target: 25              # 25fps: Nyquist-safe margin for BPM up to 210",
+   "  max_frames: 750             # 30s @ 25fps",
+   "  min_duration_sec: 8.0       # minimum clip length for reliable PPG extraction",
+   "  availability_mask: true     # set false to disable rPPG branch entirely",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# FakeAVCeleb v1.2 config",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "fakeavceleb:",
+   "  root: \"datasets/FakeAVCeleb_v1.2\"",
+   "  categories: [\"A\", \"B\", \"C\", \"D\"]"
+  ],
+  "eval.yaml": [
+   "# FORGE-Lite Evaluation Configuration",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Checkpoints to evaluate",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "checkpoint_path: \"outputs/checkpoints/best.ckpt\"",
+   "output_dir: \"reports\"",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Evaluation datasets",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "eval_datasets:",
+   "  in_domain:",
+   "    - name: \"ff_c23\"",
+   "      split: \"test\"",
+   "      compression: \"c23\"",
+   "    - name: \"ff_c40\"",
+   "      split: \"test\"",
+   "      compression: \"c40\"",
+   "  cross_domain:",
+   "    - name: \"celeb_df_v2\"",
+   "      split: \"test\"",
+   "    - name: \"dfdc_preview\"",
+   "      split: \"test\"",
+   "    - name: \"wild_deepfake\"",
+   "      split: \"test\"",
+   "    # \u2500\u2500 FakeAVCeleb cross-domain slots \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "    - name: \"fakeavceleb\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"composited\", \"audio_only\", \"composited+audio\"]",
+   "      notes: \"Cat B = voice-clone gap; Cat C+D = AV forgery\"",
+   "    - name: \"fakeavceleb_cat_b\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"audio_only\"]",
+   "      notes: \"RealVideo-FakeAudio \u2014 primary voice-clone gap test\"",
+   "    - name: \"fakeavceleb_cat_c\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"composited\"]",
+   "      notes: \"FakeVideo-RealAudio \u2014 AV sync branch test (9,709 videos)\"",
+   "    # \u2500\u2500 DF40 forgery-type slots \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "    - name: \"df40_fully_synthetic\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"fully_synthetic\"]",
+   "      notes: \"Primary SRM blindspot \u2014 branch expected near-random here\"",
+   "    - name: \"df40_composited\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"composited\"]",
+   "    - name: \"df40_reenactment\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"reenactment\"]",
+   "    - name: \"df40_talking_head\"",
+   "      split: \"test\"",
+   "      forgery_types: [\"talking_head\"]",
+   "    # \u2500\u2500 In-the-wild holdout (NEVER TRAIN) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "    - name: \"deepfake_eval_2024\"",
+   "      split: \"test_inthewild\"",
+   "      forgery_types: null",
+   "      notes: \"EVAL ONLY. Social-media content. Honest reality-check against in-domain AUC.\"",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Metrics to compute",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "metrics:",
+   "  - video_auc",
+   "  - frame_auc",
+   "  - cross_domain_macro_auroc",
+   "  - tpr_at_1pct_fpr",
+   "  - tpr_at_0_1pct_fpr        # ADD: forensic operating point (MASTER_PLAN \u00a73)",
+   "  - eer",
+   "  - per_domain_auroc         # ADD: not pooled \u2014 per dataset slice",
+   "  - per_forgery_type_auroc   # ADD: composited / fully_synthetic / reenactment / audio_only",
+   "  - per_skin_tone_eer        # ADD: fairness slice \u2014 uses FakeAVCeleb race labels",
+   "  - coverage_vs_error_curve  # ADD: abstention vs accuracy tradeoff",
+   "  - average_precision",
+   "  - localization_iou         # only on valid masks",
+   "  - localization_dice        # only on valid masks",
+   "  - ece",
+   "  - brier_score",
+   "  - abstention_rate",
+   "  - selective_accuracy",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Bootstrap confidence intervals",
+   "# IMPORTANT: celeb_df.jsonl has 84,901 frame-level rows.",
+   "# Bootstrap MUST group by video_id then by source_group_id (identity).",
+   "# AUROC must be computed at video level, NOT frame level.",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "bootstrap:",
+   "  n_resamples: 1000",
+   "  confidence_level: 0.95",
+   "  seed: 42",
+   "  group_by: \"source_group_id\"   # FIX: video-level grouping, not frame-level",
+   "  aggregation: \"video_mean\"      # aggregate frame scores to video score first",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Per-branch evaluation (MASTER_PLAN \u00a78 ablation plan)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "per_branch_eval:",
+   "  enabled: true",
+   "  branch_marginal_auroc: true      # compute delta AUROC per branch removal",
+   "  forgery_type_breakdown: true     # per-forgery-type per-branch analysis",
+   "  skin_tone_eer: true              # fairness slice per branch",
+   "  benchmark_dataset: \"df40\"        # primary cross-domain ablation benchmark",
+   "  decision_threshold_pct: 1.0     # prune if delta AUROC < 1% at VRAM cost > 100MB",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Fairness evaluation (MASTER_PLAN RISK 6)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "fairness:",
+   "  enabled: true",
+   "  skin_tone_groups:               # FakeAVCeleb race labels",
+   "    - \"African\"",
+   "    - \"Asian (East)\"",
+   "    - \"Asian (South)\"",
+   "    - \"Caucasian (American)\"",
+   "    - \"Caucasian (European)\"",
+   "  metrics_per_group:",
+   "    - eer",
+   "    - tpr_at_1pct_fpr",
+   "    - tpr_at_0_1pct_fpr",
+   "  source_dataset: \"FakeAVCeleb\"   # race labels available here",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Ablation study \u2014 12 prescribed configs",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "ablation_configs:",
+   "  - name: \"rgb_only\"",
+   "    semantic: true",
+   "    forensic: false",
+   "    temporal: false",
+   "    rppg: false",
+   "    av: false",
+   "    consistency_loss: false",
+   "    quality_aware_fusion: true",
+   "",
+   "  - name: \"forensic_only\"",
+   "    semantic: false",
+   "    forensic: true",
+   "    temporal: false",
+   "    rppg: false",
+   "    av: false",
+   "    consistency_loss: false",
+   "    quality_aware_fusion: true",
+   "",
+   "  - name: \"temporal_only\"",
+   "    semantic: false",
+   "    forensic: false",
+   "    temporal: true",
+   "    rppg: false"
+  ],
+  "frozen_v3_policy.json": [
+   "{",
+   "  \"checkpoint_sha256\": \"904E8A91391A337B5BEBD1B95EAFD45A8F5F819F2FA024067B68CF96B3BE5B03\",",
+   "  \"checkpoint_path\": \"outputs/checkpoints/best_v3_codec_invariant.ckpt\",",
+   "  \"model_version\": \"FORGE-Lite-V3\",",
+   "  \"calibration_version\": \"Platt-V3\",",
+   "  \"uncertainty_version\": \"Composite-Platt-V3\",",
+   "  \"report_schema_version\": \"3.0\",",
+   "  \"calibration\": {",
+   "    \"method\": \"platt_scaling\",",
+   "    \"platt_a\": 2.98453230722705,",
+   "    \"platt_b\": 1.4309659875950786,",
+   "    \"temperature\": 1.3850295543670654,",
+   "    \"held_out_ece\": 0.0665,",
+   "    \"held_out_brier\": 0.1626",
+   "  },",
+   "  \"uncertainty\": {",
+   "    \"method\": \"composite_logistic_regression\",",
+   "    \"feature_space\": \"consistent_platt_probabilities\",",
+   "    \"features\": [",
+   "      \"predictive_entropy\",",
+   "      \"decision_margin\",",
+   "      \"quality_defect\",",
+   "      \"branch_disagreement\"",
+   "    ],",
+   "    \"weights\": [",
+   "      1.0861093193272413,",
+   "      2.006196064332235,",
+   "      -0.012755773839211709,",
+   "      0.5704773710469746",
+   "    ],",
+   "    \"intercept\": -3.1590274418046995,",
+   "    \"error_auroc\": 0.7490,",
+   "    \"error_prauc\": 0.4563",
+   "  },",
+   "  \"decision_policy\": {",
+   "    \"source\": \"held_out_calibration\",",
+   "    \"target_abstention_pct\": 20.0,",
+   "    \"uncertainty_threshold\": 0.2661,",
+   "    \"review_band_lower\": 0.40,",
+   "    \"review_band_upper\": 0.60,",
+   "    \"min_acceptable_quality\": 0.35,",
+   "    \"disagreement_threshold\": 0.20",
+   "  }",
+   "}"
+  ],
+  "model.yaml": [
+   "# FORGE-Lite Model Configuration",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Semantic Branch \u2014 DINOv2 ViT-S/14",
+   "# (DINOv3 fallback when publicly available)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "semantic_branch:",
+   "  backbone: \"dinov2_vits14\"          # HuggingFace: facebook/dinov2-small",
+   "  image_size: 224",
+   "  patch_size: 14",
+   "  embed_dim: 384                     # ViT-S/14 CLS dim",
+   "  num_patches: 256                   # 16\u00d716 patch grid for 224px input",
+   "  adaptation_mode: \"layernorm\"       # frozen_linear | layernorm | lora | last_block",
+   "  lora_rank: 8                       # only used if adaptation_mode == lora",
+   "  lora_alpha: 16",
+   "  dropout: 0.1",
+   "  output_dim: 384                    # CLS embedding dim passed to fusion",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Forensic Residual Branch",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "forensic_branch:",
+   "  # SRM filter bank",
+   "  srm_num_filters: 30",
+   "  srm_kernel_size: 5",
+   "  # Haar wavelet",
+   "  haar_levels: 1                     # 1-level Haar \u2192 LH, HL, HH subbands",
+   "  # Input channels: 1 (lum) + 30 (SRM) + 3 (Haar) + 1 (noise) = 35",
+   "  in_channels: 35",
+   "  # Depthwise-separable CNN layers",
+   "  base_channels: 64",
+   "  num_blocks: 4",
+   "  use_group_norm: true",
+   "  num_groups: 8",
+   "  activation: \"gelu\"                 # gelu | silu",
+   "  dropout: 0.1",
+   "  output_dim: 256                    # forensic embedding dim",
+   "  # Compact FFT features (auxiliary vector)",
+   "  fft_num_radial_bins: 16",
+   "  fft_output_dim: 20                 # total FFT feature vector size",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Temporal Branch \u2014 GRU",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "temporal_branch:",
+   "  input_dim: 660                     # 384 (DINO) + 256 (forensic) + 20 (FFT) = 660",
+   "                                     # + frame_diff (3*spatial_dim) handled in model",
+   "  hidden_dim: 256",
+   "  num_layers: 2",
+   "  dropout: 0.2",
+   "  bidirectional: false",
+   "  # Video-level aggregation",
+   "  aggregation:",
+   "    use_mean: true",
+   "    use_top_k_percent: 0.10          # top-10% window scores",
+   "    use_max: true",
+   "    use_dispersion: true",
+   "    use_attention: true",
+   "  output_dim: 256",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# rPPG Branch",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "rppg_branch:",
+   "  num_rois: 6                        # forehead, left cheek, right cheek, nose, chin, periorbital",
+   "  bandpass_low_hz: 0.7",
+   "  bandpass_high_hz: 3.5",
+   "  bpm_min: 42",
+   "  bpm_max: 210",
+   "  output_dim: 16                     # rPPG feature vector (SNR, freq, coherence, etc.)",
+   "  # Gate thresholds (mirror data.yaml quality_thresholds)",
+   "  min_duration_s: 8.0",
+   "  min_snr: 3.0",
+   "  min_coherence: 0.4",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Audio-Visual Branch (SyncNet-style)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "av_branch:",
+   "  audio_embed_dim: 256",
+   "  video_embed_dim: 256",
+   "  mel_n_mels: 80",
+   "  mel_hop_length: 160",
+   "  lip_crop_height: 48",
+   "  lip_crop_width: 96",
+   "  window_frames: 5",
+   "  output_dim: 1                      # sync score (scalar)",
+   "  enabled: true",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Context Branch (optional, fully synthetic videos)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "context_branch:",
+   "  enabled: true",
+   "  backbone: \"dinov2_vits14\"          # shared weights with semantic branch",
+   "  input_size: 112                    # downsampled full frame",
+   "  output_dim: 384",
+   "  gate_weight: 0.3                   # down-weighted in face-localized mode",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Reliability-Aware Fusion Head",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "fusion:",
+   "  # Input dims per branch",
+   "  semantic_dim: 384",
+   "  forensic_dim: 256",
+   "  fft_dim: 20",
+   "  temporal_dim: 256",
+   "  rppg_dim: 16",
+   "  av_dim: 1",
+   "  context_dim: 384",
+   "  # Quality vectors",
+   "  face_quality_dim: 10               # blur, brightness, contrast, pose_yaw, pose_pitch,",
+   "                                     # occlusion, face_area, compression, track_continuity, landmark_jitter",
+   "  video_quality_dim: 5               # fps, resolution_score, duration, audio_present, codec_quality",
+   "  # Architecture",
+   "  quality_encoder_hidden: 64",
+   "  hidden_dim: 512",
+   "  num_layers: 2",
+   "  dropout: 0.3",
+   "  use_layer_norm: true",
+   "  output_dim: 1                      # logit",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Localization Head",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "localization:",
+   "  enabled: true",
+   "  # DINO patch tokens: 256 patches (16x16) \u2192 upsample to 56\u00d756",
+   "  patch_grid: 16                     # 224/14 = 16 for ViT-S/14",
+   "  target_size: 56",
+   "  forensic_channels: 64             # from forensic CNN intermediate features",
+   "  decoder_channels: [128, 64, 32]",
+   "  output_size: 56",
+   "  sigmoid_output: true",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Calibration & Abstention",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "calibration:",
+   "  temperature_init: 1.0",
+   "  mc_dropout_samples: 10             # for uncertainty estimation",
+   "  # Abstention thresholds (tuned on calibration set, NOT test set)",
+   "  abstention:",
+   "    min_evidence_coverage: 0.3       # fraction of branches that are available",
+   "    max_uncertainty: 0.35",
+   "    max_branch_disagreement: 0.4",
+   "    min_face_quality: 0.2",
+   "    score_margin: 0.15               # |score - 0.5| must exceed this to decide"
+  ],
+  "train.yaml": [
+   "# FORGE-Lite Training Configuration",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# General",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "seed: 42",
+   "deterministic: true",
+   "output_dir: \"outputs\"",
+   "experiment_name: \"forge-lite-v1\"",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Hardware & precision",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "device: \"cuda\"",
+   "precision: \"fp16\"                    # fp16 | fp32 | bf16",
+   "gradient_accumulation_steps: 2       # reduced: fewer backward passes per step",
+   "num_workers: 4                       # parallel DataLoader workers for GPU saturation",
+   "persistent_workers: true             # keep workers alive between epochs (faster)",
+   "pin_memory: true",
+   "compile_model: false                 # torch.compile (PyTorch 2.x)",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Batch sizes per training phase",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "batch_sizes:",
+   "  spatial: 64                        # 64 for RTX 4060 8GB VRAM with 1-frame rep",
+   "  temporal: 16                       # 16 for frozen spatial backbones (peak VRAM < 4.2GB)",
+   "  fusion: 12                         # 12 keeps end-to-end full fusion safely within 6GB VRAM",
+   "  av: 16                             # audio-visual branch batch size (5-frame lip windows)",
+   "  baseline: 32",
+   "  adversarial: 4",
+   "",
+   "temporal_window_size: 8              # 8 frames captures 320ms temporal dynamics",
+   "fusion_window_size: 8",
+   "max_val_samples: 5000                # 5,000 representative val clips for fast validation (~45s)",
+   "enable_av: true                      # audio-visual branch active",
+   "use_geometry: true                   # 16-dim geometry branch active",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Learning rates",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "lr:",
+   "  backbone_frozen: 1.0e-3            # linear probe only",
+   "  layernorm_adaptation: 5.0e-4       # LN params + head",
+   "  lora_adaptation: 1.0e-3            # LoRA params + head",
+   "  last_block_adaptation: 1.0e-4      # last block fine-tune",
+   "  forensic_branch: 1.0e-3",
+   "  temporal_branch: 5.0e-4",
+   "  fusion: 3.0e-4",
+   "  av_branch: 5.0e-4",
+   "  geometry_branch: 5.0e-4",
+   "  localization: 5.0e-4",
+   "  calibration: 1.0e-2",
+   "  adversarial: 1.0e-4",
+   "  # LR schedule",
+   "  scheduler: \"cosine\"                # cosine | step | plateau",
+   "  warmup_epochs: 1                   # faster warmup",
+   "  min_lr: 1.0e-6",
+   "  weight_decay: 0.01",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Training epochs per phase (optimized for pre-initialized fine-tuning)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "epochs:",
+   "  baseline: 15",
+   "  semantic_branch: 8                 # Phase 3: joint fine-tune from pre-trained Phase 1 & 2",
+   "  forensic_branch: 25                # Phase 2: already complete",
+   "  temporal_branch: 10                # Phase 4: GRU on frozen spatial (was 25)",
+   "  fusion: 10                         # Phase 5: fusion head fine-tune (was 40)",
+   "  av_branch: 10                      # Audio-visual branch fine-tune",
+   "  geometry_branch: 10                # Geometry branch fine-tune",
+   "  localization: 12",
+   "  rppg_branch: 10",
+   "  adversarial: 10",
+   "  calibration: 3",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Loss weights",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "loss_weights:",
+   "  classification: 1.0",
+   "  consistency: 0.3                   # codec consistency loss",
+   "  metric: 0.2                        # source-pair contrastive",
+   "  localization: 0.5",
+   "  temporal_consistency: 0.1",
+   "  geometry_weight: 0.15              # landmark geometry consistency",
+   "  av_consistency: 0.20               # audio-visual sync contrastive",
+   "  # Focal loss params",
+   "  focal_alpha: 0.25",
+   "  focal_gamma: 2.0",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Class balance  (real:fake = 1:18.4 in combined manifest)",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "class_balance:",
+   "  # BCE pos_weight = n_neg / n_pos = 629423 / 34296 \u2248 18.4",
+   "  # Applied to BCEWithLogitsLoss to up-weight real (positive) class.",
+   "  pos_weight: 18.4",
+   "",
+   "  # WeightedRandomSampler: draw balanced batches (50% real, 50% fake)",
+   "  # Strongly recommended given 1:18 imbalance from DF40 dominance.",
+   "  balanced_sampling: true",
+   "  balanced_sampling_strategy: \"oversample_minority\"  # oversample_minority | undersample_majority",
+   "  samples_per_epoch: 40000           # 40k balanced samples/epoch (625 steps @ bs64 = ~3-4 mins/epoch)",
+   "",
+   "  # Alternatively: cap max fake samples per epoch to N\u00d7real count",
+   "  # (use instead of balanced_sampling if you prefer no duplication)",
+   "  max_fake_multiplier: 10            # cap fakes at 10\u00d7 real count per epoch",
+   "  use_max_fake_cap: false            # set true to use cap instead of weighted sampler",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Codec consistency training",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "consistency_training:",
+   "  enabled: true",
+   "  codec_configs_to_use:              # subset of codec_bank configs",
+   "    - \"clean\"",
+   "    - \"h264_crf23\"",
+   "    - \"h264_crf30\"",
+   "    - \"h264_crf40\"",
+   "  consistency_loss: \"mse\"            # mse | kl | cosine",
+   "  temperature: 2.0                   # soft label temperature",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Source-pair metric learning",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "metric_learning:",
+   "  enabled: true",
+   "  loss_type: \"contrastive\"           # contrastive | triplet",
+   "  margin: 0.5",
+   "  # Pairs: (real, fake) from same original source video",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Adversarial training",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "adversarial:",
+   "  method: \"pgd\"                      # pgd | fgsm",
+   "  pgd_steps_train: 5                 # PGD-5 during training",
+   "  pgd_epsilon: 0.03                  # L-inf norm bound",
+   "  pgd_step_size: 0.007",
+   "  pgd_steps_eval: 20                 # PGD-20 during evaluation",
+   "  random_start: true",
+   "  apply_to_fraction: 0.5             # fraction of batches adversarially perturbed",
+   "",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "# Checkpointing & logging",
+   "# \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+   "checkpointing:",
+   "  save_dir: \"outputs/checkpoints\""
+  ]
+ },
+ "manifests": {
+  "celeb_native_fakes.jsonl": {
+   "size": "1.6 MB",
+   "sha256_12": "0fe50272e831",
+   "records": 5410,
+   "fields": [
+    "forgery_type",
+    "frame_idx",
+    "label",
+    "method",
+    "source_path",
+    "split",
+    "target_video",
+    "video_id",
+    "video_path"
+   ],
+   "counts": {
+    "label": {
+     "1": 5410
+    },
+    "split": {
+     "train": 3961,
+     "test": 792,
+     "val": 657
+    },
+    "forgery_type": {
+     "face_swap": 5410
+    },
+    "method": {
+     "Celeb-synthesis": 5410
+    }
+   },
+   "first_record": {
+    "label": "1",
+    "source_path": "data\\crops\\celeb_df\\18e8214baee82f5c.jpg",
+    "method": "Celeb-synthesis",
+    "forgery_type": "face_swap",
+    "video_id": "id0_id16_0000",
+    "target_video": "id0_0000",
+    "frame_idx": "0",
+    "split": "train",
+    "video_path": "data\\raw\\Celeb-DF-v2\\Celeb-synthesis\\id0_id16_0000.mp4"
+   }
+  },
+  "celeb_native_reals.jsonl": {
+   "size": "1.0 MB",
+   "sha256_12": "fa5d489c2006",
+   "records": 5332,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 5332
+    },
+    "split": {
+     "train": 3787,
+     "val": 795,
+     "test": 750
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "crop_path": "data\\crops\\celeb_df\\c26df1bd3446dc4d.jpg",
+    "source_path": "data\\raw\\Celeb-DF-v2\\Celeb-real\\id0_0000.mp4",
+    "video_id": "id0_0000",
+    "frame_idx": "0",
+    "split": "train"
+   }
+  },
+  "df40_ff_subset.jsonl": {
+   "size": "298.1 MB",
+   "sha256_12": "5af06ebca7e6",
+   "records": 561649,
+   "fields": [
+    "audio_available",
+    "dataset",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation",
+    "manipulation_family",
+    "method",
+    "record_id",
+    "skin_tone_tag",
+    "source",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 561649
+    },
+    "split": {
+     "train": 396143,
+     "test": 83655,
+     "val": 81851
+    },
+    "dataset": {
+     "DF40": 561649
+    },
+    "forgery_type": {
+     "composited": 206529,
+     "reenactment": 201481,
+     "fully_synthetic": 152109,
+     "talking_head": 1530
+    },
+    "manipulation": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "DiT": 21487,
+     "SiT": 21487,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    },
+    "method": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "DiT": 21487,
+     "SiT": 21487,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    },
+    "generator_family": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "DiT": 21487,
+     "SiT": 21487,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    }
+   },
+   "first_record": {
+    "record_id": "2b099611aa74a609",
+    "video_id": "df40_blendface_001_870",
+    "dataset": "DF40",
+    "split": "val",
+    "source_group_id": "df40_blendface_001_870",
+    "source_path": "data/raw/DF40/DF40_train/blendface/blendface/frames/001_870/000.png",
+    "frame_idx": "0",
+    "label": "1",
+    "label_int": "1",
+    "method": "blendface",
+    "manipulation": "blendface",
+    "forgery_type": "composited",
+    "manipulation_family": "face_swap",
+    "generator_family": "blendface",
+    "audio_available": "False",
+    "sufficient_for_rppg": "False",
+    "sufficient_for_analysis": "True",
+    "skin_tone_tag": "unknown",
+    "source": "disk_scan"
+   }
+  },
+  "df40_fsfr_subset.jsonl": {
+   "size": "218.8 MB",
+   "sha256_12": "bcbe7a19a04a",
+   "records": 408010,
+   "fields": [
+    "audio_available",
+    "dataset",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation",
+    "manipulation_family",
+    "method",
+    "record_id",
+    "skin_tone_tag",
+    "source",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 408010
+    },
+    "split": {
+     "train": 288506,
+     "test": 60571,
+     "val": 58933
+    },
+    "dataset": {
+     "DF40": 408010
+    },
+    "forgery_type": {
+     "composited": 206529,
+     "reenactment": 201481
+    },
+    "manipulation": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    },
+    "method": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    },
+    "generator_family": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "facedancer": 22747,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "hyperreenact": 18783,
+     "uniface": 11794
+    }
+   },
+   "first_record": {
+    "record_id": "2b099611aa74a609",
+    "video_id": "df40_blendface_001_870",
+    "dataset": "DF40",
+    "split": "val",
+    "source_group_id": "df40_blendface_001_870",
+    "source_path": "data/raw/DF40/DF40_train/blendface/blendface/frames/001_870/000.png",
+    "frame_idx": "0",
+    "label": "1",
+    "label_int": "1",
+    "method": "blendface",
+    "manipulation": "blendface",
+    "forgery_type": "composited",
+    "manipulation_family": "face_swap",
+    "generator_family": "blendface",
+    "audio_available": "False",
+    "sufficient_for_rppg": "False",
+    "sufficient_for_analysis": "True",
+    "skin_tone_tag": "unknown",
+    "source": "disk_scan"
+   }
+  },
+  "ff_indep_fakes.jsonl": {
+   "size": "720.9 KB",
+   "sha256_12": "b2dd038413e7",
+   "records": 2400,
+   "fields": [
+    "forgery_type",
+    "frame_idx",
+    "label",
+    "method",
+    "source_path",
+    "split",
+    "video_id",
+    "video_path"
+   ],
+   "counts": {
+    "label": {
+     "1": 2400
+    },
+    "split": {
+     "train": 1760,
+     "val": 344,
+     "test": 296
+    },
+    "forgery_type": {
+     "composited": 1396,
+     "reenactment": 1004
+    },
+    "method": {
+     "NeuralTextures": 512,
+     "Face2Face": 492,
+     "FaceShifter": 476,
+     "Deepfakes": 460,
+     "FaceSwap": 460
+    }
+   },
+   "first_record": {
+    "label": "1",
+    "source_path": "datasets/FaceForensics++_C23/independent_transform_crops/fakes/Face2Face_535_587_f00010.png",
+    "method": "Face2Face",
+    "forgery_type": "reenactment",
+    "video_id": "535_587",
+    "frame_idx": "10",
+    "split": "train",
+    "video_path": "datasets/FaceForensics++_C23/Face2Face/535_587.mp4"
+   }
+  },
+  "ff_indep_reals.jsonl": {
+   "size": "444.3 KB",
+   "sha256_12": "56a2a67ecb99",
+   "records": 2010,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 2010
+    },
+    "split": {
+     "train": 1469,
+     "val": 292,
+     "test": 249
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "crop_path": "datasets/FaceForensics++_C23/independent_transform_crops/reals/535_f00010.png",
+    "source_path": "datasets/FaceForensics++_C23/original/535.mp4",
+    "video_id": "535",
+    "frame_idx": "10",
+    "split": "train"
+   }
+  },
+  "ff_native_fakes.jsonl": {
+   "size": "21.1 MB",
+   "sha256_12": "0060234f3515",
+   "records": 84108,
+   "fields": [
+    "forgery_type",
+    "frame_idx",
+    "label",
+    "method",
+    "source_path",
+    "split",
+    "video_id",
+    "video_path"
+   ],
+   "counts": {
+    "label": {
+     "1": 84108
+    },
+    "split": {
+     "train": 58459,
+     "val": 12864,
+     "test": 12785
+    },
+    "forgery_type": {
+     "composited": 51055,
+     "reenactment": 33053
+    },
+    "method": {
+     "FaceShifter": 18073,
+     "Face2Face": 18054,
+     "Deepfakes": 17982,
+     "FaceSwap": 15000,
+     "NeuralTextures": 14999
+    }
+   },
+   "first_record": {
+    "label": "1",
+    "source_path": "data\\crops\\faceforensics\\b6d48e0a8fc335b6.jpg",
+    "method": "Deepfakes",
+    "forgery_type": "composited",
+    "video_id": "000_003",
+    "frame_idx": "0",
+    "split": "train",
+    "video_path": "data\\raw\\FaceForensics++\\Deepfakes\\000_003.mp4"
+   }
+  },
+  "ff_native_reals.jsonl": {
+   "size": "3.4 MB",
+   "sha256_12": "4c753a63ee43",
+   "records": 18070,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 18070
+    },
+    "split": {
+     "train": 13364,
+     "val": 2539,
+     "test": 2167
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "split": "train",
+    "crop_path": "data\\crops\\faceforensics\\c711aca51966ddc2.jpg",
+    "source_path": "data\\raw\\FaceForensics++\\original\\000.mp4",
+    "video_id": "000",
+    "frame_idx": "0"
+   }
+  },
+  "ff_shared_fakes.jsonl": {
+   "size": "709.2 KB",
+   "sha256_12": "ed2a9eb6598b",
+   "records": 2400,
+   "fields": [
+    "forgery_type",
+    "frame_idx",
+    "label",
+    "method",
+    "source_path",
+    "split",
+    "video_id",
+    "video_path"
+   ],
+   "counts": {
+    "label": {
+     "1": 2400
+    },
+    "split": {
+     "train": 1760,
+     "val": 344,
+     "test": 296
+    },
+    "forgery_type": {
+     "composited": 1396,
+     "reenactment": 1004
+    },
+    "method": {
+     "NeuralTextures": 512,
+     "Face2Face": 492,
+     "FaceShifter": 476,
+     "Deepfakes": 460,
+     "FaceSwap": 460
+    }
+   },
+   "first_record": {
+    "label": "1",
+    "source_path": "datasets/FaceForensics++_C23/shared_transform_crops/fakes/Face2Face_535_587_f00010.png",
+    "method": "Face2Face",
+    "forgery_type": "reenactment",
+    "video_id": "535_587",
+    "frame_idx": "10",
+    "split": "train",
+    "video_path": "datasets/FaceForensics++_C23/Face2Face/535_587.mp4"
+   }
+  },
+  "ff_shared_reals.jsonl": {
+   "size": "434.5 KB",
+   "sha256_12": "bdf3ece2177d",
+   "records": 2010,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 2010
+    },
+    "split": {
+     "train": 1469,
+     "val": 292,
+     "test": 249
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "crop_path": "datasets/FaceForensics++_C23/shared_transform_crops/reals/535_f00010.png",
+    "source_path": "datasets/FaceForensics++_C23/original/535.mp4",
+    "video_id": "535",
+    "frame_idx": "10",
+    "split": "train"
+   }
+  },
+  "ffpp_matched_reals.jsonl": {
+   "size": "147.2 KB",
+   "sha256_12": "29df8a75539a",
+   "records": 653,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "target_size",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 653
+    },
+    "split": {
+     "parent": 653
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "split": "parent",
+    "crop_path": "datasets\\FaceForensics++_C23\\matched_png\\978_00560.png",
+    "source_path": "datasets\\FaceForensics++_C23\\original\\978.mp4",
+    "video_id": "978",
+    "frame_idx": "560",
+    "target_size": "256"
+   }
+  },
+  "ffpp_matched_reals_fsfr.jsonl": {
+   "size": "1007.2 KB",
+   "sha256_12": "28260d7152d9",
+   "records": 4374,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "target_size",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 4374
+    },
+    "split": {
+     "parent": 4374
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "split": "parent",
+    "crop_path": "datasets\\FaceForensics++_C23\\matched_png_fsfr\\934_00037.png",
+    "source_path": "datasets\\FaceForensics++_C23\\original\\934.mp4",
+    "video_id": "934",
+    "frame_idx": "37",
+    "target_size": "256"
+   }
+  },
+  "ffpp_png_reals.jsonl": {
+   "size": "264.4 KB",
+   "sha256_12": "5b7565d51167",
+   "records": 1001,
+   "fields": [
+    "_type",
+    "extraction_script_sha256",
+    "extraction_size",
+    "format",
+    "fps_limit",
+    "frame_index",
+    "label",
+    "max_per_video",
+    "n_videos_requested",
+    "path",
+    "pipeline",
+    "seed",
+    "source_video",
+    "split",
+    "split_csv",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 1000
+    },
+    "split": {
+     "any": 1000
+    }
+   },
+   "first_record": {
+    "_type": "manifest_header",
+    "extraction_script_sha256": "368ab0d370136259492fb47e816528202f69cc117465a1080efa2aeb5b1686ab",
+    "fps_limit": "1.0",
+    "max_per_video": "5",
+    "pipeline": "centre_crop_LANCZOS_224_PNG_lossless",
+    "seed": "42",
+    "n_videos_requested": "200",
+    "split_csv": "None"
+   }
+  },
+  "calibration_manifest.json": {
+   "size": "2.4 MB",
+   "sha256_12": "1b279ba08129"
+  },
+  "celeb_df.jsonl": {
+   "size": "53.3 MB",
+   "sha256_12": "e1c9acc5c5da",
+   "records": 84900,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "manipulation_family",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "1": 72736,
+     "0": 12164
+    },
+    "split": {
+     "train": 59989,
+     "test": 12805,
+     "val": 12106
+    },
+    "dataset": {
+     "celeb_df": 84900
+    },
+    "forgery_type": {
+     "unknown": 72736,
+     "real": 12164
+    },
+    "manipulation": {
+     "Celeb-DF-synthesis": 72736,
+     "original": 12164
+    },
+    "generator_family": {
+     "Celeb-DF-synthesis": 72736,
+     "original": 12164
+    }
+   },
+   "first_record": {
+    "record_id": "c26df1bd3446dc4d",
+    "dataset": "celeb_df",
+    "split": "train",
+    "source_path": "data\\raw\\Celeb-DF-v2\\Celeb-real\\id0_0000.mp4",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "data\\crops\\celeb_df\\c26df1bd3446dc4d.jpg",
+    "blur_score": "0.0051",
+    "brightness": "0.2905",
+    "contrast": "0.3",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "27.99",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.3267",
+    "landmark_confidence": "0.8764",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "original",
+    "source_group_id": "id0_0000",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "combined.jsonl": {
+   "size": "496.7 MB",
+   "sha256_12": "10c13212dd1e",
+   "records": 949254,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "manipulation_family",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "1": 903198,
+     "0": 46056
+    },
+    "split": {
+     "train": 666909,
+     "test": 141398,
+     "val": 140947
+    },
+    "dataset": {
+     "df40": 447689,
+     "DF40": 238669,
+     "faceforensics": 127068,
+     "celeb_df": 84900,
+     "wild_deepfake": 23100,
+     "FakeAVCeleb": 21566,
+     "ffhq": 4062,
+     "LAV-DF": 2000,
+     "TalkingHeadBench": 100,
+     "HDTF": 100
+    },
+    "forgery_type": {
+     "fully_synthetic": 238669,
+     "unknown": 129739,
+     "real": 46056,
+     "composited": 37676,
+     "reenactment": 33053,
+     "talking_head": 9602,
+     "composited+audio": 6270,
+     "audio_only": 500
+    },
+    "manipulation": {
+     "Celeb-DF-synthesis": 72736,
+     "original": 45456,
+     "e4s": 44222,
+     "simswap": 29509,
+     "inswap": 26349,
+     "DeepFakeDetection": 24890,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589,
+     "tpsm": 21546,
+     "one_shot_free": 21539,
+     "faceswap": 21522,
+     "pirender": 21497,
+     "mobileswap": 21475,
+     "MRAA": 21417,
+     "fomm": 21416,
+     "lia": 21414,
+     "facevid2vid": 21411
+    },
+    "method": {
+     "e4s": 22779,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589,
+     "wav2lip": 9602,
+     "fsgan": 3964,
+     "fsgan-wav2lip": 3553,
+     "faceswap-wav2lip": 2717,
+     "faceswap": 730,
+     "real": 500,
+     "rtvc": 500
+    },
+    "generator_family": {
+     "Celeb-DF-synthesis": 72736,
+     "original": 45456,
+     "DeepFakeDetection": 24890,
+     "e4s": 22779,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589,
+     "FaceShifter": 18073,
+     "Face2Face": 18054,
+     "Deepfakes": 17982,
+     "FaceSwap": 15000,
+     "NeuralTextures": 14999,
+     "WildDeepfake": 11940,
+     "wav2lip": 9602,
+     "fsgan": 3964,
+     "fsgan-wav2lip": 3553,
+     "faceswap-wav2lip": 2717,
+     "LAV-DF": 2000
+    }
+   },
+   "first_record": {
+    "record_id": "c711aca51966ddc2",
+    "dataset": "faceforensics",
+    "split": "train",
+    "source_path": "data\\raw\\FaceForensics++\\original\\000.mp4",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "data\\crops\\faceforensics\\c711aca51966ddc2.jpg",
+    "blur_score": "0.0944",
+    "brightness": "0.5949",
+    "contrast": "0.4747",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "23.05",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.4695",
+    "landmark_confidence": "0.8089",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "original",
+    "source_group_id": "000",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "df40.jsonl": {
+   "size": "203.3 MB",
+   "sha256_12": "1c209eade195",
+   "records": 447689,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "frame_idx",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "1": 447689
+    },
+    "split": {
+     "train": 312107,
+     "val": 68251,
+     "test": 67331
+    },
+    "dataset": {
+     "df40": 447689
+    },
+    "manipulation": {
+     "simswap": 29509,
+     "inswap": 26349,
+     "tpsm": 21546,
+     "one_shot_free": 21539,
+     "faceswap": 21522,
+     "pirender": 21497,
+     "mobileswap": 21475,
+     "e4s": 21443,
+     "MRAA": 21417,
+     "fomm": 21416,
+     "lia": 21414,
+     "facevid2vid": 21411,
+     "facedancer": 21407,
+     "sadtalker": 21380,
+     "wav2lip": 21347,
+     "danet": 21309,
+     "mcnet": 21280,
+     "blendface": 21196,
+     "fsgan": 20517,
+     "hyperreenact": 17610,
+     "uniface": 11105
+    }
+   },
+   "first_record": {
+    "record_id": "536ce6c303be639f",
+    "dataset": "df40",
+    "split": "train",
+    "source_path": "data\\raw\\DF40\\DF40_train\\blendface\\blendface\\frames\\001_870",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "1",
+    "manipulation": "blendface",
+    "crop_path": "data\\crops\\df40\\536ce6c303be639f.jpg",
+    "blur_score": "0.1336",
+    "brightness": "0.4872",
+    "contrast": "0.6133",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "45.0",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.4273",
+    "landmark_confidence": "0.95"
+   }
+  },
+  "df40_disk.jsonl": {
+   "size": "371.6 MB",
+   "sha256_12": "ac918f0302d5",
+   "records": 692158,
+   "fields": [
+    "audio_available",
+    "dataset",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation",
+    "manipulation_family",
+    "method",
+    "record_id",
+    "skin_tone_tag",
+    "source",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 692158
+    },
+    "split": {
+     "train": 487162,
+     "test": 103764,
+     "val": 101232
+    },
+    "dataset": {
+     "DF40": 692158
+    },
+    "forgery_type": {
+     "fully_synthetic": 238669,
+     "composited": 206529,
+     "reenactment": 201481,
+     "talking_head": 45479
+    },
+    "manipulation": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "sadtalker": 22797,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "wav2lip": 22682,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589
+    },
+    "method": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "sadtalker": 22797,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "wav2lip": 22682,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589
+    },
+    "generator_family": {
+     "simswap": 31350,
+     "inswap": 27988,
+     "tpsm": 22964,
+     "one_shot_free": 22959,
+     "pirender": 22914,
+     "faceswap": 22852,
+     "mobileswap": 22824,
+     "facevid2vid": 22815,
+     "fomm": 22811,
+     "lia": 22811,
+     "MRAA": 22811,
+     "sadtalker": 22797,
+     "e4s": 22779,
+     "facedancer": 22747,
+     "wav2lip": 22682,
+     "danet": 22646,
+     "mcnet": 22613,
+     "blendface": 22513,
+     "fsgan": 21815,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589
+    }
+   },
+   "first_record": {
+    "record_id": "2b099611aa74a609",
+    "video_id": "df40_blendface_001_870",
+    "dataset": "DF40",
+    "split": "val",
+    "source_group_id": "df40_blendface_001_870",
+    "source_path": "data/raw/DF40/DF40_train/blendface/blendface/frames/001_870/000.png",
+    "frame_idx": "0",
+    "label": "1",
+    "label_int": "1",
+    "method": "blendface",
+    "manipulation": "blendface",
+    "forgery_type": "composited",
+    "manipulation_family": "face_swap",
+    "generator_family": "blendface",
+    "audio_available": "False",
+    "sufficient_for_rppg": "False",
+    "sufficient_for_analysis": "True",
+    "skin_tone_tag": "unknown",
+    "source": "disk_scan"
+   }
+  },
+  "df40_efs.jsonl": {
+   "size": "126.0 MB",
+   "sha256_12": "cb72bd63022b",
+   "records": 238669,
+   "fields": [
+    "audio_available",
+    "dataset",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation",
+    "manipulation_family",
+    "method",
+    "record_id",
+    "skin_tone_tag",
+    "source",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 238669
+    },
+    "split": {
+     "train": 167049,
+     "test": 35986,
+     "val": 35634
+    },
+    "dataset": {
+     "DF40": 238669
+    },
+    "forgery_type": {
+     "fully_synthetic": 238669
+    },
+    "manipulation": {
+     "e4s": 22779,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589
+    },
+    "method": {
+     "e4s": 22779,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589
+    },
+    "generator_family": {
+     "e4s": 22779,
+     "ddim": 21589,
+     "DiT": 21589,
+     "SiT": 21589,
+     "StyleGAN2": 21589,
+     "StyleGAN3": 21589,
+     "StyleGANXL": 21589,
+     "VQGAN": 21589,
+     "pixart": 21589,
+     "sd2.1": 21589,
+     "rddm": 21589
+    }
+   },
+   "first_record": {
+    "record_id": "811e200d97e235d1",
+    "video_id": "df40_ddim_001_001_325",
+    "dataset": "DF40",
+    "split": "val",
+    "source_group_id": "df40_ddim_001_001_325",
+    "source_path": "data/raw/DF40/DF40_train/ddim/ddim/001/001_325.png",
+    "frame_idx": "0",
+    "label": "1",
+    "label_int": "1",
+    "method": "ddim",
+    "manipulation": "ddim",
+    "forgery_type": "fully_synthetic",
+    "manipulation_family": "synthesis",
+    "generator_family": "ddim",
+    "audio_available": "False",
+    "sufficient_for_rppg": "False",
+    "sufficient_for_analysis": "True",
+    "skin_tone_tag": "unknown",
+    "source": "disk_scan"
+   }
+  },
+  "df40_test.jsonl": {
+   "size": "878.2 MB",
+   "sha256_12": "7a0be47f078a",
+   "truncated_at": 1000000,
+   "records": 1000000,
+   "fields": [
+    "audio_available",
+    "config_source",
+    "dataset",
+    "forgery_type",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation",
+    "manipulation_family",
+    "method",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 922733,
+     "0": 77267
+    },
+    "split": {
+     "test": 530326,
+     "train": 469674
+    },
+    "dataset": {
+     "DF40": 1000000
+    },
+    "forgery_type": {
+     "reenactment": 374936,
+     "composited": 353110,
+     "fully_synthetic": 193082,
+     "real": 77267,
+     "talking_head": 1605
+    },
+    "manipulation": {
+     "original": 77267,
+     "mobileswap": 70346,
+     "ddim": 49892,
+     "DiT": 49892,
+     "one_shot_free": 48055,
+     "pirender": 47578,
+     "fomm": 47544,
+     "MRAA": 47540,
+     "faceswap": 47486,
+     "facedancer": 47457,
+     "blendface": 47303,
+     "facevid2vid": 47173,
+     "lia": 47065,
+     "danet": 46342,
+     "mcnet": 46215,
+     "e4e": 46122,
+     "fsgan": 45871,
+     "inswap": 45183,
+     "hyperreenact": 43766,
+     "e4s": 35640,
+     "pixart": 9654,
+     "deepfacelab": 3122,
+     "heygen": 1605,
+     "CollabDiff": 1000,
+     "MidJourney": 882
+    },
+    "method": {
+     "blendface": 80395,
+     "e4e": 79214,
+     "mobileswap": 70346,
+     "ddim": 49892,
+     "DiT": 49892,
+     "one_shot_free": 48055,
+     "pirender": 47578,
+     "fomm": 47544,
+     "MRAA": 47540,
+     "faceswap": 47486,
+     "facedancer": 47457,
+     "facevid2vid": 47173,
+     "lia": 47065,
+     "danet": 46342,
+     "mcnet": 46215,
+     "fsgan": 45871,
+     "inswap": 45183,
+     "hyperreenact": 43766,
+     "e4s": 35640,
+     "pixart": 9654,
+     "heygen": 9141,
+     "deepfacelab": 4669,
+     "CollabDiff": 2000,
+     "MidJourney": 1882
+    },
+    "generator_family": {
+     "real": 77267,
+     "mobileswap": 70346,
+     "ddim": 49892,
+     "DiT": 49892,
+     "one_shot_free": 48055,
+     "pirender": 47578,
+     "fomm": 47544,
+     "MRAA": 47540,
+     "faceswap": 47486,
+     "facedancer": 47457,
+     "blendface": 47303,
+     "facevid2vid": 47173,
+     "lia": 47065,
+     "danet": 46342,
+     "mcnet": 46215,
+     "e4e": 46122,
+     "fsgan": 45871,
+     "inswap": 45183,
+     "hyperreenact": 43766,
+     "e4s": 35640,
+     "pixart": 9654,
+     "deepfacelab": 3122,
+     "heygen": 1605,
+     "CollabDiff": 1000,
+     "MidJourney": 882
+    }
+   },
+   "first_record": {
+    "record_id": "560000b2edee9b45",
+    "video_id": "df40_blendface_00170",
+    "dataset": "DF40",
+    "split": "test",
+    "source_group_id": "df40_blendface_00170",
+    "source_path": "datasets/Celeb-DF-v2/YouTube-real/frames/00170/055.png",
+    "label": "0",
+    "label_int": "0",
+    "method": "blendface",
+    "manipulation": "original",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "real",
+    "audio_available": "False",
+    "sufficient_for_rppg": "False",
+    "sufficient_for_analysis": "True",
+    "skin_tone_tag": "unknown",
+    "config_source": "blendface_cdf.json"
+   }
+  },
+  "faceforensics.jsonl": {
+   "size": "80.1 MB",
+   "sha256_12": "2b23964d9e46",
+   "records": 127068,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "manipulation_family",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "1": 108998,
+     "0": 18070
+    },
+    "split": {
+     "train": 89925,
+     "val": 19174,
+     "test": 17969
+    },
+    "dataset": {
+     "faceforensics": 127068
+    },
+    "forgery_type": {
+     "unknown": 42963,
+     "reenactment": 33053,
+     "composited": 32982,
+     "real": 18070
+    },
+    "manipulation": {
+     "DeepFakeDetection": 24890,
+     "FaceShifter": 18073,
+     "original": 18070,
+     "Face2Face": 18054,
+     "Deepfakes": 17982,
+     "FaceSwap": 15000,
+     "NeuralTextures": 14999
+    },
+    "generator_family": {
+     "DeepFakeDetection": 24890,
+     "FaceShifter": 18073,
+     "original": 18070,
+     "Face2Face": 18054,
+     "Deepfakes": 17982,
+     "FaceSwap": 15000,
+     "NeuralTextures": 14999
+    }
+   },
+   "first_record": {
+    "record_id": "c711aca51966ddc2",
+    "dataset": "faceforensics",
+    "split": "train",
+    "source_path": "data\\raw\\FaceForensics++\\original\\000.mp4",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "data\\crops\\faceforensics\\c711aca51966ddc2.jpg",
+    "blur_score": "0.0944",
+    "brightness": "0.5949",
+    "contrast": "0.4747",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "23.05",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.4695",
+    "landmark_confidence": "0.8089",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "original",
+    "source_group_id": "000",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "fakeavceleb.jsonl": {
+   "size": "16.7 MB",
+   "sha256_12": "eaf1cee77404",
+   "records": 21566,
+   "fields": [
+    "audio_available",
+    "audio_path",
+    "category",
+    "dataset",
+    "forgery_type",
+    "gender",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation_family",
+    "method",
+    "race",
+    "record_id",
+    "source",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "target1",
+    "target2",
+    "type",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 21066,
+     "0": 500
+    },
+    "split": {
+     "train": 16909,
+     "test": 2883,
+     "val": 1774
+    },
+    "dataset": {
+     "FakeAVCeleb": 21566
+    },
+    "forgery_type": {
+     "talking_head": 9602,
+     "composited+audio": 6270,
+     "composited": 4694,
+     "real": 500,
+     "audio_only": 500
+    },
+    "method": {
+     "wav2lip": 9602,
+     "fsgan": 3964,
+     "fsgan-wav2lip": 3553,
+     "faceswap-wav2lip": 2717,
+     "faceswap": 730,
+     "real": 500,
+     "rtvc": 500
+    },
+    "generator_family": {
+     "wav2lip": 9602,
+     "fsgan": 3964,
+     "fsgan-wav2lip": 3553,
+     "faceswap-wav2lip": 2717,
+     "faceswap": 730,
+     "real": 500,
+     "rtvc": 500
+    }
+   },
+   "first_record": {
+    "record_id": "0673357f81f4f8c6",
+    "video_id": "fakeav_id00076_00109",
+    "dataset": "FakeAVCeleb",
+    "split": "train",
+    "source_group_id": "id00076",
+    "source_path": "datasets/FakeAVCeleb_v1.2/RealVideo-RealAudio/African/men/id00076/00109.mp4",
+    "audio_path": "datasets/FakeAVCeleb_v1.2/RealVideo-RealAudio/African/men/id00076/00109.mp4",
+    "audio_available": "True",
+    "sufficient_for_rppg": "True",
+    "sufficient_for_analysis": "True",
+    "label": "0",
+    "label_int": "0",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "real",
+    "method": "real",
+    "category": "A",
+    "type": "RealVideo-RealAudio",
+    "source": "id00076",
+    "target1": "-",
+    "target2": "-",
+    "race": "African",
+    "gender": "men"
+   }
+  },
+  "ffhq.jsonl": {
+   "size": "2.3 MB",
+   "sha256_12": "9494beab147e",
+   "records": 4062,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "manipulation_family",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "0": 4062
+    },
+    "split": {
+     "train": 2802,
+     "test": 646,
+     "val": 614
+    },
+    "dataset": {
+     "ffhq": 4062
+    },
+    "forgery_type": {
+     "real": 4062
+    },
+    "manipulation": {
+     "original": 4062
+    },
+    "generator_family": {
+     "original": 4062
+    }
+   },
+   "first_record": {
+    "record_id": "0423806df16b6232",
+    "dataset": "ffhq",
+    "split": "train",
+    "source_path": "data\\raw\\FFHQ\\thumbnails128x128\\00026.png",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "data\\crops\\ffhq\\0423806df16b6232.jpg",
+    "blur_score": "0.0096",
+    "brightness": "0.431",
+    "contrast": "0.2286",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "31.35",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.3818",
+    "landmark_confidence": "0.7406",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "original",
+    "source_group_id": "00026",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "final_dataset_test.jsonl": {
+   "size": "303.3 KB",
+   "sha256_12": "bed071216917",
+   "records": 875,
+   "fields": [
+    "category",
+    "crop_path",
+    "dataset",
+    "difficulty",
+    "frame_idx",
+    "label",
+    "manipulation",
+    "quality",
+    "record_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "0": 502,
+     "1": 373
+    },
+    "split": {
+     "test": 875
+    },
+    "dataset": {
+     "final_dataset": 875
+    },
+    "manipulation": {
+     "original": 502,
+     "StyleGAN3": 373
+    }
+   },
+   "first_record": {
+    "record_id": "fd_3",
+    "dataset": "final_dataset",
+    "split": "test",
+    "source_path": "C:\\deepfake\\data\\final_dataset\\images\\3.jpg",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "C:\\deepfake\\data\\final_dataset\\images\\3.jpg",
+    "category": "Authentic",
+    "difficulty": "Easy",
+    "quality": "High"
+   }
+  },
+  "final_dataset_train.jsonl": {
+   "size": "146.6 KB",
+   "sha256_12": "3485847e1fb3",
+   "records": 422,
+   "fields": [
+    "category",
+    "crop_path",
+    "dataset",
+    "difficulty",
+    "frame_idx",
+    "label",
+    "manipulation",
+    "quality",
+    "record_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "0": 250,
+     "1": 172
+    },
+    "split": {
+     "train": 422
+    },
+    "dataset": {
+     "final_dataset": 422
+    },
+    "manipulation": {
+     "original": 250,
+     "StyleGAN3": 172
+    }
+   },
+   "first_record": {
+    "record_id": "fd_3245",
+    "dataset": "final_dataset",
+    "split": "train",
+    "source_path": "C:\\deepfake\\data\\final_dataset\\images\\3245.jpg",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "1",
+    "manipulation": "StyleGAN3",
+    "crop_path": "C:\\deepfake\\data\\final_dataset\\images\\3245.jpg",
+    "category": "AI Generated",
+    "difficulty": "Hard",
+    "quality": "Medium"
+   }
+  },
+  "final_dataset_val.jsonl": {
+   "size": "37.0 KB",
+   "sha256_12": "e888a71a675f",
+   "records": 107,
+   "fields": [
+    "category",
+    "crop_path",
+    "dataset",
+    "difficulty",
+    "frame_idx",
+    "label",
+    "manipulation",
+    "quality",
+    "record_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "0": 60,
+     "1": 47
+    },
+    "split": {
+     "val": 107
+    },
+    "dataset": {
+     "final_dataset": 107
+    },
+    "manipulation": {
+     "original": 60,
+     "StyleGAN3": 47
+    }
+   },
+   "first_record": {
+    "record_id": "fd_760",
+    "dataset": "final_dataset",
+    "split": "val",
+    "source_path": "C:\\deepfake\\data\\final_dataset\\images\\760.jpg",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "C:\\deepfake\\data\\final_dataset\\images\\760.jpg",
+    "category": "Authentic",
+    "difficulty": "Easy",
+    "quality": "Medium"
+   }
+  },
+  "lav-df.jsonl": {
+   "size": "1.0 MB",
+   "sha256_12": "a00797bddd49",
+   "records": 2000,
+   "fields": [
+    "audio_available",
+    "audio_path",
+    "dataset",
+    "forgery_type",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation_family",
+    "mel_path",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 2000
+    },
+    "split": {
+     "train": 1604,
+     "test": 207,
+     "val": 189
+    },
+    "dataset": {
+     "LAV-DF": 2000
+    },
+    "forgery_type": {
+     "unknown": 2000
+    },
+    "generator_family": {
+     "LAV-DF": 2000
+    }
+   },
+   "first_record": {
+    "record_id": "lav-df_0",
+    "video_id": "LAV-df_000047",
+    "dataset": "LAV-DF",
+    "split": "train",
+    "source_path": "data\\raw\\LAV-DF\\LAV-df_000047.mp4",
+    "audio_path": "data\\raw\\LAV-DF\\LAV-df_000047.mp4",
+    "mel_path": "data\\audio\\mel\\LAV-DF_LAV-df_000047_mel.pt",
+    "audio_available": "True",
+    "label": "1",
+    "label_int": "1",
+    "manipulation_family": "av_deepfake",
+    "generator_family": "LAV-DF",
+    "sufficient_for_analysis": "True",
+    "sufficient_for_rppg": "False",
+    "forgery_type": "unknown",
+    "source_group_id": "LAV-df_000047",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "lav_df.jsonl": {
+   "size": "1.0 MB",
+   "sha256_12": "a00797bddd49",
+   "records": 2000,
+   "fields": [
+    "audio_available",
+    "audio_path",
+    "dataset",
+    "forgery_type",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation_family",
+    "mel_path",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 2000
+    },
+    "split": {
+     "train": 1604,
+     "test": 207,
+     "val": 189
+    },
+    "dataset": {
+     "LAV-DF": 2000
+    },
+    "forgery_type": {
+     "unknown": 2000
+    },
+    "generator_family": {
+     "LAV-DF": 2000
+    }
+   },
+   "first_record": {
+    "record_id": "lav-df_0",
+    "video_id": "LAV-df_000047",
+    "dataset": "LAV-DF",
+    "split": "train",
+    "source_path": "data\\raw\\LAV-DF\\LAV-df_000047.mp4",
+    "audio_path": "data\\raw\\LAV-DF\\LAV-df_000047.mp4",
+    "mel_path": "data\\audio\\mel\\LAV-DF_LAV-df_000047_mel.pt",
+    "audio_available": "True",
+    "label": "1",
+    "label_int": "1",
+    "manipulation_family": "av_deepfake",
+    "generator_family": "LAV-DF",
+    "sufficient_for_analysis": "True",
+    "sufficient_for_rppg": "False",
+    "forgery_type": "unknown",
+    "source_group_id": "LAV-df_000047",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "talkingheadbench.jsonl": {
+   "size": "127.2 KB",
+   "sha256_12": "7ff366d6123b",
+   "records": 200,
+   "fields": [
+    "audio_available",
+    "audio_path",
+    "dataset",
+    "forgery_type",
+    "generator_family",
+    "label",
+    "label_int",
+    "manipulation_family",
+    "mel_path",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "sufficient_for_analysis",
+    "sufficient_for_rppg",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "1": 100,
+     "0": 100
+    },
+    "split": {
+     "train": 144,
+     "test": 31,
+     "val": 25
+    },
+    "dataset": {
+     "TalkingHeadBench": 100,
+     "HDTF": 100
+    },
+    "forgery_type": {
+     "unknown": 100,
+     "real": 100
+    },
+    "generator_family": {
+     "HDTF_real": 100,
+     "AniPortraitAudio": 20,
+     "EmoPortrait": 20,
+     "Hallo": 20,
+     "Hallo2": 20,
+     "LivePortrait": 20
+    }
+   },
+   "first_record": {
+    "record_id": "thb_fake_0",
+    "video_id": "00683--xqtbz-pVp2g_1--AniPortraitAudio",
+    "dataset": "TalkingHeadBench",
+    "split": "val",
+    "source_path": "data\\raw\\TalkingHeadBench\\fake\\AniPortraitAudio\\test\\00683--xqtbz-pVp2g_1--AniPortraitAudio.mp4",
+    "audio_path": "data\\raw\\TalkingHeadBench\\fake\\AniPortraitAudio\\test\\00683--xqtbz-pVp2g_1--AniPortraitAudio.mp4",
+    "mel_path": "data\\audio\\mel\\THB_AniPortraitAudio_00683--xqtbz-pVp2g_1--AniPortraitAudio_mel.pt",
+    "audio_available": "True",
+    "label": "1",
+    "label_int": "1",
+    "manipulation_family": "talking_head_aniportraitaudio",
+    "generator_family": "AniPortraitAudio",
+    "sufficient_for_analysis": "True",
+    "sufficient_for_rppg": "False",
+    "forgery_type": "unknown",
+    "source_group_id": "00683--xqtbz-pVp2g_1--AniPortraitAudio",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "test_manifest_seen.json": {
+   "size": "7.6 MB",
+   "sha256_12": "8363aa533d9b"
+  },
+  "test_manifest_unseen.json": {
+   "size": "630.0 KB",
+   "sha256_12": "01ac26794afb"
+  },
+  "train_manifest.json": {
+   "size": "6.2 MB",
+   "sha256_12": "c7d21ebd5ff9"
+  },
+  "train_manifest_disjoint.json": {
+   "size": "8.5 MB",
+   "sha256_12": "7dbb9fc1ec48"
+  },
+  "wild_deepfake.jsonl": {
+   "size": "13.9 MB",
+   "sha256_12": "0feb02a9562d",
+   "records": 23100,
+   "fields": [
+    "blur_score",
+    "brightness",
+    "composite_quality",
+    "contrast",
+    "crop_path",
+    "dataset",
+    "face_area_ratio",
+    "forgery_type",
+    "frame_idx",
+    "generator_family",
+    "label",
+    "landmark_confidence",
+    "manipulation",
+    "manipulation_family",
+    "pose_pitch_deg",
+    "pose_yaw_deg",
+    "record_id",
+    "skin_tone_tag",
+    "source_group_id",
+    "source_path",
+    "split",
+    "timestamp_sec"
+   ],
+   "counts": {
+    "label": {
+     "1": 11940,
+     "0": 11160
+    },
+    "split": {
+     "train": 16380,
+     "test": 3540,
+     "val": 3180
+    },
+    "dataset": {
+     "wild_deepfake": 23100
+    },
+    "forgery_type": {
+     "unknown": 11940,
+     "real": 11160
+    },
+    "manipulation": {
+     "WildDeepfake": 11940,
+     "original": 11160
+    },
+    "generator_family": {
+     "WildDeepfake": 11940,
+     "original": 11160
+    }
+   },
+   "first_record": {
+    "record_id": "be015a3ba9200841",
+    "dataset": "wild_deepfake",
+    "split": "train",
+    "source_path": "data\\raw\\WildDeepfake\\real_test\\73\\real\\1189",
+    "frame_idx": "0",
+    "timestamp_sec": "0.0",
+    "label": "0",
+    "manipulation": "original",
+    "crop_path": "data\\crops\\wild_deepfake\\be015a3ba9200841.jpg",
+    "blur_score": "0.0024",
+    "brightness": "0.3606",
+    "contrast": "0.2981",
+    "face_area_ratio": "1.0",
+    "pose_yaw_deg": "45.0",
+    "pose_pitch_deg": "0.0",
+    "composite_quality": "0.3494",
+    "landmark_confidence": "0.95",
+    "forgery_type": "real",
+    "manipulation_family": "real",
+    "generator_family": "original",
+    "source_group_id": "1189",
+    "skin_tone_tag": "unknown"
+   }
+  },
+  "pilot_fakes.jsonl": {
+   "size": "6.0 KB",
+   "sha256_12": "1e8df997dac9",
+   "records": 20,
+   "fields": [
+    "forgery_type",
+    "frame_idx",
+    "label",
+    "method",
+    "source_path",
+    "split",
+    "video_id",
+    "video_path"
+   ],
+   "counts": {
+    "label": {
+     "1": 20
+    },
+    "split": {
+     "train": 20
+    },
+    "forgery_type": {
+     "composited": 12,
+     "reenactment": 8
+    },
+    "method": {
+     "Face2Face": 8,
+     "FaceShifter": 8,
+     "Deepfakes": 4
+    }
+   },
+   "first_record": {
+    "label": "1",
+    "source_path": "datasets/FaceForensics++_C23/shared_transform_crops_pilot/fakes/Face2Face_535_587_f00010.png",
+    "method": "Face2Face",
+    "forgery_type": "reenactment",
+    "video_id": "535_587",
+    "frame_idx": "10",
+    "split": "train",
+    "video_path": "datasets/FaceForensics++_C23/Face2Face/535_587.mp4"
+   }
+  },
+  "pilot_reals.jsonl": {
+   "size": "4.4 KB",
+   "sha256_12": "14f87e8230a5",
+   "records": 20,
+   "fields": [
+    "crop_path",
+    "frame_idx",
+    "label",
+    "source_path",
+    "split",
+    "video_id"
+   ],
+   "counts": {
+    "label": {
+     "0": 20
+    },
+    "split": {
+     "train": 20
+    }
+   },
+   "first_record": {
+    "label": "0",
+    "crop_path": "datasets/FaceForensics++_C23/shared_transform_crops_pilot/reals/535_f00010.png",
+    "source_path": "datasets/FaceForensics++_C23/original/535.mp4",
+    "video_id": "535",
+    "frame_idx": "10",
+    "split": "train"
+   }
+  }
+ },
+ "datasets_on_disk": {
+  "datasets/Deepfake-vs-Real-60K": {
+   "files": 2,
+   "size": "196.0 B",
+   "top_ext": {
+    "": 1,
+    ".tag": 1
+   }
+  },
+  "datasets/FaceForensics++_C23": {
+   "files": 21900,
+   "size": "18.6 GB",
+   "top_ext": {
+    ".png": 14887,
+    ".mp4": 7000,
+    ".csv": 10,
+    ".json": 3
+   }
+  },
+  "datasets/FakeAVCeleb_v1.2": {
+   "files": 22046,
+   "size": "6.2 GB",
+   "top_ext": {
+    ".mp4": 21544,
+    ".txt": 501,
+    ".csv": 1
+   }
+  },
+  "data/raw/Celeb-DF-v2": {
+   "files": 6530,
+   "size": "9.5 GB",
+   "top_ext": {
+    ".mp4": 6529,
+    ".txt": 1
+   }
+  },
+  "data/raw/DF40": {
+   "files": 150300,
+   "size": "129.3 GB",
+   "top_ext": {
+    ".png": 105081,
+    ".npy": 45159,
+    ".zip": 58,
+    ".log": 1
+   }
+  },
+  "data/raw/FaceForensics++": {
+   "files": 21900,
+   "size": "18.6 GB",
+   "top_ext": {
+    ".png": 14887,
+    ".mp4": 7000,
+    ".csv": 10,
+    ".json": 3
+   }
+  },
+  "data/raw/FFHQ": {
+   "files": 70002,
+   "size": "3.9 GB",
+   "top_ext": {
+    ".png": 70000,
+    ".zip": 1,
+    ".txt": 1
+   }
+  },
+  "data/raw/HDTF": {
+   "files": 202,
+   "size": "63.5 MB",
+   "top_ext": {
+    ".metadata": 100,
+    ".mp4": 100,
+    "": 1,
+    ".tag": 1
+   }
+  },
+  "data/raw/LAV-DF": {
+   "files": 2002,
+   "size": "696.0 MB",
+   "top_ext": {
+    ".mp4": 2000,
+    ".zip": 2
+   }
+  },
+  "data/raw/TalkingHeadBench": {
+   "files": 202,
+   "size": "143.7 MB",
+   "top_ext": {
+    ".metadata": 100,
+    ".mp4": 100,
+    "": 1,
+    ".tag": 1
+   }
+  },
+  "data/raw/WildDeepfake": {
+   "files": 165819,
+   "size": "18.4 GB",
+   "top_ext": {
+    ".png": 165662,
+    ".gz": 157
+   }
+  },
+  "data/crops/celeb_df": {
+   "files": 84900,
+   "size": "894.7 MB",
+   "top_ext": {
+    ".jpg": 84900
+   }
+  },
+  "data/crops/df40": {
+   "files": 447689,
+   "size": "5.4 GB",
+   "top_ext": {
+    ".jpg": 447689,
+    "<truncated>": 1
+   }
+  },
+  "data/crops/faceforensics": {
+   "files": 127104,
+   "size": "1.6 GB",
+   "top_ext": {
+    ".jpg": 127104
+   }
+  },
+  "data/crops/ffhq": {
+   "files": 4062,
+   "size": "57.4 MB",
+   "top_ext": {
+    ".jpg": 4062
+   }
+  },
+  "data/crops/wild_deepfake": {
+   "files": 22800,
+   "size": "233.7 MB",
+   "top_ext": {
+    ".jpg": 22800
+   }
+  }
+ },
+ "checkpoints": {
+  "outputs/checkpoints/calibration_temperature.pt": {
+   "size": "1.1 KB",
+   "modified": "2026-10-04 16:00",
+   "sha256_12": "1b37454806a8"
+  },
+  "outputs/checkpoints/best.ckpt": {
+   "size": "118.4 MB",
+   "modified": "2026-10-03 08:42",
+   "sha256_12": "37ff218c6b7b"
+  },
+  "outputs/checkpoints/forge-lite-v1_av_branch_best.ckpt": {
+   "size": "11.1 MB",
+   "modified": "2026-10-03 08:41",
+   "sha256_12": "b26cd6347b65"
+  },
+  "outputs/checkpoints/forge-lite-v1_fusion_fusion_epoch0000.ckpt": {
+   "size": "118.4 MB",
+   "modified": "2026-10-03 07:52",
+   "sha256_12": "34d566fdcdbb"
+  },
+  "outputs/checkpoints/best_pre_av_merge.ckpt": {
+   "size": "118.4 MB",
+   "modified": "2026-10-03 07:52",
+   "sha256_12": "649620f100e0"
+  },
+  "outputs/checkpoints/forge-lite-v1_fusion_fusion_best.ckpt": {
+   "size": "118.4 MB",
+   "modified": "2026-10-03 07:52",
+   "sha256_12": "ba9521ce7d7c"
+  },
+  "outputs/checkpoints/forge-lite-v1_temporal_temporal_only_best.ckpt": {
+   "size": "115.4 MB",
+   "modified": "2026-10-03 02:21",
+   "sha256_12": "e3f04f1bf023"
+  },
+  "outputs/checkpoints/forge-lite-v1_temporal_temporal_only_epoch0000.ckpt": {
+   "size": "115.4 MB",
+   "modified": "2026-10-03 00:11",
+   "sha256_12": "996ad15c37c7"
+  },
+  "outputs/checkpoints/forge-lite-v1_joint_spatial_joint_spatial_best.ckpt": {
+   "size": "103.1 MB",
+   "modified": "2026-10-02 21:58",
+   "sha256_12": "970b65452870"
+  },
+  "outputs/checkpoints/forge-lite-v1_joint_spatial_joint_spatial_epoch0005.ckpt": {
+   "size": "103.1 MB",
+   "modified": "2026-10-02 21:38",
+   "sha256_12": "bf01b7ebae34"
+  },
+  "outputs/checkpoints/forge-lite-v1_joint_spatial_joint_spatial_epoch0000.ckpt": {
+   "size": "103.1 MB",
+   "modified": "2026-10-02 20:03",
+   "sha256_12": "272a5a585a33"
+  },
+  "outputs/checkpoints/forge-lite-v1_forensic_forensic_only_best.ckpt": {
+   "size": "18.7 MB",
+   "modified": "2026-10-02 19:30",
+   "sha256_12": "f24a13d81edc"
+  },
+  "outputs/checkpoints/forge-lite-v1_forensic_forensic_only_epoch0005.ckpt": {
+   "size": "18.7 MB",
+   "modified": "2026-10-02 19:18",
+   "sha256_12": "e22ea4d9eb43"
+  },
+  "outputs/checkpoints/forge-lite-v1_forensic_forensic_only_epoch0000.ckpt": {
+   "size": "18.7 MB",
+   "modified": "2026-10-02 18:19",
+   "sha256_12": "a09ca8c10f60"
+  },
+  "outputs/checkpoints/forge-lite-v1_semantic_semantic_only_best.ckpt": {
+   "size": "100.2 MB",
+   "modified": "2026-10-02 18:05",
+   "sha256_12": "d63d36114659"
+  },
+  "outputs/checkpoints/forge-lite-v1_semantic_semantic_only_epoch0005.ckpt": {
+   "size": "100.2 MB",
+   "modified": "2026-10-02 17:57",
+   "sha256_12": "dd65c9b0b3b4"
+  },
+  "outputs/checkpoints/forge-lite-v1_semantic_semantic_only_epoch0000.ckpt": {
+   "size": "100.2 MB",
+   "modified": "2026-10-02 17:18",
+   "sha256_12": "e48c99373015"
+  },
+  "outputs/checkpoints/forge-lite-v1_temporal_temporal_only_epoch0005.ckpt": {
+   "size": "115.4 MB",
+   "modified": "2026-10-02 00:48",
+   "sha256_12": "09a9f02aed4d"
+  },
+  "outputs/checkpoints/best_v3_codec_invariant.ckpt": {
+   "size": "102.1 MB",
+   "modified": "2026-09-18 12:37",
+   "sha256_12": "904e8a91391a"
+  },
+  "outputs/checkpoints/best_v2_conf_only.ckpt": {
+   "size": "102.0 MB",
+   "modified": "2026-09-18 12:16",
+   "sha256_12": "dd489b3964ab"
+  },
+  "outputs/checkpoints/best_v2_modality_router.ckpt": {
+   "size": "102.1 MB",
+   "modified": "2026-09-18 12:03",
+   "sha256_12": "b239df0b18e1"
+  },
+  "outputs/checkpoints/best_robust_hardened.ckpt": {
+   "size": "102.0 MB",
+   "modified": "2026-09-18 10:47",
+   "sha256_12": "00e8f5506ca8"
+  },
+  "outputs/checkpoints/forge-lite-v1_calibrated_fusion_best.ckpt": {
+   "size": "102.0 MB",
+   "modified": "2026-09-18 10:20",
+   "sha256_12": "54ebf8a27703"
+  },
+  "outputs/checkpoints/best_pre_calibration.ckpt": {
+   "size": "101.9 MB",
+   "modified": "2026-09-17 23:13",
+   "sha256_12": "eb9ff936f98e"
+  },
+  "outputs/checkpoints/best_pre_av.ckpt": {
+   "size": "87.5 MB",
+   "modified": "2026-09-16 13:21",
+   "sha256_12": "f008e111b0d0"
+  }
+ },
+ "ledgers": {
+  "architectural_ablation_report.json": {
+   "modified": "2026-09-18 10:50",
+   "size": "1.6 KB",
+   "keys": "list"
+  },
+  "av_rppg_contribution_report.json": {
+   "modified": "2026-09-18 11:06",
+   "size": "633.0 B",
+   "keys": [
+    "dataset_description",
+    "sample_count",
+    "n_real",
+    "n_fake",
+    "av_availability_rate",
+    "rppg_availability_rate",
+    "standalone_av_metrics",
+    "fusion_impact"
+   ]
+  },
+  "balanced_per_generator_report.json": {
+   "modified": "2026-09-18 11:02",
+   "size": "2.8 KB",
+   "keys": [
+    "FF++ Deepfakes",
+    "FF++ Face2Face",
+    "FF++ FaceSwap",
+    "FF++ NeuralTextures",
+    "FF++ FaceShifter",
+    "Celeb-DF v2",
+    "Generative / StyleGAN3",
+    "TalkingHeadBench",
+    "Overall Balanced Pooled"
+   ]
+  },
+  "bootstrap_ablation_significance.json": {
+   "modified": "2026-09-18 11:19",
+   "size": "1.0 KB",
+   "keys": [
+    "1. Semantic Only (DINOv2 ViT-S/14)",
+    "2. Forensic Only (SRM-CNN)",
+    "3. Temporal Only (Spatiotemporal GRU T=8)",
+    "4. DINOv2 + Forensic Dual-Domain",
+    "5. DINOv2 + Temporal (T=8)",
+    "6. All Visual (DINOv2 + SRM-CNN + GRU T=8)",
+    "7. All Modalities (Visual + Audio-Visual)",
+    "8. All + Dynamic Reliability Weighting"
+   ]
+  },
+  "branch_pruning_df40_report.json": {
+   "modified": "2026-10-03 09:24",
+   "size": "1.9 KB",
+   "keys": [
+    "benchmark",
+    "samples_per_method",
+    "baseline_auroc",
+    "results"
+   ]
+  },
+  "comprehensive_forensic_audit.json": {
+   "modified": "2026-09-18 10:31",
+   "size": "10.2 KB",
+   "keys": [
+    "post_calibration",
+    "pre_calibration",
+    "robustness",
+    "audit_timestamp"
+   ]
+  },
+  "cross_domain_report.json": {
+   "modified": "2026-09-14 19:57",
+   "size": "9.2 KB",
+   "keys": [
+    "macro_cross_domain_auroc",
+    "evaluated_cross_domain_datasets",
+    "dataset_results"
+   ]
+  },
+  "dataset_id_baseline.json": {
+   "modified": "2026-10-11 00:11",
+   "size": "1.8 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "manifest_sha256",
+    "results"
+   ],
+   "script_hash_check": "matches current evaluation/dataset_id_baseline.py"
+  },
+  "df40_evaluation_report.json": {
+   "modified": "2026-10-03 09:45",
+   "size": "3.0 KB",
+   "keys": [
+    "benchmark",
+    "checkpoint",
+    "calibration",
+    "family_metrics",
+    "srm_audit",
+    "coverage_vs_error"
+   ]
+  },
+  "evaluate_all_summary.json": {
+   "modified": "2026-10-03 09:07",
+   "size": "8.0 KB",
+   "keys": [
+    "timestamp",
+    "checkpoint_audit",
+    "calibration_results",
+    "selective_prediction",
+    "final_dataset_benchmark",
+    "total_time_seconds"
+   ]
+  },
+  "fairness_and_coverage_report.json": {
+   "modified": "2026-10-03 09:44",
+   "size": "2.7 KB",
+   "keys": [
+    "demographic_fairness",
+    "coverage_vs_error"
+   ]
+  },
+  "final_calibrated_uncertainty_report.json": {
+   "modified": "2026-10-03 08:52",
+   "size": "7.2 KB",
+   "keys": [
+    "evaluation_dataset",
+    "calibration_comparison",
+    "selective_prediction"
+   ]
+  },
+  "final_calibrated_uncertainty_report_v3.json": {
+   "modified": "2026-10-02 07:35",
+   "size": "7.8 KB",
+   "keys": [
+    "evaluation_dataset",
+    "calibration_comparison",
+    "uncertainty_error_prediction",
+    "selective_prediction"
+   ]
+  },
+  "final_dataset_test_results.json": {
+   "modified": "2026-10-03 09:07",
+   "size": "3.7 KB",
+   "keys": [
+    "summary",
+    "slice_difficulty",
+    "slice_methods",
+    "items"
+   ]
+  },
+  "lp_celeb_5seeds.json": {
+   "modified": "2026-10-12 01:01",
+   "size": "19.7 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_celeb_face_only_5seeds.json": {
+   "modified": "2026-10-12 01:03",
+   "size": "19.8 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_celeb_face_out_5seeds.json": {
+   "modified": "2026-10-12 01:02",
+   "size": "19.8 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_indep_dino_5seeds.json": {
+   "modified": "2026-10-12 20:46",
+   "size": "26.0 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_indep_dino_face_only_5seeds.json": {
+   "modified": "2026-10-12 20:50",
+   "size": "26.0 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_indep_dino_face_out_5seeds.json": {
+   "modified": "2026-10-12 20:48",
+   "size": "25.9 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_native_dino_5seeds.json": {
+   "modified": "2026-10-12 01:29",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_native_dino_face_only_5seeds.json": {
+   "modified": "2026-10-12 01:51",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_ff_native_dino_face_out_5seeds.json": {
+   "modified": "2026-10-12 01:41",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_dino_5seeds.json": {
+   "modified": "2026-10-11 00:48",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_dino_face_only_5seeds.json": {
+   "modified": "2026-10-11 00:52",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_dino_face_out_5seeds.json": {
+   "modified": "2026-10-11 00:50",
+   "size": "26.4 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_identity_disjoint_5seeds.json": {
+   "modified": "2026-10-12 01:53",
+   "size": "30.1 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_resnet50_5seeds.json": {
+   "modified": "2026-10-12 00:56",
+   "size": "26.4 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_resnet50_face_only_5seeds.json": {
+   "modified": "2026-10-12 01:00",
+   "size": "26.4 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_resnet50_face_out_5seeds.json": {
+   "modified": "2026-10-12 00:58",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_size_control_5seeds.json": {
+   "modified": "2026-10-12 01:54",
+   "size": "30.2 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_vitb16_5seeds.json": {
+   "modified": "2026-10-11 00:40",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_vitb16_face_only_5seeds.json": {
+   "modified": "2026-10-11 00:44",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "lp_shared_vitb16_face_out_5seeds.json": {
+   "modified": "2026-10-11 00:42",
+   "size": "26.3 KB",
+   "keys": [
+    "args",
+    "backbone",
+    "mask",
+    "identity_disjoint",
+    "script_sha256",
+    "manifest_sha256",
+    "n_scenes",
+    "seeds",
+    "P1",
+    "P2",
+    "per_seed",
+    "summary_P1",
+    "summary_P2"
+   ],
+   "script_hash_check": "matches current evaluation/linear_probe_beforeafter.py"
+  },
+  "multimodal_active_evaluation_report.json": {
+   "modified": "2026-09-18 10:46",
+   "size": "8.7 KB",
+   "keys": [
+    "total_evaluated",
+    "av_availability_rate",
+    "multimodal_auroc",
+    "multimodal_accuracy",
+    "multimodal_brier",
+    "mean_av_desync_real",
+    "mean_av_desync_fake",
+    "sample_results"
+   ]
+  },
+  "one_pipeline_audit.json": {
+   "modified": "2026-10-10 22:11",
+   "size": "8.6 KB",
+   "keys": [
+    "args",
+    "git",
+    "n_samples",
+    "generators",
+    "preflight",
+    "probe",
+    "cross_probe_sweep",
+    "split",
+    "threshold_raw_logit_from_val_canonical",
+    "threshold_method",
+    "conditions",
+    "aurc",
+    "diagnostic_blur_fakes_to_real",
+    "sample_list_sha256"
+   ],
+   "script_hash_check": "matches current evaluation/one_pipeline_audit.py"
+  },
+  "one_pipeline_sample_list.json": {
+   "modified": "2026-10-03 15:30",
+   "size": "14.8 KB",
+   "keys": "list"
+  },
+  "paired_diagnostic.json": {
+   "modified": "2026-10-04 23:38",
+   "size": "1.4 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "fakes_sha256",
+    "reals_sha256",
+    "result"
+   ],
+   "script_hash_check": "matches current evaluation/paired_diagnostic.py"
+  },
+  "paired_stats_indep.json": {
+   "modified": "2026-10-12 20:44",
+   "size": "2.0 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "fakes_sha256",
+    "reals_sha256",
+    "result"
+   ],
+   "script_hash_check": "matches current evaluation/paired_stats.py"
+  },
+  "paired_stats_shared.json": {
+   "modified": "2026-10-10 22:34",
+   "size": "2.0 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "fakes_sha256",
+    "reals_sha256",
+    "result"
+   ],
+   "script_hash_check": "matches current evaluation/paired_stats.py"
+  },
+  "per_generator_evaluation_report.json": {
+   "modified": "2026-09-18 10:44",
+   "size": "431.6 KB",
+   "keys": [
+    "metrics_per_generator",
+    "individual_predictions"
+   ]
+  },
+  "per_generator_evaluation_report_v3.json": {
+   "modified": "2026-09-18 13:27",
+   "size": "428.5 KB",
+   "keys": [
+    "metrics_per_generator",
+    "individual_predictions"
+   ]
+  },
+  "proper_calibration_report.json": {
+   "modified": "2026-09-18 10:48",
+   "size": "10.9 KB",
+   "keys": [
+    "fitted_parameters",
+    "comparisons"
+   ]
+  },
+  "region_probe.json": {
+   "modified": "2026-10-12 01:34",
+   "size": "3.4 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "n_real",
+    "families"
+   ],
+   "script_hash_check": "matches current evaluation/region_probe.py"
+  },
+  "region_probe_celeb.json": {
+   "modified": "2026-10-12 01:33",
+   "size": "1.9 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "n_real",
+    "families"
+   ],
+   "script_hash_check": "matches current evaluation/region_probe.py"
+  },
+  "region_probe_shared.json": {
+   "modified": "2026-10-12 01:33",
+   "size": "3.4 KB",
+   "keys": [
+    "args",
+    "script_sha256",
+    "n_real",
+    "families"
+   ],
+   "script_hash_check": "matches current evaluation/region_probe.py"
+  },
+  "rigorous_ablation_report.json": {
+   "modified": "2026-09-18 11:04",
+   "size": "1.8 KB",
+   "keys": "list"
+  },
+  "robustness_comparison_report.json": {
+   "modified": "2026-09-18 11:03",
+   "size": "1.6 KB",
+   "keys": [
+    "original_baseline",
+    "robust_hardened",
+    "deltas"
+   ]
+  },
+  "shortcut_audit_report.json": {
+   "modified": "2026-10-03 10:09",
+   "size": "373.0 B",
+   "keys": [
+    "audit",
+    "samples_evaluated",
+    "unmasked_full_model_auroc",
+    "masked_background_only_full_model_auroc",
+    "unmasked_srm_branch_auroc",
+    "masked_background_only_srm_branch_auroc",
+    "metadata_only_auroc",
+    "metadata_only_accuracy",
+    "shortcut_leakage_confirmed"
+   ]
+  },
+  "split_leakage_audit_report.json": {
+   "modified": "2026-09-18 10:40",
+   "size": "312.0 B",
+   "keys": [
+    "verified_source_disjoint",
+    "train_samples",
+    "calibration_samples",
+    "test_seen_samples",
+    "test_unseen_samples",
+    "overlaps"
+   ]
+  },
+  "table_audit_summary.json": {
+   "modified": "2026-10-12 20:52",
+   "size": "4.5 KB",
+   "keys": [
+    "table1",
+    "table2",
+    "table3",
+    "table4",
+    "table5"
+   ]
+  },
+  "uncertainty_error_study_report.json": {
+   "modified": "2026-09-18 10:45",
+   "size": "1.0 KB",
+   "keys": [
+    "Branch Disagreement",
+    "Predictive Shannon Entropy",
+    "Decision Margin Uncertainty",
+    "Quality Defect (1 - Quality)",
+    "Composite Uncertainty Ensemble"
+   ]
+  },
+  "uncertainty_error_study_report_v3.json": {
+   "modified": "2026-09-18 13:28",
+   "size": "1.0 KB",
+   "keys": [
+    "Branch Disagreement",
+    "Predictive Shannon Entropy",
+    "Decision Margin Uncertainty",
+    "Quality Defect (1 - Quality)",
+    "Composite Uncertainty Ensemble"
+   ]
+  }
+ },
+ "training_logs": {},
+ "claims_audit": {
+  "RESEARCH_PAPER_COMPENDIUM.md": {
+   "risky_term_hits": 4,
+   "first_hits": [
+    [
+     29,
+     "held-out",
+     "\u2610 LOGO dono pairings par aise karo ki held-out generators ek jaise hon, aur jo alag hon wo likh do."
+    ],
+    [
+     49,
+     "zero-shot",
+     "\u2610 Har claim ke saath table, aur \"in our setting\" likhna. \"genuine\", \"proves\", \"zero-shot\" mat likhna."
+    ],
+    [
+     49,
+     "genuine",
+     "\u2610 Har claim ke saath table, aur \"in our setting\" likhna. \"genuine\", \"proves\", \"zero-shot\" mat likhna."
+    ],
+    [
+     49,
+     "proves",
+     "\u2610 Har claim ke saath table, aur \"in our setting\" likhna. \"genuine\", \"proves\", \"zero-shot\" mat likhna."
+    ]
+   ]
+  },
+  "paper1_draft.md": {
+   "risky_term_hits": 10,
+   "first_hits": [
+    [
+     22,
+     "proven",
+     "Furthermore, we audit native target-video pairings in Celeb-DF-v2. While low-level corner probes pass at chanc"
+    ],
+    [
+     65,
+     "proven",
+     "| **P-C1** | Dataset-ID Bayesian classifier 5-fold CV AUROC | $\\ge 0.90$ | Dataset provenance constitutes an e"
+    ],
+    [
+     83,
+     "first ",
+     "| **P-C3** (Multi-Backbone Invariance)| `eeaa3cc03` | 2026-10-11 00:46:04 IST | ResNet: 00:23\u201300:26 IST<br>ViT"
+    ],
+    [
+     85,
+     "first ",
+     "*Disclosure of Chronology:* Rules P-S1 through P-S4 and P-C1 were committed strictly before any corresponding "
+    ],
+    [
+     116,
+     "100%",
+     "1. *Full Image:* Unmodified $224 \\times 224$ crop (100% visible)."
+    ],
+    [
+     155,
+     "proves",
+     "- In a strictly controlled same-frame ablation using independent face tracking on the exact same 600 pairs and"
+    ],
+    [
+     219,
+     "proven",
+     "| TABLE 4: Benchmark Composition Shortcut (Categorical Dataset Provenance Alone)                  |"
+    ],
+    [
+     241,
+     "proven",
+     "- This confirms hypothesis H-C1 (P-C1 met $\\ge 0.90$) within our local aggregated training setup: models train"
+    ],
+    [
+     288,
+     "guarantee",
+     "- *Diagnosis:* [Hypothesis] We reject the hypothesis that native target-video matching guarantees background c"
+    ],
+    [
+     296,
+     "universal",
+     "- **Bounded Scope:** All conclusions are bounded to our experimental setting (FaceForensics++ c23, Celeb-DF-v2"
+    ]
+   ]
+  },
+  "paper1_tables.md": {
+   "risky_term_hits": 0,
+   "first_hits": []
+  }
+ },
+ "release_hygiene": {
+  "text_files_scanned": 155,
+  "files_with_absolute_windows_paths": {},
+  "files_with_secret_like_strings": {
+   "scripts/collect_project_state.py": 1
+  },
+  "license": true,
+  "readme": true,
+  "requirements": [
+   "requirements.txt",
+   "pyproject.toml"
+  ],
+  "env_files": [],
+  "tests_dir": true
+ },
+ "run_logs_tail": {
+  "log_collect.txt": [
+   "\ufffd\ufffde\u0000n\u0000v\u0000i\u0000r\u0000o\u0000n\u0000m\u0000e\u0000n\u0000t\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u0000s\u0000",
+   "\u0000",
+   "\u0000g\u0000i\u0000t\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u0000s\u0000",
+   "\u0000",
+   "\u0000r\u0000e\u0000p\u0000o\u0000_\u0000s\u0000i\u0000z\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00001\u00004\u0000.\u00003\u0000s\u0000",
+   "\u0000",
+   "\u0000c\u0000o\u0000n\u0000f\u0000i\u0000g\u0000s\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00001\u0000s\u0000",
+   "\u0000",
+   "\u0000m\u0000a\u0000n\u0000i\u0000f\u0000e\u0000s\u0000t\u0000s\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00005\u00002\u0000.\u00009\u0000s\u0000",
+   "\u0000",
+   "\u0000d\u0000a\u0000t\u0000a\u0000s\u0000e\u0000t\u0000s\u0000_\u0000o\u0000n\u0000_\u0000d\u0000i\u0000s\u0000k\u0000 \u0000 \u0000 \u0000 \u00001\u00004\u00009\u0000.\u00003\u0000s\u0000",
+   "\u0000",
+   "\u0000c\u0000h\u0000e\u0000c\u0000k\u0000p\u0000o\u0000i\u0000n\u0000t\u0000s\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00006\u0000.\u00004\u0000s\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000s\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00008\u0000s\u0000",
+   "\u0000",
+   "\u0000t\u0000r\u0000a\u0000i\u0000n\u0000i\u0000n\u0000g\u0000_\u0000l\u0000o\u0000g\u0000s\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00000\u0000s\u0000",
+   "\u0000",
+   "\u0000c\u0000l\u0000a\u0000i\u0000m\u0000s\u0000_\u0000a\u0000u\u0000d\u0000i\u0000t\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00000\u0000s\u0000",
+   "\u0000",
+   "\u0000r\u0000e\u0000l\u0000e\u0000a\u0000s\u0000e\u0000_\u0000h\u0000y\u0000g\u0000i\u0000e\u0000n\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00009\u0000s\u0000",
+   "\u0000",
+   "\u0000r\u0000u\u0000n\u0000_\u0000l\u0000o\u0000g\u0000s\u0000_\u0000t\u0000a\u0000i\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00000\u0000s\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000w\u0000r\u0000o\u0000t\u0000e\u0000 \u0000C\u0000:\u0000\\\u0000d\u0000e\u0000e\u0000p\u0000f\u0000a\u0000k\u0000e\u0000\\\u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000\\\u0000h\u0000a\u0000n\u0000d\u0000o\u0000f\u0000f\u0000\\\u0000H\u0000A\u0000N\u0000D\u0000O\u0000F\u0000F\u0000.\u0000m\u0000d\u0000 \u0000 \u0000(\u00001\u00006\u00007\u0000 \u0000K\u0000B\u0000)\u0000:\u0000 \u0000u\u0000p\u0000l\u0000o\u0000a\u0000d\u0000 \u0000t\u0000h\u0000i\u0000s\u0000 \u0000o\u0000n\u0000e\u0000 \u0000f\u0000i\u0000l\u0000e\u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_lp_native.txt": [
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00003\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00009\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00002\u00006\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00002\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00009\u00000\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00004\u00005\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00001\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00008\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00006\u00004\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00001\u0000:\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000(\u0000t\u0000r\u0000a\u0000i\u0000n\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000 \u0000/\u0000 \u0000t\u0000e\u0000s\u0000t\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000)\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000n\u0000_\u0000r\u0000e\u0000a\u0000l\u0000 \u0000 \u0000n\u0000_\u0000f\u0000a\u0000k\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000[\u00009\u00005\u0000%\u0000 \u0000C\u0000I\u0000]\u0000 \u0000 \u0000b\u0000a\u0000l\u0000A\u0000c\u0000c\u0000 \u0000 \u0000 \u0000 \u0000F\u0000P\u0000R\u0000 \u0000 \u0000 \u0000 \u0000T\u0000P\u0000R\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00008\u00005\u0000 \u0000[\u00000\u0000.\u00008\u00007\u00000\u0000,\u00000\u0000.\u00009\u00000\u00002\u0000]\u0000 \u0000 \u00000\u0000.\u00007\u00009\u00009\u0000 \u0000 \u00000\u0000.\u00002\u00000\u00002\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00001\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00008\u00006\u0000 \u0000[\u00000\u0000.\u00008\u00007\u00000\u0000,\u00000\u0000.\u00009\u00000\u00002\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00004\u0000 \u0000 \u00000\u0000.\u00001\u00009\u00003\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00001\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00009\u00000\u0000 \u0000[\u00000\u0000.\u00008\u00007\u00004\u0000,\u00000\u0000.\u00009\u00000\u00008\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00009\u0000 \u0000 \u00000\u0000.\u00001\u00008\u00001\u0000 \u0000 \u00000\u0000.\u00007\u00009\u00008\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00008\u00009\u0000 \u0000[\u00000\u0000.\u00008\u00007\u00001\u0000,\u00000\u0000.\u00009\u00000\u00005\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00009\u0000 \u0000 \u00000\u0000.\u00001\u00008\u00001\u0000 \u0000 \u00000\u0000.\u00007\u00009\u00008\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00005\u00006\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00009\u0000,\u00000\u0000.\u00005\u00007\u00003\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00003\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00001\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00009\u00005\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00007\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00003\u0000,\u00000\u0000.\u00005\u00006\u00008\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00003\u00003\u0000 \u0000 \u00000\u0000.\u00004\u00002\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00009\u00005\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00006\u0000 \u0000[\u00000\u0000.\u00005\u00002\u00009\u0000,\u00000\u0000.\u00005\u00006\u00002\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00003\u00005\u0000 \u0000 \u00000\u0000.\u00004\u00001\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00008\u00007\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00005\u00004\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00007\u0000,\u00000\u0000.\u00005\u00006\u00009\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00000\u0000 \u0000 \u00000\u0000.\u00004\u00000\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00008\u00007\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00002\u0000:\u0000 \u0000l\u0000e\u0000a\u0000v\u0000e\u0000-\u0000o\u0000n\u0000e\u0000-\u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000-\u0000o\u0000u\u0000t\u0000 \u0000(\u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000t\u0000o\u0000o\u0000)\u0000;\u0000 \u0000h\u0000e\u0000l\u0000d\u0000-\u0000o\u0000u\u0000t\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000:\u0000 \u0000[\u0000'\u0000D\u0000e\u0000e\u0000p\u0000f\u0000a\u0000k\u0000e\u0000s\u0000'\u0000,\u0000 \u0000'\u0000F\u0000a\u0000c\u0000e\u0000S\u0000w\u0000a\u0000p\u0000'\u0000]\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000m\u0000e\u0000a\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000m\u0000i\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000f\u0000o\u0000l\u0000d\u0000s\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00001\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00000\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00004\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00003\u00008\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00008\u00006\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00001\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00008\u00002\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00006\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00000\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00002\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00001\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00004\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00003\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00008\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00004\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000H\u0000o\u0000w\u0000 \u0000t\u0000o\u0000 \u0000r\u0000e\u0000a\u0000d\u0000:\u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000v\u0000s\u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000h\u0000o\u0000w\u0000 \u0000m\u0000u\u0000c\u0000h\u0000 \u0000t\u0000h\u0000e\u0000 \u0000s\u0000c\u0000o\u0000r\u0000e\u0000 \u0000d\u0000e\u0000p\u0000e\u0000n\u0000d\u0000e\u0000d\u0000 \u0000o\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000c\u0000o\u0000n\u0000f\u0000o\u0000u\u0000n\u0000d\u0000;\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000v\u0000s\u0000 \u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000w\u0000h\u0000e\u0000t\u0000h\u0000e\u0000r\u0000 \u0000t\u0000h\u0000e\u0000 \u0000e\u0000m\u0000b\u0000e\u0000d\u0000d\u0000i\u0000n\u0000g\u0000 \u0000f\u0000i\u0000n\u0000d\u0000s\u0000 \u0000m\u0000o\u0000r\u0000e\u0000 \u0000t\u0000h\u0000a\u0000n\u0000 \u0000l\u0000o\u0000w\u0000-\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000c\u0000u\u0000e\u0000s\u0000;\u0000 \u0000P\u00002\u0000 \u0000r\u0000o\u0000w\u0000s\u0000 \u0000=\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000l\u0000i\u0000s\u0000a\u0000t\u0000i\u0000o\u0000n\u0000 \u0000t\u0000o\u0000 \u0000u\u0000n\u0000s\u0000e\u0000e\u0000n\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000.\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000 \u0000-\u0000>\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000/\u0000l\u0000p\u0000_\u0000n\u0000a\u0000t\u0000i\u0000v\u0000e\u0000.\u0000j\u0000s\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_lp_native_face_only.txt": [
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00003\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00009\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00002\u00006\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00002\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00009\u00000\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00004\u00005\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00001\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00008\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00006\u00004\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00001\u0000:\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000(\u0000t\u0000r\u0000a\u0000i\u0000n\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000 \u0000/\u0000 \u0000t\u0000e\u0000s\u0000t\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000)\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000n\u0000_\u0000r\u0000e\u0000a\u0000l\u0000 \u0000 \u0000n\u0000_\u0000f\u0000a\u0000k\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000[\u00009\u00005\u0000%\u0000 \u0000C\u0000I\u0000]\u0000 \u0000 \u0000b\u0000a\u0000l\u0000A\u0000c\u0000c\u0000 \u0000 \u0000 \u0000 \u0000F\u0000P\u0000R\u0000 \u0000 \u0000 \u0000 \u0000T\u0000P\u0000R\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00009\u00000\u00002\u0000 \u0000[\u00000\u0000.\u00008\u00008\u00007\u0000,\u00000\u0000.\u00009\u00001\u00009\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00001\u00006\u0000 \u0000 \u00000\u0000.\u00002\u00000\u00001\u0000 \u0000 \u00000\u0000.\u00008\u00003\u00004\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00009\u00000\u00000\u0000 \u0000[\u00000\u0000.\u00008\u00008\u00005\u0000,\u00000\u0000.\u00009\u00001\u00006\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00002\u00000\u0000 \u0000 \u00000\u0000.\u00001\u00009\u00003\u0000 \u0000 \u00000\u0000.\u00008\u00003\u00004\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00009\u00007\u0000 \u0000[\u00000\u0000.\u00008\u00008\u00000\u0000,\u00000\u0000.\u00009\u00001\u00001\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00001\u00005\u0000 \u0000 \u00000\u0000.\u00002\u00000\u00008\u0000 \u0000 \u00000\u0000.\u00008\u00003\u00008\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00009\u00005\u0000 \u0000[\u00000\u0000.\u00008\u00007\u00009\u0000,\u00000\u0000.\u00009\u00001\u00002\u0000]\u0000 \u0000 \u00000\u0000.\u00008\u00000\u00009\u0000 \u0000 \u00000\u0000.\u00002\u00002\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00003\u00008\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00005\u00007\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00008\u0000,\u00000\u0000.\u00005\u00007\u00007\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00000\u00003\u0000 \u0000 \u00000\u0000.\u00005\u00000\u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00009\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00002\u0000,\u00000\u0000.\u00005\u00007\u00000\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00000\u00008\u0000 \u0000 \u00000\u0000.\u00005\u00000\u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00008\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00000\u0000,\u00000\u0000.\u00005\u00006\u00006\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00000\u00003\u0000 \u0000 \u00000\u0000.\u00004\u00009\u00007\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00005\u00007\u0000 \u0000[\u00000\u0000.\u00005\u00003\u00007\u0000,\u00000\u0000.\u00005\u00007\u00004\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00003\u0000 \u0000 \u00000\u0000.\u00004\u00001\u00000\u0000 \u0000 \u00000\u0000.\u00004\u00009\u00007\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00002\u0000:\u0000 \u0000l\u0000e\u0000a\u0000v\u0000e\u0000-\u0000o\u0000n\u0000e\u0000-\u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000-\u0000o\u0000u\u0000t\u0000 \u0000(\u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000t\u0000o\u0000o\u0000)\u0000;\u0000 \u0000h\u0000e\u0000l\u0000d\u0000-\u0000o\u0000u\u0000t\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000:\u0000 \u0000[\u0000'\u0000D\u0000e\u0000e\u0000p\u0000f\u0000a\u0000k\u0000e\u0000s\u0000'\u0000,\u0000 \u0000'\u0000F\u0000a\u0000c\u0000e\u0000S\u0000w\u0000a\u0000p\u0000'\u0000]\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000m\u0000e\u0000a\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000m\u0000i\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000f\u0000o\u0000l\u0000d\u0000s\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00005\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00006\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00008\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00000\u00003\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00009\u00006\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00009\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00000\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00007\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00007\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00008\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00008\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00007\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000H\u0000o\u0000w\u0000 \u0000t\u0000o\u0000 \u0000r\u0000e\u0000a\u0000d\u0000:\u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000v\u0000s\u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000h\u0000o\u0000w\u0000 \u0000m\u0000u\u0000c\u0000h\u0000 \u0000t\u0000h\u0000e\u0000 \u0000s\u0000c\u0000o\u0000r\u0000e\u0000 \u0000d\u0000e\u0000p\u0000e\u0000n\u0000d\u0000e\u0000d\u0000 \u0000o\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000c\u0000o\u0000n\u0000f\u0000o\u0000u\u0000n\u0000d\u0000;\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000v\u0000s\u0000 \u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000w\u0000h\u0000e\u0000t\u0000h\u0000e\u0000r\u0000 \u0000t\u0000h\u0000e\u0000 \u0000e\u0000m\u0000b\u0000e\u0000d\u0000d\u0000i\u0000n\u0000g\u0000 \u0000f\u0000i\u0000n\u0000d\u0000s\u0000 \u0000m\u0000o\u0000r\u0000e\u0000 \u0000t\u0000h\u0000a\u0000n\u0000 \u0000l\u0000o\u0000w\u0000-\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000c\u0000u\u0000e\u0000s\u0000;\u0000 \u0000P\u00002\u0000 \u0000r\u0000o\u0000w\u0000s\u0000 \u0000=\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000l\u0000i\u0000s\u0000a\u0000t\u0000i\u0000o\u0000n\u0000 \u0000t\u0000o\u0000 \u0000u\u0000n\u0000s\u0000e\u0000e\u0000n\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000.\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000 \u0000-\u0000>\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000/\u0000l\u0000p\u0000_\u0000n\u0000a\u0000t\u0000i\u0000v\u0000e\u0000_\u0000f\u0000a\u0000c\u0000e\u0000_\u0000o\u0000n\u0000l\u0000y\u0000.\u0000j\u0000s\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_lp_native_face_out.txt": [
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00003\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00009\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00002\u00006\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00002\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00009\u00000\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00004\u00005\u00004\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00001\u00008\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00008\u00002\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00006\u00004\u00006\u00004\u0000/\u00006\u00008\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00001\u0000:\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000(\u0000t\u0000r\u0000a\u0000i\u0000n\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000 \u0000/\u0000 \u0000t\u0000e\u0000s\u0000t\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000)\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000n\u0000_\u0000r\u0000e\u0000a\u0000l\u0000 \u0000 \u0000n\u0000_\u0000f\u0000a\u0000k\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000[\u00009\u00005\u0000%\u0000 \u0000C\u0000I\u0000]\u0000 \u0000 \u0000b\u0000a\u0000l\u0000A\u0000c\u0000c\u0000 \u0000 \u0000 \u0000 \u0000F\u0000P\u0000R\u0000 \u0000 \u0000 \u0000 \u0000T\u0000P\u0000R\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00003\u00009\u0000 \u0000[\u00000\u0000.\u00007\u00002\u00000\u0000,\u00000\u0000.\u00007\u00005\u00006\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00007\u00006\u0000 \u0000 \u00000\u0000.\u00003\u00006\u00002\u0000 \u0000 \u00000\u0000.\u00007\u00001\u00004\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00004\u00003\u0000 \u0000[\u00000\u0000.\u00007\u00002\u00002\u0000,\u00000\u0000.\u00007\u00006\u00003\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00007\u00000\u0000 \u0000 \u00000\u0000.\u00003\u00007\u00004\u0000 \u0000 \u00000\u0000.\u00007\u00001\u00004\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00004\u00004\u0000 \u0000[\u00000\u0000.\u00007\u00002\u00004\u0000,\u00000\u0000.\u00007\u00006\u00005\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00007\u00002\u0000 \u0000 \u00000\u0000.\u00003\u00006\u00007\u0000 \u0000 \u00000\u0000.\u00007\u00001\u00001\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00004\u00005\u0000 \u0000[\u00000\u0000.\u00007\u00002\u00007\u0000,\u00000\u0000.\u00007\u00006\u00005\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00008\u00001\u0000 \u0000 \u00000\u0000.\u00003\u00005\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00001\u00001\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00001\u00007\u0000 \u0000[\u00000\u0000.\u00005\u00000\u00007\u0000,\u00000\u0000.\u00005\u00002\u00008\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00001\u00008\u0000 \u0000 \u00000\u0000.\u00004\u00002\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00002\u00002\u0000 \u0000[\u00000\u0000.\u00005\u00001\u00004\u0000,\u00000\u0000.\u00005\u00003\u00003\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00002\u00001\u0000 \u0000 \u00000\u0000.\u00004\u00002\u00003\u0000 \u0000 \u00000\u0000.\u00004\u00006\u00004\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00002\u00001\u0000 \u0000[\u00000\u0000.\u00005\u00001\u00002\u0000,\u00000\u0000.\u00005\u00003\u00000\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00001\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00001\u00009\u0000 \u0000 \u00000\u0000.\u00004\u00005\u00007\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u00001\u00008\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00001\u00008\u0000 \u0000[\u00000\u0000.\u00005\u00000\u00008\u0000,\u00000\u0000.\u00005\u00002\u00008\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00001\u00006\u0000 \u0000 \u00000\u0000.\u00004\u00002\u00006\u0000 \u0000 \u00000\u0000.\u00004\u00005\u00007\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00002\u0000:\u0000 \u0000l\u0000e\u0000a\u0000v\u0000e\u0000-\u0000o\u0000n\u0000e\u0000-\u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000-\u0000o\u0000u\u0000t\u0000 \u0000(\u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000t\u0000o\u0000o\u0000)\u0000;\u0000 \u0000h\u0000e\u0000l\u0000d\u0000-\u0000o\u0000u\u0000t\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000:\u0000 \u0000[\u0000'\u0000D\u0000e\u0000e\u0000p\u0000f\u0000a\u0000k\u0000e\u0000s\u0000'\u0000,\u0000 \u0000'\u0000F\u0000a\u0000c\u0000e\u0000S\u0000w\u0000a\u0000p\u0000'\u0000]\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000m\u0000e\u0000a\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000m\u0000i\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000f\u0000o\u0000l\u0000d\u0000s\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00002\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00009\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00006\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00007\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00008\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00007\u00001\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00006\u00005\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00008\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00007\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00001\u00001\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00008\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00001\u00004\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00001\u00002\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00001\u00001\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00001\u00000\u0000 \u0000 \u0000 \u00002\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000H\u0000o\u0000w\u0000 \u0000t\u0000o\u0000 \u0000r\u0000e\u0000a\u0000d\u0000:\u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000v\u0000s\u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000h\u0000o\u0000w\u0000 \u0000m\u0000u\u0000c\u0000h\u0000 \u0000t\u0000h\u0000e\u0000 \u0000s\u0000c\u0000o\u0000r\u0000e\u0000 \u0000d\u0000e\u0000p\u0000e\u0000n\u0000d\u0000e\u0000d\u0000 \u0000o\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000c\u0000o\u0000n\u0000f\u0000o\u0000u\u0000n\u0000d\u0000;\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000v\u0000s\u0000 \u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000w\u0000h\u0000e\u0000t\u0000h\u0000e\u0000r\u0000 \u0000t\u0000h\u0000e\u0000 \u0000e\u0000m\u0000b\u0000e\u0000d\u0000d\u0000i\u0000n\u0000g\u0000 \u0000f\u0000i\u0000n\u0000d\u0000s\u0000 \u0000m\u0000o\u0000r\u0000e\u0000 \u0000t\u0000h\u0000a\u0000n\u0000 \u0000l\u0000o\u0000w\u0000-\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000c\u0000u\u0000e\u0000s\u0000;\u0000 \u0000P\u00002\u0000 \u0000r\u0000o\u0000w\u0000s\u0000 \u0000=\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000l\u0000i\u0000s\u0000a\u0000t\u0000i\u0000o\u0000n\u0000 \u0000t\u0000o\u0000 \u0000u\u0000n\u0000s\u0000e\u0000e\u0000n\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000.\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000 \u0000-\u0000>\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000/\u0000l\u0000p\u0000_\u0000n\u0000a\u0000t\u0000i\u0000v\u0000e\u0000_\u0000f\u0000a\u0000c\u0000e\u0000_\u0000o\u0000u\u0000t\u0000.\u0000j\u0000s\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_lp_size_control.txt": [
+   "\u0000",
+   "\u0000 \u0000 \u00006\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00007\u00000\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00003\u00004\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00001\u00009\u00008\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00002\u00006\u00002\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00002\u00006\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00003\u00009\u00000\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00004\u00005\u00004\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u00005\u00001\u00008\u00004\u0000/\u00005\u00003\u00002\u00000\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00001\u0000:\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000(\u0000t\u0000r\u0000a\u0000i\u0000n\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000 \u0000/\u0000 \u0000t\u0000e\u0000s\u0000t\u0000 \u00003\u00000\u00000\u0000 \u0000s\u0000c\u0000e\u0000n\u0000e\u0000s\u0000)\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000n\u0000_\u0000r\u0000e\u0000a\u0000l\u0000 \u0000 \u0000n\u0000_\u0000f\u0000a\u0000k\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000[\u00009\u00005\u0000%\u0000 \u0000C\u0000I\u0000]\u0000 \u0000 \u0000b\u0000a\u0000l\u0000A\u0000c\u0000c\u0000 \u0000 \u0000 \u0000 \u0000F\u0000P\u0000R\u0000 \u0000 \u0000 \u0000 \u0000T\u0000P\u0000R\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00001\u0000.\u00000\u00000\u00000\u0000 \u0000[\u00001\u0000.\u00000\u00000\u00000\u0000,\u00001\u0000.\u00000\u00000\u00000\u0000]\u0000 \u0000 \u00000\u0000.\u00009\u00009\u00008\u0000 \u0000 \u00000\u0000.\u00000\u00000\u00002\u0000 \u0000 \u00000\u0000.\u00009\u00009\u00009\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00008\u00006\u00005\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00001\u0000 \u0000[\u00000\u0000.\u00005\u00000\u00009\u0000,\u00000\u0000.\u00005\u00006\u00008\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00000\u00005\u0000 \u0000 \u00000\u0000.\u00009\u00009\u00000\u0000 \u0000 \u00000\u0000.\u00009\u00009\u00009\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00008\u00006\u00005\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00007\u00007\u0000 \u0000[\u00000\u0000.\u00008\u00006\u00002\u0000,\u00000\u0000.\u00008\u00009\u00004\u0000]\u0000 \u0000 \u00000\u0000.\u00007\u00009\u00005\u0000 \u0000 \u00000\u0000.\u00002\u00002\u00003\u0000 \u0000 \u00000\u0000.\u00008\u00001\u00002\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00007\u00000\u00009\u0000 \u0000[\u00000\u0000.\u00006\u00008\u00002\u0000,\u00000\u0000.\u00007\u00003\u00003\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00002\u00002\u0000 \u0000 \u00000\u0000.\u00005\u00006\u00009\u0000 \u0000 \u00000\u0000.\u00008\u00001\u00002\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00008\u00004\u00001\u0000 \u0000[\u00000\u0000.\u00008\u00002\u00002\u0000,\u00000\u0000.\u00008\u00006\u00002\u0000]\u0000 \u0000 \u00000\u0000.\u00007\u00007\u00005\u0000 \u0000 \u00000\u0000.\u00001\u00008\u00007\u0000 \u0000 \u00000\u0000.\u00007\u00003\u00007\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00008\u00006\u00005\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00004\u00004\u0000 \u0000[\u00000\u0000.\u00005\u00002\u00005\u0000,\u00000\u0000.\u00005\u00005\u00009\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00000\u00003\u0000 \u0000 \u00000\u0000.\u00007\u00003\u00001\u0000 \u0000 \u00000\u0000.\u00007\u00003\u00007\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u00008\u00006\u00005\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00006\u00009\u00001\u0000 \u0000[\u00000\u0000.\u00006\u00007\u00003\u0000,\u00000\u0000.\u00007\u00001\u00000\u0000]\u0000 \u0000 \u00000\u0000.\u00006\u00004\u00003\u0000 \u0000 \u00000\u0000.\u00003\u00001\u00000\u0000 \u0000 \u00000\u0000.\u00005\u00009\u00006\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u00009\u00000\u00000\u0000 \u0000 \u00000\u0000.\u00006\u00000\u00000\u0000 \u0000[\u00000\u0000.\u00005\u00007\u00009\u0000,\u00000\u0000.\u00006\u00002\u00001\u0000]\u0000 \u0000 \u00000\u0000.\u00005\u00007\u00007\u0000 \u0000 \u00000\u0000.\u00004\u00004\u00001\u0000 \u0000 \u00000\u0000.\u00005\u00009\u00006\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000=\u0000=\u0000 \u0000P\u00002\u0000:\u0000 \u0000l\u0000e\u0000a\u0000v\u0000e\u0000-\u0000o\u0000n\u0000e\u0000-\u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000-\u0000o\u0000u\u0000t\u0000 \u0000(\u0000s\u0000c\u0000e\u0000n\u0000e\u0000-\u0000d\u0000i\u0000s\u0000j\u0000o\u0000i\u0000n\u0000t\u0000 \u0000t\u0000o\u0000o\u0000)\u0000;\u0000 \u0000h\u0000e\u0000l\u0000d\u0000-\u0000o\u0000u\u0000t\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000:\u0000 \u0000[\u0000'\u0000d\u0000a\u0000n\u0000e\u0000t\u0000'\u0000,\u0000 \u0000'\u0000f\u0000a\u0000c\u0000e\u0000d\u0000a\u0000n\u0000c\u0000e\u0000r\u0000'\u0000,\u0000 \u0000'\u0000b\u0000l\u0000e\u0000n\u0000d\u0000f\u0000a\u0000c\u0000e\u0000'\u0000,\u0000 \u0000'\u0000s\u0000i\u0000m\u0000s\u0000w\u0000a\u0000p\u0000'\u0000,\u0000 \u0000'\u0000i\u0000n\u0000s\u0000w\u0000a\u0000p\u0000'\u0000,\u0000 \u0000'\u0000u\u0000n\u0000i\u0000f\u0000a\u0000c\u0000e\u0000'\u0000]\u0000 \u0000=\u0000=\u0000",
+   "\u0000",
+   "\u0000m\u0000o\u0000d\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000t\u0000r\u0000a\u0000i\u0000n\u0000-\u0000>\u0000t\u0000e\u0000s\u0000t\u0000 \u0000 \u0000m\u0000e\u0000a\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000m\u0000i\u0000n\u0000 \u0000A\u0000U\u0000R\u0000O\u0000C\u0000 \u0000 \u0000 \u0000f\u0000o\u0000l\u0000d\u0000s\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00001\u0000.\u00000\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00001\u0000.\u00000\u00000\u00000\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00006\u00007\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00004\u00001\u00006\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00008\u00002\u00003\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00009\u00001\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000d\u0000i\u0000n\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00002\u00009\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00004\u00003\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00008\u00001\u00008\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00007\u00005\u00007\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00006\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00003\u00009\u00008\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00002\u00007\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00008\u00006\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000M\u0000-\u0000>\u0000C\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00002\u00004\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00003\u00001\u00002\u0000 \u0000 \u0000 \u00006\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000H\u0000o\u0000w\u0000 \u0000t\u0000o\u0000 \u0000r\u0000e\u0000a\u0000d\u0000:\u0000 \u0000C\u0000-\u0000>\u0000C\u0000 \u0000v\u0000s\u0000 \u0000C\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000h\u0000o\u0000w\u0000 \u0000m\u0000u\u0000c\u0000h\u0000 \u0000t\u0000h\u0000e\u0000 \u0000s\u0000c\u0000o\u0000r\u0000e\u0000 \u0000d\u0000e\u0000p\u0000e\u0000n\u0000d\u0000e\u0000d\u0000 \u0000o\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000c\u0000o\u0000n\u0000f\u0000o\u0000u\u0000n\u0000d\u0000;\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000v\u0000s\u0000 \u0000l\u0000o\u0000w\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000M\u0000-\u0000>\u0000M\u0000 \u0000=\u0000 \u0000w\u0000h\u0000e\u0000t\u0000h\u0000e\u0000r\u0000 \u0000t\u0000h\u0000e\u0000 \u0000e\u0000m\u0000b\u0000e\u0000d\u0000d\u0000i\u0000n\u0000g\u0000 \u0000f\u0000i\u0000n\u0000d\u0000s\u0000 \u0000m\u0000o\u0000r\u0000e\u0000 \u0000t\u0000h\u0000a\u0000n\u0000 \u0000l\u0000o\u0000w\u0000-\u0000l\u0000e\u0000v\u0000e\u0000l\u0000 \u0000c\u0000u\u0000e\u0000s\u0000;\u0000 \u0000P\u00002\u0000 \u0000r\u0000o\u0000w\u0000s\u0000 \u0000=\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000l\u0000i\u0000s\u0000a\u0000t\u0000i\u0000o\u0000n\u0000 \u0000t\u0000o\u0000 \u0000u\u0000n\u0000s\u0000e\u0000e\u0000n\u0000 \u0000g\u0000e\u0000n\u0000e\u0000r\u0000a\u0000t\u0000o\u0000r\u0000s\u0000.\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000 \u0000-\u0000>\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000/\u0000l\u0000p\u0000_\u0000s\u0000i\u0000z\u0000e\u0000_\u0000c\u0000o\u0000n\u0000t\u0000r\u0000o\u0000l\u0000.\u0000j\u0000s\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_paired_stats.txt": [
+   "\ufffd\ufffdp\u0000y\u0000t\u0000h\u0000o\u0000n\u0000.\u0000e\u0000x\u0000e\u0000 \u0000:\u0000 \u0000C\u0000:\u0000\\\u0000U\u0000s\u0000e\u0000r\u0000s\u0000\\\u0000A\u0000r\u0000d\u0000e\u0000n\u0000y\u0000x\u0000\\\u0000A\u0000p\u0000p\u0000D\u0000a\u0000t\u0000a\u0000\\\u0000L\u0000o\u0000c\u0000a\u0000l\u0000\\\u0000P\u0000r\u0000o\u0000g\u0000r\u0000a\u0000m\u0000s\u0000\\\u0000P\u0000y\u0000t\u0000h\u0000o\u0000n\u0000\\\u0000P\u0000y\u0000t\u0000h\u0000o\u0000n\u00003\u00001\u00001\u0000\\\u0000p\u0000y\u0000t\u0000h\u0000o\u0000n\u0000.\u0000e\u0000x\u0000e\u0000:\u0000 \u0000N\u0000o\u0000 \u0000m\u0000o\u0000d\u0000u\u0000l\u0000e\u0000 \u0000n\u0000a\u0000m\u0000e\u0000d\u0000 \u0000",
+   "\u0000",
+   "\u0000e\u0000v\u0000a\u0000l\u0000u\u0000a\u0000t\u0000i\u0000o\u0000n\u0000.\u0000p\u0000a\u0000i\u0000r\u0000e\u0000d\u0000_\u0000s\u0000t\u0000a\u0000t\u0000s\u0000",
+   "\u0000",
+   "\u0000A\u0000t\u0000 \u0000C\u0000:\u0000\\\u0000d\u0000e\u0000e\u0000p\u0000f\u0000a\u0000k\u0000e\u0000\\\u0000s\u0000c\u0000r\u0000i\u0000p\u0000t\u0000s\u0000\\\u0000r\u0000u\u0000n\u0000_\u0000p\u0000e\u0000n\u0000d\u0000i\u0000n\u0000g\u0000.\u0000p\u0000s\u00001\u0000:\u00002\u00005\u0000 \u0000c\u0000h\u0000a\u0000r\u0000:\u00003\u0000",
+   "\u0000",
+   "\u0000+\u0000 \u0000 \u0000 \u0000&\u0000 \u0000p\u0000y\u0000t\u0000h\u0000o\u0000n\u0000 \u0000@\u0000a\u0000r\u0000g\u0000L\u0000i\u0000s\u0000t\u0000 \u00002\u0000>\u0000&\u00001\u0000 \u0000|\u0000 \u0000T\u0000e\u0000e\u0000-\u0000O\u0000b\u0000j\u0000e\u0000c\u0000t\u0000 \u0000-\u0000F\u0000i\u0000l\u0000e\u0000P\u0000a\u0000t\u0000h\u0000 \u0000\"\u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000\\\u0000h\u0000a\u0000n\u0000d\u0000o\u0000f\u0000f\u0000\\\u0000l\u0000o\u0000g\u0000_\u0000 \u0000.\u0000.\u0000.\u0000",
+   "\u0000",
+   "\u0000+\u0000 \u0000 \u0000 \u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000~\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u0000 \u0000 \u0000+\u0000 \u0000C\u0000a\u0000t\u0000e\u0000g\u0000o\u0000r\u0000y\u0000I\u0000n\u0000f\u0000o\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000:\u0000 \u0000N\u0000o\u0000t\u0000S\u0000p\u0000e\u0000c\u0000i\u0000f\u0000i\u0000e\u0000d\u0000:\u0000 \u0000(\u0000C\u0000:\u0000\\\u0000U\u0000s\u0000e\u0000r\u0000s\u0000\\\u0000A\u0000r\u0000d\u0000e\u0000n\u0000y\u0000.\u0000.\u0000.\u0000o\u0000n\u0000.\u0000p\u0000a\u0000i\u0000r\u0000e\u0000d\u0000_\u0000s\u0000t\u0000a\u0000t\u0000s\u0000:\u0000S\u0000t\u0000r\u0000i\u0000n\u0000g\u0000)\u0000 \u0000[\u0000]\u0000,\u0000 \u0000R\u0000e\u0000m\u0000o\u0000t\u0000e\u0000E\u0000x\u0000c\u0000e\u0000p\u0000t\u0000i\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000 \u0000 \u0000 \u0000 \u0000+\u0000 \u0000F\u0000u\u0000l\u0000l\u0000y\u0000Q\u0000u\u0000a\u0000l\u0000i\u0000f\u0000i\u0000e\u0000d\u0000E\u0000r\u0000r\u0000o\u0000r\u0000I\u0000d\u0000 \u0000:\u0000 \u0000N\u0000a\u0000t\u0000i\u0000v\u0000e\u0000C\u0000o\u0000m\u0000m\u0000a\u0000n\u0000d\u0000E\u0000r\u0000r\u0000o\u0000r\u0000",
+   "\u0000",
+   "\u0000 \u0000",
+   "\u0000",
+   "\u0000"
+  ],
+  "log_region_native.txt": [
+   "\ufffd\ufffdr\u0000e\u0000a\u0000l\u0000s\u0000 \u0000(\u00001\u0000 \u0000f\u0000r\u0000a\u0000m\u0000e\u0000/\u0000v\u0000i\u0000d\u0000e\u0000o\u0000)\u0000:\u0000 \u00006\u00000\u00000\u0000 \u0000 \u0000 \u0000f\u0000a\u0000k\u0000e\u0000 \u0000f\u0000a\u0000m\u0000i\u0000l\u0000i\u0000e\u0000s\u0000 \u0000o\u0000n\u0000 \u0000d\u0000i\u0000s\u0000k\u0000:\u0000 \u0000{\u0000'\u0000c\u0000o\u0000m\u0000p\u0000o\u0000s\u0000i\u0000t\u0000e\u0000d\u0000'\u0000:\u0000 \u00003\u00002\u00009\u00008\u00002\u0000,\u0000 \u0000'\u0000r\u0000e\u0000e\u0000n\u0000a\u0000c\u0000t\u0000m\u0000e\u0000n\u0000t\u0000'\u0000:\u0000 \u00003\u00003\u00000\u00005\u00003\u0000,\u0000 \u0000'\u0000u\u0000n\u0000k\u0000n\u0000o\u0000w\u0000n\u0000'\u0000:\u0000 \u00001\u00008\u00000\u00007\u00003\u0000}\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000f\u0000a\u0000m\u0000i\u0000l\u0000y\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000n\u0000_\u0000f\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000f\u0000u\u0000l\u0000l\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000f\u0000a\u0000c\u0000e\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000b\u0000a\u0000c\u0000k\u0000g\u0000r\u0000o\u0000u\u0000n\u0000d\u0000 \u0000 \u0000v\u0000e\u0000r\u0000d\u0000i\u0000c\u0000t\u0000",
+   "\u0000",
+   "\u0000c\u0000o\u0000m\u0000p\u0000o\u0000s\u0000i\u0000t\u0000e\u0000d\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00006\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00002\u00009\u0000 \u0000[\u00000\u0000.\u00005\u00000\u0000,\u00000\u0000.\u00005\u00006\u0000]\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00001\u00006\u0000 \u0000[\u00000\u0000.\u00005\u00008\u0000,\u00000\u0000.\u00006\u00005\u0000]\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00001\u0000 \u0000[\u00000\u0000.\u00004\u00007\u0000,\u00000\u0000.\u00005\u00003\u0000]\u0000 \u0000 \u0000c\u0000l\u0000e\u0000a\u0000n\u0000 \u0000c\u0000o\u0000n\u0000t\u0000r\u0000o\u0000l\u0000;\u0000 \u0000a\u0000n\u0000y\u0000 \u0000s\u0000i\u0000g\u0000n\u0000a\u0000l\u0000 \u0000i\u0000s\u0000 \u0000i\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000m\u0000a\u0000n\u0000i\u0000p\u0000u\u0000l\u0000a\u0000t\u0000e\u0000d\u0000 \u0000r\u0000e\u0000g\u0000i\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000r\u0000e\u0000e\u0000n\u0000a\u0000c\u0000t\u0000m\u0000e\u0000n\u0000t\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00006\u00000\u00000\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00003\u00009\u0000 \u0000[\u00000\u0000.\u00005\u00000\u0000,\u00000\u0000.\u00005\u00007\u0000]\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00006\u00001\u00000\u0000 \u0000[\u00000\u0000.\u00005\u00008\u0000,\u00000\u0000.\u00006\u00004\u0000]\u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u0000 \u00000\u0000.\u00005\u00000\u00007\u0000 \u0000[\u00000\u0000.\u00004\u00008\u0000,\u00000\u0000.\u00005\u00004\u0000]\u0000 \u0000 \u0000c\u0000l\u0000e\u0000a\u0000n\u0000 \u0000c\u0000o\u0000n\u0000t\u0000r\u0000o\u0000l\u0000;\u0000 \u0000a\u0000n\u0000y\u0000 \u0000s\u0000i\u0000g\u0000n\u0000a\u0000l\u0000 \u0000i\u0000s\u0000 \u0000i\u0000n\u0000 \u0000t\u0000h\u0000e\u0000 \u0000m\u0000a\u0000n\u0000i\u0000p\u0000u\u0000l\u0000a\u0000t\u0000e\u0000d\u0000 \u0000r\u0000e\u0000g\u0000i\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000",
+   "\u0000l\u0000e\u0000d\u0000g\u0000e\u0000r\u0000 \u0000-\u0000>\u0000 \u0000r\u0000e\u0000p\u0000o\u0000r\u0000t\u0000s\u0000/\u0000r\u0000e\u0000g\u0000i\u0000o\u0000n\u0000_\u0000p\u0000r\u0000o\u0000b\u0000e\u0000_\u0000n\u0000a\u0000t\u0000i\u0000v\u0000e\u0000.\u0000j\u0000s\u0000o\u0000n\u0000",
+   "\u0000",
+   "\u0000"
+  ]
+ }
+}

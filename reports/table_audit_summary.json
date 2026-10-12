@@ -1,0 +1,120 @@
+{
+  "table1": {
+    "DINOv2-S/14 (Confounded vs Clean)": {
+      "ledger": "reports\\lp_shared_dino_5seeds.json",
+      "sha256": "5f8126628770790f970d622ca82e5c0146f16fc325979a4787774527afaabb26"
+    },
+    "DINOv2-S/14 (FF++ Native Pairing)": {
+      "ledger": "reports\\lp_ff_native_dino_5seeds.json",
+      "sha256": "18f6c8b13714adc1d2819a5954f2bec92cf7424abcbd0614e2219f20eaca428c"
+    },
+    "ResNet-50 (Supervised ImageNet)": {
+      "ledger": "reports\\lp_shared_resnet50_5seeds.json",
+      "sha256": "8120cb2aa4e378b2b0a62fd4daa5f9fe4176d69099c01cd0819bc1b45b983e49"
+    },
+    "ViT-B/16 (Supervised ImageNet)": {
+      "ledger": "reports\\lp_shared_vitb16_5seeds.json",
+      "sha256": "ba84013b9f379c44e6d99535e7beaa9a67da4b9499590a558b92aa9b3b59a7ab"
+    },
+    "Color \\& Texture Baseline": {
+      "ledger": "reports\\lp_shared_vitb16_5seeds.json",
+      "sha256": "ba84013b9f379c44e6d99535e7beaa9a67da4b9499590a558b92aa9b3b59a7ab"
+    }
+  },
+  "table2": {
+    "DINOv2-S/14 (Shared-Transform)_full": {
+      "ledger": "reports\\lp_shared_dino_5seeds.json",
+      "sha256": "5f8126628770790f970d622ca82e5c0146f16fc325979a4787774527afaabb26"
+    },
+    "DINOv2-S/14 (Shared-Transform)_bg": {
+      "ledger": "reports\\lp_shared_dino_face_out_5seeds.json",
+      "sha256": "a6fd9ba544bacf1d8d9089b84dc79a9fee2e34e77c68eee2d0ab33f6ca719cfc"
+    },
+    "DINOv2-S/14 (Shared-Transform)_face": {
+      "ledger": "reports\\lp_shared_dino_face_only_5seeds.json",
+      "sha256": "4743993452a0393ae8f45a388064765daf0bff1ed2d1ae4ffe7a6247d726e073"
+    },
+    "DINOv2-S/14 (FF++ Native)_full": {
+      "ledger": "reports\\lp_ff_native_dino_5seeds.json",
+      "sha256": "18f6c8b13714adc1d2819a5954f2bec92cf7424abcbd0614e2219f20eaca428c"
+    },
+    "DINOv2-S/14 (FF++ Native)_bg": {
+      "ledger": "reports\\lp_ff_native_dino_face_out_5seeds.json",
+      "sha256": "7a06e14b7b41d53bae5b5eb58d56540e0d2d07110a8d784f93211d19cdc05409"
+    },
+    "DINOv2-S/14 (FF++ Native)_face": {
+      "ledger": "reports\\lp_ff_native_dino_face_only_5seeds.json",
+      "sha256": "dd28f83d0f875af0c9c7593629ba2357ba7170a23986e3b36bad2fd9c441d8c1"
+    },
+    "ResNet-50 (Shared-Transform)_full": {
+      "ledger": "reports\\lp_shared_resnet50_5seeds.json",
+      "sha256": "8120cb2aa4e378b2b0a62fd4daa5f9fe4176d69099c01cd0819bc1b45b983e49"
+    },
+    "ResNet-50 (Shared-Transform)_bg": {
+      "ledger": "reports\\lp_shared_resnet50_face_out_5seeds.json",
+      "sha256": "d1639e0e544d70ea263277c737616b7743a332712bc0a973219efb2400c71e81"
+    },
+    "ResNet-50 (Shared-Transform)_face": {
+      "ledger": "reports\\lp_shared_resnet50_face_only_5seeds.json",
+      "sha256": "3e239ed28db37391d80d8d2a1590b7959f3da19fb448bd42bd8c6f565c4a12e1"
+    },
+    "ViT-B/16 (Shared-Transform)_full": {
+      "ledger": "reports\\lp_shared_vitb16_5seeds.json",
+      "sha256": "ba84013b9f379c44e6d99535e7beaa9a67da4b9499590a558b92aa9b3b59a7ab"
+    },
+    "ViT-B/16 (Shared-Transform)_bg": {
+      "ledger": "reports\\lp_shared_vitb16_face_out_5seeds.json",
+      "sha256": "3a8284db752d8cb3f041c980c8939d04a8d19428bb62905c15c5be773f64e539"
+    },
+    "ViT-B/16 (Shared-Transform)_face": {
+      "ledger": "reports\\lp_shared_vitb16_face_only_5seeds.json",
+      "sha256": "c4519824b56191cf3073be810d10f4ac929d62b471c6b955d5ae980ea9adf40f"
+    }
+  },
+  "table3": {
+    "celeb_region": {
+      "ledger": "reports\\region_probe_celeb.json",
+      "sha256": "d54de3784c8d751c3f7e4f470449d3bd8d9e74db1e6940b68a674019c8271c28"
+    },
+    "celeb_full": {
+      "ledger": "reports\\lp_celeb_5seeds.json",
+      "sha256": "9565cff3ec13a3f7a72bb29d3b6e3bea2d036d7bb219b70f8c15744dbffed608"
+    },
+    "celeb_bg": {
+      "ledger": "reports\\lp_celeb_face_out_5seeds.json",
+      "sha256": "3084a2e90b47b5e2ef14851e81f1695e8782391a0d2a1442affc26af999c278a"
+    },
+    "celeb_face": {
+      "ledger": "reports\\lp_celeb_face_only_5seeds.json",
+      "sha256": "9e5cec2c710c3b03ba814c4971500598439f8431301d30fff4ac28201f32c0dc"
+    },
+    "celeb_shared_bg": {
+      "ledger": "reports\\lp_celeb_shared_face_out_5seeds.json",
+      "sha256": "9ec38d536b0459a7fd5e12588706ca0db819a450f66b8ea46e20131247d9adc3"
+    },
+    "celeb_shared_full": {
+      "ledger": "reports\\lp_celeb_shared_5seeds.json",
+      "sha256": "34c800db79f982ff1f75c45607ce4fa87d4092facc4996c84f0d287c3c6216e0"
+    },
+    "celeb_shared_face": {
+      "ledger": "reports\\lp_celeb_shared_face_only_5seeds.json",
+      "sha256": "f6cc9ee2e297a69348fab64b7614f693282d97a7d8b326045d5358c790f920db"
+    }
+  },
+  "table4": {
+    "dataset_id": {
+      "ledger": "reports\\dataset_id_baseline.json",
+      "sha256": "8f28011dcde410f3aaceba6bc442ef45b827b27cf6f462dde0fd4cecc8cad6ec"
+    }
+  },
+  "table5": {
+    "paired_stats": {
+      "ledger": "reports\\paired_stats_shared.json",
+      "sha256": "4fdadf35727cbfcf508bea5b9903def734939f025fb110c7ddfbc3bfdba1c909"
+    },
+    "region_shared": {
+      "ledger": "reports\\region_probe_shared.json",
+      "sha256": "7e5252b71791b9af8b4b138e729f8dc6ea745d420ee8d6142f335e72738e72e1"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "audit": "Dataset Shortcut & Format Leakage Audit",
+  "samples_evaluated": 200,
+  "unmasked_full_model_auroc": 1.0,
+  "masked_background_only_full_model_auroc": 0.9998,
+  "unmasked_srm_branch_auroc": 1.0,
+  "masked_background_only_srm_branch_auroc": 0.9942,
+  "metadata_only_auroc": 1.0,
+  "metadata_only_accuracy": 1.0,
+  "shortcut_leakage_confirmed": true
+}

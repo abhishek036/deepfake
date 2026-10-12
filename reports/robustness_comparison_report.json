@@ -1,0 +1,71 @@
+{
+  "original_baseline": {
+    "clean": {
+      "condition": "clean",
+      "n_samples": 200,
+      "auroc": 0.7773,
+      "accuracy": 0.685,
+      "brier_score": 0.2207
+    },
+    "jpeg_q50": {
+      "condition": "jpeg_q50",
+      "n_samples": 200,
+      "auroc": 0.7953,
+      "accuracy": 0.695,
+      "brier_score": 0.2217
+    },
+    "low_res_0.5x": {
+      "condition": "low_res_0.5x",
+      "n_samples": 200,
+      "auroc": 0.8109,
+      "accuracy": 0.7,
+      "brier_score": 0.2131
+    },
+    "blur_sigma1": {
+      "condition": "blur_sigma1",
+      "n_samples": 200,
+      "auroc": 0.7896,
+      "accuracy": 0.72,
+      "brier_score": 0.2148
+    }
+  },
+  "robust_hardened": {
+    "clean": {
+      "condition": "clean",
+      "n_samples": 200,
+      "auroc": 0.8023,
+      "accuracy": 0.7,
+      "brier_score": 0.1992
+    },
+    "jpeg_q50": {
+      "condition": "jpeg_q50",
+      "n_samples": 200,
+      "auroc": 0.8061,
+      "accuracy": 0.725,
+      "brier_score": 0.195
+    },
+    "low_res_0.5x": {
+      "condition": "low_res_0.5x",
+      "n_samples": 200,
+      "auroc": 0.8121,
+      "accuracy": 0.715,
+      "brier_score": 0.1854
+    },
+    "blur_sigma1": {
+      "condition": "blur_sigma1",
+      "n_samples": 200,
+      "auroc": 0.8102,
+      "accuracy": 0.715,
+      "brier_score": 0.1965
+    }
+  },
+  "deltas": {
+    "original_delta_jpeg": 0.018,
+    "hardened_delta_jpeg": 0.0038,
+    "original_delta_lowres": 0.0336,
+    "hardened_delta_lowres": 0.0098,
+    "original_delta_blur": 0.0123,
+    "hardened_delta_blur": 0.0079,
+    "jpeg_gap_reduction": 0.0142
+  }
+}

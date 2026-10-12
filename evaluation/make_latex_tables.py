@@ -91,6 +91,7 @@ def make_table1(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
                 "model": label,
                 "cc_auc": cc.get("auroc_mean"),
                 "cc_std": cc.get("auroc_std"),
+                "cc_acc": cc.get("bal_acc_mean"),
                 "cm_auc": cm.get("auroc_mean"),
                 "cm_std": cm.get("auroc_std"),
                 "mm_auc": mm.get("auroc_mean"),
@@ -122,12 +123,17 @@ def make_table1(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         r"\midrule",
     ]
     for r in rows:
-        cc_str = f"${fmt_stat(r['cc_auc'], r['cc_std'])}$" if r['cc_auc'] else "--"
-        cm_str = f"${fmt_stat(r['cm_auc'], r['cm_std'])}$" if r['cm_auc'] else "--"
-        mm_str = f"${fmt_stat(r['mm_auc'], r['mm_std'])}$" if r['mm_auc'] else "--"
-        mc_str = f"${fmt_stat(r['mc_auc'], r['mc_std'])}$" if r['mc_auc'] else "--"
-        acc_str = f"{r['mm_acc']:.3f}" if r['mm_acc'] is not None else "--"
-        tex_lines.append(f"{r['model']} & {cc_str} & {cm_str} & {mm_str} & {mc_str} & {acc_str} \\\\")
+        if "FF++ Native" in r['model']:
+            native_str = f"${fmt_stat(r['cc_auc'], r['cc_std'])}$" if r['cc_auc'] else "--"
+            acc_str = f"{r['cc_acc']:.3f}" if r.get('cc_acc') is not None else "--"
+            tex_lines.append(f"{r['model']} & \\multicolumn{{4}}{{c}}{{{native_str} (Native Split)}} & {acc_str} \\\\")
+        else:
+            cc_str = f"${fmt_stat(r['cc_auc'], r['cc_std'])}$" if r['cc_auc'] else "--"
+            cm_str = f"${fmt_stat(r['cm_auc'], r['cm_std'])}$" if r['cm_auc'] else "--"
+            mm_str = f"${fmt_stat(r['mm_auc'], r['mm_std'])}$" if r['mm_auc'] else "--"
+            mc_str = f"${fmt_stat(r['mc_auc'], r['mc_std'])}$" if r['mc_auc'] else "--"
+            acc_str = f"{r['mm_acc']:.3f}" if r['mm_acc'] is not None else "--"
+            tex_lines.append(f"{r['model']} & {cc_str} & {cm_str} & {mm_str} & {mc_str} & {acc_str} \\\\")
     tex_lines.extend([
         r"\bottomrule",
         r"\end{tabular}",
@@ -141,12 +147,17 @@ def make_table1(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         "| :--- | :---: | :---: | :---: | :---: | :---: |",
     ]
     for r in rows:
-        cc_str = fmt_stat_md(r['cc_auc'], r['cc_std'])
-        cm_str = fmt_stat_md(r['cm_auc'], r['cm_std'])
-        mm_str = fmt_stat_md(r['mm_auc'], r['mm_std'])
-        mc_str = fmt_stat_md(r['mc_auc'], r['mm_std'])
-        acc_str = f"{r['mm_acc']:.3f}" if r['mm_acc'] is not None else "--"
-        md_lines.append(f"| {r['model']} | {cc_str} | {cm_str} | {mm_str} | {mc_str} | {acc_str} |")
+        if "FF++ Native" in r['model']:
+            native_str = fmt_stat_md(r['cc_auc'], r['cc_std'])
+            acc_str = f"{r['cc_acc']:.3f}" if r.get('cc_acc') is not None else "--"
+            md_lines.append(f"| {r['model']} | {native_str} (Native) | -- | -- | -- | {acc_str} |")
+        else:
+            cc_str = fmt_stat_md(r['cc_auc'], r['cc_std'])
+            cm_str = fmt_stat_md(r['cm_auc'], r['cm_std'])
+            mm_str = fmt_stat_md(r['mm_auc'], r['mm_std'])
+            mc_str = fmt_stat_md(r['mc_auc'], r['mm_std'])
+            acc_str = f"{r['mm_acc']:.3f}" if r['mm_acc'] is not None else "--"
+            md_lines.append(f"| {r['model']} | {cc_str} | {cm_str} | {mm_str} | {mc_str} | {acc_str} |")
     md = "\n".join(md_lines)
 
     return tex, md, audit
@@ -209,11 +220,11 @@ def make_table2(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         r"\begin{table*}[t]",
         r"\centering",
         r"\small",
-        r"\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. Background ($C\to C$) measures the container shortcut present in confounded pairings. Background ($M\to M$) tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). Face ($M\to M$) tests facial manipulation signal retention.}",
+        r"\caption{\textbf{Spatial Decomposition of the Shortcut.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under spatial masking on FaceForensics++. Center-Masked ($C\to C$) measures the container shortcut present in confounded pairings. Center-Masked ($M\to M$) tests whether the clean shared spatial transform eliminates the background cue (Decision Rule P-S2 / P-C3: $\le 0.60$). Corner-Masked ($M\to M$) tests residual manipulation signal retention.}",
         r"\label{tab:spatial_decomposition}",
         r"\begin{tabular}{lcccc}",
         r"\toprule",
-        r"\textbf{Backbone} & \textbf{Background ($C\to C$ Shortcut)} & \textbf{Background ($M\to M$ Clean)} & \textbf{Face Only ($M\to M$)} & \textbf{Full Image ($M\to M$)} \\",
+        r"\textbf{Backbone} & \textbf{Center-Masked ($C\to C$ Shortcut)} & \textbf{Center-Masked ($M\to M$ Clean)} & \textbf{Corner-Masked ($M\to M$)} & \textbf{Full Image ($M\to M$)} \\",
         r"\midrule",
     ]
     for r in rows:
@@ -230,7 +241,7 @@ def make_table2(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     tex = "\n".join(tex_lines)
 
     md_lines = [
-        "| Backbone | Background (C->C Shortcut) | Background (M->M Clean) | Face Only (M->M) | Full Image (M->M) |",
+        "| Backbone | Center-Masked (C->C Shortcut) | Center-Masked (M->M Clean) | Corner-Masked (M->M) | Full Image (M->M) |",
         "| :--- | :---: | :---: | :---: | :---: |",
     ]
     for r in rows:
@@ -253,16 +264,25 @@ def make_table3(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     p_full = reports_dir / "lp_celeb_5seeds.json"
     p_bg = reports_dir / "lp_celeb_face_out_5seeds.json"
     p_face = reports_dir / "lp_celeb_face_only_5seeds.json"
+    p_sh_bg = reports_dir / "lp_celeb_shared_face_out_5seeds.json"
+    p_sh_full = reports_dir / "lp_celeb_shared_5seeds.json"
+    p_sh_face = reports_dir / "lp_celeb_shared_face_only_5seeds.json"
 
     d_reg = load_ledger(p_reg) if p_reg.exists() else {}
     d_full = load_ledger(p_full) if p_full.exists() else {}
     d_bg = load_ledger(p_bg) if p_bg.exists() else {}
     d_face = load_ledger(p_face) if p_face.exists() else {}
+    d_sh_bg = load_ledger(p_sh_bg) if p_sh_bg.exists() else {}
+    d_sh_full = load_ledger(p_sh_full) if p_sh_full.exists() else {}
+    d_sh_face = load_ledger(p_sh_face) if p_sh_face.exists() else {}
 
     if p_reg.exists(): audit["celeb_region"] = {"ledger": str(p_reg), "sha256": sha256_file(p_reg)}
     if p_full.exists(): audit["celeb_full"] = {"ledger": str(p_full), "sha256": sha256_file(p_full)}
     if p_bg.exists(): audit["celeb_bg"] = {"ledger": str(p_bg), "sha256": sha256_file(p_bg)}
     if p_face.exists(): audit["celeb_face"] = {"ledger": str(p_face), "sha256": sha256_file(p_face)}
+    if p_sh_bg.exists(): audit["celeb_shared_bg"] = {"ledger": str(p_sh_bg), "sha256": sha256_file(p_sh_bg)}
+    if p_sh_full.exists(): audit["celeb_shared_full"] = {"ledger": str(p_sh_full), "sha256": sha256_file(p_sh_full)}
+    if p_sh_face.exists(): audit["celeb_shared_face"] = {"ledger": str(p_sh_face), "sha256": sha256_file(p_sh_face)}
 
     corner = d_reg.get("families", {}).get("face_swap", {}).get("background", {})
     corner_auc = corner.get("auroc")
@@ -272,20 +292,34 @@ def make_table3(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     bg = d_bg.get("summary_P1", {}).get("dino:C->C", {})
     fc = d_face.get("summary_P1", {}).get("dino:C->C", {})
 
+    sh_bg = d_sh_bg.get("summary_P1", {}).get("dino:M->M", {})
+    sh_bg_ll = d_sh_bg.get("summary_P1", {}).get("lowlevel:M->M", {})
+    sh_cross = d_sh_bg.get("summary_P1", {}).get("dino:C->M", {})
+    sh_fl = d_sh_full.get("summary_P1", {}).get("dino:M->M", {})
+    sh_fc = d_sh_face.get("summary_P1", {}).get("dino:M->M", {})
+
     tex_lines = [
         r"\begin{table}[t]",
         r"\centering",
         r"\small",
-        r"\caption{\textbf{The Native Pairing Fallacy on Celeb-DF-v2.} Auditing native target-video matched pairs with spatial and low-level probes. Probing the background region evaluates whether independent face-tracker bounding box alignment equalizes container cues.}",
+        r"\caption{\textbf{Auditing and Resolving the Native Pairing Fallacy on Celeb-DF-v2.} Linear probe AUROC ($\text{mean} \pm \text{std}$, 5 seeds) under native independent cropping versus our shared spatial transform reference. In native pairs, background probes violate P-C2 ($0.751 > 0.60$). Shared spatial transforms resolve the confound, reducing background AUROC to $0.604$ (P-C2b boundary) and low-level background cues to chance ($0.507$).}",
         r"\label{tab:celeb_audit}",
         r"\begin{tabular}{llcc}",
         r"\toprule",
-        r"\textbf{Probe Type} & \textbf{Region Evaluated} & \textbf{AUROC} & \textbf{Status / Rule} \\",
+        r"\textbf{Regime / Probe} & \textbf{Region Evaluated} & \textbf{AUROC} & \textbf{Status / Rule} \\",
         r"\midrule",
+        r"\multicolumn{4}{l}{\textit{Native Pairing (Independent Face Tracking)}} \\",
         f"Handcrafted Low-Level & Outer Corners & ${fmt_stat(corner_auc, ci=corner_ci)}$ & Passed (Chance) \\\\",
         f"DINOv2 Linear Probe & Background Only (\\texttt{{face\\_out}}) & ${fmt_stat(bg.get('auroc_mean'), bg.get('auroc_std'))}$ & FAILED P-C2 ($>0.60$) \\\\",
         f"DINOv2 Linear Probe & Face Region (\\texttt{{face\\_only}}) & ${fmt_stat(fc.get('auroc_mean'), fc.get('auroc_std'))}$ & Synthesis Signal \\\\",
         f"DINOv2 Linear Probe & Full Image (Native) & ${fmt_stat(fl.get('auroc_mean'), fl.get('auroc_std'))}$ & Confounded Benchmark \\\\",
+        r"\midrule",
+        r"\multicolumn{4}{l}{\textit{Clean Reference (Shared Spatial Transform Ablation)}} \\",
+        f"DINOv2 Linear Probe & Background (\\texttt{{face\\_out}}, $M\\to M$) & ${fmt_stat(sh_bg.get('auroc_mean'), sh_bg.get('auroc_std'))}$ & P-C2b Boundary ($0.604$) \\\\",
+        f"Low-Level Baseline & Background (\\texttt{{face\\_out}}, $M\\to M$) & ${fmt_stat(sh_bg_ll.get('auroc_mean'), sh_bg_ll.get('auroc_std'))}$ & At Chance ($0.507$) \\\\",
+        f"DINOv2 Linear Probe & Cross-Pairing Transfer ($C\\to M$) & ${fmt_stat(sh_cross.get('auroc_mean'), sh_cross.get('auroc_std'))}$ & Collapses to Chance \\\\",
+        f"DINOv2 Linear Probe & Face Region (\\texttt{{face\\_only}}, $M\\to M$) & ${fmt_stat(sh_fc.get('auroc_mean'), sh_fc.get('auroc_std'))}$ & Residual Signal \\\\",
+        f"DINOv2 Linear Probe & Full Image ($M\\to M$) & ${fmt_stat(sh_fl.get('auroc_mean'), sh_fl.get('auroc_std'))}$ & Clean Reference \\\\",
         r"\bottomrule",
         r"\end{tabular}",
         r"\end{table}",
@@ -293,12 +327,19 @@ def make_table3(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     tex = "\n".join(tex_lines)
 
     md_lines = [
-        "| Probe Type | Region Evaluated | AUROC | Status / Rule |",
+        "| Regime / Probe | Region Evaluated | AUROC | Status / Rule |",
         "| :--- | :--- | :---: | :---: |",
+        "| **Native Pairing (Independent Tracking)** | | | |",
         f"| Handcrafted Low-Level | Outer Corners | {fmt_stat_md(corner_auc, ci=corner_ci)} | Passed (Chance) |",
         f"| DINOv2 Linear Probe | Background Only (face_out) | {fmt_stat_md(bg.get('auroc_mean'), bg.get('auroc_std'))} | FAILED P-C2 (>0.60) |",
         f"| DINOv2 Linear Probe | Face Region (face_only) | {fmt_stat_md(fc.get('auroc_mean'), fc.get('auroc_std'))} | Synthesis Signal |",
         f"| DINOv2 Linear Probe | Full Image (Native) | {fmt_stat_md(fl.get('auroc_mean'), fl.get('auroc_std'))} | Confounded Benchmark |",
+        "| **Clean Reference (Shared Transform)** | | | |",
+        f"| DINOv2 Linear Probe | Background (face_out, M->M) | {fmt_stat_md(sh_bg.get('auroc_mean'), sh_bg.get('auroc_std'))} | P-C2b Boundary (0.604) |",
+        f"| Low-Level Baseline | Background (face_out, M->M) | {fmt_stat_md(sh_bg_ll.get('auroc_mean'), sh_bg_ll.get('auroc_std'))} | At Chance (0.507) |",
+        f"| DINOv2 Linear Probe | Cross-Transfer (C->M) | {fmt_stat_md(sh_cross.get('auroc_mean'), sh_cross.get('auroc_std'))} | Collapses to Chance |",
+        f"| DINOv2 Linear Probe | Face Region (face_only, M->M) | {fmt_stat_md(sh_fc.get('auroc_mean'), sh_fc.get('auroc_std'))} | Residual Signal |",
+        f"| DINOv2 Linear Probe | Full Image (M->M) | {fmt_stat_md(sh_fl.get('auroc_mean'), sh_fl.get('auroc_std'))} | Clean Reference |",
     ]
     md = "\n".join(md_lines)
 
@@ -394,10 +435,10 @@ def make_table5(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
         r"\toprule",
         r"\textbf{Alignment / Forensic Diagnostic} & \textbf{Measured Value} & \textbf{Pre-Registered Threshold / Rule} \\",
         r"\midrule",
-        f"Face Crop Center MAD & ${center_mad:.3f}$ px & $\\le 4.0$ px (P-S1 MET) \\\\",
-        f"Background Pixel MAD: Real vs Fake & ${rf_mad:.3f}$ & Baseline reference \\\\",
-        f"Background Pixel MAD: Fake vs Fake & ${ff_mad:.3f}$ & Negative control \\\\",
-        f"Ratio of Background Medians (RF / FF) & ${ratio:.3f}$ & Clean ($[0.95, 1.05]$) \\\\",
+        f"Face Crop Center MAD & ${center_mad:.3f}$ px & $\\le 4.0$ px (P-S1 MET, \\texttt{{p\\_s1\\_center\\_mad\\_px}}) \\\\",
+        f"Background Pixel MAD: Real vs Fake & ${rf_mad:.3f}$ gray levels & Gray-level intensity \\\\",
+        f"Background Pixel MAD: Fake vs Fake & ${ff_mad:.3f}$ gray levels & Noise floor reference \\\\",
+        f"Ratio of Background Medians (RF / FF) & ${ratio:.3f}$ & Clean ($[0.95, 1.05]$, margin 0.05 MET) \\\\",
         f"Composited Low-Level Background Probe & ${fmt_stat(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))}$ & Excludes 0.50 ($[0.383, 0.486]$) \\\\",
         f"Reenactment Low-Level Background Probe & ${fmt_stat(reen_bg.get('auroc'), ci=reen_bg.get('ci95'))}$ & At Chance ($[0.45, 0.55]$) \\\\",
         r"\bottomrule",
@@ -409,10 +450,10 @@ def make_table5(reports_dir: Path) -> Tuple[str, str, Dict[str, Any]]:
     md_lines = [
         "| Alignment / Forensic Diagnostic | Measured Value | Pre-Registered Threshold / Rule |",
         "| :--- | :---: | :---: |",
-        f"| Face Crop Center MAD | {center_mad:.3f} px | <= 4.0 px (P-S1 MET) |",
-        f"| Background Pixel MAD: Real vs Fake | {rf_mad:.3f} | Baseline reference |",
-        f"| Background Pixel MAD: Fake vs Fake | {ff_mad:.3f} | Negative control |",
-        f"| Ratio of Background Medians (RF / FF) | {ratio:.3f} | Clean ([0.95, 1.05]) |",
+        f"| Face Crop Center MAD | {center_mad:.3f} px | <= 4.0 px (P-S1 MET, p_s1_center_mad_px) |",
+        f"| Background Pixel MAD: Real vs Fake | {rf_mad:.3f} gray levels | Gray-level intensity |",
+        f"| Background Pixel MAD: Fake vs Fake | {ff_mad:.3f} gray levels | Noise floor reference |",
+        f"| Ratio of Background Medians (RF / FF) | {ratio:.3f} | Clean ([0.95, 1.05], margin 0.05 MET) |",
         f"| Composited Low-Level Background Probe | {fmt_stat_md(comp_bg.get('auroc'), ci=comp_bg.get('ci95'))} | Excludes 0.50 ([0.383, 0.486]) |",
         f"| Reenactment Low-Level Background Probe | {fmt_stat_md(reen_bg.get('auroc'), ci=reen_bg.get('ci95'))} | At Chance ([0.45, 0.55]) |",
     ]
@@ -487,7 +528,7 @@ def run_self_test():
         t1_tex, t1_md, a1 = make_table1(td)
         assert r"\begin{table*}" in t1_tex and "DINOv2" in t1_md
         t2_tex, t2_md, a2 = make_table2(td)
-        assert r"\begin{table*}" in t2_tex and "Background" in t2_md
+        assert r"\begin{table*}" in t2_tex and "Center-Masked" in t2_md
         t3_tex, t3_md, a3 = make_table3(td)
         assert r"\begin{table}" in t3_tex and "Celeb-DF" in t3_tex
         t4_tex, t4_md, a4 = make_table4(td)

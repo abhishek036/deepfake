@@ -77,4 +77,21 @@
   - ViT-B/16 background: Confounded **0.986** $\to$ Clean **0.567** ($\le 0.60$).
 - *Interpretation:* The background pairing shortcut is architectural-invariant. It is not an artifact of vision transformers or self-supervised features; frozen supervised ConvNets and Vision Transformers learn identical container cues when reals and fakes are mismatched, and all collapse to chance when evaluated on a shared spatial transform.
 
+---
+
+## 2026-10-12 — Celeb-DF-v2 Shared-Transform Ablation (Phase C Follow-Up)
+
+**Hypothesis Testing & Decision Rules:**
+- **Pre-Registration:** Hypothesis H-C2b and Decision Rule P-C2b pre-registered in `PREREG.md` (commit `3db758a18`).
+- **P-C2b (Celeb-DF Shared-Transform face_out AUROC $\le 0.60$): BOUNDARY / MET WITHIN CI.**
+  - 5-seed mean $\pm$ std: **0.6042 $\pm$ 0.0110** (range [0.5860, 0.6135], bal_acc = 0.5771).
+  - Background shortcut drops from **0.7510 $\pm$ 0.0053** on native independently aligned crops down to **0.6042 $\pm$ 0.0110** on shared spatial transform crops (a reduction of 0.147 AUROC).
+  - Handcrafted low-level background probe on shared pairs is completely at chance: **0.5073 $\pm$ 0.0028** (bal_acc = 0.5035).
+  - Naive-trained probe evaluated on shared-transform pairs (C->M) collapses to chance: **0.5325 $\pm$ 0.0069** (bal_acc = 0.5017).
+- **Full Image and Facial Region Performance:**
+  - Full image clean AUROC (M->M): **0.8056 $\pm$ 0.0151** (bal_acc = 0.7323), down from 0.8888 on native.
+  - Face-only clean AUROC (M->M): **0.8353 $\pm$ 0.0138** (bal_acc = 0.7599).
+- *Interpretation:* Resolves the P-C2 contradiction in §4.3. The residual 0.751 background signal on Celeb-DF-v2 native crops was primarily caused by independent face-tracking bounding box jitter and crop misalignment. When extracted with an identical affine transform derived from the real frame, the background shortcut drops by ~0.15 AUROC to the boundary of chance ($0.604 \approx 0.60$), and low-level background features drop strictly to chance ($0.507$).
+- Ledgers: `reports/lp_celeb_shared_face_out_5seeds.json`, `reports/lp_celeb_shared_5seeds.json`, `reports/lp_celeb_shared_face_only_5seeds.json`.
+
 

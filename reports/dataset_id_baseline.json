@@ -1,0 +1,79 @@
+{
+  "args": {
+    "manifest": "data/manifests/combined.jsonl",
+    "out": "reports/dataset_id_baseline.json",
+    "sample_rate": 1,
+    "seed": 42,
+    "self_test": false
+  },
+  "script_sha256": "5b2680521cc7c7878e928aba86336ee80b1f1300386995897c9c7103f1fe86b4",
+  "manifest_sha256": "10c13212dd1e786fbd4a661fe70c188a5a0e014996e87cfd2cbceaf9a1bf9e1c",
+  "results": {
+    "n_samples": 949254,
+    "n_real": 46056,
+    "n_fake": 903198,
+    "auroc": 0.9208,
+    "auroc_ci95": [
+      0.9201,
+      0.9216
+    ],
+    "balanced_accuracy": 0.5452,
+    "brier_score": 0.0339,
+    "per_dataset": {
+      "df40": {
+        "n_total": 686358,
+        "n_real": 0,
+        "n_fake": 686358,
+        "p_fake": 1.0
+      },
+      "faceforensics": {
+        "n_total": 127068,
+        "n_real": 18070,
+        "n_fake": 108998,
+        "p_fake": 0.8578
+      },
+      "celeb_df": {
+        "n_total": 84900,
+        "n_real": 12164,
+        "n_fake": 72736,
+        "p_fake": 0.8567
+      },
+      "wild_deepfake": {
+        "n_total": 23100,
+        "n_real": 11160,
+        "n_fake": 11940,
+        "p_fake": 0.5169
+      },
+      "fakeavceleb": {
+        "n_total": 21566,
+        "n_real": 500,
+        "n_fake": 21066,
+        "p_fake": 0.9768
+      },
+      "ffhq": {
+        "n_total": 4062,
+        "n_real": 4062,
+        "n_fake": 0,
+        "p_fake": 0.0
+      },
+      "lav-df": {
+        "n_total": 2000,
+        "n_real": 0,
+        "n_fake": 2000,
+        "p_fake": 1.0
+      },
+      "hdtf": {
+        "n_total": 100,
+        "n_real": 100,
+        "n_fake": 0,
+        "p_fake": 0.0
+      },
+      "talkingheadbench": {
+        "n_total": 100,
+        "n_real": 0,
+        "n_fake": 100,
+        "p_fake": 1.0
+      }
+    }
+  }
+}

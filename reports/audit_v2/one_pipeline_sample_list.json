@@ -1,0 +1,2012 @@
+[
+ {
+  "path": "data\\crops\\faceforensics\\1b360d7db0cbadc8.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\965.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\2dfef9f0bc9433a1.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\171.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fd7e2b2aee2b4df4.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\222.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6f3b0f61597ff11a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\217.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\1319c8b2c559ac77.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\614.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\33f8073245fae8f0.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\391.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6e3eded39e3acd3f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\933.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\69df7dd0e8b69681.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\170.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\10aa512efde950b6.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\670.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\901a16e06d191c0b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\365.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\34a2a1e9deb64f2b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\687.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\72217aa338d2a093.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\717.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a1c0fcfd553dce0c.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\787.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fd7360fcafb34fba.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\266.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\0d8517627fb68af9.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\882.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\8f2af636cc62d4af.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\051.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\7276b0dd22c68d0a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\209.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\289135485aa9ef82.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\851.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\c069ca9f07e2ec94.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\565.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5b47ccc52822859c.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\536.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\3c9967a9596dd9ec.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\748.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e58a414f23493dbf.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\952.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\369d07b504664f22.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\465.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\4797edde0c9b900a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\265.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\2062f6dcd9d2e286.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\549.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6a6a9c14c1632d90.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\308.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ac25866d245feba4.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\405.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\40c28a316e209898.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\305.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\2f5397d30fa78aba.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\087.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\7ebe36bcb3a7b2be.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\865.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\b49e55579f5de8e5.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\601.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\9ddb2b18497dd67a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\047.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\b44f93d6d8f3ef39.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\300.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\26c85dcc6a847c53.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\537.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\2feeb046fd32f665.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\173.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ff857fb993dda80c.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\864.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\8a5c9bab0a29756b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\452.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fe3c1679b9e1532b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\268.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\9961340c9737120e.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\971.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\8a0a0679555206e6.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\407.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6c1ed3f6d49814d8.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\853.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\9a8875aa936f988e.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\521.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\89b7eb1ae670369e.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\315.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e3676e0a235cb059.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\519.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ef8f9c17daaad058.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\944.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\908b6c0579383b22.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\626.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a8cc59aa2f8dcac7.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\252.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\9210b531f4ed0571.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\949.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6354425e3b4a8ebc.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\233.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\665a1810e80bbae5.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\037.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\14f6ed88955c0f2a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\928.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\81834acc62fab765.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\201.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\64be99a352d9d629.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\637.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\eac18e6b95386d2c.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\278.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\64effbee6b386769.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\389.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a464db0051e38d2a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\455.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fb67980add81767b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\418.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fe31ee2d09730689.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\092.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\f13a83729c9142af.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\035.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\57169fee840337f3.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\398.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\148d8df181e3c1cd.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\490.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\1a7e4ecf56f63a77.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\347.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e2065c7520b0132a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\808.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\8085b95a2e8494dc.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\643.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\7de4b38824332bf9.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\506.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e761ca7121729ea6.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\542.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a8c9729aa4c42a70.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\026.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\32e203d71463cd71.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\996.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\be0ebb79d686882c.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\516.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ccefe9e1b83b823e.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\081.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\eabfc438a5fc820d.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\858.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e9c667e5c49e0695.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\098.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5ae9e7851c3c9897.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\310.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\4aae5179a9697311.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\970.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\3305810155216833.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\467.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6d75ef4aff245def.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\885.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\c51c8eaf295e10df.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\703.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\0731ae65a9db3ef5.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\960.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\680ce126209ca1ef.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\550.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\af3947f254ce9ff3.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\552.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ec2af4cc21182cfe.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\429.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\25f04ae0c609a018.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\683.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a5d4d8b2312b8831.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\517.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a4399509052c8c82.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\475.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\cd3e2cfced92f2be.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\022.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\931f068e9df70b42.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\657.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5586dc1a306aa954.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\974.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\d6136590a296159b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\618.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\c98c6af6ef83ec1b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\113.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\d679a669dee48286.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\417.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5247f4eca5d2de41.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\145.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a292514f72d48fca.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\333.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\4f889b9d29551e2f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\722.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\b20f8dc37df54f7d.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\084.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\d8a8ef35486bd140.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\394.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\392b2b6f1dc8e01a.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\213.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\37fc02655d7ec76b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\824.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\409e8b7c6fc60616.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\373.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\a832e1d6e9ff5846.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\624.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\59ad03bc5ffe451f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\304.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\352cc330d0b0ed6f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\460.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5037197677f593be.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\744.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\f68c5780484b7d1f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\848.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\010c68e87fbd8f9e.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\877.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\fe7c5231e5c48218.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\763.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\27601420919806f8.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\927.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\df7f7674c6b8cb2f.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\224.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\e89f2e42032d3573.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\254.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\ebe1e36e58f62982.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\376.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\5881629619aeb588.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\141.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\c1f526b8a7f21a25.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\964.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6837185bf7ad2e4b.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\756.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\1c911db4b3509435.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\569.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\f8ac5db1118410f2.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\262.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\824df6a0211f2f82.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\718.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\8f5297f0a2f737be.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\535.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\47fd99ffcd9d6e83.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\210.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\0122a58b0dd81082.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\404.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data\\crops\\faceforensics\\6f07fd15f98be5d1.jpg",
+  "label": 0,
+  "group": "0:data\\raw\\FaceForensics++\\original\\110.mp4",
+  "generator": "real"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/187_234/159.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_187_234",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/952_882/157.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_952_882",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/043_110/536.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_043_110",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/063_041/209.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_063_041",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/458_722/067.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_458_722",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/197_224/312.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_197_224",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/300_304/1342.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_300_304",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/466_428/173.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_466_428",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/397_602/192.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_397_602",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/831_508/094.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_831_508",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/353_383/080.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_353_383",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/396_272/894.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_396_272",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/489_022/145.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_489_022",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/864_839/606.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_864_839",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/559_543/517.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_559_543",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/427_637/090.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_427_637",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/277_335/972.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_277_335",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/304_300/569.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_304_300",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/464_463/065.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_464_463",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/193_030/203.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_193_030",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/888_937/498.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_888_937",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/213_083/048.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_213_083",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/781_806/135.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_781_806",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/372_413/031.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_372_413",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/038_125/213.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_038_125",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/784_769/296.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_784_769",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/659_749/1861.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_659_749",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/294_292/311.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_294_292",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/222_168/183.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_222_168",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/318_334/919.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_318_334",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/179_212/1015.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_179_212",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/373_394/1211.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_373_394",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/120_118/156.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_120_118",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/921_569/028.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_921_569",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/271_264/758.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_271_264",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/689_690/322.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_689_690",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/066_062/140.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_066_062",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/680_486/260.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_680_486",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/022_489/327.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_022_489",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/200_189/185.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_200_189",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/694_767/211.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_694_767",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/312_021/317.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_312_021",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/878_866/911.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_878_866",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/928_160/257.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_928_160",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/417_496/1666.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_417_496",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/536_540/543.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_536_540",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/390_709/078.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_390_709",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/671_677/663.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_671_677",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/252_266/571.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_252_266",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/952_882/325.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_952_882",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/293_296/1349.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_293_296",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/013_883/181.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_013_883",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/001_870/000.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_001_870",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/428_466/139.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_428_466",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/289_228/365.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_289_228",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/317_359/681.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_317_359",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/244_822/000.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_244_822",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/495_512/018.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_495_512",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/699_734/388.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_699_734",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/751_752/010.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_751_752",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/377_333/740.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_377_333",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/075_977/041.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_075_977",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/964_174/732.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_964_174",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/042_084/010.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_042_084",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/373_394/426.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_373_394",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/871_814/457.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_871_814",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/806_781/135.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_806_781",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/432_357/083.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_432_357",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/758_754/302.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_758_754",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/494_445/620.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_494_445",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/914_899/593.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_914_899",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/747_854/438.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_747_854",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/236_237/545.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_236_237",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/761_766/342.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_761_766",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/778_798/736.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_778_798",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/304_300/471.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_304_300",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/372_413/048.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_372_413",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/206_221/460.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_206_221",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/235_194/749.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_235_194",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/275_887/207.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_275_887",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/155_576/256.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_155_576",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/436_526/450.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_436_526",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/619_620/176.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_619_620",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/546_621/1215.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_546_621",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/251_375/066.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_251_375",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/356_324/1252.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_356_324",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/920_811/402.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_920_811",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/609_596/141.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_609_596",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/519_515/930.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_519_515",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/560_557/348.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_560_557",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/518_131/285.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_518_131",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/715_721/634.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_715_721",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/338_336/275.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_338_336",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/761_766/033.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_761_766",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/996_056/240.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_996_056",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/291_874/222.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_291_874",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/282_238/229.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_282_238",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/406_391/475.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_406_391",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/525_509/1040.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_525_509",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/650_625/357.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_650_625",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/610_692/139.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_610_692",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/743_750/144.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_743_750",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/711_681/272.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_711_681",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/642_635/532.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_642_635",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/961_069/652.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_961_069",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/214_255/312.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_214_255",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/111_094/636.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_111_094",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/808_829/410.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_808_829",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/401_395/205.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_401_395",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/368_378/367.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_368_378",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/802_885/434.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_802_885",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/246_258/415.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_246_258",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/345_259/149.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_345_259",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/826_833/022.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_826_833",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/373_394/1211.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_373_394",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/803_017/230.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_803_017",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/303_309/353.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_303_309",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/092_098/044.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_092_098",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/107_109/340.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_107_109",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/501_326/242.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_501_326",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/629_618/861.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_629_618",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/657_644/1183.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_657_644",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/031_163/972.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_031_163",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/171_173/069.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_171_173",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/303_309/1237.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_303_309",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/461_250/413.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_461_250",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/659_749/774.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_659_749",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/149_152/105.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_149_152",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/988_966/000.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_988_966",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/415_484/163.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_415_484",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/948_965/055.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_948_965",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/686_696/077.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_686_696",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/434_438/600.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_434_438",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/415_484/164.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_415_484",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/028_068/740.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_028_068",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/183_253/250.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_183_253",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/181_199/430.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_181_199",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/242_182/358.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_242_182",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/802_885/033.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_802_885",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/060_088/1764.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_060_088",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/285_136/623.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_285_136",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/246_258/463.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_246_258",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/118_120/462.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_118_120",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/758_754/364.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_758_754",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/050_059/153.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_050_059",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/802_885/282.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_802_885",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/551_631/393.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_551_631",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/874_291/377.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_874_291",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/268_269/000.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_268_269",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/730_815/000.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_730_815",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/753_789/903.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_753_789",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/866_878/474.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_866_878",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/942_943/153.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_942_943",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/457_398/051.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_457_398",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/461_250/394.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_461_250",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/713_726/613.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_713_726",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/930_763/201.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_930_763",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/551_631/1350.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_551_631",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/356_324/388.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_356_324",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/549_531/602.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_549_531",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/390_709/1002.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_390_709",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/872_873/213.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_872_873",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/499_539/264.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_499_539",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/225_151/156.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_225_151",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/642_635/620.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_642_635",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/203_201/114.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_203_201",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/605_591/121.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_605_591",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/905_860/094.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_905_860",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/372_413/677.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_372_413",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/490_534/222.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_490_534",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/149_152/590.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_149_152",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/719_737/323.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_719_737",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/016_209/633.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_016_209",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/883_013/033.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_883_013",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/487_477/164.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_487_477",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/684_717/154.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_684_717",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/025_067/1445.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_025_067",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/679_665/267.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_679_665",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/843_859/123.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_843_859",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/056_996/276.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_056_996",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/531_549/266.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_531_549",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/311_387/059.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_311_387",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/938_987/342.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_938_987",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/876_891/060.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_876_891",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/859_843/102.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_859_843",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/616_614/149.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_616_614",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/487_477/049.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_487_477",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/173_171/261.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_173_171",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/879_963/1235.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_879_963",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/720_672/290.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_720_672",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/133_148/000.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_133_148",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/065_089/341.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_065_089",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/805_011/238.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_805_011",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/877_886/1103.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_877_886",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/353_383/083.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_353_383",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/289_228/576.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_289_228",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/177_211/571.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_177_211",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/232_248/147.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_232_248",
+  "generator": "uniface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/MRAA/MRAA/frames/652_773/366.png",
+  "label": 1,
+  "group": "1:MRAA/df40_MRAA_652_773",
+  "generator": "MRAA"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/blendface/blendface/frames/570_624/027.png",
+  "label": 1,
+  "group": "1:blendface/df40_blendface_570_624",
+  "generator": "blendface"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/danet/danet/frames/773_652/1299.png",
+  "label": 1,
+  "group": "1:danet/df40_danet_773_652",
+  "generator": "danet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facedancer/facedancer/frames/401_395/395.png",
+  "label": 1,
+  "group": "1:facedancer/df40_facedancer_401_395",
+  "generator": "facedancer"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/faceswap/faceswap/frames/497_403/100.png",
+  "label": 1,
+  "group": "1:faceswap/df40_faceswap_497_403",
+  "generator": "faceswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/facevid2vid/facevid2vid/frames/986_994/213.png",
+  "label": 1,
+  "group": "1:facevid2vid/df40_facevid2vid_986_994",
+  "generator": "facevid2vid"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fomm/fomm/frames/935_733/041.png",
+  "label": 1,
+  "group": "1:fomm/df40_fomm_935_733",
+  "generator": "fomm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/fsgan/fsgan/frames/439_441/049.png",
+  "label": 1,
+  "group": "1:fsgan/df40_fsgan_439_441",
+  "generator": "fsgan"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/hyperreenact/hyperreenact/frames/577_593/641.png",
+  "label": 1,
+  "group": "1:hyperreenact/df40_hyperreenact_577_593",
+  "generator": "hyperreenact"
+ },
+ {
+  "path": "data/raw/DF40/inswap/frames/754_758/064.png",
+  "label": 1,
+  "group": "1:inswap/df40_inswap_754_758",
+  "generator": "inswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/lia/lia/frames/194_235/091.png",
+  "label": 1,
+  "group": "1:lia/df40_lia_194_235",
+  "generator": "lia"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mcnet/mcnet/frames/711_681/654.png",
+  "label": 1,
+  "group": "1:mcnet/df40_mcnet_711_681",
+  "generator": "mcnet"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/mobileswap/mobileswap/frames/328_320/061.png",
+  "label": 1,
+  "group": "1:mobileswap/df40_mobileswap_328_320",
+  "generator": "mobileswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/one_shot_free/one_shot_free/frames/999_960/286.png",
+  "label": 1,
+  "group": "1:one_shot_free/df40_one_shot_free_999_960",
+  "generator": "one_shot_free"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/pirender/pirender/frames/450_533/599.png",
+  "label": 1,
+  "group": "1:pirender/df40_pirender_450_533",
+  "generator": "pirender"
+ },
+ {
+  "path": "data/raw/DF40/simswap/frames/277_335/435.png",
+  "label": 1,
+  "group": "1:simswap/df40_simswap_277_335",
+  "generator": "simswap"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/tpsm/tpsm/frames/018_019/1002.png",
+  "label": 1,
+  "group": "1:tpsm/df40_tpsm_018_019",
+  "generator": "tpsm"
+ },
+ {
+  "path": "data/raw/DF40/DF40_train/uniface/frames/563_537/050.png",
+  "label": 1,
+  "group": "1:uniface/df40_uniface_563_537",
+  "generator": "uniface"
+ }
+]

@@ -93,7 +93,8 @@ data/manifests/
 *.npz
 
 # Reports and temporary scratch
-reports/
+reports/*.pkl
+!reports/*.json
 scratch/
 temp/
 tmp/

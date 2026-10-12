@@ -1,0 +1,73 @@
+{
+ "args": {
+  "real_manifest": "['data/celeb_native_reals.jsonl']",
+  "real_split": "any",
+  "fake_manifest": "data/celeb_native_fakes.jsonl",
+  "families": "['face_swap']",
+  "neg_control_families": "['face_swap']",
+  "n": "300",
+  "seed": "42",
+  "one_per_group": "True",
+  "out": "reports/region_probe_celeb.json",
+  "self_test": "False"
+ },
+ "script_sha256": "0b5f6351622d04ea6927314a009a83fc7109039a1e1308ea9131a68a8bd91e79",
+ "n_real": 300,
+ "families": {
+  "face_swap": {
+   "full": {
+    "auroc": 0.49864444444444445,
+    "ci95": [
+     0.45486450823305286,
+     0.5390805153874675
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5379222222222222,
+     "log_lap_var": 0.5340111111111111,
+     "hf_ratio": 0.5001888888888889,
+     "gray_std": 0.534888888888889,
+     "gray_mean": 0.5183888888888889,
+     "r_mean": 0.5153777777777777,
+     "g_mean": 0.5198555555555556,
+     "b_mean": 0.5159777777777778
+    }
+   },
+   "face": {
+    "auroc": 0.6016666666666667,
+    "ci95": [
+     0.5575784150723403,
+     0.6427592312707444
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.61845,
+     "log_lap_var": 0.6129777777777778,
+     "hf_ratio": 0.5095,
+     "gray_std": 0.5622888888888888,
+     "gray_mean": 0.5357555555555555,
+     "r_mean": 0.5365111111111112,
+     "g_mean": 0.5343555555555556,
+     "b_mean": 0.5214222222222222
+    }
+   },
+   "background": {
+    "auroc": 0.458,
+    "ci95": [
+     0.41279822880826406,
+     0.5029316180745591
+    ],
+    "univariate": {
+     "log_jpeg90_bpp": 0.5107555555555555,
+     "log_lap_var": 0.5114000000000001,
+     "hf_ratio": 0.5042222222222222,
+     "gray_std": 0.5019888888888888,
+     "gray_mean": 0.5106444444444445,
+     "r_mean": 0.5063666666666666,
+     "g_mean": 0.5115944444444445,
+     "b_mean": 0.5127444444444444
+    }
+   },
+   "verdict": "clean control; any signal is in the manipulated region",
+   "n_fake": 300
+  }
+ }
+}

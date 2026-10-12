@@ -1,0 +1,37 @@
+{
+  "Branch Disagreement": {
+    "error_auroc": 0.3936,
+    "error_pr_auc": 0.2754,
+    "error_rate_high_uncertainty": 0.1289,
+    "error_rate_low_uncertainty": 0.3778,
+    "error_ratio": 0.34
+  },
+  "Predictive Shannon Entropy": {
+    "error_auroc": 0.6913,
+    "error_pr_auc": 0.4566,
+    "error_rate_high_uncertainty": 0.4267,
+    "error_rate_low_uncertainty": 0.08,
+    "error_ratio": 5.33
+  },
+  "Decision Margin Uncertainty": {
+    "error_auroc": 0.6913,
+    "error_pr_auc": 0.4566,
+    "error_rate_high_uncertainty": 0.4267,
+    "error_rate_low_uncertainty": 0.08,
+    "error_ratio": 5.33
+  },
+  "Quality Defect (1 - Quality)": {
+    "error_auroc": 0.5,
+    "error_pr_auc": 0.3322,
+    "error_rate_high_uncertainty": 0.3322,
+    "error_rate_low_uncertainty": 0.3322,
+    "error_ratio": 1.0
+  },
+  "Composite Uncertainty Ensemble": {
+    "error_auroc": 0.6917,
+    "error_pr_auc": 0.4573,
+    "error_rate_high_uncertainty": 0.4311,
+    "error_rate_low_uncertainty": 0.08,
+    "error_ratio": 5.39
+  }
+}

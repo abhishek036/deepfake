@@ -1,0 +1,74 @@
+[
+  {
+    "configuration": "1. Semantic Only (DINOv2 ViT-S/14)",
+    "auroc": 0.8193,
+    "accuracy": 0.71,
+    "brier_score": 0.2003,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "2. Forensic Only (SRM-CNN)",
+    "auroc": 0.5489,
+    "accuracy": 0.54,
+    "brier_score": 0.2575,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "3. Temporal Only (Spatiotemporal GRU T=8)",
+    "auroc": 0.6032,
+    "accuracy": 0.5267,
+    "brier_score": 0.2515,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "4. DINOv2 + Forensic Dual-Domain",
+    "auroc": 0.8264,
+    "accuracy": 0.7467,
+    "brier_score": 0.213,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "5. DINOv2 + Temporal (T=8)",
+    "auroc": 0.8184,
+    "accuracy": 0.7233,
+    "brier_score": 0.2116,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "6. All Visual (DINOv2 + SRM-CNN + GRU T=8)",
+    "auroc": 0.8275,
+    "accuracy": 0.7133,
+    "brier_score": 0.2207,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "7. All Modalities (Visual + Audio-Visual)",
+    "auroc": 0.8275,
+    "accuracy": 0.7133,
+    "brier_score": 0.2256,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "8. All + Dynamic Reliability Weighting",
+    "auroc": 0.8104,
+    "accuracy": 0.7067,
+    "brier_score": 0.2211,
+    "samples_evaluated": 300,
+    "abstention_rate": 0.0
+  },
+  {
+    "configuration": "9. All + Reliability + Calibrated Abstention",
+    "auroc": NaN,
+    "accuracy": 0.0,
+    "brier_score": NaN,
+    "samples_evaluated": 0,
+    "abstention_rate": 1.0
+  }
+]

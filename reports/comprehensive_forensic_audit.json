@@ -1,0 +1,380 @@
+{
+  "post_calibration": {
+    "samples": 500,
+    "real_count": 179,
+    "fake_count": 321,
+    "accuracy": 0.646,
+    "roc_auc": 0.82286499939087,
+    "pr_auc": 0.8582153617489003,
+    "f1": 0.6495049504950495,
+    "eer": 0.21953044779756,
+    "ece": 0.2602302856445312,
+    "mce": 0.38098366477272727,
+    "brier_score": 0.22348084451469186,
+    "nll": 0.7416468315124511,
+    "reliability_bins": [
+      {
+        "bin": 1,
+        "range": "[0.0, 0.1)",
+        "count": 126,
+        "confidence": 0.0221710205078125,
+        "accuracy": 0.23809523809523808,
+        "gap": 0.21592421758742558
+      },
+      {
+        "bin": 2,
+        "range": "[0.1, 0.2)",
+        "count": 17,
+        "confidence": 0.153076171875,
+        "accuracy": 0.17647058823529413,
+        "gap": 0.02339441636029413
+      },
+      {
+        "bin": 3,
+        "range": "[0.2, 0.3)",
+        "count": 15,
+        "confidence": 0.238525390625,
+        "accuracy": 0.26666666666666666,
+        "gap": 0.028141276041666663
+      },
+      {
+        "bin": 4,
+        "range": "[0.3, 0.4)",
+        "count": 48,
+        "confidence": 0.374755859375,
+        "accuracy": 0.6041666666666666,
+        "gap": 0.22941080729166663
+      },
+      {
+        "bin": 5,
+        "range": "[0.4, 0.5)",
+        "count": 110,
+        "confidence": 0.4462890625,
+        "accuracy": 0.8272727272727273,
+        "gap": 0.38098366477272727
+      },
+      {
+        "bin": 6,
+        "range": "[0.5, 0.6)",
+        "count": 87,
+        "confidence": 0.54150390625,
+        "accuracy": 0.8735632183908046,
+        "gap": 0.33205931214080464
+      },
+      {
+        "bin": 7,
+        "range": "[0.6, 0.7)",
+        "count": 36,
+        "confidence": 0.64501953125,
+        "accuracy": 0.9444444444444444,
+        "gap": 0.2994249131944444
+      },
+      {
+        "bin": 8,
+        "range": "[0.7, 0.8)",
+        "count": 26,
+        "confidence": 0.74365234375,
+        "accuracy": 0.9230769230769231,
+        "gap": 0.17942457932692313
+      },
+      {
+        "bin": 9,
+        "range": "[0.8, 0.9)",
+        "count": 21,
+        "confidence": 0.85791015625,
+        "accuracy": 0.9523809523809523,
+        "gap": 0.09447079613095233
+      },
+      {
+        "bin": 10,
+        "range": "[0.9, 1.0)",
+        "count": 14,
+        "confidence": 0.91796875,
+        "accuracy": 0.7142857142857143,
+        "gap": 0.2036830357142857
+      }
+    ],
+    "branch_audit": [
+      {
+        "branch_idx": 0,
+        "name": "Semantic (DINOv2)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.349609375,
+        "mean_prob_fake": 0.58447265625,
+        "separation": 0.23486328125,
+        "brier_score": 0.18377314507961273,
+        "ece": 0.22178955078125,
+        "auc": 0.8666875511234098
+      },
+      {
+        "branch_idx": 1,
+        "name": "Forensic (SRM-CNN)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.459228515625,
+        "mean_prob_fake": 0.5751953125,
+        "separation": 0.115966796875,
+        "brier_score": 0.19924218952655792,
+        "ece": 0.16632958984374996,
+        "auc": 0.8204719887223934
+      },
+      {
+        "branch_idx": 2,
+        "name": "Temporal (GRU)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.41845703125,
+        "mean_prob_fake": 0.50634765625,
+        "separation": 0.087890625,
+        "brier_score": 0.22619692981243134,
+        "ece": 0.16718457031249997,
+        "auc": 0.7498999286447727
+      },
+      {
+        "branch_idx": 3,
+        "name": "rPPG (Physio)",
+        "availability_rate": 0.0,
+        "mean_prob_real": 0.5,
+        "mean_prob_fake": 0.5,
+        "separation": 0.0,
+        "brier_score": 0.25,
+        "ece": 0.0,
+        "auc": 0.5
+      },
+      {
+        "branch_idx": 4,
+        "name": "Audio-Visual (Sync)",
+        "availability_rate": 0.0,
+        "mean_prob_real": 0.5,
+        "mean_prob_fake": 0.5,
+        "separation": 0.0,
+        "brier_score": 0.25,
+        "ece": 0.0,
+        "auc": 0.5
+      }
+    ],
+    "disagreement_stratification": [
+      {
+        "tier": "Low Disagreement (< 0.05)",
+        "count": 45,
+        "percentage": 0.09,
+        "accuracy": 0.4444444444444444,
+        "error_rate": 0.5555555555555556,
+        "brier_score": 0.25539693236351013
+      },
+      {
+        "tier": "Medium Disagreement (0.05 - 0.10)",
+        "count": 259,
+        "percentage": 0.518,
+        "accuracy": 0.5637065637065637,
+        "error_rate": 0.4362934362934363,
+        "brier_score": 0.27446019649505615
+      },
+      {
+        "tier": "High Disagreement (>= 0.10)",
+        "count": 196,
+        "percentage": 0.392,
+        "accuracy": 0.8010204081632653,
+        "error_rate": 0.19897959183673475,
+        "brier_score": 0.14878760278224945
+      }
+    ],
+    "seen_auc": 0.7102360005585812,
+    "seen_acc": 0.52,
+    "unseen_auc": 0.7369599578503688,
+    "unseen_acc": 0.772,
+    "acc_at_0_abst": 0.646,
+    "acc_at_5_abst": 0.64,
+    "acc_at_10_abst": 0.6266666666666667
+  },
+  "pre_calibration": {
+    "samples": 500,
+    "real_count": 179,
+    "fake_count": 321,
+    "accuracy": 0.62,
+    "roc_auc": 0.6513339946744634,
+    "pr_auc": 0.7721018673475218,
+    "f1": 0.6122448979591837,
+    "eer": 0.32056770914913246,
+    "ece": 0.34142309570312496,
+    "mce": 0.71064453125,
+    "brier_score": 0.31785406076641903,
+    "nll": 1.6806773223876954,
+    "reliability_bins": [
+      {
+        "bin": 1,
+        "range": "[0.0, 0.1)",
+        "count": 208,
+        "confidence": 0.00727081298828125,
+        "accuracy": 0.46153846153846156,
+        "gap": 0.4542676485501803
+      },
+      {
+        "bin": 2,
+        "range": "[0.1, 0.2)",
+        "count": 14,
+        "confidence": 0.1435546875,
+        "accuracy": 0.2857142857142857,
+        "gap": 0.1421595982142857
+      },
+      {
+        "bin": 3,
+        "range": "[0.2, 0.3)",
+        "count": 2,
+        "confidence": 0.2529296875,
+        "accuracy": 0.0,
+        "gap": 0.2529296875
+      },
+      {
+        "bin": 4,
+        "range": "[0.3, 0.4)",
+        "count": 21,
+        "confidence": 0.370849609375,
+        "accuracy": 0.5238095238095238,
+        "gap": 0.15295991443452384
+      },
+      {
+        "bin": 5,
+        "range": "[0.4, 0.5)",
+        "count": 86,
+        "confidence": 0.452392578125,
+        "accuracy": 0.6976744186046512,
+        "gap": 0.24528184047965118
+      },
+      {
+        "bin": 6,
+        "range": "[0.5, 0.6)",
+        "count": 79,
+        "confidence": 0.55078125,
+        "accuracy": 0.9113924050632911,
+        "gap": 0.3606111550632911
+      },
+      {
+        "bin": 7,
+        "range": "[0.6, 0.7)",
+        "count": 52,
+        "confidence": 0.6435546875,
+        "accuracy": 0.9038461538461539,
+        "gap": 0.26029146634615385
+      },
+      {
+        "bin": 8,
+        "range": "[0.7, 0.8)",
+        "count": 20,
+        "confidence": 0.7548828125,
+        "accuracy": 0.9,
+        "gap": 0.14511718750000002
+      },
+      {
+        "bin": 9,
+        "range": "[0.8, 0.9)",
+        "count": 13,
+        "confidence": 0.8505859375,
+        "accuracy": 0.9230769230769231,
+        "gap": 0.07249098557692313
+      },
+      {
+        "bin": 10,
+        "range": "[0.9, 1.0)",
+        "count": 5,
+        "confidence": 0.91064453125,
+        "accuracy": 0.2,
+        "gap": 0.71064453125
+      }
+    ],
+    "branch_audit": [
+      {
+        "branch_idx": 0,
+        "name": "Semantic (DINOv2)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.4150390625,
+        "mean_prob_fake": 0.4697265625,
+        "separation": 0.0546875,
+        "brier_score": 0.24662964046001434,
+        "ece": 0.19186425781249997,
+        "auc": 0.6787361422927652
+      },
+      {
+        "branch_idx": 1,
+        "name": "Forensic (SRM-CNN)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.505859375,
+        "mean_prob_fake": 0.50439453125,
+        "separation": -0.00146484375,
+        "brier_score": 0.24986636638641357,
+        "ece": 0.13713671875000005,
+        "auc": 0.539245374963017
+      },
+      {
+        "branch_idx": 2,
+        "name": "Temporal (GRU)",
+        "availability_rate": 1.0,
+        "mean_prob_real": 0.52490234375,
+        "mean_prob_fake": 0.52783203125,
+        "separation": 0.0029296875,
+        "brier_score": 0.24178390204906464,
+        "ece": 0.11514453125000002,
+        "auc": 0.5841643606745679
+      },
+      {
+        "branch_idx": 3,
+        "name": "rPPG (Physio)",
+        "availability_rate": 0.0,
+        "mean_prob_real": 0.5,
+        "mean_prob_fake": 0.5,
+        "separation": 0.0,
+        "brier_score": 0.25,
+        "ece": 0.0,
+        "auc": 0.5
+      },
+      {
+        "branch_idx": 4,
+        "name": "Audio-Visual (Sync)",
+        "availability_rate": 0.0,
+        "mean_prob_real": 0.5,
+        "mean_prob_fake": 0.5,
+        "separation": 0.0,
+        "brier_score": 0.25,
+        "ece": 0.0,
+        "auc": 0.5
+      }
+    ],
+    "disagreement_stratification": [
+      {
+        "tier": "Low Disagreement (< 0.05)",
+        "count": 305,
+        "percentage": 0.61,
+        "accuracy": 0.6622950819672131,
+        "error_rate": 0.3377049180327869,
+        "brier_score": 0.23628884553909302
+      },
+      {
+        "tier": "Medium Disagreement (0.05 - 0.10)",
+        "count": 195,
+        "percentage": 0.39,
+        "accuracy": 0.5538461538461539,
+        "error_rate": 0.4461538461538461,
+        "brier_score": 0.4454304277896881
+      },
+      {
+        "tier": "High Disagreement (>= 0.10)",
+        "count": 0,
+        "percentage": 0.0,
+        "accuracy": 0.0,
+        "error_rate": 0.0,
+        "brier_score": 0.0
+      }
+    ],
+    "seen_auc": 0.7089791928501606,
+    "seen_acc": 0.688,
+    "unseen_auc": 0.17087065331928344,
+    "unseen_acc": 0.552,
+    "acc_at_0_abst": 0.62,
+    "acc_at_5_abst": 0.6042105263157894,
+    "acc_at_10_abst": 0.5822222222222222
+  },
+  "robustness": {
+    "jpeg_q50": 0.6662141701039002,
+    "blur_sigma1": 0.7389181851407091,
+    "downsample_0.5x": 0.7319479977027098
+  },
+  "audit_timestamp": "2026-09-18 10:31:38"
+}

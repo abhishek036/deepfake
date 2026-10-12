@@ -1,0 +1,13 @@
+{
+  "verified_source_disjoint": true,
+  "train_samples": 5675,
+  "calibration_samples": 1813,
+  "test_seen_samples": 5999,
+  "test_unseen_samples": 1075,
+  "overlaps": {
+    "train_vs_calibration": 0,
+    "train_vs_test_seen": 0,
+    "calibration_vs_test_seen": 0,
+    "train_vs_test_unseen": 0
+  }
+}

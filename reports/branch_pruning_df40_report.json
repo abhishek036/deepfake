@@ -1,0 +1,67 @@
+{
+  "benchmark": "DF40 Branch Pruning Ablation",
+  "samples_per_method": 15,
+  "baseline_auroc": 0.9981,
+  "results": {
+    "Full Master Model": {
+      "overall_auroc": 0.9981,
+      "overall_acc": 0.9903,
+      "per_family_auroc": {
+        "composited": 1.0,
+        "fully_synthetic": 0.994695340501792,
+        "reenactment": 1.0,
+        "talking_head": 1.0
+      }
+    },
+    "w/o Forensic Branch (SRM+FFT)": {
+      "overall_auroc": 0.989,
+      "overall_acc": 0.5,
+      "per_family_auroc": {
+        "composited": 0.9932297889287136,
+        "fully_synthetic": 0.988295861844249,
+        "reenactment": 0.9987574671445638,
+        "talking_head": 0.9301075268817205
+      }
+    },
+    "w/o Semantic Branch (DINOv2)": {
+      "overall_auroc": 0.9976,
+      "overall_acc": 0.9796,
+      "per_family_auroc": {
+        "composited": 1.0,
+        "fully_synthetic": 0.9932877158683611,
+        "reenactment": 0.9999681401831939,
+        "talking_head": 1.0
+      }
+    },
+    "w/o Dynamic Reliability (Unweighted Average)": {
+      "overall_auroc": 0.9981,
+      "overall_acc": 0.9903,
+      "per_family_auroc": {
+        "composited": 1.0,
+        "fully_synthetic": 0.994695340501792,
+        "reenactment": 1.0,
+        "talking_head": 1.0
+      }
+    },
+    "Standalone Semantic Branch": {
+      "overall_auroc": 0.9986,
+      "overall_acc": 0.8022,
+      "per_family_auroc": {
+        "composited": 0.999984070091597,
+        "fully_synthetic": 0.9969892473118279,
+        "reenactment": 1.0,
+        "talking_head": 0.9941935483870967
+      }
+    },
+    "Standalone Forensic Branch": {
+      "overall_auroc": 0.9999,
+      "overall_acc": 0.9946,
+      "per_family_auroc": {
+        "composited": 1.0,
+        "fully_synthetic": 0.9996741609644835,
+        "reenactment": 0.9999203504579848,
+        "talking_head": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "1. Semantic Only (DINOv2 ViT-S/14)": {
+    "point_estimate": 0.8193,
+    "ci_lower": 0.7715,
+    "ci_upper": 0.8585
+  },
+  "2. Forensic Only (SRM-CNN)": {
+    "point_estimate": 0.5489,
+    "ci_lower": 0.4846,
+    "ci_upper": 0.6149
+  },
+  "3. Temporal Only (Spatiotemporal GRU T=8)": {
+    "point_estimate": 0.6032,
+    "ci_lower": 0.5375,
+    "ci_upper": 0.6633
+  },
+  "4. DINOv2 + Forensic Dual-Domain": {
+    "point_estimate": 0.8264,
+    "ci_lower": 0.779,
+    "ci_upper": 0.8666
+  },
+  "5. DINOv2 + Temporal (T=8)": {
+    "point_estimate": 0.8184,
+    "ci_lower": 0.7703,
+    "ci_upper": 0.8618
+  },
+  "6. All Visual (DINOv2 + SRM-CNN + GRU T=8)": {
+    "point_estimate": 0.8275,
+    "ci_lower": 0.7799,
+    "ci_upper": 0.8719
+  },
+  "7. All Modalities (Visual + Audio-Visual)": {
+    "point_estimate": 0.8275,
+    "ci_lower": 0.7792,
+    "ci_upper": 0.8712
+  },
+  "8. All + Dynamic Reliability Weighting": {
+    "point_estimate": 0.8104,
+    "ci_lower": 0.7602,
+    "ci_upper": 0.8564
+  }
+}
