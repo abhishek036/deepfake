@@ -59,11 +59,14 @@ If either fails, the pairing is confounded and the next diagnostic step applies 
 
 **H-C3 (Multi-Backbone Invariance):** The clean reference pairing established on FaceForensics++ (shared spatial transform) will eliminate the background container shortcut across diverse visual representations (frozen ResNet-50 and frozen CLIP ViT-B/16). On clean shared-transform pairs, background probe (`face_out`) AUROC will remain $\le 0.60$ across backbones.
 
+**H-C2b (Celeb-DF Shared-Transform Follow-Up):** Applying shared spatial transforms to Celeb-DF-v2 real/fake pairs (identical timestamps, identical affine crop derived from real frame) will reduce the background (`face_out`) probe AUROC from the native $0.751$ towards chance ($\le 0.60$). If $\le 0.60$, the native residual signal was driven by independent face-tracking bounding box jitter and crop misalignment. If $> 0.60$, other container or synthesis leakage factors remain.
+
 ### Decision Rules
 | Symbol | Condition | Threshold | Interpretation if met |
 |--------|-----------|-----------|----------------------|
 | P-C1 | Dataset-ID baseline 5-fold CV AUROC on combined training pool | $\ge 0.90$ | Dataset provenance constitutes an evaluation shortcut |
-| P-C2 | Celeb-DF `face_out` DINOv2 linear probe AUROC | $\le 0.60$ | Celeb-DF native background is free of shortcut cues |
+| P-C2 | Celeb-DF native `face_out` DINOv2 linear probe AUROC | $\le 0.60$ | Celeb-DF native background is free of shortcut cues |
+| P-C2b | Celeb-DF shared-transform `face_out` DINOv2 linear probe AUROC | $\le 0.60$ | Shared transform eliminates background shortcut in Celeb-DF |
 | P-C3 | Multi-backbone (ResNet-50, CLIP) `face_out` linear probe AUROC | $\le 0.60$ | Background shortcut elimination is representation-invariant |
 
 ---
