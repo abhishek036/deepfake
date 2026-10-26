@@ -93,5 +93,32 @@
   - Face-only clean AUROC (M->M): **0.8353 $\pm$ 0.0138** (bal_acc = 0.7599).
 - *Interpretation:* Resolves the P-C2 contradiction in §4.3. The residual 0.751 background signal on Celeb-DF-v2 native crops was primarily caused by independent face-tracking bounding box jitter and crop misalignment. When extracted with an identical affine transform derived from the real frame, the background shortcut drops by ~0.15 AUROC to the boundary of chance ($0.604 \approx 0.60$), and low-level background features drop strictly to chance ($0.507$).
 - Ledgers: `reports/lp_celeb_shared_face_out_5seeds.json`, `reports/lp_celeb_shared_5seeds.json`, `reports/lp_celeb_shared_face_only_5seeds.json`.
+ 
+---
+
+## 2026-10-13 — Live Webcam & Authentic Photo Branch Decomposition Diagnostic
+
+**Context:** Live camera capture produced a false positive (fake_score = 0.78, LIKELY_FAKE).
+**Action:** Implemented `scratch/diagnose_webcam_photo.py` (sha256: `d22d2a6016e4e92328d6f00f8f536ad00228d716b4da86318a96596490d7bc46`) to decompose branch-level logits (DINOv2 vs SRM) and fusion weights.
+**Measured Results:**
+- `live_webcam_test.jpg`: DINOv2 logit = -0.4697 (fake_prob: 0.3847, weight: 0.5469), SRM logit = -0.9664 (fake_prob: 0.2756, weight: 0.4531). Final fake_score = 0.4155 (LIKELY_REAL).
+- `1.jpg` (trainsets selfie): DINOv2 logit = -1.5613 (fake_prob: 0.1735, weight: 0.6182), SRM logit = -0.0212 (fake_prob: 0.4947, weight: 0.3818). Final fake_score = 0.2406 (LIKELY_REAL).
+- `5.jpg` (trainsets selfie): DINOv2 logit = +0.3755 (fake_prob: 0.5928, weight: 0.5642), SRM logit = -0.5132 (fake_prob: 0.3744, weight: 0.4358). Final fake_score = 0.5285 (LIKELY_REAL, borderline threshold 0.55).
+**Interpretation:** In single-image mode (T=1), DINOv2 semantic branch receives the majority routing weight (54.7% to 61.8%). Lighting, contrast shifts, and sensor noise cause positive logit drift in the semantic branch (+0.3755 on `5.jpg`), which drives false alarms when exceeding threshold 0.55.
+**Ledger:** `reports/diagnostic/webcam_diagnostic_ledger.json`.
+
+---
+
+## 2026-10-13 — Pipeline Alignment & Mock Fallback Removal
+
+**Context:** Live camera captures displayed hardcoded 78% certainty and artificial anomaly mockups (91%, 86%, 89%, 74%) due to unaligned frontend schema in `cornerstone`.
+**Action:**
+1. Updated `service/evidence_report.py`, `service/schemas.py`, and `service/inference.py` to serialize real model forward pass `branches` (DINOv2, SRM, temporal, biological).
+2. Corrected `cornerstone/src/lib/api.ts` to respect backend calibrated decision (0.55 threshold) and removed artificial `rawConf < 0.65 -> 0.78` clamp.
+3. Updated `cornerstone/src/components/ForensicSection.tsx` to display inactive branches as `INACTIVE` rather than `ANOMALY`.
+4. Rebuilt frontend (`npm run build`) and restarted platform service.
+**Verification:** Live request with `scratch/live_webcam_test.jpg` returned `decision: "likely_real"`, `fake_score: 0.4155`, DINOv2 fake_probability: 0.3847, SRM fake_probability: 0.2756, and temporal/biological set to `available: false`.
+
+
 
 

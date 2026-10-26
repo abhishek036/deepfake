@@ -71,6 +71,35 @@ If either fails, the pairing is confounded and the next diagnostic step applies 
 
 ---
 
+## Phase B Extension: All-Generator LOGO Pre-Registration
+**Date registered:** 2026-10-19
+**Rationale:** The original LOGO run (reports/lp_shared_dino_5seeds.json) used `--families composited`,
+covering only Deepfakes, FaceShifter, FaceSwap (3 of 5 generators). Face2Face and NeuralTextures
+(forgery_type=reenactment) were excluded. This run adds all 5 generators under a single unified LOGO,
+so the paper can report per-generator LOGO across both pairing protocols for all FF++ methods.
+
+### Hypothesis
+**H-L1 (All-generator LOGO):** Under confounded pairing (C→C LOGO), leave-one-generator-out
+AUROC will remain high (≥ 0.90) for all 5 generators. Under clean shared-transform pairing
+(M→M LOGO), LOGO AUROC will be substantially lower, with per-generator variation reflecting
+the degree of forgery-type-specific synthesis signal.
+
+### Decision Rules
+| Symbol | Condition | Threshold | Interpretation |
+|--------|-----------|-----------|----------------|
+| P-L1 | C→C LOGO mean AUROC across all 5 generators | ≥ 0.90 | Pairing shortcut inflates LOGO |
+| P-L2 | M→M LOGO mean AUROC across all 5 generators | < C→C by ≥ 0.30 | Clean pairing substantially reduces LOGO |
+
+### Protocol
+- Script: `evaluation/linear_probe_beforeafter.py`
+- Families: **all** (no `--families` filter) — includes composited and reenactment
+- Generators: all 5 (Deepfakes, Face2Face, FaceSwap, FaceShifter, NeuralTextures)
+- Seeds: [42, 7, 13, 99, 2024]
+- Cache: reuse `reports/emb_cache_shared_dino.pkl` (already computed)
+- Output ledger: `reports/lp_shared_dino_logo_allfam_5seeds.json`
+
+---
+
 ## Analysis Log (fill in after results)
 
 *See ANALYSIS_LOG.md. Any post-hoc deviation from the above must be documented there with date and reason.*
